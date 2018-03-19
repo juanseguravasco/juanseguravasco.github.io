@@ -64,6 +64,6 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
 
 ---
 
-|||Siguiente ->|
-|||-----------:|
+| | |Siguiente ->|
+|-|-|-----------:|
 
