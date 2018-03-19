@@ -62,6 +62,8 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
 ## Leer más
 [Wikipedia](https://es.wikipedia.org/wiki/Markdown)
 
-|Siguiente ->|
-|-----------:|
+---
+
+|||Siguiente ->|
+|||-----------:|
 
