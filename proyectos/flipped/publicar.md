@@ -20,10 +20,19 @@ Una vez creadas las paginas hay que activar las GitHub Pages para ese repositori
 
 También podemos aplicar a nuestra documentación un tema de Jekyll.
 
+La documentación estará accesible en la URL \<usuario>.github.io/\<repositorio>, donde \<usuario> se cambia por nuestro nombre de usuario de GitHub y \<repositorio> por el nombre de nuestro repositorio.
+
+## Publicar documentación no ligada a ningún repositorio
+En este caso lo que tenemos que hacer es crear en GitHub un nuevo repositorio que se debe llamar obligatoriamente \<usuario>.github.io. Allí podemos la documentación que ya aparecerá automáticamente publicada en dicha URL.
+
+## Crear nuestra documentació con Jekyll
+Una opción si queremos hacer una "web" de documentación más compleja es utlizar alguna herramienta como Jekyll que es como están hechas las GH Pages.
+
 ## Leer más
 * [What is GitHub Pages?](https://help.github.com/categories/github-pages-basics/)
 
-* 
+* [Using Jekyll as a static site generator with GitHub Pages](https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/)
+
 ---
 
 |[<- Anterior](README.md)| |[Siguiente ->](publicar.md)|
