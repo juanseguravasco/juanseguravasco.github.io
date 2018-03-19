@@ -1,4 +1,6 @@
-# Documentación en GitHub Pages
+Documentación en GitHub Pages
+=============================
+
 Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages.
 
 ## Markdown
@@ -64,6 +66,6 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
 
 ---
 
-| | |Siguiente ->|
-|-|-|-----------:|
+| | |[Siguiente ->](publicar.md|
+|-|-|-------------------------:|
 
