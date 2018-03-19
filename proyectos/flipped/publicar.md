@@ -31,7 +31,9 @@ Una opción si queremos hacer una "web" de documentación más compleja es utliz
 Jekyll es un generador de blogs que soporta MarkDown y recomendado para hacer gh-pages.
 
 ### Instalación
-```[bash] $ sudo apt install ruby (se necesita versión >= 2.2.5)
+```[bash] 
+$ sudo apt install ruby (se necesita versión >= 2.2.5)
+```
 Comprobamos si están instalados gcc, g++ y make
 ```[bash] 
 $ gcc -v
@@ -46,7 +48,9 @@ $ apt list --installed ruby-dev
 ruby-dev/version... [instalado]
 ```
 Si no lo instalaremos con:
-```[bash] $ sudo install ruby-dev```
+```[bash] 
+$ sudo install ruby-dev
+```
 
 Instalamos Jekyll y su bundler:
 ```[bash] 
@@ -56,12 +60,14 @@ $ sudo gem install jekyll bundler
 
 ### Uso básico
 Creamos nuestro sitio con:
-```[bash] $ sudo jekyll new mipagina```
+```[bash] 
+$ sudo jekyll new mipagina
+```
 
 Abrimos el fichero _config y cambiamos las configuraciones básicoas (nombre, ...)
-
-```[bash] $ sudo gem install jekyll```
-
+```[bash] 
+$ sudo gem install jekyll
+```
 
 ## Leer más
 * [What is GitHub Pages?](https://help.github.com/categories/github-pages-basics/)
