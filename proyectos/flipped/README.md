@@ -66,6 +66,5 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
 
 ---
 
-| | |[Siguiente ->](publicar.md|
+| | |[Siguiente ->](publicar.md)|
 |-|-|-------------------------:|
-
