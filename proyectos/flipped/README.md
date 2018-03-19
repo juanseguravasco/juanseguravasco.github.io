@@ -4,7 +4,7 @@ Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en
 ## Markdown
 Es un lenguaje de marcas ligero. Su ventaja frente a otros lenguajes de marcado (como HTML) es que el fichero de texto con la información es mucho más legible.
 
-#### Sintaxis
+### Sintaxis
 Podemos ver las principales marcas a utilizar en innumerables páginas como:
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Sintaxis Markdown](https://markdown.es/sintaxis-markdown/)
@@ -45,3 +45,23 @@ Si queremos mostrar vídeos de Vimeo podemos crear la página vimeoPlayer.html c
 ```
 
 Fuente: [http://adam.garrett-harris.com/how-to-easily-embed-youtube-videos-in-jekyll-sites-without-a-plugin/]
+
+### Editores
+Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún editor pero si queremos existen uchos a nuestra disposición:
+* en línea:
+    * [Dillinger](https://dillinger.io/)
+    * [Markable](https://markable.in/accounts/login/?next=/editor/) (hay que registrarse)
+    * [Dingus](https://daringfireball.net/projects/markdown/dingus)
+    * ...
+* de escritorio
+    * Haroopad
+    * Mango
+    * Focused (para Mac)
+    * ...
+    
+## Leer más
+[Wikipedia](https://es.wikipedia.org/wiki/Markdown)
+
+|Siguiente ->|
+|-----------:|
+
