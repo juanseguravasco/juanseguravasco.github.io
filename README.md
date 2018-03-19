@@ -5,5 +5,5 @@ Aquí está toda la documentación generada para los diferentes módulos y proye
     * Sistemas Operativos en Red (2n SMX)
     * Sistemas operativos monousuario (1r SMX)
 * Proyectos
-    * Flipped Classroom
+    * [Flipped Classroom](proyectos/flipped)
     * 
