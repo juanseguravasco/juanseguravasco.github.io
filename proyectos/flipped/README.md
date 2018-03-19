@@ -20,9 +20,9 @@ Un resumen muy básico de las mismas es:
 * listas desordenadas: * y espacio al principio de la línea
 * listas ordenadas: nº, punto y espacio
 * sublistas: igual pero precedidas por 4 espacios en blanco
-* enlaces: [texto a mostrar](url). Opcionalmente podemos poner un título en los paréntesis: [texto](url "titulo")
-* imágenes: igual pero precedidas de !, ![texto alternativo](url "título, opcional")
-* código: entre ` para mostrarlo en la línea o para un bloque de texto tres ` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo
+* enlaces: \[texto a mostrar](url). Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
+* imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
+* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo
 * citas: el párrafo debe comenzar por >
 
 Podemos incluir código HTML en nuestro documento y también lo interpretará el navegador
