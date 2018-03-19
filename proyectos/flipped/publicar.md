@@ -28,10 +28,47 @@ En este caso lo que tenemos que hacer es crear en GitHub un nuevo repositorio qu
 ## Crear nuestra documentació con Jekyll
 Una opción si queremos hacer una "web" de documentación más compleja es utlizar alguna herramienta como Jekyll que es como están hechas las GH Pages.
 
+Jekyll es un generador de blogs que soporta MarkDown y recomendado para hacer gh-pages.
+
+### Instalación
+```[bash] $ sudo apt install ruby (se necesita versión >= 2.2.5)
+Comprobamos si están instalados gcc, g++ y make
+```[bash] 
+$ gcc -v
+$ g++ -v
+$ make -v
+```
+Si falta alguno lo instalaremos.
+
+Comprobamos si están instalados los headers de Ruby
+```[bash] 
+$ apt list --installed ruby-dev
+ruby-dev/version... [instalado]
+```
+Si no lo instalaremos con:
+```[bash] $ sudo install ruby-dev```
+
+Instalamos Jekyll y su bundler:
+```[bash] 
+$ sudo gem install jekyll
+$ sudo gem install jekyll bundler
+```
+
+### Uso básico
+Creamos nuestro sitio con:
+```[bash] $ sudo jekyll new mipagina```
+
+Abrimos el fichero _config y cambiamos las configuraciones básicoas (nombre, ...)
+
+```[bash] $ sudo gem install jekyll```
+
+
 ## Leer más
 * [What is GitHub Pages?](https://help.github.com/categories/github-pages-basics/)
 
 * [Using Jekyll as a static site generator with GitHub Pages](https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/)
+
+* [JONATHAN MCGLONE: Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/)
 
 ---
 
