@@ -18,7 +18,7 @@ Aquest mòdul pertany al segon curs del C.F.G.S. Desenvolupament d'Aplicacions W
 
 L'objectiu final del mòdul és que l'alumne adquirisca coneixements sobre la programació de pàgines web dinàmiques que s'executen en el client.
 
-Aquest mòdul està íntimament relacionat amb el de Desenvolupament Web en Entorn Servidor i el de Interfícies Web.
+Aquest mòdul està íntimament relacionat amb el de **Desenvolupament Web en Entorn Servidor** i el de **Disseny d'Interfícies Web**.
 
 ### 2 Coneixements previs
 Per a poder començar el mòdul amb garanties són necessaris els següents coneixements previs:
@@ -29,7 +29,7 @@ Per a poder començar el mòdul amb garanties són necessaris els següents cone
 ### 3 Objectius
 L'objectiu del mòdul és què els alumnes adquirisquen els coneixements necessaris sobre la programació d'aplicacions web que s'executen en el client.  
 
-Els objectius del mòdul expresats com resultats d'aprenentatge són:
+Els objectius del mòdul expresats com _resultats d'aprenentatge_ són:
 *   Selecciona les arquitectures i tecnologies de programació sobre clients Web, identificant i analitzant les capacitats i característiques de cadascuna.
 *   Escriu sentències simples, aplicant la sintaxi del llenguatge i verificant la seua execució sobre navegadors Web
 *   Escriu codi, identificant i aplicant les funcionalitats aportades pels objectes predefinits del llenguatge.
@@ -122,10 +122,10 @@ Els continguts bàsics d'aquest mòdul són:
 
 Tots aquests continguts s'organitzen en 3 blocs temàtics:
 *   Bloc 1: JavaScript
-*   Bloc 2: Llibreries JavaScript. jQuery (aquest bloc probablement s'impartirà en el mòdul de Disseny d'Interfícies Web)  
+*   Bloc 2: Llibreries JavaScript. jQuery (aquest bloc probablement s'impartirà en el mòdul de **Disseny d'Interfícies Web**)  
 *   Bloc 3: Frameworks JavaScript. Vue JS
 
-A més al final del mòdul es realitzarà un projecte integrador juntament amb els mòduls de _Desenvolupament Web en Entorn Servidor_ i _Interfícies Web._
+A més al final del mòdul es realitzarà un projecte integrador juntament amb els mòduls de _Desenvolupament Web en Entorn Servidor_ i _Interfícies Web_.
 
 Els continguts detallats de cada bloc són:
 *   Bloc 1: JavaScript
@@ -166,10 +166,12 @@ Al final de cada bloc temàtic es realitzarà un examen principalment pràctic.
 
 ### 6 Temporalització
 Aquesta temporalització és una previsió i pot modificar-se per les circumstàncies que puguen ocórrer:
-*   1a Avaluació -----> Bloc 1 - JavaScript  
-    Bloc 2 - jQuery (posiblement s'impartirà en el mòdul de DIW)  https://github.com/juanseguravasco/juanseguravasco.github.io/tree/master/daw_dwc#71-qualificació-dels-exercicis
-*   2a Avaluació -----> Bloc 3 - Angular JS  
-    Projecte integrador  
+*   1a Avaluació
+    * Bloc 1 - JavaScript  
+    * Bloc 2 - jQuery (posiblement s'impartirà en el mòdul de DIW) 
+*   2a Avaluació
+    * Bloc 3 - Vue JS  
+    * Projecte integrador  
 *   3a Avaluació -----> Pla de recuperació per a l'avaluació extraordinària
 
 ### 7 Criteris d'avaluació i qualificació
