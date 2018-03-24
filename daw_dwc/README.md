@@ -10,7 +10,7 @@
 *   [5 Metodologia](#5-metodologia)
 *   [6 Temporalització](#6-temporalització)
 *   [7 Criteris d'avaluació i qualificació](#"7-criteris-davaluació-i-qualificació)
-    *   [7.1 Qualificació dels exercicis](#7.1qualificació-dels-exercicis)
+    *   [7.1 Qualificació dels exercicis](##71-qualificació-dels-exercicis)
 
 #### Introducció
 Benvinguts al mòdul de Desenvolupament Web en Entorn Client.
