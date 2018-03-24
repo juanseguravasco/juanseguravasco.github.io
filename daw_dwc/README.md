@@ -9,10 +9,11 @@
 *   [4 Continguts](#4-continguts)
 *   [5 Metodologia](#5-metodologia)
 *   [6 Temporalització](#6-temporalització)
-*   [7 Criteris d'avaluació i qualificació](#"7-criteris-davaluació-i-qualificació)
-    *   [7.1 Qualificació dels exercicis](##71-qualificació-dels-exercicis)
+*   [7 Criteris d'avaluació i qualificació](#7-criteris-davaluació-i-qualificació)
+    * [7.1 Recperacions](#71-recperacions)
+    * [7.2 Qualificació dels exercicis](#72-qualificació-dels-exercicis)
 
-#### Introducció
+#### 1 Introducció
 Benvinguts al mòdul de Desenvolupament Web en Entorn Client.
 
 Aquest mòdul pertany al segon curs del C.F.G.S. Desenvolupament d'Aplicacions Web. Al mòdul li corresponen un total de 140 hores, que s'imparteixen a raó de 7 hores a la setmana.
@@ -21,7 +22,7 @@ L'objectiu final del mòdul és que l'alumne adquirisca coneixements sobre la pr
 
 Aquest mòdul està íntimament relacionat amb el de Desenvolupament Web en Entorn Servidor i el de Interfícies Web.
 
-#### Coneixements previs
+#### 2 Coneixements previs
 Per a poder començar el mòdul amb garanties són necessaris els següents coneixements previs:
 *   Creació de programes utilitzant llenguatges de programació
 *   Creació de pàgines web amb HTML
@@ -168,12 +169,12 @@ Al final de cada bloc temàtic es realitzarà un examen principalment pràctic.
 ####6 Temporalització
 Aquesta temporalització és una previsió i pot modificar-se per les circumstàncies que puguen ocórrer:
 *   1a Avaluació -----> Bloc 1 - JavaScript  
-    Bloc 2 - jQuery (posiblement s'impartirà en el mòdul de DIW)  
+    Bloc 2 - jQuery (posiblement s'impartirà en el mòdul de DIW)  https://github.com/juanseguravasco/juanseguravasco.github.io/tree/master/daw_dwc#71-qualificació-dels-exercicis
 *   2a Avaluació -----> Bloc 3 - Angular JS  
     Projecte integrador  
 *   3a Avaluació -----> Pla de recuperació per a l'avaluació extraordinària
 
-####7 Criteris d'avaluació i qualificació
+#### 7 Criteris d'avaluació i qualificació
 A continuació tenim un esquema dels criteris de qualificació utilitzats:
 *   La nota final del mòdul serà la mitjana ponderada dels 3 blocs i el projecte integrador segons els següents percentatges:
     *   Bloc 1: 30% (>=5)
@@ -190,7 +191,7 @@ Per a aprovar cada bloc és necessari obtindre al menys un 5 tant en la part d'e
 
 Per a aprovar el mòdul cal tindre aprovats els 3 blocs (o els 2 si jQuery s'imparteix en DIW) i el projecte integrador.
 
-### Recuperacions
+##### 7.1 Recuperacions
 
 Per a recuperar la part pràctica de cada bloc l'alumne haurà de lliurar les pràctiques no aprovades i/o alguna pràctica de recuperació (segons indicació del professor).
 
@@ -200,7 +201,7 @@ Qui no tinga aprovat tot el mòdul en l'avaluació ordinària s'haurà d'examina
 
 Per a recuperar el projecte integrador s'haurà de realitzar de nou el projecte o fer un nou projecte (segons valore el professor) abans de l'avaluació extraordinària. En cas de tindre la resta del mòdul aprovat es guardarà la nota fins llavors.
 
-#### 7.1 Qualificació dels exercicis
+##### 7.2 Qualificació dels exercicis
 Els exercicis que l'alumne ha de fer en cada bloc es qualificaran de la següent forma:
 *   No lliurat: no s'ha lliurat l'exercici o s'ha lliurat fora de plaç. Nota: 0
 *   No Apte: l'exercici no funciona o no cubreix els mínims demanats. Nota: 2,5
