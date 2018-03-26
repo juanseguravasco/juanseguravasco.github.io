@@ -31,7 +31,7 @@ Podemos incluir código HTML en nuestro documento y también lo interpretará el
 En principio no se pueden incluir vídeos pero es sencillo hacerlo de varias formas. Una de las más 'limpias' es crear una página HTML (podemos llamarla youtubePlayes.html) dentro del directorio \_includes con el código:
 
 ```[HTML]
-\<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.id }}" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.id }}" frameborder="0" allowfullscreen></iframe>
 ```
 
 Donde queremos que se muestre el vídeo ponemos el código:
@@ -40,7 +40,7 @@ Donde queremos que se muestre el vídeo ponemos el código:
 Si queremos mostrar vídeos de Vimeo podemos crear la página vimeoPlayer.html con el código:
 
 ```[HTML]
-\<iframe src="https://player.vimeo.com/video/{{ include.id }}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="https://player.vimeo.com/video/{{ include.id }}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ```
 
 Fuente: [http://adam.garrett-harris.com/how-to-easily-embed-youtube-videos-in-jekyll-sites-without-a-plugin/]
