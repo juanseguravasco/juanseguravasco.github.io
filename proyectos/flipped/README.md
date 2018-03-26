@@ -27,3 +27,23 @@ Un resumen muy básico de las mismas es:
 
 Podemos incluir código HTML en nuestro documento y también lo interpretará el navegador
 
+### Editores
+Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún editor pero si queremos existen uchos a nuestra disposición:
+* en línea:
+    * [Dillinger](https://dillinger.io/)
+    * [Markable](https://markable.in/accounts/login/?next=/editor/) (hay que registrarse)
+    * [Dingus](https://daringfireball.net/projects/markdown/dingus)
+    * ...
+* de escritorio
+    * Haroopad
+    * Mango
+    * Focused (para Mac)
+    * ...
+    
+## Leer más
+[Wikipedia](https://es.wikipedia.org/wiki/Markdown)
+
+---
+
+| | |[Siguiente ->](publicar.md)|
+|-|-|-------------------------:|
