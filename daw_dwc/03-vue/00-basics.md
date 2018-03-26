@@ -108,7 +108,7 @@ Tanto `{{ }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el 
 ```
 Vemos que al escribir en el _input_ automáticamente cambia lo mostrado en el primer párrafo. Esta característica nos permite ahorrar innumerables líneas de código para hacer que el DOM refleje los cambios que se producen en los datos (cosa que no tiene por ejemplo la librería jQuery).
 
-### Vue devtools
+### [Vue devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?utm_source=chrome-app-launcher-info-dialog)
 Es una extensión para Chrome que nos permite inspeccionar nuestro objeto Vue y acceder a todos los datos de nuestra aplicación. Conviene instalarlo porque nos ayudará mucho a depurar nuestra aplicación, especialmente cuando comencemos a usar componentes.
 
 Para trabajar sin servidor hay que habilitar el acceso a ficheros en la extensión.
