@@ -35,8 +35,7 @@ En principio no se pueden incluir vídeos pero es sencillo hacerlo de varias for
 ```
 
 Donde queremos que se muestre el vídeo ponemos el código:
-```
-\{% include youtubePlayer.html id=page.youtubeId %}
+```[HTML]
 ```
 Si queremos mostrar vídeos de Vimeo podemos crear la página vimeoPlayer.html con el código:
 
