@@ -122,5 +122,5 @@ NOTA: toda la apliación debe estar dentro del elemento _app_ para que funcione.
 ## [Vue devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?utm_source=chrome-app-launcher-info-dialog)
 Es una extensión para Chrome que nos permite inspeccionar nuestro objeto Vue y acceder a todos los datos de nuestra aplicación. Conviene instalarlo porque nos ayudará mucho a depurar nuestra aplicación, especialmente cuando comencemos a usar componentes.
 
-Para trabajar sin servidor hay que habilitar el acceso a ficheros en la extensión.
+Para trabajar sin servidor web (desde file://...) hay que habilitar el acceso a ficheros en la extensión.
 
