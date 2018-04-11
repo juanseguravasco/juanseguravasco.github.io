@@ -34,6 +34,17 @@ Esta directiva se usa mucho así que se puede abreviar con '@'. El código equiv
 ```[hTML]
 <button @click="delTodos">
 ```
+### Modificadores de eventos
+A un evento podemos añadirle (separado por .) un modificador. Alguno de los más usados son:
+* _.prevent_: equivale a hacer un preventDefault()
+* _.stop_: como stopPropagation()
+* _.self_: sólo se lanza si el evento se produce en este elemento y no en alguno de sus hijos
+* _.once_: sólo se lanza la primera vez que se produce el evento
+
+Ejemplo:
+```[HTML]
+<form @submit.prevent="enviaForm">
+```
 
 ## Ejemplo de aplicación
 Vamos a hacer una aplicación para gestionar una lista de cosas a hacer. Cada cosa a hacer tiene un título y puede estar hecha o no.
