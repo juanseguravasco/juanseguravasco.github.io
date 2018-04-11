@@ -64,8 +64,8 @@ props: {
 ## _data_ debe ser una función
 Un componente puede tener sus propios métodos y datos pero estos últimos no pueden devolverse directamente sino que _data_ debe ser una función:
 
-MAL
 ```[javascript]
+// MAL
 Vue.component('my-comp, {
   data: {
     message: 'Hello',
@@ -74,8 +74,8 @@ Vue.component('my-comp, {
 })
 ```
 
-BIEN
 ```[javascript]
+// BIEN
 Vue.component('my-comp, {
   data(): {
     return {
