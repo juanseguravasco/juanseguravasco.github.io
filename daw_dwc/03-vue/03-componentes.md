@@ -11,7 +11,7 @@ Vue.component('todo-item, {
   template: '<li>Cosa a hacer</li>'
 })
 ```
-*NOTA*: Se recomienda que el nombre de un componente tenga al menos 2 palabras para evitar que pueda llamarse como alguna futura etiqueta HTML.
+**NOTA**: Se recomienda que el nombre de un componente tenga al menos 2 palabras para evitar que pueda llamarse como alguna futura etiqueta HTML.
 
 Ahora ya podemos usar el componente en nuestro HTML:
 ```[html]
@@ -19,10 +19,10 @@ Ahora ya podemos usar el componente en nuestro HTML:
   <todo-item></todo-item>
 </ul>
 ```
-*Resultado:*
-<ul>
-  <li>Cosa a hacer</li>
-</ul>
+>**Resultado:**
+><ul>
+>  <li>Cosa a hacer</li>
+></ul>
 
 ## Parámetros: _props_
 Podemos pasar parámetros a un componente con la directiva _v-bind_:
