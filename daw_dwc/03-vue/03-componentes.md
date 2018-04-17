@@ -5,13 +5,13 @@ En definitiva nuestra aplicación será como un árbol de componentes con la ins
 ![Árbol de componentes](https://vuejs.org/images/components.png)
 
 ## Registrar un componente
-Para registrarlo debemos darle un nombre y definir su plantilla, es decir, qué código HTML se insertará donde pongamos el componente.
+Para registrarlo debemos darle un nombre y definir su plantilla (el código HTML que se insertará donde pongamos el componente). Lo hacemos en nuestro fichero JS:
 ```[javascript]
 Vue.component('todo-item, {
   template: '<li>Cosa a hacer</li>'
 })
 ```
-Se recomienda que el nombre de un componente tenga al menos 2 palabras para evitar que pueda llamarse como alguna futura etiqueta HTML.
+*NOTA*: Se recomienda que el nombre de un componente tenga al menos 2 palabras para evitar que pueda llamarse como alguna futura etiqueta HTML.
 
 Ahora ya podemos usar el componente en nuestro HTML:
 ```[html]
@@ -19,14 +19,25 @@ Ahora ya podemos usar el componente en nuestro HTML:
   <todo-item></todo-item>
 </ul>
 ```
+*Resultado:*
+<ul>
+  <li>Cosa a hacer</li>
+</ul>
 
 ## Parámetros: _props_
 Podemos pasar parámetros a un componente con la directiva _v-bind_:
 ```[html]
 <ul>
+  <todo-item :todo="'Aprender Vue'"></todo-item>
+</ul>
+```
+En nuestro caso queremos un componente _todo-item_ para cada elemento del array _todos_:
+```[html]
+<ul>
   <todo-item v-for="item in todos" :key="item.id" :todo="elem"></todo-item>
 </ul>
 ```
+
 NOTA: al usar _v-for_ con un componente debemos indicarle en la propiedad _key_ la clave de cada elemento.
 
 El parámetro lo recibimos en el componente en _props_:
