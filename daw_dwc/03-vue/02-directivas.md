@@ -17,9 +17,9 @@ La directiva v-else es opcional (puede haber sólo un v-if).
 ## Bucles: v-for
 Esta directiva repite el elemento HTML en que se encuentra una vez por cada elemento del array al que se enlaza.
 
-<script async src="//jsfiddle.net/juansegura/o6bj81s3/4/embed/js,html,result/"></script>
+<script async src="//jsfiddle.net/juansegura/o6bj81s3/embed/js,html,result/"></script>
 
-La directiva v-for recorre el array _todos_ y para cada elemento del array crea una etiqueta <li> y carga dicho elemento en la variable _elem_ a la que podemos acceder dentro del <li>. 
+La directiva v-for recorre el array _todos_ y para cada elemento del array crea una etiqueta \<li> y carga dicho elemento en la variable _elem_ a la que podemos acceder dentro del \<li>. 
   
 ## Eventos: v-on
 Esta directiva captura un evento y ejecuta un método como respuesta al mismo.
@@ -27,6 +27,8 @@ Esta directiva captura un evento y ejecuta un método como respuesta al mismo.
 <script async src="//jsfiddle.net/juansegura/255u8f1j/embed/js,html,result/"></script>
 
 El evento que queremos capturar se pone tras ':' y se indica el método que se ejecutará.
+
+<iframe width="100%" height="300" src="//jsfiddle.net/juansegura/255u8f1j/embedded/js,html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Fijaos en el método _delTodos()_ que para hacer referencia desde el objeti Vue a alguna variable o método se le antepone *this.*
 
