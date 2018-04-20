@@ -30,8 +30,7 @@ Podemos pasar parámetros a un componente con la directiva _v-bind_:
 <ul>
   <todo-item :todo="'Aprender Vue'"></todo-item>
 </ul>
-`
-``
+```
 El parámetro lo recibimos en el componente en _props_:
 ```[javascript]
 Vue.component('todo-item, {
