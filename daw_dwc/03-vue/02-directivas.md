@@ -24,11 +24,9 @@ La directiva v-for recorre el array _todos_ y para cada elemento del array crea 
 ## Eventos: v-on
 Esta directiva captura un evento y ejecuta un método como respuesta al mismo.
 
-<script async src="//jsfiddle.net/juansegura/255u8f1j/embed/js,html,result/"></script>
+<iframe width="100%" height="300" src="//jsfiddle.net/juansegura/255u8f1j/embedded/js,html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 El evento que queremos capturar se pone tras ':' y se indica el método que se ejecutará.
-
-<iframe width="100%" height="300" src="//jsfiddle.net/juansegura/255u8f1j/embedded/js,html,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 Fijaos en el método _delTodos()_ que para hacer referencia desde el objeti Vue a alguna variable o método se le antepone *this.*
 
@@ -72,5 +70,5 @@ Cosas a comentar:
   * línea 18: el input lo enlazamos a una nueva variable, _newTodo_, donde guardaremos lo que se escriba
 * *Javascript* 
   * línea 4: creamos la nueva variable _newTodo_ para guardar el título de la nueva cosa a añadir. Lo inicializamos a una cadena vacía y así el input estará vacío de entrada
-  * línea 13: delTodo recibe como parámetro el índice del elemento a borrar así que sólo tiene que hacer un splice al array
-  * línea 16: addTodo añade al array un nuevo elemento con el texto que hay en el input y después vacía dicho texto
+  * línea 26: delTodo recibe como parámetro el índice del elemento a borrar así que sólo tiene que hacer un splice al array
+  * línea 29: addTodo añade al array un nuevo elemento con el texto que hay en el input y después vacía dicho texto
