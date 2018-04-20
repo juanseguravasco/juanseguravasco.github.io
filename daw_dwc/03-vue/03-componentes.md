@@ -30,25 +30,37 @@ Podemos pasar parámetros a un componente con la directiva _v-bind_:
 <ul>
   <todo-item :todo="'Aprender Vue'"></todo-item>
 </ul>
-```
-En nuestro caso queremos un componente _todo-item_ para cada elemento del array _todos_:
-```[html]
-<ul>
-  <todo-item v-for="item in todos" :key="item.id" :todo="elem"></todo-item>
-</ul>
-```
-
-NOTA: al usar _v-for_ con un componente debemos indicarle en la propiedad _key_ la clave de cada elemento.
-
+`
+``
 El parámetro lo recibimos en el componente en _props_:
 ```[javascript]
 Vue.component('todo-item, {
-  props: ['ìtem'],
-  template: '<li>{{ item.title }}</li>'
+  props: ['todo'],
+  template: '<li>{{ todo.title }}</li>'
 })
 ```
 NOTA: si un parámetro tiene más de 1 palabra en el HTML lo pondremos en forma kebeb-case (ej.: `<todo-item :todo-elem=...>`) pero en el Javascript irá en camelCase (`Vue.component('todo-item',{ props: ['todoElem'],...})`).
 
+>**Resultado:**
+><ul>
+>  <li>Aprender</li>
+></ul>
+
+En nuestro caso queremos un componente _todo-item_ para cada elemento del array _todos_:
+```[html]
+<ul>
+  <todo-item v-for="item in todos" :key="item.id" :todo="item"></todo-item>
+</ul>
+```
+>**Resultado:**
+><ul>
+  >  <li>Learn JavaScript</li>
+  >  <li> Learn Vue</li>
+  >  <li>Play around in JSFiddle</li>
+  >  <li>Build something awesome>Cosa a hacer</li>
+></ul>
+
+NOTA: al usar _v-for_ con un componente debemos indicarle en la propiedad _key_ la clave de cada elemento.
 
 ### Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
