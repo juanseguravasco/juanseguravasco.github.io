@@ -28,7 +28,7 @@ Ahora ya podemos usar el componente en nuestro HTML:
 Podemos pasar parámetros a un componente con la directiva _v-bind_:
 ```[html]
 <ul>
-  <todo-item :todo="'Aprender Vue'"></todo-item>
+  <todo-item todo="Aprender Vue"></todo-item>
 </ul>
 ```
 El parámetro lo recibimos en el componente en _props_:
@@ -45,6 +45,13 @@ NOTA: si un parámetro tiene más de 1 palabra en el HTML lo pondremos en forma 
 >  <li>Aprender Vue</li>
 ></ul>
 
+Lo que pasamos como parámetro a un componente se considera como _String_. Para pasar una variable o expresión JS debemos hacerlo con la directiva _v-bind_:
+```[html]
+<ul>
+  <todo-item :todo="todos[0]"></todo-item>
+</ul>
+```
+
 En nuestro caso queremos un componente _todo-item_ para cada elemento del array _todos_:
 ```[html]
 <ul>
@@ -60,6 +67,13 @@ En nuestro caso queremos un componente _todo-item_ para cada elemento del array 
 ></ul>
 
 NOTA: al usar _v-for_ con un componente debemos indicarle en la propiedad _key_ la clave de cada elemento.
+
+Si lo que queremos pasar es un número, booleano, array u objeto también hemos de pasarlo con _v-bind_ para que no se considere texto:
+```[html]
+<ul>
+  <todo-item todo="Aprender Vue" :done="false" ></todo-item>
+</ul>
+```
 
 ### Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
