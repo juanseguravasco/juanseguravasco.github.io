@@ -74,6 +74,29 @@ Si lo que queremos pasar es un número, booleano, array u objeto también hemos 
   <todo-item todo="Aprender Vue" :done="false" ></todo-item>
 </ul>
 ```
+### Cambiar el valor de una _prop_
+Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
+
+Si debe cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
+```[javascript]
+props: ['initialValue'],
+data(): {
+  return {
+    myValue: this.initialValue
+  }
+}
+```
+Si debemos darle determinado formato también lo haremos sobre otra variable:
+```[javascript]
+props: ['cadenaSinFormato'],
+computed(): {
+  cadenaFormateada() {
+    return this.cadenaSinFormato.trim().toLowerCase();
+  }
+}
+```
+
+**OJO**: Si el parámetro es un objeto o un array se pasa por referencia por lo que si lo cambiamos en el componente hijo esto afectará al padre.
 
 ### Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
