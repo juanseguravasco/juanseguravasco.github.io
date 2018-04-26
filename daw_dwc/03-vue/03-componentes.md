@@ -30,7 +30,7 @@ Podemos utilizar la etiqueta tal cual (_<todo-item>_) o ponerla como valor del a
   <li is="todo-item"></li>
 </ul>
 ```
-De esta forma evitamos errores de validación de HTML ya que algunos elementos sólo pueden tener determinados elementos hijos (por ejemplo los hijos de un <ul> deben ser <li> o los de un <tr> deben ser <td>).
+De esta forma evitamos errores de validación de HTML ya que algunos elementos sólo pueden tener determinados elementos hijos (por ejemplo los hijos de un \<ul> deben ser \<li> o los de un \<tr> deben ser \<td>).
 
 ## Parámetros: _props_
 Podemos pasar parámetros a un componente anñadiendo atributos a su etiqueta:
