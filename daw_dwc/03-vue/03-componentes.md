@@ -74,7 +74,7 @@ Si lo que queremos pasar es un número, booleano, array u objeto también hemos 
   <todo-item todo="Aprender Vue" :done="false" ></todo-item>
 </ul>
 ```
-### Cambiar el valor de una _prop_
+### No cambiar el valor de una _prop_
 Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
 
 Si debe cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
@@ -86,6 +86,8 @@ data(): {
   }
 }
 ```
+NOTA: EN los componentes sus variables hay que definirlas como el valor devuelto por una función, tal y como se explica [más abajo](l#data-debe-ser-una-función).
+
 Si debemos darle determinado formato también lo haremos sobre otra variable:
 ```[javascript]
 props: ['cadenaSinFormato'],
