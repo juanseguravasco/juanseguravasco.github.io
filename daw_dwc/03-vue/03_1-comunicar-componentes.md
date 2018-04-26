@@ -30,7 +30,7 @@ Vue.component('todo-item, {
   ...
 ```
 
-### No cambiar el valor de una _prop_
+## No cambiar el valor de una _prop_
 Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
 
 Si debemos cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
@@ -55,7 +55,7 @@ computed(): {
 
 **OJO**: Si el parámetro es un objeto o un array éste se pasa por referencia por lo que si lo cambiamos en el componente hijo  afectará al padre, lo que debemos evitar.
 
-### Validación de _props_
+## Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
 ```[javascript]
 props: {
@@ -77,3 +77,30 @@ props: {
     }
   }
 ```
+
+# Emitir eventos
+Si un componente hijo debe pasarle un dato a su padre o informarle de algo puede emitir un evento que el padre capturará y tratará convenientemente. Para emitir el evento el hijo hace:
+```[javascript]
+  this.$emit('nombreEv', parametro);
+```
+
+El padre debe capturar el evento como cualquier otro. En su HTML hará:
+```[html]
+<my-component @nombreEv="fnManejadora"
+...
+```
+
+y en su JS tendrá la función para manejar ese evento:
+```[javascript]
+  ...
+  methods: {
+    fnManejadora(param) {
+      ...
+    },
+  }
+  ...
+```
+
+El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
+
+# Bus de comunicaciones
