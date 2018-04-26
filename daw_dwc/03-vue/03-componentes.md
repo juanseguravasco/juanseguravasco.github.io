@@ -25,7 +25,7 @@ Ahora ya podemos usar el componente en nuestro HTML:
 ></ul>
 
 ## Parámetros: _props_
-Podemos pasar parámetros a un componente con la directiva _v-bind_:
+Podemos pasar parámetros a un componente anñadiendo atributos a su etiqueta:
 ```[html]
 <ul>
   <todo-item todo="Aprender Vue"></todo-item>
@@ -68,60 +68,6 @@ En nuestro caso queremos un componente _todo-item_ para cada elemento del array 
 
 NOTA: al usar _v-for_ con un componente debemos indicarle en la propiedad _key_ la clave de cada elemento.
 
-Si lo que queremos pasar es un número, booleano, array u objeto también hemos de pasarlo con _v-bind_ para que no se considere texto:
-```[html]
-<ul>
-  <todo-item todo="Aprender Vue" :done="false" ></todo-item>
-</ul>
-```
-### No cambiar el valor de una _prop_
-Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
-
-Si debe cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
-```[javascript]
-props: ['initialValue'],
-data(): {
-  return {
-    myValue: this.initialValue
-  }
-}
-```
-NOTA: EN los componentes sus variables hay que definirlas como el valor devuelto por una función, tal y como se explica [más abajo](l#data-debe-ser-una-función).
-
-Si debemos darle determinado formato también lo haremos sobre otra variable:
-```[javascript]
-props: ['cadenaSinFormato'],
-computed(): {
-  cadenaFormateada() {
-    return this.cadenaSinFormato.trim().toLowerCase();
-  }
-}
-```
-
-**OJO**: Si el parámetro es un objeto o un array se pasa por referencia por lo que si lo cambiamos en el componente hijo esto afectará al padre.
-
-### Validación de _props_
-Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
-```[javascript]
-props: {
-  prop1: {
-    type: String,
-    required: true
-  },
-  prop2: {
-    type: Number,
-    default: 100
-  },
-  prop3: {
-    type: Object,
-    default(): { return {message: 'Hola'} }   # Si es un objeto o array _default_ debe devolver el valor
-  },
-  prop4: {
-    validator(value) {
-      return ...                # Si devuelve *true* será válido
-    }
-  }
-```
 ## A tener en cuenta
 A la hora de definir componentes hay un par de cosa que debemos tener en cuenta
 
