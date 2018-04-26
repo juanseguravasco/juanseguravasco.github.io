@@ -103,4 +103,34 @@ y en su JS tendrá la función para manejar ese evento:
 
 El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
 
+También se puede "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo con el modificador _.sync_ pero no es muy recomendable porque hace el código más difícil de mantener:
+```[html]
+<ul>
+  <todo-item todo="Aprender Vue" :done.sync="false" ></todo-item>
+</ul>
+```
+Si cambia el valor de _done_ en el hijo también cambiará en el padre.
+
 # Bus de comunicaciones
+Si queremos pasar información entre varios componentes que no tienen por qué ser padres/hijos podemos crear un componente que haga de bus y que lo incluiremos en cada componente que queramos comunicar:
+
+Para crear el objeto que gestione la comunicación entre componentes haremos:
+```[javascript]
+var EventBus = new Vue;
+```
+En cada componente que queramos que escuche eventos de ese bus importamos el componente y creamos un escuchador en el hook _created_:
+```[javascript]
+created() {
+    EventBus.$on('nombreEv', function(param) {
+        …
+    })
+```
+Cada componente que queramos que emita al bus deberá también tener importado el _EventBus_. Para emitir, en el método del componente que queramos lanzamos el evento con:
+```[javascript]
+EventBus.$emit('nombreEv', param)
+```
+
+# Vuex
+Es un patrón y una librería para gestionar los estados en una aplicación Vue. Ofrece un almacenamiento centralizado para todos los componentes con unas reglas para asegurar que un estado sólo cambia de determinada manera.
+
+Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más detalle más adelante.
