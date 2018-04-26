@@ -22,26 +22,26 @@ Aquí incluiremos el HTML que sustituirá a la etiqueta del componente. Recuerda
 ## \<script>
 Aquí definimos el componente. Será un objeto que exportaremos con sus diferentes propiedades:
 ```[javascript]
-  import UserFormInput from './UserFormInput.vue'
+import UserFormInput from './UserFormInput.vue'
 
-	export default {
-		name: 'user-form',
-		components: {
-			'input-form': UserFormInput,
-		},
-		props: ['id', 'textBtnOk'],
-		data() {
-			return {
-        ...
-			}
-		},		
-		methods: {
+export default {
+  name: 'user-form',
+  components: {
+    'input-form': UserFormInput,
+  },
+  props: ['id', 'textBtnOk'],
+  data() {
+    return {
       ...
-		},
-		created() {
-      ...
-		},
-	}
+    }
+  },		
+  methods: {
+    ...
+  },
+  created() {
+    ...
+  },
+}
 ```
 Entre las propiedades que podemos incluir están:
 * name: el nombre del componente. Sólo es obligatorio en caso de componentes recursivos (si el componente se usará en otro componente al registrarlo allí le daremos el nombre que usaremos como etiqueta para el mismo y este se ignora)
