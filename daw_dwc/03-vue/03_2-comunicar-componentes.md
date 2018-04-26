@@ -134,3 +134,9 @@ EventBus.$emit('nombreEv', param)
 Es un patrón y una librería para gestionar los estados en una aplicación Vue. Ofrece un almacenamiento centralizado para todos los componentes con unas reglas para asegurar que un estado sólo cambia de determinada manera.
 
 Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más detalle más adelante.
+
+# Otras formas de comunicarse
+
+* slots
+* .native
+* v-model de componentes
