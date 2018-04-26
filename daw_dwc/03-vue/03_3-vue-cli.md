@@ -65,3 +65,10 @@ npm run build
 ```
 
 ## Crear un nuevo componente
+Creamos un nuevo fichero dentro de **/src** con extensión _.vue_. Ese fichero contendrá las etiquetas \<template>, <script> y <style> para contener respectivamente el HTML, el JS y el CSS del componente (no es preciso que existan las 3 etiquetas).
+
+Donde queramos usar ese componente debemos importarlo y registrarlo. Y ya podemos incluir el componente en el HTML:
+```[javascript]
+import CompName from './CompName.vue'
+```
+
