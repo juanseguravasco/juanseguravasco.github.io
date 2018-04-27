@@ -7,7 +7,7 @@ Nos podemos encontrar las siguientes situaciones:
 * Comunicación entre otros componentes: crear un componente que haga de _bus_ de comunicaciones
 * Comunicación más compleja: Vuex
 
-# _props_
+## _props_
 Ya hems visto que permiten pasar parámetros del padre al componente hijo. Si el valor del parámetro cambia en el padre automáticamente se reflejan esos cambos en el hijo.
 
 Cualquier parámetro que pasemos sin _v-bind_ se considera texto. Si queremos pasar un número, booleano, array u objeto hemos de pasarlo con _v-bind_ igual que hacemos con las variables para que no se considere texto:
@@ -30,7 +30,7 @@ Vue.component('todo-item, {
   ...
 ```
 
-## No cambiar el valor de una _prop_
+### No cambiar el valor de una _prop_
 Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
 
 Si debemos cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
@@ -55,7 +55,7 @@ computed(): {
 
 **OJO**: Si el parámetro es un objeto o un array éste se pasa por referencia por lo que si lo cambiamos en el componente hijo  afectará al padre, lo que debemos evitar.
 
-## Validación de _props_
+### Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
 ```[javascript]
 props: {
@@ -78,7 +78,7 @@ props: {
   }
 ```
 
-# Emitir eventos
+## Emitir eventos
 Si un componente hijo debe pasarle un dato a su padre o informarle de algo puede emitir un evento que el padre capturará y tratará convenientemente. Para emitir el evento el hijo hace:
 ```[javascript]
   this.$emit('nombreEv', parametro);
@@ -111,7 +111,7 @@ También se puede "sincronizar" un parámetro pasado por el padre para que se ac
 ```
 Si cambia el valor de _done_ en el hijo también cambiará en el padre.
 
-# Bus de comunicaciones
+## Bus de comunicaciones
 Si queremos pasar información entre varios componentes que no tienen por qué ser padres/hijos podemos crear un componente que haga de bus y que lo incluiremos en cada componente que queramos comunicar:
 
 Para crear el objeto que gestione la comunicación entre componentes haremos:
@@ -130,13 +130,20 @@ Cada componente que queramos que emita al bus deberá también tener importado e
 EventBus.$emit('nombreEv', param)
 ```
 
-# Vuex
+## Vuex
 Es un patrón y una librería para gestionar los estados en una aplicación Vue. Ofrece un almacenamiento centralizado para todos los componentes con unas reglas para asegurar que un estado sólo cambia de determinada manera.
 
 Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más detalle más adelante.
 
-# Otras formas de comunicarse
+## Otras formas de comunicarse
 
 * slots
 * .native
 * v-model de componentes
+
+# Aplicación de ejemplo
+Vamos a hacer que funcione la aplicación que separamos en componentes.
+
+En primer lugar vemos que en el componente _todo-item_ estamos modificando el valor de un parámetro (cambiamos el _done_ de la tarea). Esto funciona porque lo que nos están pasando es un objeto (que se pasa por referencia) y no las propiedades independientemente (que se pasarían por copia) pero no debemos hacerlo así.
+
+En su lugar interceptaremos el cambio en el checkbox e informaremos del mismo al componente padre (_todo-list_) emitiendo un evento.
