@@ -9,36 +9,55 @@ Por tanto eso puede ser adecuado para proyectos pequeños pero no lo es cuando e
 
 La solución es guardar cada componente en un único fichero con extensión **.vue** que contendrá 3 secciones:
 * \<template>: contiene todo el HTML del componente
-* <script>: con el JS del mismo
-* <style>: donde pondremos el CSS del componente
+* \<script>: con el JS del mismo
+* \<style>: donde pondremos el CSS del componente
   
 Aunque esto va contra la norma de tener el HTML, JS y CSS en ficheros separados en realidad están separados en diferentes secciones y todo junto en un único fichero con todo lo que necesita el componente.
 
 La mayoría de editores soportan lestos ficheros (directamente o instalándoles algún plugin) por lo que el resaltado de las diferentes partes es correcto. Además con **vue-cli** podemos integrar fácilmente _Webpack_ de forma que podemos usar ES2015 y los preprocesadores más comunes (SASS, Pug/Jade, Stylus, ...) ya se se traducirá automáticamente a ES5, HTML5 y CSS3.
 
+Vamos a ver cómo sería el fichero **TodoList.vue** con el componente _todo-list_ de la aplicación anterior.
 ## \<template>
 Aquí incluiremos el HTML que sustituirá a la etiqueta del componente. Recuerda que dentro sólo puede haber un único elemento HTML (si queremos poner más de uno los incluiremos en otro que los englobe).
+```[html
+  <div>
+    <h2>{{ title }}</h2>
+    <ul>
+        <todo-item 
+          v-for="(item,index) in todos" 
+          :key="item.id"
+          :todo="item"
+          @delItem="delTodo(index)"
+          @doneChanged="changeTodo(index)">
+        </todo-item>
+    </ul>
+    <add-item @newItem="addTodo"></add-item>
+    <br>
+    <del-all @delAll="delTodos"></del-all>
+  </div>
+```
 
 ## \<script>
-Aquí definimos el componente. Será un objeto que exportaremos con sus diferentes propiedades:
+Aquí definimos el componente. Será un objeto que exportaremos con sus diferentes propiedades. Si utiliza subcomponentes hay que importarlos antes y registrarlos:
 ```[javascript]
-import UserFormInput from './UserFormInput.vue'
+import TodoItem from './TodoItem.vue'
+import AddItem from './AddItem.vue'
+import DelAll from './DelAll.vue'
 
 export default {
-  name: 'user-form',
+  name: 'todo-list',
   components: {
-    'input-form': UserFormInput,
+    'todo-item': TodoItem,
+    'add-item': AddItem,
+    'del-al': DelAll
   },
-  props: ['id', 'textBtnOk'],
+  props: ['title'],
   data() {
     return {
-      ...
+      todos: []
     }
   },		
   methods: {
-    ...
-  },
-  created() {
     ...
   },
 }
@@ -54,3 +73,30 @@ Entre las propiedades que podemos incluir están:
 
 ## \<style>
 Aquí pondremos estilos CSS que se aplicarán al componente
+```[CSS]
+body {
+  background: #20262E;
+  padding: 20px;
+  font-family: Helvetica;
+}
+
+#app {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.2s;
+}
+
+li {
+  margin: 8px 0;
+}
+
+h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+del {
+  color: rgba(0, 0, 0, 0.3);
+}
+```
