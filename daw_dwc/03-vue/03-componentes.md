@@ -182,7 +182,7 @@ Pasos que he hecho:
     1. su template será el <li> que tenía en el HTML pero quitando el _v-for_ porque él sólo se encarga de mostrar 1 item
     1. el método para borrarlo al hacer doble click ya no puede funcionar porque el componente no tiene acceso al array de tareas. De momento sólo ponemos un _alert_ que nos diga que lo queremos borrar
 1. Creo el componente _add-item_.
-    1. su _template_ será el <input> y el <button> que teníamos en el HTML, pero como sólo puede haber un elemento en el template los incluimos dentro de un <div>
+    1. su _template_ será el \<input> y el \<button> que teníamos en el HTML, pero como sólo puede haber un elemento en el template los incluimos dentro de un <div>
     1. no recibe ningún parámetro pero sí tiene una variable propia, _newTodo_, que quitamos del componente principal para añadirla a este componente
     1. el método addTodo ya no funciona porque no tengo acceso al array de tareas así que de momento muestro un _alert_ con lo que querría añadir
 1. Creo el componente _del-all_
