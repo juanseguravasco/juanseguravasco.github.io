@@ -8,7 +8,7 @@ Se trata de una herramienta que incluye Vue que nos ayuda en:
   * minimizar el código generado
 * Incluye herramientas que facilitan el desarrollo
 
-# Instalación
+## Instalación
 Para usar **vue-cli** necesitamos tener instalado **npm** (el gestor de paquetes de Node.js).
 
 Se instala con
@@ -27,7 +27,17 @@ Podemos usar, entre otras, las siguientes plantillas:
 * webpack: incluye también herramientas para testear el proyecto, entre otras
 * PWA: para crear una Progressive Web App (App para móviles similar a una app nativa)
 
-Ejemplo:
+## Ejemplo plantilla simple
+La crearemos con
+```[bash]
+vue init simple miAppSimple
+```
+Esto crea la carpeta _miAppSimple_ y dentro de ella el fichero _index.html_. No hay componentes ni ninguna herramienta extra, simplemente el fichero HTML donde está incluido también el JS.
+
+Además nos hace una serie de preguntas para configurar nuestro proyecto:
+![Proyecto de plantilla simple](./img/vue-simple.png)
+
+## Ejemplo webpack-simple
 ```[bash]
 vue init webpack-simple appUsers
 ```
