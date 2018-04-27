@@ -182,12 +182,12 @@ Pasos que he hecho:
     1. no recibe ningún parámetro pero sí tiene una variable propia, _newTodo_, que quitamos del componente principal para añadirla a este componente
     1. el método addTodo ya no funciona porque no tengo acceso al array de tareas así que de momento muestro un _alert_ con lo que querría añadir
 1. Creo el componente _del-all_
-  1. su _template_ es el botón
-  1. ni recibe parámetros ni tiene variables propias
-  1. con el método pasa lo mismo que en los otros casos así que simplemente muestro un _alert_
+    1. su _template_ es el botón
+    1. ni recibe parámetros ni tiene variables propias
+    1. con el método pasa lo mismo que en los otros casos así que simplemente muestro un _alert_
 1. Creo el componente principal _todo-list_ que incluirá los otros. Este componente no tiene mucho sentido porque incluye toda la aplicación pero así lo podré reutilizar en otras aplicaciones donde quiera también incluir una lista.
-  1. Su _template_ es un div que incluya el título (que podría ser variable para poderlo reutilizar) la lista con los componentes todo-item y los componentes de añadir y borrar todo
-  1. como parámetro recibirá el título de la lista como hemos indicado antes
-  1. su dato será el array de tareas
-  1. Los métodos los dejamos tal cual aunque ahora no funcionan porque nadie los llama. Ya lo arreglaremos
+    1. Su _template_ es un div que incluya el título (que podría ser variable para poderlo reutilizar) la lista con los componentes todo-item y los componentes de añadir y borrar todo
+    1. como parámetro recibirá el título de la lista como hemos indicado antes
+    1. su dato será el array de tareas
+    1. Los métodos los dejamos tal cual aunque ahora no funcionan porque nadie los llama. Ya lo arreglaremos
   
