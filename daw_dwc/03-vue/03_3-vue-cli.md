@@ -34,19 +34,29 @@ vue init simple miAppSimple
 ```
 Esto crea la carpeta _miAppSimple_ y dentro de ella el fichero _index.html_. No hay componentes ni ninguna herramienta extra, simplemente el fichero HTML donde está incluido también el JS.
 
-Además nos hace una serie de preguntas para configurar nuestro proyecto:
-![Proyecto de plantilla simple](./img/vue-simple.png)
+Además nos hace una serie de preguntas (su nombre y su autor) para configurar nuestro proyecto:
+![Crear proyecto de plantilla simple](./img/vue-simple.png)
+
+La página generada es:
+![Proyecto de plantilla simple](./img/vue-simple-app.png)
 
 ## Ejemplo webpack-simple
 ```[bash]
 vue init webpack-simple appUsers
 ```
-Crea la carpeta _appUsers_ y dentro el scaffolding para nuestro proyecto con soporte para Webpack.
+![Crear proyecto de plantilla simple](./img/vue-webpack-simple.png)
 
 Una vez creado el proyecto instalaremos sus dependencias entrando dentro de la carpeta y ejecutanro:
 ```[bash]
 npm install
 ```
+
+La página generada es:
+![Proyecto de plantilla simple](./img/vue-webpack-simple-app.png)
+
+Ha creado la carpeta _miAppWpSimple_ y dentro el scaffolding para nuestro proyecto con soporte para Webpack:
+![Directorios del proyecto de plantilla simple](./img/vue-webpack-simple-app-folders.png)
+
 
 ## _Scaffolding_ creado
 Los principales ficheros y directorios creados son:
