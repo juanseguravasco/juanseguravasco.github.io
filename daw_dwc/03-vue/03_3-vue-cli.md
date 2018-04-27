@@ -46,19 +46,26 @@ vue init webpack-simple appUsers
 ```
 ![Crear proyecto de plantilla simple](./img/vue-webpack-simple.png)
 
-Una vez creado el proyecto instalaremos sus dependencias entrando dentro de la carpeta y ejecutanro:
+Una vez creado el proyecto instalaremos sus dependencias entrando dentro de la carpeta y ejecutmos:
 ```[bash]
 npm install
 ```
-
-La página generada es:
+Para arrancar el proyecto ejecutamos en la terminal
+```[bash]
+npm run dev
+```
+Este script compila el código, muestra si hay errores, lanza un servidor web en el puerto 8080 y carga el proyecto en el navegador (localhost:8080). Si cambiamos cualquier fichero JS de _src_ recompila y recarga la página automáticamente. La página generada es:
 ![Proyecto de plantilla simple](./img/vue-webpack-simple-app.png)
 
-Ha creado la carpeta _miAppWpSimple_ y dentro el scaffolding para nuestro proyecto con soporte para Webpack:
-![Directorios del proyecto de plantilla simple](./img/vue-webpack-simple-app-folders.png)
-
+Cuando nuestra aplicación esté lista para subir a producción ejecutaremos el script:
+```[bash]
+npm run build
+```
 
 ## _Scaffolding_ creado
+Se ha creado la carpeta _miAppWpSimple_ y dentro el scaffolding para nuestro proyecto con soporte para Webpack:
+![Directorios del proyecto de plantilla simple](./img/vue-webpack-simple-folders.png)
+
 Los principales ficheros y directorios creados son:
 * package.json: configuración del proyecto (nombre, autor, ...) y dependencias
 * webpack.config.js: configuración de webpack
@@ -68,21 +75,48 @@ Los principales ficheros y directorios creados son:
 * src/main.js: carga componentes y crea la instancia de Vue que 'pinta' el App.vue 
 * src/....vue: los diferentes componentes
 
-## Scripts de npm
-En el package.json hay definidos 2 scripts:
-* Dev: ejecuta el entorno de desarrollo
-* Build: construye el JS de proudcción
+## package.json
+Aquí se configura nuestra aplicación:
+* name, description, version, author, license, ...: configuración general de la aplicación
+* scripts: ejecutan entornos de configuración para webpack. Por defecto tenemos 2:
+  * dev: lanza el servidor web de webpack y configura webpack y vue para el entorno de desarrollo
+  * build: crea el fichero **/dist/build.js** con todo el código JS de la aplicación (es el único que vincularemos en index.html)
+* dependences: se incluyen las librerías que utiliza nuestra aplicación en producción. Todas las dependencias se instalan dentro de **/node-modules**. Para instalar un nuevo paquete (por ejemplo _axios_ para hacer peticiones Ajax) ejecutamos en la terminal `npm install axios -S` (npm instala el paquete en node-modules y además con la opción -S se añade a las dependencias de package.json
+* devDependencies: igual pero son paquetes que sólo se usan en desarrollo (babel, webpack, etc). También se instalan dentro de node-modules pero no estarán en build.js cuando se genere el fichero para producción. Para instalar una nueva dependencia de desarrollo ejecutaremos `npm install _paquete_ -D` (la opción -D la añade a package.json pero como dependencia de desarrollo).
 
-En desarrollo ejecutaremos en la consola
-```[bash]
-npm run dev
+## Estructura de nuestra aplicación
+**Fichero index.html:**
+```[html]
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>miapp-webpack-simple</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="/dist/build.js"></script>
+  </body>
+</html>
 ```
-Este script compila el código, muestra si hay errores y lo carga en el navegador (localhost:8080). Si cambiamos cualquier fichero JS de src recompila y recarga automáticamente.
+Simplemente tiene el \<div> _app_ y vincula el script _build.js_.
 
-Cuando nuestra aplicación esté lista para subir a producción ejecutaremos el script:
-```[bash]
-npm run build
+**Fichero main.js:**
+```[javascript]
+import Vue from 'vue'
+import App from './App.vue'
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+})
 ```
+Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y renderiza el componente _App_.
+
+**Fichero App.vue:**
+```[javascript]
+```
+
 
 ## Crear un nuevo componente
 Creamos un nuevo fichero dentro de **/src** con extensión _.vue_. Ese fichero contendrá las etiquetas \<template>, <script> y <style> para contener respectivamente el HTML, el JS y el CSS del componente (no es preciso que existan las 3 etiquetas).
