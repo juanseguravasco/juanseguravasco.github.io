@@ -172,6 +172,10 @@ La decisión de qué componentes crear es subjetiva pero en principio cuanto má
   * add-item: incluye el input para introducir una nueva tarea y el botón de añadirla
   * del-all: el botón para borrar toda la lista
   
+Solución:
+
+<script async src="//jsfiddle.net/juansegura/3yoLvmnt/embed/"></script>
+
 Pasos que he hecho:
 1. Creo el componente más básico, _todo-item_. 
     1. recibirá un objeto con la tarea a mostrar
