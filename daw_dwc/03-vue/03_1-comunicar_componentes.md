@@ -144,6 +144,27 @@ Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más 
 # Aplicación de ejemplo
 Vamos a hacer que funcione la aplicación que separamos en componentes.
 
-En primer lugar vemos que en el componente _todo-item_ estamos modificando el valor de un parámetro (cambiamos el _done_ de la tarea). Esto funciona porque lo que nos están pasando es un objeto (que se pasa por referencia) y no las propiedades independientemente (que se pasarían por copia) pero no debemos hacerlo así.
+En primer lugar vamos a darle funcionalidad al botón de borrar toda la lista. En la función manejadora del componente sustituimos el _alert_ por
+```[javascript]
+this.$emit('delAll');
+```
+Ahora en el _template_ del componente padre capturaremos el evento _delAll_ (podríamos haber emitido también un 'click') y llamamos a la función que borrará toda la lista.
 
+Con el botón de añadir haremos lo mismo pero en este caso al emitir el evento le pasaremos el texto a añadir:
+```[javascript]
+this.$emit('newl', this.newTodo);
+```
+Y la función manejadora lo recibe como parámetro (pero no se pone en el HTML):
+```[javascript]
+addTodo(title) {
+  this.todos.push({title: title, done: false});
+},
+```
+
+Lo mismo hacemos con el _dblclick_ sobre cada elemento de la lista para borrarlos.
+
+Por último vemos que en el checkbos del componente _todo-item_ estamos modificando el valor de un parámetro (cambiamos el _done_ de la tarea). Esto funciona porque lo que nos están pasando es un objeto (que se pasa por referencia) y no las propiedades independientemente (que se pasarían por copia) pero no debemos hacerlo así.
+
+Para evitarlo cambiamos el _v-model_ que es bidireccional (al 
+inpara que 
 En su lugar interceptaremos el cambio en el checkbox e informaremos del mismo al componente padre (_todo-list_) emitiendo un evento.
