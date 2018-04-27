@@ -165,6 +165,7 @@ Lo mismo hacemos con el _dblclick_ sobre cada elemento de la lista para borrarlo
 
 Por último vemos que en el checkbos del componente _todo-item_ estamos modificando el valor de un parámetro (cambiamos el _done_ de la tarea). Esto funciona porque lo que nos están pasando es un objeto (que se pasa por referencia) y no las propiedades independientemente (que se pasarían por copia) pero no debemos hacerlo así.
 
-Para evitarlo cambiamos el _v-model_ que es bidireccional (al 
-inpara que 
-En su lugar interceptaremos el cambio en el checkbox e informaremos del mismo al componente padre (_todo-list_) emitiendo un evento.
+Para evitarlo cambiamos el _v-model_ que es bidireccional (al modificar el checkbox se modifica la propiedad _done_) por un _v-bind_ es es unidireccional más una función que avisará al componente padre al cambiar el valor del checkbox para que cambie el valor de la tarea.
+
+**Solución**:
+<script async src="//jsfiddle.net/juansegura/u2joasts/embed/"></script>
