@@ -82,7 +82,7 @@ Dentro del objeto añadimos el _hook_ **monted** para hacer la petición Ajax al
 ```
 
 ### Borrar un todo
-Modificamos el método _delTodo_ fichero **Todo-List.vue**:
+Modificamos el método _delTodo_ del fichero **Todo-List.vue**:
 ```[javascript]
     delTodo(index){
       var id=this.todos[index].id;
@@ -93,7 +93,7 @@ Modificamos el método _delTodo_ fichero **Todo-List.vue**:
 ```
 
 ### Añadir un todo
-Modificamos el método _addTodo_ fichero **Todo-List.vue**:
+Modificamos el método _addTodo_ del fichero **Todo-List.vue**:
 ```[javascript]
     addTodo(title) {
       axios.post(url+'/todos', {title: title, done: false})
@@ -106,10 +106,38 @@ Modificamos el método _addTodo_ fichero **Todo-List.vue**:
         .catch(response => alert('Error: no se ha añadido el registro. '+response.message))
     },
 ```
+Al servidor hay que pasarle como parámetro el objeto a añadir. E el caso del json-server devolverá en el **response.data** el nuevo objeto añadido al completo. Otros servidores devuelven sólo la _id_ del nuevo registro o pueden no devolver nada. 
+
 ### Actualizar el campo _done_
-Modificamos el método _changeTodo_ fichero **Todo-List.vue**:
-```[javascript]
+Ahora ya no nos es útil el índice de la tarea a actualizar sino que necesitamos su id, su título y su estado así que modificamos el _teamplate_ del fichero **Todo-List.vue** para pasar el elemento entero a la función:
+```[html]
+      <todo-item 
+        v-for="(item,index) in todos" 
+        :key="item.id"
+        :todo="item"
+        @delItem="delTodo(index)"
+        @doneChanged="changeTodo(item)">
+       </todo-item>
 ```
+
+A continuación modificamos el método _changeTodo_ del fichero **Todo-List.vue**:
+```[javascript]
+    changeTodo(todo) {
+      axios.put(url+'/todos/'+todo.id, {
+          id: todo.id, 
+          title: todo.title, 
+          done: !todo.done
+        })
+        .then(response => todo.done=response.data.done)
+        .catch(response => alert('Error: no se ha modificado el registro. '+response.message))
+    },
+```
+Lo que hay que pasar en el objeto y qué se devuelve en la respuesta depende del servidor API-REST usado. EN el caso de json-server los campos que no le pasemos en el objeto los eliminará por lo que debemos pasar también al campo _title_ (otros servidores dejan como están los campos no inlcuidos en el objeto por lo que no haría falta pasárselo). Y lo que devuelve en **response.data** es el registro completo modificado.
+
+### Borrar todas las tareas
+Modificamos el método _delTodos_ del fichero **Todo-List.vue**. Como el servidor no tiene una llamada para borrar todos los datos podemos recorrer el array _todos_ y borrar cada tarea usando el método **delTodo** que ya tenemos hecho:
+```[javascript]
+
 
 ## json-server
 Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
