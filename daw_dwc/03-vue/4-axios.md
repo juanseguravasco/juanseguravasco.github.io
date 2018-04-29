@@ -1,0 +1,68 @@
+# Introducción
+El framework _Vue_ sólo se ocupa de la capa de vista de la aplcación pero su "ecosistema" como sus creadores le llaman, incluye multitud de herramientas para todo lo que podamos necesitar a la hora de realizar grandes proyectos.
+
+Una de las librerías más utilizadas es la que permite realizar de forma sencilla peticiones Ajax a un servidor. Existen múltiples librerías para ello y la más utilizada es [**axios**](https://github.com/axios/axios).
+
+## Instalación
+Como esta librería vamos a usarla en producción la instalaremos como dependencia del proyecto:
+```[bash]
+npm install axios -S
+```
+
+## Usar _axios_
+En el componente en que vayamos a usarla la importaremos:
+```[vue]
+import axios from 'axios'
+```
+Como es una dependencia incluida en el _package.json_ no se indica su ruta (se buscará en **node-modules**).
+
+Ya podemos hacer peticiones Ajax en el componente. Para ello axios incluye los métodos:
+* **.get(url)**: realiza una petición GET a la url pasada como parámetro que supondrá una consulta SELECT a la base de datos
+* **.post(url, objeto)**: realiza una petición POST a la url pasada como parámetro que posiblemente realizará un INSERT del objeto pasado como segundo parámetro
+* **.put(url, objeto)**: realiza una petición PUT a la url pasada como parámetro que posiblemente realizará un UPDATE sobre el registro indicado en la url que será actualizao con los datos del objeto pasado como segundo parámetro
+* **.delete(url)**: realiza una petición DELETE a la url pasada como parámetro que supondrá una consulta DELETE a la base de datos para borrar el registro indicado en la url
+
+Al hacer la petición indicaremos con el método **.then** la función _callback_ que se ejecutará cuando responda el servidor si la petición se resuelve correctamente y 
+con el método **.catch** la función _callback_ que se ejecutará cuando responda el servidor si ocurre algún error.
+
+La respuesta del servidor tiene, entre otras, las propiedades:
+* **data**: aquí tendremos los datos devueltos por el servidor
+* status: obtendremos el código de la respuesta del servidor (200, 404, ...)
+* statusText: el texto de la respuesta del servidor ('Ok', 'Not found', ...)
+* headers: las cabeceras HTTP de la respuesta
+* ...
+
+La sintaxis de una petición GET a axios sería algo como:
+```[javascript]
+axios.get(url)
+  .then(response => ...realiza lo que sea con response.data ...)
+  .catch(response => ... trata el error ...)
+```
+
+# Aplicación de ejemplo
+Vamos a seguir con la aplicación de la lista de tareas pero ahora los datos no serán un array estático sino que estarán en un servidor. Usaremos como servidor para probar la aplicación **json-server** por lo que las peticiones serán a la URL 'localhost:3000' que es el servidor web de json-server.
+
+Los cambios que debemos hacer en nuestra aplicación son:
+* El componente principal (TodoList) pide todos los datos al cargarse
+* Al borrar un elemento haremos una petición al servidor para que lo borre de allí y cuando sepamos que se ha borrado lo borramos del array (o recargamos los datos)
+* Lo mismo al insertar un nuevo elemento
+* Al marcar/desmarcar un elemento lo modificaremos en la base de datos
+* Para borrarlos todos haremos peticiones DELETE al servidor
+
+## json-server
+Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
+
+Para instalarlo en nuestra máquina ejecutamos:
+```[bash]
+npm install json-server -g
+```
+
+Para que sirva un fichero datos.json:
+```[bash]
+json-server --watch datos.json 
+```
+La opción _--watch_ es opcional y le indica que actualice los datos si se modifica el fichero _.json_ externamente (si lo editamos).
+
+Los datos los sirve por el puerto 3000 y servirá los diferentes objetos definidos en el fichero _.json_. Por ejemplo:
+* https://localhost:3000/users: devuelve todos los elementos del array _users_ del fichero _.json_
+* https://localhost:3000/users/5: devuelve el elementos del array _users_ del fichero _.json_ cuya propiedad _id_ valga 5
