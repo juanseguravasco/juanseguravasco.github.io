@@ -141,7 +141,7 @@ Modificamos el método _delTodos_ del fichero **Todo-List.vue**. Como el servido
       this.todos.forEach((todo, index) => this.delTodo(index));
     }
 ```
-Si lo probáis con muchos registros es posible que no se borren todos correctamente (en realidad sí se borrar de la base de datos pero no del array). ¿Sabes por qué?. ¿Cómo lo podemos arreglar? (PISTA: el índice cambiar según los que haya y las peticiones asíncronas pueden no ejecutarse en el orden que esperamos).
+Si lo probáis con muchos registros es posible que no se borren todos correctamente (en realidad sí se borran de la base de datos pero no del array). ¿Sabes por qué?. ¿Cómo lo podemos arreglar? (PISTA: el índice cambia según los elementos que haya y las peticiones asíncronas pueden no ejecutarse en el orden que esperamos).
 
 ## json-server
 Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
