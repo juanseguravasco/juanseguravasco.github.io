@@ -137,7 +137,11 @@ Lo que hay que pasar en el objeto y qué se devuelve en la respuesta depende del
 ### Borrar todas las tareas
 Modificamos el método _delTodos_ del fichero **Todo-List.vue**. Como el servidor no tiene una llamada para borrar todos los datos podemos recorrer el array _todos_ y borrar cada tarea usando el método **delTodo** que ya tenemos hecho:
 ```[javascript]
-
+    delTodos() {
+      this.todos.forEach((todo, index) => this.delTodo(index));
+    }
+```
+Si lo probáis con muchos registros es posible que no se borren todos correctamente (en realidad sí se borrar de la base de datos pero no del array). ¿Sabes por qué?. ¿Cómo lo podemos arreglar? (PISTA: el índice cambiar según los que haya y las peticiones asíncronas pueden no ejecutarse en el orden que esperamos).
 
 ## json-server
 Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
