@@ -176,6 +176,15 @@ Y ya podemos incluir el componente en el HTML:
 <comp-name ...> ... </comp-name>
 ```
 
+## Depurar el código en la consola
+Podemos seguir depurando nuestro código, poniendo puntos de interrupción y usando todas las herramientas que nos proporciona la consola mientras estamos en modo de depuración (si hemos abierto la aplicación con `npm run dev`).
+
+Para localizar nuestros fichero varemos que en nuestras fuetes de software aparece **webpack** y dentro nuestras carpetas con el código (**src**, ...):
+![Depurar en la consola](./img/console-webpack.png)
+
+Recordad que si hemos instalado las **Vue DevTools** tenemos una nueva pestaña en la consola desde la que podemos ver todos nuestros componentes con sus propiedades y datos:
+![Vue DevTools](./img/console-vue_devtools.png)
+
 # Aplicación de ejemplo
 Vamos a añadir bajo la página de nuestro proyecto una lista de tareas a hacer usando los componenes que hicimos anteriormente pero poniendo cada uno en su propio fichero _.vue_.
 
