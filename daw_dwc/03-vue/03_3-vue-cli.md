@@ -114,15 +114,225 @@ new Vue({
 Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y renderiza el componente _App_.
 
 **Fichero App.vue:**
-```[javascript]
-```
+Es el componente principal de la aplicación. Veamos qué contiene cada sección
 
+_template_
+```[html]
+<template>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <h1>{{ msg }}</h1>
+    <h2>Essential Links</h2>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+    </ul>
+    <h2>Ecosystem</h2>
+    <ul>
+      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
+      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
+      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+    </ul>
+  </div>
+</template>
+```
+Incluye el _\<div#app>_ que contiene la aplicación. También muestra una imagen. Las imágenes se guardan dentro de **/src/assets/**.
+
+_script_
+```[javascript]
+export default {
+  name: 'app',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
+    }
+  }
+}
+```
+Simplemente define el componente 'app' que tiene una variable, _msg_, que es el título que se muestra en el template.
+
+_style_
+Aquí se definen los estilos de este componente 
 
 ## Crear un nuevo componente
-Creamos un nuevo fichero dentro de **/src** con extensión _.vue_. Ese fichero contendrá las etiquetas \<template>, <script> y <style> para contener respectivamente el HTML, el JS y el CSS del componente (no es preciso que existan las 3 etiquetas).
 
-Donde queramos usar ese componente debemos importarlo y registrarlo. Y ya podemos incluir el componente en el HTML:
+Creamos un nuevo fichero en **/src** (o en alguna subcarpeta dentro) con extensión _.vue_. Donde queramos usar ese componente debemos importarlo y registrarlo como hemos visto en el artículo de los _Single File Components_. 
 ```[javascript]
 import CompName from './CompName.vue'
+
+export default {
+  ...
+  components: {
+    'comp-name': CompName
+  }
+  ...
+}
+```
+Y ya podemos incluir el componente en el HTML:
+```[html]
+<comp-name ...> ... </comp-name>
 ```
 
+# Aplicación de ejemplo
+Vamos a añadir bajo la página de nuestro proyecto una lista de tareas a hacer usando los componenes que hicimos anteriormente pero poniendo cada uno en su propio fichero _.vue_.
+
+**Solución**
+
+- comp-todo/TodoItem.vue
+```[vue]
+<template>
+  <li @dblclick="delTodo">
+    <label>
+      <input type="checkbox" :checked="todo.done" @change="toogleDone">
+
+      <del v-if="todo.done">
+        {{ todo.title }}
+      </del>
+      <span v-else>
+        {{ todo.title }}
+      </span>
+    </label>
+  </li>
+</template>
+
+<script>
+export default {
+  name: 'todo-item',
+  props: ['todo'],
+  methods: {
+    delTodo() {
+      this.$emit('delItem');
+    },
+    toogleDone() {
+      this.$emit('doneChanged');
+    }
+  }
+}  
+</script>
+```
+
+- comp-todo/AddItem.vue
+```[vue]
+<template>
+  <div>
+    <input v-model="newTodo">
+    <button @click="addTodo">Añadir</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'add-item',
+  data() {
+    return {
+      newTodo: ''
+    }
+  },
+  methods: {
+    addTodo() {
+      if (this.newTodo) {
+        this.$emit('newItem', this.newTodo);
+        this.newTodo='';      
+      }
+    }
+  }
+}
+</script>
+```
+
+- comp-todo/DelAll.vue
+```[vue]
+<template>
+  <button @click="delTodos">Borrar toda la lista</button>
+</template>
+
+<script>
+export default {
+  name: 'del-all',
+  methods: {
+    delTodos() {
+      if (confirm('¿Deseas borrar toda la lista de cosas a hacer?')) {
+        this.$emit('click');
+      }
+    }
+  }
+}  
+</script>
+```
+
+- comp-todo/TodoList.vue
+```[vue]
+<template>
+  <div>
+    <h2>{{ title }}</h2>
+    <ul>
+      <todo-item 
+        v-for="(item,index) in todos" 
+        :key="item.id"
+        :todo="item"
+        @delItem="delTodo(index)"
+        @doneChanged="changeTodo(index)">
+       </todo-item>
+    </ul>
+    <add-item @newItem="addTodo"></add-item>
+    <br>
+    <del-all @click="delTodos"></del-all>
+  </div>  
+</template>
+
+<script>
+import TodoItem from './TodoItem.vue'
+import AddItem from './AddItem.vue'
+import DelAll from './DelAll.vue'
+
+export default {
+  name: 'todo-list',
+  components: {
+    TodoItem,
+    AddItem,
+    DelAll
+  },
+  props: ['title'],
+  data() {
+    return {
+      todos: []      
+    }
+  },
+  methods: {
+    changeTodo(index) {
+      this.todos[index].done=!this.todos[index].done;
+    },
+    delTodo(index){
+      this.todos.splice(index,1);
+    },
+    addTodo(title) {
+      this.todos.push({title: title, done: false});
+    },
+    delTodos() {
+      this.todos=[];
+    }
+  }
+}
+</script>
+```
+
+- App.vue
+
+En el _template_ añadimos
+```[html]
+<todo-list title="Tengo que aprender:"></todo-list>
+```
+
+Y en el _script_
+```[javascript]
+import TodoList from './comp-todo/TodoList.vue'
+
+export default {
+  components: {
+    TodoList
+  },
+  ...
+```
