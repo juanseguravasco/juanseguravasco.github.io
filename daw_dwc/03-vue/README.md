@@ -9,3 +9,5 @@ Contenidos:
 1. [Peticiones Ajax: axios](./04-axios.md)
 1. [SPA: vue-router](./05-vue-router.md)
 1. [Formularios](./06-forms.md)
+1. [Vue con Laravel](./07-vue-laravel.md)
+1. 
