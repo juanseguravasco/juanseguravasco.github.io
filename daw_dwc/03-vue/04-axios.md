@@ -29,6 +29,7 @@ La respuesta del servidor tiene, entre otras, las propiedades:
 * **data**: aquí tendremos los datos devueltos por el servidor
 * status: obtendremos el código de la respuesta del servidor (200, 404, ...)
 * statusText: el texto de la respuesta del servidor ('Ok', 'Not found', ...)
+* message: mensaje del servidor en caso de producirse un error
 * headers: las cabeceras HTTP de la respuesta
 * ...
 
@@ -40,14 +41,75 @@ axios.get(url)
 ```
 
 # Aplicación de ejemplo
-Vamos a seguir con la aplicación de la lista de tareas pero ahora los datos no serán un array estático sino que estarán en un servidor. Usaremos como servidor para probar la aplicación **json-server** por lo que las peticiones serán a la URL 'localhost:3000' que es el servidor web de json-server.
+Vamos a seguir con la aplicación de la lista de tareas pero ahora los datos no serán un array estático sino que estarán en un servidor. Usaremos como servidor para probar la aplicación [**json-server**](#json-server) por lo que las peticiones serán a la URL 'localhost:3000' que es el servidor web de json-server.
 
 Los cambios que debemos hacer en nuestra aplicación son:
-* El componente principal (TodoList) pide todos los datos al cargarse
-* Al borrar un elemento haremos una petición al servidor para que lo borre de allí y cuando sepamos que se ha borrado lo borramos del array (o recargamos los datos)
-* Lo mismo al insertar un nuevo elemento
-* Al marcar/desmarcar un elemento lo modificaremos en la base de datos
-* Para borrarlos todos haremos peticiones DELETE al servidor
+1. El componente principal (TodoList) pide todos los datos al cargarse
+1. Al borrar un elemento haremos una petición al servidor para que lo borre de allí y cuando sepamos que se ha borrado lo borramos del array (o recargamos los datos)
+1. Lo mismo al insertar un nuevo elemento
+1. Al marcar/desmarcar un elemento lo modificaremos en la base de datos
+1. Para borrarlos todos haremos peticiones DELETE al servidor
+
+## Solución
+Vamos a modificar los diferentes componentes para implementar os cambios requeridos:
+
+### Pedir los datos al cargarse
+Modificamos el fichero **Todo-List.vue** para añadir en su sección _script_:
+* antes del objeto vue:
+```[javascript]
+import axios from 'axios'
+
+const url='http://localhost:3000'
+```
+
+Dentro del objeto añadimos el _hook_ **monted** para hacer la petición Ajax al montar el componente:
+```[javascript]
+...
+  mounted() {
+    axios.get(url+'/todos')
+      .then(response => this.todos=response.data)
+      .catch(response => {
+        if (!response.status) {// Si el servidor no responde 'response' no es un objeto sino texto
+          alert('Error: el servidor no responde');
+          console.log(response);
+        } else {
+          alert('Error '+response.status+': '+response.message);          
+        }
+        this.todos=[];
+      })
+  },
+...
+```
+
+### Borrar un todo
+Modificamos el método _delTodo_ fichero **Todo-List.vue**:
+```[javascript]
+    delTodo(index){
+      var id=this.todos[index].id;
+      axios.delete(url+'/todos/'+id)
+        .then(response => this.todos.splice(index,1) )
+        .catch(response => alert('Error: no se ha borrado el registro. '+response.message))
+    },
+```
+
+### Añadir un todo
+Modificamos el método _addTodo_ fichero **Todo-List.vue**:
+```[javascript]
+    addTodo(title) {
+      axios.post(url+'/todos', {title: title, done: false})
+        .then(response => this.todos.push({
+            id: response.data.id,
+            title: title, 
+            done: false
+          })
+        )
+        .catch(response => alert('Error: no se ha añadido el registro. '+response.message))
+    },
+```
+### Actualizar el campo _done_
+Modificamos el método _changeTodo_ fichero **Todo-List.vue**:
+```[javascript]
+```
 
 ## json-server
 Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
@@ -66,3 +128,5 @@ La opción _--watch_ es opcional y le indica que actualice los datos si se modif
 Los datos los sirve por el puerto 3000 y servirá los diferentes objetos definidos en el fichero _.json_. Por ejemplo:
 * https://localhost:3000/users: devuelve todos los elementos del array _users_ del fichero _.json_
 * https://localhost:3000/users/5: devuelve el elementos del array _users_ del fichero _.json_ cuya propiedad _id_ valga 5
+
+Para más información: [https://github.com/typicode/json-server](https://github.com/typicode/json-server)
