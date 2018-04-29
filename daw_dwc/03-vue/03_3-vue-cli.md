@@ -179,9 +179,9 @@ Y ya podemos incluir el componente en el HTML:
 # Aplicación de ejemplo
 Vamos a añadir bajo la página de nuestro proyecto una lista de tareas a hacer usando los componenes que hicimos anteriormente pero poniendo cada uno en su propio fichero _.vue_.
 
-**Solución**
+## Solución
 
-- comp-todo/TodoItem.vue
+### comp-todo/TodoItem.vue
 ```[vue]
 <template>
   <li @dblclick="delTodo">
@@ -214,7 +214,7 @@ export default {
 </script>
 ```
 
-- comp-todo/AddItem.vue
+### comp-todo/AddItem.vue
 ```[vue]
 <template>
   <div>
@@ -243,7 +243,7 @@ export default {
 </script>
 ```
 
-- comp-todo/DelAll.vue
+### comp-todo/DelAll.vue
 ```[vue]
 <template>
   <button @click="delTodos">Borrar toda la lista</button>
@@ -263,7 +263,7 @@ export default {
 </script>
 ```
 
-- comp-todo/TodoList.vue
+### comp-todo/TodoList.vue
 ```[vue]
 <template>
   <div>
@@ -319,7 +319,7 @@ export default {
 </script>
 ```
 
-- App.vue
+### App.vue
 
 En el _template_ añadimos
 ```[html]
