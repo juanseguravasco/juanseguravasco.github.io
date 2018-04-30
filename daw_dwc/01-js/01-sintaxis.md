@@ -39,7 +39,7 @@ function potencia(base, exponente) {
     return valor;
 }
 ```
-Podemos dar un valor por defecto a los parámetros por si no los pasan asignándoles el valor al definirlos:
+Podemos dar un **valor por defecto** a los parámetros por si no los pasan asignándoles el valor al definirlos:
 ```[javascript]
 potencia(4);
 
@@ -57,6 +57,184 @@ function potencia(base, exponente=2) {
 > NOTA: En ES5 para hacer esto se hacía
 > ```[javascript]
 > function potencia(base, exponente) {
->     exponente=exponente | 2;
+>     exponente = exponente | 2;
 > ...
 > ```
+
+También es posible acceder a los parámetros desde el array **arguments[]** si no sabemos cuántos recibiremos:
+```[javascript]
+function suma () {
+    var result = 0;
+    for (var i=0; i<arguments.length; i++)
+        result += arguments[i];
+    return result;
+}
+```
+### Funciones anónimas
+Podemos definir una función sin darle un nombre que pueden asignarse a una variable, autoejecutarse o asignasrse a un manejador de eventos. Ejemplo:
+```[javascript]
+let holaMundo = function() {
+    alert('Hola mundo!');
+}
+
+holaMundo();        // se ejecuta la función
+```
+
+### Arrow functions (funciones _labda_)
+ES2015 permite declarar una función anónima de forma más corta. Ejemplo sin _arrow function_:
+```[javascript]
+let potencia = function(base, exponente) {
+    let valor=1;
+    for (let i=1; i<=exponente; i++) {
+      valor=valor*base;
+    }
+    return valor;
+}
+```
+Lo que hacemos es:
+* Eliminamos la palabra _function_
+* Si sólo tiene 1 parámetro podemos eliminar los paréntesis de los parámetros
+* Ponemos el símbolo _=>_
+* Si la función sólo tiene 1 línea eliminamos las { } y la palabra _return_
+
+El ejemplo con _arrow function_:
+```[javascript]
+let potencia = (base, exponente) => {
+    let valor=1;
+    for (let i=1; i<=exponente; i++) {
+      valor=valor*base;
+    }
+    return valor;
+}
+```
+Otro ejemplo, sin _arrow function_:
+```[javascript]
+let cuadrado = function(base) {
+    return base * base;
+}
+```
+conn _arrow function_:
+```[javascript]
+let cuadrado = base => base * base;
+```
+
+# Estructuras y bucles
+## Estructura condicional _if_
+El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden anidarse varios con **else if**.
+```[javascript]
+if (condicion) {
+    ...
+} else if (condicion2) {
+    ...
+} else if (condicion2) {
+    ...
+} else {
+    ...
+}
+```
+Se puede usar el operador **? :** que es como un _if_ que devuelve un valor:
+```[javascript]
+let esMayor = (edad>18)?true:false;
+```
+
+## Estructura condicional _switch_
+El **switch** también es como en la mayoría de lenguajes. Hay que poner _break_ al final de cada bloque para que no continúe evaluando:
+```[javascript]
+switch(color) {
+    case 'blanco':
+    case 'amarillo':    // Ambos colores entran aquí
+        colorFondo='azul';
+        break;
+    case 'azul':
+        colorFondo='amarillo';
+        break;
+    default:            // Para cualquier otro valor
+        colorFondo='negro';
+}
+```
+Javascript permite que el _switch_ en vez de evaluar valores pueda evaluar expresiones. EN este caso se pone como condición _true_:
+```[javascript]
+switch(true) {
+    case age < 18:
+        console.log("Eres muy joven para entrar");
+        break;
+    case age < 65:
+        console.log("Puedes entrar");
+        break;
+    default:
+        console.log("Eres muy mayor para entrar");
+}
+```
+## Bucle _while_
+Podemos poner
+```[javascript]
+while (condicion) {
+    // sentencias
+}
+```
+que se ejecutará 0 o más veces o
+```[javascript]
+do {
+    // sentencias
+} while (condicion)
+```
+que al menos se ejecutará 1 vez.
+
+## Bucle _for_
+Tenemos muchos _for_ que podemos usar.
+
+### Bucle _for_ con contador
+```[javascript]
+let datos=[5, 23, 12, 85]
+let sumaDatos=0;
+
+for (let i=0; i<datos.length; i++) {
+    sumaDatos += datos[i];
+}  
+// El valor de sumaDatos será 125
+```
+### Bucle _for ... in_
+```[javascript]
+let datos=[5, 23, 12, 85]
+let sumaDatos=0;
+
+for (let indice in datos) {
+    sumaDatos += datos[indice];
+}  
+// El valor de sumaDatos será 125
+```
+También sirve para recorrer las propiedades de un objeto:
+```[javascript]
+let profe={
+    nom:”Juan”, 
+    ape1=”Pla”, 
+    ape2=”Pla”
+}
+let nombre='';
+
+for (var campo in profe) {
+   nombre += profe.campo + ' '; // o profe[campo];
+}  
+// El valor de nombre será “Juan Pla Pla ”
+```
+### Bucle _for ... of_
+Es similar al _for...in_ pero en vez de devolver cada índice devuelve cada elemento. Es nuevo en ES2015:
+```[javascript]
+let datos=[5, 23, 12, 85]
+let sumaDatos=0;
+
+for (let valor of datos) {
+    sumaDatos += valor;
+}  
+// El valor de sumaDatos será 125
+```
+También sirve para recorrer los caracteres de una cadena de texto:
+```[javascript]
+let cadena='Hola';
+
+for (let letra of cadena) {
+    console.log(letra);
+}  
+```
+
+# Tipos de datos básicos
