@@ -292,6 +292,7 @@ Algunos métodos y propiedades de las cadenas son:
 * **.endsWith(cadena)**: `'Hola mundo'.endsWith('Hol')` devuelve _false_
 * **.includes(cadena)**: `'Hola mundo'.includes('mun')` devuelve _true_
 * **.repeat(veces)**: `'Hola mundo'.repeat(3)` devuelve "Hola mundoHola mundoHola mundo"
+* **.split(sepadaror)**: `'Hola mundo'.split(' ')` devuelve el array \['Hola', 'mundo']. `'Hola mundo'.split('')` devuelve el array \['H','o',l','a',' ','m','u','n','d','o']
 
 ### Template literals
 Desde ES2015 también podemos poner una cadena entre \` (acento grave) y en ese caso podemos poner dentro variables y expresiones que serán evaluadas al ponerlas dentro de **${}**. También se respetan los saltos de línea, tabuladores, etc que haya dentro. Ejemplo:
