@@ -22,7 +22,7 @@ Desde ES2015 también podemos declarar constantes con **const**. Se les debe dar
 ## Funciones
 Se declaran con **function** y se les pasan los parámetros entre paréntesis. La función puede devolver un valor usando **return** (si no tiene _return_ es como si devolviera _undefined_). 
 
-Puede usarse una función antes de haberla declarado por el _hoising_ de Javascript (el navegador primero carga todas las funciones y mueve las declaraciones de las variables al principio y luego ejecuta el código).
+Puede usarse una función antes de haberla declarado por el _hoisting_ de Javascript (el navegador primero carga todas las funciones y mueve las declaraciones de las variables al principio y luego ejecuta el código).
 
 ### Parámetros
 Si se llama una función con menos parámetros de los declarados el valor de los parámetros no pasados será _undefined_:
@@ -238,3 +238,88 @@ for (let letra of cadena) {
 ```
 
 # Tipos de datos básicos
+Para saber de qué tipo es el valor de una variable tenemos el operador **typeof**. Ej.:
+* `typeof 3` devuelve _number_
+* `typeof 'Hola'` devuelve _string_
+
+En Javascript hay 2 valores especiales:
+* **undefined**: es lo que vale una variable a la que no se ha asignado ningún valor
+* **null**: es un tipo de valor especial que podemos asignar a una variable. Es como un objeto vacío (`typeof null` devuelve _object_)
+
+Como hemos dicho las variables pueden contener cualquier tipo de valor y en las operaciones Javascript realiza automáticamente la conversión necesaria para, si es posible, realizar la operación y no devolver **NaN** (_Not a Number_, el valore devuelto es erróneo). Por ejemplo:
+* `"4" / 2` devuelve 2 (convierte "4" en 4 y realiza la operación)
+* `"23" - null` devuelve 0 (hace 23 - 0)
+* `"23" - undefined` devuelve _NaN_ (no puede convertir undefined a nada así que no puede hacer la operación)
+* `"23" * true` devuelve 23 (23 * 1)
+* `"23" * "Hello"` devuelve _NaN_ (no puede convertir "Hello")
+* `23 + "Hello"` devuelve "23Hello" (+ es el operador de concatenación así que convierte 23 a "23" y los concatena)
+* `23 + "23"` devuelve 2323 (OJO, convierte 23 a "23", no al revés)
+
+Además comentar que en Javascript todo son ojetos por lo que todo tiene métodos y propiedades.
+
+## Number
+Sólo hay 1 tipo de números, no existen enteros y decimales. El tipo de dato para cualquier número es **number**. EL carácter para la coma decimal es el **.** (como en inglés, así que 23,12 debemos escribirlo como 23.12).
+
+Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (23 / 0 no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_).
+
+Podemos usar los operadores artmáticos junto al operador de asignación **=** (+=, -=, *=, /= y %=).
+
+También esmuy útil la función **isNaN(valor)** que nos dice si el valor pasado es un número (false) o no (true).
+
+Podemos forzar la conversión a número con la función **Number(valor)**. Ejemplo `Number("23.12")`devuelve 23.12
+
+También es muy útil el método **.toFixed(num)** que redondea un número a los decimales indicados. Ej.: `23.2376.toFixed(2)` devuelve 23.24
+
+## String
+Las cadenas de texto van entre comillas simples o dobles, es indiferente. Podemos escapar un caràcter con \ (ej. `"Hola \"Mundo\""` devuelve _Hola "Mundo"_).
+
+Para forzar la conversión a cadena e usa la función **String(valor)** (ej. `String(23)` devuelve '23')
+
+El operador de concatenación de cadenas es **+**. Ojo porque si pedimos un dato con _prompt_ siempre devuelve una cadena así que si le pedimos la edad al usuario (por ejemplo 20) y se sumamos 10 tendremos 2010 ('20'+10).
+
+Algunos métodos y propiedades de las cadenas son:
+* **.length**: devuelve la longitud de una cadena. Ej.: `'Hola mundo'.length` devuelve 10
+* **.charAt(posición)**: `'Hola mundo'.charAt(0)` devuelve "H"
+* **.indexOf(carácter)**: `'Hola mundo'.indexOf('o')` devuelve 1. Si no se encuentra devuelve -1
+* **.lastIndexOf(carácter)**: `'Hola mundo'.lastIndexOf('o')` devuelve 9
+* **.substring(desde, hasta)**: `'Hola mundo'.substring(2,4)` devuelve "la"
+* **.substr(desde, num caracteres)**: `'Hola mundo'.substr(2,4)` devuelve "la m"
+* **.replace(busco, reemplaza)**: `'Hola mundo'.replace('Hola', 'Adiós')` devuelve "Adiós mundo"
+* **.toLocaleLowerCase()**: `'Hola mundo'.toLocaleLowerCase()` devuelve "hola mundo" (.toLowerCase no funciona con ñ, á, ç, ...)
+* **.toLocaleUpperCase()**: `'Hola mundo'.toLocaleUpperCase()` devuelve "HOLA MUNDO"
+* **.trim(cadena)**: `'   Hola mundo   '.trim()` devuelve "Hola mundo"
+* **.startsWith(cadena)**: `'Hola mundo'.startsWith('Hol')` devuelve _true_
+* **.endsWith(cadena)**: `'Hola mundo'.endsWith('Hol')` devuelve _false_
+* **.includes(cadena)**: `'Hola mundo'.includes('mun')` devuelve _true_
+* **.repeat(veces)**: `'Hola mundo'.repeat(3)` devuelve "Hola mundoHola mundoHola mundo"
+
+### Template literals
+Desde ES2015 también podemos poner una cadena entre \` (acento grave) y en ese caso podemos poner dentro variables y expresiones que serán evaluadas al ponerlas dentro de **${}**. También se respetan los saltos de línea, tabuladores, etc que haya dentro. Ejemplo:
+```[javascript]
+let edad=25;
+
+console.log(\`El usuario tiene:
+${edad} años\`) 
+```
+Mostrará en la consola:
+> El usuario tiene:
+> 25 años
+
+## Boolean
+Los valores booleanos son **true** y **false**. Para convertir algo a booleano se usar **Boolean(valor)** aunque también puede hacerse con la doble negación (**!!**). Cualquier valor se evaluará a _true_ excepto 0, NaN, null, undefined o una cadena vacía ('') que se evaluarán a _false_.
+
+Los operadores lógicos son ! (negación), && (and), || (or).
+
+Para comparar valores tenemos **==** y **===**. La triple igualdad devuelve _true_ si son igual valor y del mismo tipo. Como Javascript hace conversiones de tipos automáticas conviene usar la **===** para evitar cosas como:
+* `'3'==3` true
+* `0==false` true
+* `''==false` true
+* `null==false` false
+* `undefined==false` false
+* `undefined==null` true
+
+También tenemos 2 operadores de _diferente_: **!=** y **!==** que se comportan como hemos dicho antes.
+
+Los operadores relacionales son >, >=, <, <=. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23>'5'` devuelve _true_, aunque `'23'>'5'` devuelve _false_)  
+
+## Arrays
