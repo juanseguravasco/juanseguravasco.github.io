@@ -260,7 +260,7 @@ Además comentar que en Javascript todo son ojetos por lo que todo tiene método
 ## Number
 Sólo hay 1 tipo de números, no existen enteros y decimales. El tipo de dato para cualquier número es **number**. EL carácter para la coma decimal es el **.** (como en inglés, así que 23,12 debemos escribirlo como 23.12).
 
-Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (23 / 0 no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_).
+Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (`23 / 0` no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_).
 
 Podemos usar los operadores artmáticos junto al operador de asignación **=** (+=, -=, *=, /= y %=).
 
@@ -303,6 +303,7 @@ ${edad} años\`)
 ```
 Mostrará en la consola:
 > El usuario tiene:
+
 > 25 años
 
 ## Boolean
