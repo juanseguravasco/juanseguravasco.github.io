@@ -33,7 +33,7 @@ Se trata de varios checkbox pero cuyos valores se guardan en el mismo campo, que
 ```
 Si tenemos marcadas las casillas 1 y 3 el valor de _user.ciclos_ será \['smx', 'dam'].
 
-**Generar los checkbox automáticamente**
+#### Generar los checkbox automáticamente
 Muchas veces las opciones a mostrar las tendremos en algún objeto (una tabla de la BBDD, ...). En ese caso podemos generar automáticamente un checkbox para cada elemento:
 ```[javascript]
 ciclos: [
@@ -69,7 +69,7 @@ También podemos generar las opciones automáticamente:
   </option>
 </select>
 ```
-Si queremos que sea un select múltiple sólo tenemos que ponerle el atributo _multiple_ a la etiqueta _<select>_ y hacer que la variable _user.tutor_ sea un array, que se comportará como en los checkbox múltiples.
+Si queremos que sea un select múltiple sólo tenemos que ponerle el atributo _multiple_ a la etiqueta _\<select>_ y hacer que la variable _user.tutor_ sea un array, que se comportará como en los checkbox múltiples.
   
 ### Ejemplo
 <script async src="//jsfiddle.net/juansegura/09f59xqe/embed/"></script>
