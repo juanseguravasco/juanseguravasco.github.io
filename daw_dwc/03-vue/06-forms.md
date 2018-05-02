@@ -87,3 +87,64 @@ Podemos validar el formulario "a mano" como hemos visto en JS:
 <script async src="//jsfiddle.net/juansegura/qmg5btx2/embed/"></script>
 
 Además deberíamos poner clase de error a los inputs con errores para destacarlos, poner el cursor en el primer input erróneo, etc.
+
+Todo esto es incómodo y poco productivo. Para mejorarlo podemos usar una de las muchísimas librerías para validación de formularios como:
+* [VeeValidate](http://vee-validate.logaretm.com/)
+* [vuelidate](https://github.com/monterail/vuelidate)
+* [VueFormGenerator](https://github.com/vue-generators/vue-form-generator)
+* ...
+
+## Ejemplo con VeeValidate
+VeeValidate es una librería que permite validar formularios simplemente añadiendo a los inputs la directiva **v-validate**. 
+
+Genera el objeto **Errors** donde se almacenan las validaciones que hemos definido y que tiene métodos como:
+* errors.nay(): si queda alguna validación pendiente
+* errors.has('name'): si el input 'name' tiene validaciones fallidas
+* errors.first('name'): primer mensaje de error asociado al input 'name'
+* ...
+
+### Instalación
+Como esta librería vamos a usarla en producción la instalaremos como dependencia del proyecto:
+```[bash]
+npm install vee-validate -S
+```
+La importaremos en el fichero principal de nuestra aplicación, _main.js_ y la declaramos:
+```[vue]
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate)
+```
+
+También es posible usarla directamente desde un CDN:
+```[javascript]
+<script src="https://unpkg.com/vee-validate@latest"></script>
+<script>
+  Vue.use(VeeValidate);
+</script>
+```
+
+### Uso de VeeValidate
+Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input:
+```[html]
+<input v-validate="'required|email'" name="email" type="text">
+<span>{{ errors.first('email') }}</span>
+```
+Estamos indicando que debe cumplir las validaciones _required_ (no puede estar vacío) y _email_ (debe parecer un e-mail). También puede ponerse en formato de objeto:
+```[html]
+<input v-validate="{required: true, email: true}" name="email" type="text">
+```
+En la documentación de la librería podemos consultar las diferentes [reglas de validación](https://baianat.github.io/vee-validate/guide/rules.html) (hay más de 30). Algunas de las más comunes son:
+* _required_: no puede estar vacío ni valer _undefined_ o _null_
+* tipos de datos: _alpha_ (sólo caracteres alfanuméricos), _alpha_num_ (alfanuméricos o números), _numeric_, _integer_, _decimal_ (se especifica cuántos decimales), _email_, _url_, _date\_format_ (se especifica el formato), _ip_, ...
+* _min_:4 (longitud mínima 4), _max_:50, _min_value_:18 (debe ser un nº >= 18), _max_value_:65, _between_:18:65, _date\_detween_, _in_:1,2,3, _not\_in:1,2,3, ...
+* _is_ compara un campo con otro:
+```[html]
+<input v-validate="{ is: confirmation }" type="text" name="password">
+<input v-model="confirmation" type="text" name="password_confirmation">
+```
+* ficheros: _mimes_, _image_, _size_
+
+Además podemos construir nuestros propios validadores personalizados.
+
+
+* regex: debe concordar con la expresión regular pasada
