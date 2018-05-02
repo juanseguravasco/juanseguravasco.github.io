@@ -1,5 +1,10 @@
 # Introducción
-Para poder tener sincronizado el formulario con nuestros datos utilizamos la directiva **v-model** en cada campo. Vamos a ver cómo usar los diferentes tipos de campos con Vue.
+Para poder tener sincronizado el formulario con nuestros datos utilizamos la directiva **v-model** en cada campo. Algunos modificadores útiles de _v-model_ son:
+* **.lazy**: hace que _v-model_ sincronice al producirse el evento _change_ en vez del _input_, es decir, que no sincroniza con cada tecla que pulsemos sino cuando acabamos de escribir y salimos del input.
+* **.number**: convierte automáticamente el valor introducido (que se considera siempre String) a Number
+* **.trim**: realiza un trim() sobre el texto introducido
+
+Vamos a ver cómo usar los diferentes tipos de campos con Vue.
 
 ## Enlazar diferentes inputs
 ### input normal
@@ -77,3 +82,8 @@ Si queremos que sea un select múltiple sólo tenemos que ponerle el atributo _m
 ## Inputs en subcomponentes
 
 # Validar formularios
+Podemos validar el formulario "a mano" como hemos visto en JS:
+
+<script async src="//jsfiddle.net/juansegura/qmg5btx2/embed/"></script>
+
+Además deberíamos poner clase de error a los inputs con errores para destacarlos, poner el cursor en el primer input erróneo, etc.
