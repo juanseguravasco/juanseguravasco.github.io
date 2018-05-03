@@ -7,7 +7,7 @@ En definitiva nuestra aplicación será como un árbol de componentes con la ins
 ## Registrar un componente
 Para registrarlo debemos darle un nombre y definir el objeto con sus _data_, _methods_, _template_ (el código HTML que se insertará donde pongamos el componente), etc. Lo hacemos en nuestro fichero JS:
 ```[javascript]
-Vue.component('todo-item, {
+Vue.component('todo-item', {
   template: '<li>Cosa a hacer</li>'
 })
 ```
@@ -41,7 +41,7 @@ Podemos pasar parámetros a un componente anñadiendo atributos a su etiqueta:
 ```
 El parámetro lo recibimos en el componente en _props_:
 ```[javascript]
-Vue.component('todo-item, {
+Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.title }}</li>'
 })
@@ -84,13 +84,13 @@ El template de un componente debe tener un único elemento raíz por lo que, si 
 
 ```[javascript]
 // MAL
-Vue.component('my-comp, {
+Vue.component('my-comp', {
   template: '<input id="query">
              <button id="search">Buscar</button>',
 })
 
 // BIEN
-Vue.component('my-comp, {
+Vue.component('my-comp', {
   template: '<div>
                <input id="query">
                <button id="search">Buscar</button>
@@ -103,7 +103,7 @@ Un componente puede tener sus propios métodos y datos pero estos últimos no pu
 
 ```[javascript]
 // MAL
-Vue.component('my-comp, {
+Vue.component('my-comp', {
   data: {
     message: 'Hello',
     counter: 0
@@ -113,7 +113,7 @@ Vue.component('my-comp, {
 
 ```[javascript]
 // BIEN
-Vue.component('my-comp, {
+Vue.component('my-comp', {
   data(): {
     return {
       message: 'Hello',
