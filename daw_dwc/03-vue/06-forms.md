@@ -1,4 +1,4 @@
-# Introducción
+# Formularios en Vue
 Para poder tener sincronizado el formulario con nuestros datos utilizamos la directiva **v-model** en cada campo. Algunos modificadores útiles de _v-model_ son:
 * **.lazy**: hace que _v-model_ sincronice al producirse el evento _change_ en vez del _input_, es decir, que no sincroniza con cada tecla que pulsemos sino cuando acabamos de escribir y salimos del input.
 * **.number**: convierte automáticamente el valor introducido (que se considera siempre String) a Number
@@ -150,6 +150,36 @@ Vamos a ver cómo se validaría el formulario anterior con esta librería:
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/embed/"></script>
 
 ### Personalizar el validador
-Además podemos construir nuestros propios validadores personalizados.
+Para acabar el ejemplo nos falta validar que deba seleccionar entre 1 y 3 ciclos. Además deberíamos personalizar los mensajes de error (por defecto en inglés). 
 
+Para validar los ciclos vamos a construir nuestro propio validador personalizado. Le llamaremos **arraylength**:
+```[html]
+      <div v-for="ciclo in ciclos" :key="ciclo.cod">
+        <input v-validate="'arraylenght:1-3'" name="ciclos" type="checkbox" v-model="user.ciclos" :value="ciclo.cod">{{ ciclo.desc }}<br>
+      </div>
+```
+Al validador le va a llegar como parámetro lo que yoescriba tras el carácter '**:**', en este caso _1-3_.
 
+Ahora construimos nuestro validador personalizado:
+```[javascript]
+import { Validator } from 'vee-validate';
+
+Validator.extend('arraylenght', {
+  getMessage(field, args) {
+    // will be added to default locale messages.
+    // Returns a message.
+    let limits=args[0].split('-');
+    return('Debes marcar entre '+limits[0]+' y '+limits[1]+' '+field);
+  },
+  validate(value, args) {
+    // Returns a Boolean or a Promise that resolves to a boolean.
+    let limits=args[0].split('-');
+    return (value.length>=limits[0] && value.length<=limits[1]);
+  }
+});
+```
+Debe tener un nombre (_arraylenght_) y 2 métodos:
+* _getMessage_: recibe el nombre del campo (_field_) y una cadena con el parámetro pasado (_args_) y devuelve una cadena que será lo que se añadirá a los errores si el campo no es válido
+* _validatee_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
+
+Ahora falta personalizar el resto de mensajes del validador.
