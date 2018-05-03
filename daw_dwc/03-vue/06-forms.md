@@ -145,6 +145,11 @@ En la documentación de la librería podemos consultar las diferentes [reglas de
 
 ### Ejemplo
 Vamos a ver cómo se validaría el formulario anterior con esta librería:
+* nombre: `<input v-validate="'required|min:5|max:50'" name="nombre" ...`
+* e-mail: `<input v-validate="'required|email'" name="email" ...`
+* sexo: `<input type="radio" v-validate="'required|in:H,M'" value="H" name="sexo" ...`
+* acepto: `<input v-validate="'required'" name="acepto" type="checkbox" ...`
+
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/embed/"></script>
 
 ### Personalizar el validador
@@ -198,14 +203,41 @@ const dictionary = {
 Validator.localize(dictionary)  // añadimos nuestro diccionario
 Validator.localize('es');       // indicamos el idioma de los mensajes
 ```
-Ejemplo:
+Código: 
 
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/4/embed/"></script>
+
+### Validación final
+Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
+* establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
+```[thml]
+<form @submit.prevent="checkForm">
+```
+* la función le dice a la librería que valide todo llamando al método **validateAll()**. Este método devuelve una promesa (asíncrona, como una petición Ajax) cuyo resultado será _true_ si el formulario és válido o _false_ si no lo es:
+```[javascript]
+checkForm() {
+  this.$validator.validateAll()
+    .then(result=>{
+      if (result) {
+        // Todo correcto.Procedo al envío
+      } else {
+        // Hay errores
+      }
+    })
+    .catch(result=>console.error(result))
+},
+```
+
+Código:
+
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/6/embed/"></script>
 
 # Inputs en subcomponentes
 La forma enlazar cada input con su variable correspondiente es mediante la directiva _v-model_ que hace un enlace bidireccional: al cambiar la variable Vue cambia el valor del input y si el usuario cambia el input Vue actualiza la variable automáticamente.
 
-El problema lo tenemos si hacemos que los inputs estén en subcomponentes:
+El problema lo tenemos si hacemos que los inputs estén en subcomponentes. Si ponemos allí el _v-model_ al escribir en el _input_ se modifica el valor de la variable en el subcomponente (que es donde está el _v-model_) pero no en el padre. Para modificarla en el padre hay que emitir un evento desde el subcomponente que escuche el padre y que proceda a hacer el cambio en la variable.
+
+:
 ```[html]
 
 ```[javascript]
