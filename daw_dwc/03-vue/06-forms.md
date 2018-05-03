@@ -94,7 +94,7 @@ Todo esto es incómodo y poco productivo. Para mejorarlo podemos usar una de las
 * [VueFormGenerator](https://github.com/vue-generators/vue-form-generator)
 * ...
 
-## Ejemplo con VeeValidate
+## Validar con VeeValidate
 VeeValidate es una librería que permite validar formularios simplemente añadiendo a los inputs la directiva **v-validate**. 
 
 Genera el objeto **Errors** donde se almacenan las validaciones que hemos definido y que tiene métodos como:
@@ -124,7 +124,7 @@ También es posible usarla directamente desde un CDN:
 ```
 
 ### Uso de VeeValidate
-Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input:
+Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input (el input debe tener un __name__ que es el valor por el que buscamos los errores):
 ```[html]
 <input v-validate="'required|email'" name="email" type="text">
 <span>{{ errors.first('email') }}</span>
@@ -136,6 +136,7 @@ Estamos indicando que debe cumplir las validaciones _required_ (no puede estar v
 En la documentación de la librería podemos consultar las diferentes [reglas de validación](https://baianat.github.io/vee-validate/guide/rules.html) (hay más de 30). Algunas de las más comunes son:
 * _required_: no puede estar vacío ni valer _undefined_ o _null_
 * tipos de datos: _alpha_ (sólo caracteres alfanuméricos), _alpha_num_ (alfanuméricos o números), _numeric_, _integer_, _decimal_ (se especifica cuántos decimales), _email_, _url_, _date\_format_ (se especifica el formato), _ip_, ...
+* _regex_: debe concordar con la expresión regular pasada
 * _min_:4 (longitud mínima 4), _max_:50, _min_value_:18 (debe ser un nº >= 18), _max_value_:65, _between_:18:65, _date\_detween_, _in_:1,2,3, _not\_in:1,2,3, ...
 * _is_ compara un campo con otro:
 ```[html]
@@ -144,7 +145,11 @@ En la documentación de la librería podemos consultar las diferentes [reglas de
 ```
 * ficheros: _mimes_, _image_, _size_
 
+### Ejemplo
+Vamos a ver cómo se validaría el formulario anterior con esta librería:
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/embed/"></script>
+
+### Personalizar el validador
 Además podemos construir nuestros propios validadores personalizados.
 
 
-* regex: debe concordar con la expresión regular pasada
