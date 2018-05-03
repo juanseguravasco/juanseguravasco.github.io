@@ -237,8 +237,26 @@ La forma enlazar cada input con su variable correspondiente es mediante la direc
 
 El problema lo tenemos si hacemos que los inputs estén en subcomponentes. Si ponemos allí el _v-model_ al escribir en el _input_ se modifica el valor de la variable en el subcomponente (que es donde está el _v-model_) pero no en el padre. Para modificarla en el padre hay que emitir un evento desde el subcomponente que escuche el padre y que proceda a hacer el cambio en la variable.
 
-:
+La solución es imitar lo que hace un _v-model_ que en realidad está formado por:
+* un _v-bind_ para mostrar el vlor inicial en el input
+* un _v-on:input que se encarga de avisar para que se modifique la variable al cambiar el valor del _input_
+
+Así que lo que haremos es:
+* en el componente del formulario ponemos un _v-model_ que se encargue de actualizar la variable
 ```[html]
-
+<form-input v-model=”campo”></form-input> 
+```
+* en el subcomponente del inpit ponemos 
+  * un _v-bind_ que muestre el valor inicial
+  * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
+```[html]
+<input ref="input" :value="value" v-on:input="updateValue($event.target.value)">
+```
 ```[javascript]
-
+props: ['value'],
+methods: {
+    updateValue(value) {
+        this.$emit('input', value)
+    }
+}
+```
