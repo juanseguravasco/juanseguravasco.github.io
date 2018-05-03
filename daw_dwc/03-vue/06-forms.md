@@ -79,8 +79,6 @@ Si queremos que sea un select múltiple sólo tenemos que ponerle el atributo _m
 ### Ejemplo
 <script async src="//jsfiddle.net/juansegura/09f59xqe/embed/"></script>
 
-## Inputs en subcomponentes
-
 # Validar formularios
 Podemos validar el formulario "a mano" como hemos visto en JS:
 
@@ -200,3 +198,15 @@ const dictionary = {
 Validator.localize(dictionary)  // añadimos nuestro diccionario
 Validator.localize('es');       // indicamos el idioma de los mensajes
 ```
+Ejemplo:
+
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/4/embed/"></script>
+
+# Inputs en subcomponentes
+La forma enlazar cada input con su variable correspondiente es mediante la directiva _v-model_ que hace un enlace bidireccional: al cambiar la variable Vue cambia el valor del input y si el usuario cambia el input Vue actualiza la variable automáticamente.
+
+El problema lo tenemos si hacemos que los inputs estén en subcomponentes:
+```[html]
+
+```[javascript]
+
