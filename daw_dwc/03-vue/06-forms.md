@@ -196,6 +196,7 @@ const dictionary = {
     }
   }
 };
-Validator.localize(dictionary)
-Validator.localize('es');
+
+Validator.localize(dictionary)  // añadimos nuestro diccionario
+Validator.localize('es');       // indicamos el idioma de los mensajes
 ```
