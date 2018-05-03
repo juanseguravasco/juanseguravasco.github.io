@@ -182,4 +182,20 @@ Debe tener un nombre (_arraylenght_) y 2 métodos:
 * _getMessage_: recibe el nombre del campo (_field_) y una cadena con el parámetro pasado (_args_) y devuelve una cadena que será lo que se añadirá a los errores si el campo no es válido
 * _validatee_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
 
-Ahora falta personalizar el resto de mensajes del validador.
+Ahora falta personalizar el resto de mensajes del validador. Para ello construimos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadimos al diccionario de la librería. El idioma por defecto de los mensajes es el inglés por lo que si personalizamos los mensajes para otro idioma hemos de indicar el idioma que queremos usar (los mensajes no personalizados aparecerán en inglés):
+```[javascript]
+const dictionary = {
+  es: {
+    messages:{
+      required: (field, args) => 'El campo '+field+' es obligatorio'
+    }
+  },
+  ca: {
+    messages: {
+      required: (field, args) => 'El camp '+field+' és obligatori'
+    }
+  }
+};
+Validator.localize(dictionary)
+Validator.localize('es');
+```
