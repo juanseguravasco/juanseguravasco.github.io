@@ -275,7 +275,7 @@ methods: {
 }
 ```
 
-## Ejemplo
+### Ejemplo
 **Componente padre: formulario**
 ```[html]
 	<form class="form-horizontal">
@@ -312,3 +312,26 @@ export default {
 }
 </script>
 ```
+
+## _slots_
+Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
+* HTML que llama al componente:
+```[html]
+<navigation-link url="/profile">
+  Your Profile
+</navigation-link>
+```
+* \<template> del componente:
+```[html]
+<a  v-bind:href="url"  class="nav-link">
+  <slot></slot>
+</a>
+```
+Al renderizar el componente el resultado será:
+> ```[html]
+> <a  v-bind:href="url"  class="nav-link">
+>   Your Profile
+> </a>
+```
+
+Esto 
