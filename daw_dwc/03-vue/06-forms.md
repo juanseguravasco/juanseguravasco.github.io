@@ -235,7 +235,12 @@ Código:
 # Inputs en subcomponentes
 La forma enlazar cada input con su variable correspondiente es mediante la directiva _v-model_ que hace un enlace bidireccional: al cambiar la variable Vue cambia el valor del input y si el usuario cambia el input Vue actualiza la variable automáticamente.
 
-El problema lo tenemos si hacemos que los inputs estén en subcomponentes. Si ponemos allí el _v-model_ al escribir en el _input_ se modifica el valor de la variable en el subcomponente (que es donde está el _v-model_) pero no en el padre. Para modificarla en el padre hay que emitir un evento desde el subcomponente que escuche el padre y que proceda a hacer el cambio en la variable.
+El problema lo tenemos si hacemos que los inputs estén en subcomponentes. Si ponemos allí el _v-model_ al escribir en el _input_ se modifica el valor de la variable en el subcomponente (que es donde está el _v-model_) pero no en el padre. 
+
+Para solucionar este problema tenemos 2 opciones: imitar nosotros en el subcomponente lo que hace _v-model_ o utilizar _slots_.
+
+## _v-model_ en subcomponente input
+Como los cambios en el subcomponente no se transmiten al componente padre hay que emitir un evento desde el subcomponente que escuche el padre y que proceda a hacer el cambio en la variable.
 
 La solución es imitar lo que hace un _v-model_ que en realidad está formado por:
 * un _v-bind_ para mostrar el vlor inicial en el input
@@ -251,7 +256,16 @@ Así que lo que haremos es:
   * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
 ```[html]
 <input ref="input" :value="value" v-on:input="updateValue($event.target.value)">
-```
+```<template>
+	<div class="control-group">
+	  <!-- id -->
+	  <label class="control-label" :for="nombre">{{ titulo }}</label>
+	  <div class="controls">
+	  	<input :value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+	  </div>
+	</div>	
+</template>
+
 ```[javascript]
 props: ['value'],
 methods: {
@@ -259,4 +273,42 @@ methods: {
         this.$emit('input', value)
     }
 }
+```
+
+## Ejemplo
+**Componente padre: formulario**
+```[html]
+	<form class="form-horizontal">
+	    <form-input v-model="user.id" titulo="Id" nombre="id"></form-input>
+  		<form-input v-model="user.name" titulo="Nombre" nombre="name"></form-input>
+ 	    <form-input v-model="user.username" titulo="Username" nombre="username"></form-input>
+ 	    <form-input v-model="user.email" titulo="E-mail" nombre="email"></form-input>
+ 	    <form-input v-model="user.phone" titulo="Teléfono" nombre="phone"></form-input>
+ 	    <form-input v-model="user.website" titulo="URL" nombre="website"></form-input>
+ 	    <form-input v-model="user.company.name" titulo="Nombre" nombre="nomEmpresa"></form-input>
+	</form>
+```
+
+**Subcomponente: form-input**
+```[vue]
+<template>
+	<div class="control-group">
+	  <label class="control-label" :for="nombre">{{ titulo }}</label>
+	  <div class="controls">
+	  	<input v-bind:value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+	  </div>
+	</div>	
+</template>
+
+<script>
+export default {
+		name: 'user-form-input',
+		props: ['value', 'titulo', 'nombre'],
+		methods: {
+			updateValue(value) {
+				this.$emit('input', value)
+			}
+		}
+}
+</script>
 ```
