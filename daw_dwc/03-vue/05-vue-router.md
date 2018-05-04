@@ -1,4 +1,4 @@
-# Introducción
+# Vue-router
 Es otra de las librerías del "ecosistema" de Vue más utilizadas ya que la necesitamos para hacer SPA (_Single Page Applications_).
 
 Lo que haremos es _mapear_ componentes de nuestra aplicación a rutas URL de forma que cuando se pone determinada ruta en el navegador se carga en la página el componente indicado. También permite tener subrutas que mapeen subcomponentes dentro de otros.
