@@ -1,4 +1,4 @@
-# Introducción
+# Single File Components
 Declarar los componentes como hemos visto con `Vue.component()` en el fichero JS de la instancia genera varios problemas:
 * Los nombres de los componentes deben ser únicos
 * El HTML del template está en ese fichero en medio del JS lo que lo hace menos legible y el editor no lo resalta adecuadamente (ya que espera encontrar códgo JS no HTML)
