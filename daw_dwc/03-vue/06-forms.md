@@ -278,15 +278,15 @@ methods: {
 ### Ejemplo
 **Componente padre: formulario**
 ```[html]
-	<form class="form-horizontal">
-	    <form-input v-model="user.id" titulo="Id" nombre="id"></form-input>
-  		<form-input v-model="user.name" titulo="Nombre" nombre="name"></form-input>
- 	    <form-input v-model="user.username" titulo="Username" nombre="username"></form-input>
- 	    <form-input v-model="user.email" titulo="E-mail" nombre="email"></form-input>
- 	    <form-input v-model="user.phone" titulo="Teléfono" nombre="phone"></form-input>
- 	    <form-input v-model="user.website" titulo="URL" nombre="website"></form-input>
- 	    <form-input v-model="user.company.name" titulo="Nombre" nombre="nomEmpresa"></form-input>
-	</form>
+    <form class="form-horizontal">
+	<form-input v-model="user.id" titulo="Id" nombre="id"></form-input>
+	<form-input v-model="user.name" titulo="Nombre" nombre="name"></form-input>
+ 	<form-input v-model="user.username" titulo="Username" nombre="username"></form-input>
+ 	<form-input v-model="user.email" titulo="E-mail" nombre="email"></form-input>
+ 	<form-input v-model="user.phone" titulo="Teléfono" nombre="phone"></form-input>
+ 	<form-input v-model="user.website" titulo="URL" nombre="website"></form-input>
+ 	<form-input v-model="user.companyName" titulo="Nombre de la empresa" nombre="nomEmpresa"></form-input>
+    </form>
 ```
 
 **Subcomponente: form-input**
@@ -324,14 +324,121 @@ Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo
 * \<template> del componente:
 ```[html]
 <a  v-bind:href="url"  class="nav-link">
-  <slot></slot>
+  <slot>Contenido por defecto</slot>
 </a>
 ```
 Al renderizar el componente el resultado será:
-> ```[html]
+```[html]
 > <a  v-bind:href="url"  class="nav-link">
 >   Your Profile
 > </a>
 ```
+Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
+```[html]
+> <a  v-bind:href="url"  class="nav-link">
+>   Contenido por defecto
+> </a>
+```
 
-Esto 
+Esto podemos usarlo en los formularios de forma que el <input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
+
+### Ejemplo
+**Componente padre: formulario**
+```[html]
+    <form class="form-horizontal">
+	<form-input titulo="Id">
+            <input v-model="user.id" type="text" id="id" name="id" class="form-control" disabled>
+	</form-input>
+	<form-input titulo="Nombre">
+	    <input v-model="user.name" type="text" id="name" name="name" class="form-control">
+	</form-input>
+ 	<form-input titulo="Username">
+	    <input v-model="user.username" type="text" id="username" name="username" class="form-control">
+	</form-input>
+ 	<form-input titulo="E-mail">
+            <input v-model="user.email" type="email" id="email" name="email" class="form-control">
+	</form-input>
+ 	<form-input titulo="Teléfono">
+            <input v-model="user.phone" type="text" id="phone" name="phone" class="form-control">
+	</form-input>
+ 	<form-input titulo="URL">
+	    <input v-model="user.website" type="text" id="website" name="website" class="form-control">
+	</form-input>
+ 	<form-input titulo="Nombre de la empresa">
+	    <input v-model="user.companyName" type="text" id="nomEmpresa" name="nomEmpresa" class="form-control">
+	</form-input>
+    </form>
+```
+
+**Subcomponente: form-input**
+```[vue]
+<template>
+    <div class="control-group">
+    <label class="control-label">{{ titulo }}</label>
+        <div class="controls">
+	    <slot>Aquí va un INPUT</slot>
+        </div>
+    </div>	
+</template>
+
+<script>
+export default {
+		name: 'user-form-input',
+		props: ['value', 'titulo', 'nombre'],
+		methods: {
+			updateValue(value) {
+				this.$emit('input', value)
+			}
+		}
+}
+</script>
+```
+
+### _Slots_ con nombre
+A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
+
+Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
+```[html]
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+```
+A la hora de llamar al componente hacemos:
+```[html]
+<base-layout>
+  <template slot="header">
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <template slot="footer">
+    <p>Here's some contact info</p>
+  </template>
+</base-layout>
+```
+Lo que está dentro de un _template slot_ con nombre irá al_slot_ con ese nombre y el resto irá al _slot_ por defecto (el que no tiene nombre).
+
+También podemos usar el stributo _slot_ directamente en cada elemento;
+```[html]
+<base-layout>
+  <h1 slot="header">Here might be a page title</h1>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <p slot="footer">Here's some contact info</p>
+</base-layout>
+```
+### Scoped slot
+
+
