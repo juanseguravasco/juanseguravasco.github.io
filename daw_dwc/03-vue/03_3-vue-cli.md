@@ -1,4 +1,4 @@
-# Introducción
+# Vue-cli
 Se trata de una herramienta que incluye Vue que nos ayuda en:
 * Crea automáticamente el _scaffolding_ básico de nuestro proyecto basándose en una serie de plantillas perdefinidas
 * Incluye herramientas como Webpack, Babel, Uglify, ... que permiten
@@ -9,9 +9,17 @@ Se trata de una herramienta que incluye Vue que nos ayuda en:
 * Incluye herramientas que facilitan el desarrollo
 
 ## Instalación
-Para usar **vue-cli** necesitamos tener instalado **npm** (el gestor de paquetes de Node.js).
+Para usar **vue-cli** necesitamos tener instalado **npm** (el gestor de paquetes de Node.js). Si no lo tenemos instalaremos **node.js** de una de las siguientes maneras:
+* Si nuestra dsitribución es muy actual podemos instalarlo desde los repositorios como cualquier otro programa (`apt install nodejs`)
+* Podemos [descargarlo desde NodeJS.org](https://nodejs.org/es/download/), descomprimir el paquete e instalarlo (`dpkg -i _nombrepaquete_`)
+O bien [instalarlo desde _NodeSource](https://nodejs.org/es/download/package-manager/#distribuciones-de-linux-basadas-en-debian-y-ubuntu)_ con
+```[bash]
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+(cambiaremos _10.x_ por la versión que queramos)
 
-Se instala con
+Una vez instalado **npm** Vue-cli se instala con
 ```[bash]
 npm install vue-cli -g
 ```
