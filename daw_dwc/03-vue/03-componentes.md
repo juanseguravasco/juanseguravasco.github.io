@@ -1,5 +1,5 @@
 # Componentes
-El sistema de componentes es un comcepto importante en Vue. Nuestras aplicaciones estarán compuestas de pequeños componentes reusables.
+El sistema de componentes es un comcepto importante en Vue. Nuestras aplicaciones estarán compuestas de pequeños componentes independiantes y reusables en diferentes partes de nuestra aplicación o en otras aplicaciones. También es habitual que un componente contenga otros subcomponentes (estableciéndose realciones padre-hijo).
 
 En definitiva nuestra aplicación será como un árbol de componentes con la instancia principal de Vue como raíz.
 ![Árbol de componentes](https://vuejs.org/images/components.png)
