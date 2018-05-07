@@ -59,6 +59,14 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
     * Focused (para Mac)
     * ...
     
+### Utilidades
+Aquí aparecen varias utilidades o cosas que podemos usar e MD.
+
+#### Usar emoticones
+Se pone su 'nombre' entre caracteres :, fácil ¿no? : :blush:
+
+Hay muchas [páginas](https://gist.github.com/rxaviers/7360908) donde aparecen los nombres de los emoticonos.
+
 ## Leer más
 [Wikipedia](https://es.wikipedia.org/wiki/Markdown)
 
