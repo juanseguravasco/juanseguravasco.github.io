@@ -84,7 +84,7 @@ var miApp = new Vue({
   }
 })
 ```
-### Enlace unidireccional: {{...}}
+### Enlace unidireccional: interpolación {{...}}
 Hemos creado una variable _miApp_ que contiene nuestro objeto Vue y que podemos ver y manipular desde la consola. Si cambiamos el valor de la variable _message_
 ```[Javascript]
 miApp.message = "Hola Vue2!";
