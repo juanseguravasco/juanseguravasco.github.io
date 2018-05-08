@@ -4,6 +4,7 @@ Además de lo que hay abajo:
 * Vue-laravel
 * Vuex
 * 
+y poner más ejempls y ejerciccios de todo
 
 # Usar Bootstrap
 Se puede vincular el CSS directamente en index.html
