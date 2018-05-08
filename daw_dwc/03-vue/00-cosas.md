@@ -1,3 +1,10 @@
+# Falta por hacer
+Además de lo que hay abajo:
+* validar formularios con subcomponentes con veeValidator
+* Vue-laravel
+* Vuex
+* 
+
 # Usar Bootstrap
 Se puede vincular el CSS directamente en index.html
 o
