@@ -20,7 +20,14 @@ Esta directiva repite el elemento HTML en que se encuentra una vez por cada elem
 <script async src="//jsfiddle.net/juansegura/o6bj81s3/embed/js,html,result/"></script>
 
 La directiva v-for recorre el array _todos_ y para cada elemento del array crea una etiqueta \<li> y carga dicho elemento en la variable _elem_ a la que podemos acceder dentro del \<li>. 
-  
+
+Además del elemento nos puede devolver su índice en el array: `v-for="(elem,index) in todos" ...`.
+
+Vue es más eficiente a la hora de renderizar si cada elemento que crea *v-for* tiene su propia clave, lo que se consigue con el atributo *key*. Podemos indicar como clave algún campo del elemento o el índice:
+```[html]
+\<... v-for="(elem,index) in todos" :key="index" ...>
+```
+
 ## Eventos: v-on
 Esta directiva captura un evento y ejecuta un método como respuesta al mismo.
 
