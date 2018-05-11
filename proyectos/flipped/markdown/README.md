@@ -66,8 +66,8 @@ Ejemplo **escribes**:
 
 **Escribes**:
 > \* Item 1  
-> &ndsp;&ndsp;&ndsp;&ndsp; \* Item 1.1  
-> &ndsp;&ndsp;&ndsp;&ndsp; \* Item 1.2  
+> &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.1  
+> &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.2  
 > \* Item 2
 
 **Obtienes**:
@@ -80,15 +80,15 @@ Ejemplo **escribes**:
 
 **Escribes**:
 > 1. Item 1  
-> &ndsp;&ndsp;&ndsp;&ndsp; 1. Item 1.1  
-> &ndsp;&ndsp;&ndsp;&ndsp; 1. Item 1.2  
+> &nbsp;&nbsp;&nbsp;&nbsp; 1. Item 1.1  
+> &nbsp;&nbsp;&nbsp;&nbsp; 1. Item 1.2  
 > 1. Item 2
 
-> **Obtienes**:
->> 1. Item 1
->>     1. Item 1.1
->>     1. Item 1.2
->> 1. Item 2
+**Obtienes**:
+> 1. Item 1
+>     1. Item 1.1
+>     1. Item 1.2
+> 1. Item 2
 
 * enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
 Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
@@ -96,8 +96,8 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 * código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo. Ej.: ``código`` ->  `código`
 
 **Escribes**:
-> \`\`\`\[html]
-> \<h1>Hola\</h1>
+> \`\`\`\[html]  
+> \<h1>Hola\</h1>  
 > \`\`\`\`
 
 **Obtienes**:
@@ -109,24 +109,26 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 * tablas: se separan las columnas con \|
 
 **Escribes**:
-> Encab 1 \| Encab 2
-> \--|--
-> dato 1.1 \| dato 1.2
-> dato 2.1 \| dato 2.2
+> Encab 1 \| Encab 2  
+> \--|--  
+> dato 1.1 \| dato 1.2  
+> dato 2.1 \| dato 2.2  
+> dato 3.1 \| dato 3.2
 
 **Obtienes**:
 > Encab 1 | Encab 2
 > --|--
 > dato 1.1 | dato 1.2
 > dato 2.1 | dato 2.2
+> dato 3.1 | dato 3.2
 
 Podemos incluir código HTML en nuestro documento y también lo interpretará el navegador
 
 **Escribes**:
-> \<p aling="center">Párrafo con \<b>Negrita\</b> y centrado\</p>
+> \<p align="center">Párrafo con \<b>Negrita\</b> y centrado\</p>
 
 **Obtienes**:
-> <p aling="center">Párrafo con <b>Negrita</b> y centrado</p>
+> <p align="center">Párrafo con <b>Negrita</b> y centrado</p>
 
 ### Añadir vídeos
 En principio no se pueden incluir vídeos pero es sencillo hacerlo de varias formas. Una de las más 'limpias' es crear una página HTML (podemos llamarla youtubePlayes.html) dentro del directorio \_includes con el código:
