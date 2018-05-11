@@ -2,14 +2,26 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Documentación en GitHub Pages](#documentaci%C3%B3n-en-github-pages)
+- [Hacer documentación en GitHub Pages](#hacer-documentaci%C3%B3n-en-github-pages)
   - [Markdown](#markdown)
     - [Sintaxis](#sintaxis)
     - [Añadir vídeos](#a%C3%B1adir-v%C3%ADdeos)
     - [Editores](#editores)
     - [Utilidades](#utilidades)
       - [Usar emoticones](#usar-emoticones)
-  - [Leer más](#leer-m%C3%A1s)
+    - [Leer más](#leer-m%C3%A1s)
+- [Publicar en gh-pages](#publicar-en-gh-pages)
+  - [Publicar documentación sobre un repositorio](#publicar-documentaci%C3%B3n-sobre-un-repositorio)
+  - [Publicar documentación no ligada a ningún repositorio](#publicar-documentaci%C3%B3n-no-ligada-a-ning%C3%BAn-repositorio)
+  - [Crear nuestra documentació con Jekyll](#crear-nuestra-documentaci%C3%B3-con-jekyll)
+    - [Instalación](#instalaci%C3%B3n)
+    - [Uso básico](#uso-b%C3%A1sico)
+  - [Leer más](#leer-m%C3%A1s-1)
+- [Crear una Tabla de Contenidos (TOC) automáticamente](#crear-una-tabla-de-contenidos-toc-autom%C3%A1ticamente)
+- [Conversiones de formato](#conversiones-de-formato)
+  - [Convertir de HTML a MD](#convertir-de-html-a-md)
+  - [Convertir PDF a MD](#convertir-pdf-a-md)
+  - [Convertir MD a PDF](#convertir-md-a-pdf)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
