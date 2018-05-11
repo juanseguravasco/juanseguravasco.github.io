@@ -269,7 +269,7 @@ El problema lo tenemos si hacemos que los inputs estén en subcomponentes. Si po
 
 Para solucionar este problema tenemos 2 opciones: imitar nosotros en el subcomponente lo que hace _v-model_ o utilizar _slots_.
 
-## _v-model_ en subcomponente input
+## v-model en subcomponente input
 Como los cambios en el subcomponente no se transmiten al componente padre hay que emitir un evento desde el subcomponente que escuche el padre y que proceda a hacer el cambio en la variable.
 
 La solución es imitar lo que hace un _v-model_ que en realidad está formado por:
@@ -343,7 +343,7 @@ export default {
 </script>
 ```
 
-## _slots_
+## Slots
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
 * HTML que llama al componente:
 ```[html]
@@ -424,7 +424,7 @@ export default {
 </script>
 ```
 
-### _Slots_ con nombre
+### Slots con nombre
 A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
 
 Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
