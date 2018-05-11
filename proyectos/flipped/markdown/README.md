@@ -58,11 +58,29 @@ Un resumen muy básico de las mismas es:
 >> \===
 
 > **Obtienes**:
+
+---
+
 ===
 
+***
+
 * cursiva: texto entre * o _ (sin espacios). Ej. `_cursiva_` -> _cursiva_
-* negrita: igual pero entre 2 * o 2 _
+* negrita: igual pero entre 2 * o 2 _  Ej. `__negrita_` -> __negrita__
 * listas desordenadas: * y espacio al principio de la línea
+
+> **Escribes**:
+>> \* Item 1
+>>   \* Item 1.1
+>>   \* Item 1.2
+>> \* Item 2
+
+> **Obtienes**:
+>> * Item 1
+>>   * Item 1.1
+>>   * Item 1.2
+>> * Item 2
+
 * listas ordenadas: nº, punto y espacio
 * sublistas: igual pero precedidas por 4 espacios en blanco
 * enlaces: \[texto a mostrar](url). Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
