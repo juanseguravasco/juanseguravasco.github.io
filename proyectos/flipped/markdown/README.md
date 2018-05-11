@@ -55,24 +55,20 @@ Un resumen muy básico de las mismas es:
 * regla horizontal: 3 = o - o *
 
 > **Escribes**:
->> \===
+>> \***
 
 > **Obtienes**:
 
----
+>> ***
 
-===
-
-***
-
-* cursiva: texto entre * o _ (sin espacios). Ej. `_cursiva_` -> _cursiva_
-* negrita: igual pero entre 2 * o 2 _  Ej. `__negrita_` -> __negrita__
-* listas desordenadas: * y espacio al principio de la línea
+* cursiva: texto entre * o _ (sin espacios). Ej. `*cursiva*` -> _cursiva_
+* negrita: igual pero entre 2 * o 2 _  Ej. `**negrita**` -> __negrita__
+* listas desordenadas: * y espacio al principio de la línea. Para hacer sublistas tabulamos con 4 espacios en blanco
 
 > **Escribes**:
->> \* Item 1
->>   \* Item 1.1
->>   \* Item 1.2
+>> \* Item 1 
+>>     \* Item 1.1  
+>>     \* Item 1.2  
 >> \* Item 2
 
 > **Obtienes**:
@@ -82,8 +78,20 @@ Un resumen muy básico de las mismas es:
 >> * Item 2
 
 * listas ordenadas: nº, punto y espacio
-* sublistas: igual pero precedidas por 4 espacios en blanco
-* enlaces: \[texto a mostrar](url). Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
+> **Escribes**:
+>> \1. Item 1 
+>>     \1. Item 1.1  
+>>     \1. Item 1.2  
+>> \1. Item 2
+
+> **Obtienes**:
+>> 1.* Item 1
+>>     1. Item 1.1
+>>     1. Item 1.2
+>> 1. Item 2
+
+* enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
+Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
 * imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
 * código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo
 * citas: el párrafo debe comenzar por >
