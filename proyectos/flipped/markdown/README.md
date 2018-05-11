@@ -54,12 +54,11 @@ Un resumen muy básico de las mismas es:
 * nueva línea: 2 espacios seguidos
 * regla horizontal: 3 = o - o *
 
-> **Escribes**:
->> \***
+**Escribes**:
+> \***
 
-> **Obtienes**:
-
->> ***
+**Obtienes**:
+> ***
 
 * cursiva: texto entre * o _ (sin espacios). Ej. `*cursiva*` -> _cursiva_
 * negrita: igual pero entre 2 * o 2 _  Ej. `**negrita**` -> __negrita__
@@ -67,7 +66,7 @@ Un resumen muy básico de las mismas es:
 
 > **Escribes**:
 >> \* Item 1  
->> \ \ \ \ \* Item 1.1  
+>> \    * Item 1.1  
 >> \ \ \ \ \* Item 1.2  
 >> \* Item 2
 
@@ -80,7 +79,7 @@ Un resumen muy básico de las mismas es:
 * listas ordenadas: nº, punto y espacio
 > **Escribes**:
 >> \1. Item 1  
->> \ \ \ \ \1. Item 1.1  
+>> \    \1. Item 1.1  
 >> \ \ \ \ \1. Item 1.2  
 >> \1. Item 2
 
@@ -102,7 +101,7 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 
 > **Obtienes**:
 >> ```[html]
->> \<h1>Hola\</h1>
+>> <h1>Hola</h1>
 >> ```
 
 * citas: el párrafo debe comenzar por > (son todos los ejemplos de _Escribes_ ... _Obtienes_)
