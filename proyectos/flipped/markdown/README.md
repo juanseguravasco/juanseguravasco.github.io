@@ -66,9 +66,9 @@ Un resumen muy básico de las mismas es:
 * listas desordenadas: * y espacio al principio de la línea. Para hacer sublistas tabulamos con 4 espacios en blanco
 
 > **Escribes**:
->> \* Item 1 
->>     \* Item 1.1  
->>     \* Item 1.2  
+>> \* Item 1  
+>> \ \ \ \ \* Item 1.1  
+>> \ \ \ \ \* Item 1.2  
 >> \* Item 2
 
 > **Obtienes**:
@@ -79,13 +79,13 @@ Un resumen muy básico de las mismas es:
 
 * listas ordenadas: nº, punto y espacio
 > **Escribes**:
->> \1. Item 1 
->>     \1. Item 1.1  
->>     \1. Item 1.2  
+>> \1. Item 1  
+>> \ \ \ \ \1. Item 1.1  
+>> \ \ \ \ \1. Item 1.2  
 >> \1. Item 2
 
 > **Obtienes**:
->> 1.* Item 1
+>> 1. Item 1
 >>     1. Item 1.1
 >>     1. Item 1.2
 >> 1. Item 2
@@ -93,8 +93,19 @@ Un resumen muy básico de las mismas es:
 * enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
 Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
 * imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
-* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo
-* citas: el párrafo debe comenzar por >
+* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo. Ej.: ``código`` ->  `código`
+
+> **Escribes**:
+>> \`\`\`\[html]
+>> \<h1>Hola\</h1>
+>> \`\`\`\`
+
+> **Obtienes**:
+>> ```[html]
+>> \<h1>Hola\</h1>
+>> ```
+
+* citas: el párrafo debe comenzar por > (son todos los ejemplos de _Escribes_ ... _Obtienes_)
 * tablas: se separan las columnas con \|
 > | Escribes | Obtienes |
 > | -- | -- |
