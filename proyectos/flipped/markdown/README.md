@@ -217,8 +217,8 @@ Algunas opciones útiles son:
 Hay infinidad de herramientas que convierten de HTML a Markdown, como:
 * Conversores en línea:
     * [Pandoc](http://pandoc.org/try/)
-    * [https://domchristie.github.io/turndown/]
-    * [http://fuckyeahmarkdown.com/] (no es muy 'politicamete correcto' pero va bien)
+    * [https://domchristie.github.io/turndown/](https://domchristie.github.io/turndown/)
+    * [http://fuckyeahmarkdown.com/](http://fuckyeahmarkdown.com/) (no es muy 'politicamete correcto' pero va bien)
     * ...
 * Para instalar:
     * [html2text](https://github.com/aaronsw/html2text) (sobre Python)
@@ -228,7 +228,7 @@ Hay infinidad de herramientas que convierten de HTML a Markdown, como:
     
 ## Convertir PDF a MD
 Podemos utilizar alguno de los conversores en línea que existen como:
-* [http://pdf2md.morethan.io/]
+* [http://pdf2md.morethan.io/](http://pdf2md.morethan.io/)
 
 ## Convertir MD a PDF
 Podemos usar conversores on-line
