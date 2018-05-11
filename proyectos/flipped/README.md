@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Documentación en GitHub Pages](#documentaci%C3%B3n-en-github-pages)
+  - [Markdown](#markdown)
+    - [Sintaxis](#sintaxis)
+    - [Añadir vídeos](#a%C3%B1adir-v%C3%ADdeos)
+    - [Editores](#editores)
+    - [Utilidades](#utilidades)
+      - [Usar emoticones](#usar-emoticones)
+  - [Leer más](#leer-m%C3%A1s)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Documentación en GitHub Pages
 Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages.
 

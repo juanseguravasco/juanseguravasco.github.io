@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Documentación en](#documentaci%C3%B3n-en)
+  - [Convertir de HTML a MD](#convertir-de-html-a-md)
+  - [Convertir PDF a MD](#convertir-pdf-a-md)
+  - [Convertir MD a PDF](#convertir-md-a-pdf)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Documentación en 
 
 ## Convertir de HTML a MD
