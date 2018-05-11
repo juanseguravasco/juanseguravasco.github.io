@@ -1,6 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+Tabla de contenidos
 
 - [Hacer documentación en GitHub Pages](#hacer-documentaci%C3%B3n-en-github-pages)
   - [Markdown](#markdown)
