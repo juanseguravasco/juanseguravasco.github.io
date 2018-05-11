@@ -58,8 +58,9 @@ Un resumen muy básico de las mismas es:
 >> \===
 
 > **Obtienes**:
->> ===
-* cursiva: texto entre * o _ (sin espacios). Ej. `\_cursiva_` -> _cursiva_
+===
+
+* cursiva: texto entre * o _ (sin espacios). Ej. `_cursiva_` -> _cursiva_
 * negrita: igual pero entre 2 * o 2 _
 * listas desordenadas: * y espacio al principio de la línea
 * listas ordenadas: nº, punto y espacio
