@@ -26,7 +26,7 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Hacer documentación en GitHub Pages
-Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages.
+Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages. El lenguaje es tan sencillo que normalmente no usaremos ningún editor de Markdown sino que escribiremos directamente en el bloc de notas o similar.
 
 ## Markdown
 Es un lenguaje de marcas ligero. Su ventaja frente a otros lenguajes de marcado (como HTML) es que el fichero de texto con la información es mucho más legible.
@@ -39,6 +39,9 @@ Podemos ver las principales marcas a utilizar en innumerables páginas como:
 
 Un resumen muy básico de las mismas es:
 * cabeceras: # (# = h1, ## = h2, ..., ###### = h6)
+| Escribes | Obtienes |
+| -- | -- |
+| \# Título 1 | # Título 1 |
 * nuevo párrafo: línea en blanco de separación (es decir, 2 intros)
 * nueva línea: 2 espacios seguidos
 * regla horizontal: 3 = o - o *
@@ -51,6 +54,7 @@ Un resumen muy básico de las mismas es:
 * imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
 * código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo
 * citas: el párrafo debe comenzar por >
+* tablas: se separan las columnas con |
 
 Podemos incluir código HTML en nuestro documento y también lo interpretará el navegador
 
