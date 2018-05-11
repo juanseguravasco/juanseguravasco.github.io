@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Directivas básicas](#directivas-b%C3%A1sicas)
+  - [Condicionales: v-if](#condicionales-v-if)
+  - [Bucles: v-for](#bucles-v-for)
+  - [Eventos: v-on](#eventos-v-on)
+    - [Modificadores de eventos](#modificadores-de-eventos)
+  - [Ejemplo de aplicación](#ejemplo-de-aplicaci%C3%B3n)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Directivas básicas
 Vamos a ver algunas de las directivas básicas que incorpora Vue:
 * `v-model`: permite enlazar un input a una variable (la hemos visto en el capítulo anterior)

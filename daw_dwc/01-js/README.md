@@ -1,3 +1,17 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [El lenguaje Javascript](#el-lenguaje-javascript)
+  - [Herramientas](#herramientas)
+    - [La consola del navegador](#la-consola-del-navegador)
+    - [Editores](#editores)
+    - [Editores web](#editores-web)
+  - [Incluir el código en la página](#incluir-el-c%C3%B3digo-en-la-p%C3%A1gina)
+  - [Mostrar información](#mostrar-informaci%C3%B3n)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # El lenguaje Javascript
 En este primer bloque vamos a conocer el lenguaje Javascript. Se trata de un lenguaje interpretado, no compilado y nossotros vamos a ejecutarlo en un navegador web (lo más habitual). Lo usaremos para:
 * Cambiar el contenido de la página

@@ -1,3 +1,29 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Variables](#variables)
+  - [Funciones](#funciones)
+    - [Parámetros](#par%C3%A1metros)
+    - [Funciones anónimas](#funciones-an%C3%B3nimas)
+    - [Arrow functions (funciones _labda_)](#arrow-functions-funciones-_labda_)
+- [Estructuras y bucles](#estructuras-y-bucles)
+  - [Estructura condicional _if_](#estructura-condicional-_if_)
+  - [Estructura condicional _switch_](#estructura-condicional-_switch_)
+  - [Bucle _while_](#bucle-_while_)
+  - [Bucle _for_](#bucle-_for_)
+    - [Bucle _for_ con contador](#bucle-_for_-con-contador)
+    - [Bucle _for ... in_](#bucle-_for--in_)
+    - [Bucle _for ... of_](#bucle-_for--of_)
+- [Tipos de datos básicos](#tipos-de-datos-b%C3%A1sicos)
+  - [Number](#number)
+  - [String](#string)
+    - [Template literals](#template-literals)
+  - [Boolean](#boolean)
+  - [Arrays](#arrays)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Variables
 Javascript es un lenguaje débilmente tipado. Esto significa que no se indica de qué tipo es una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa. Ejemplo:
 ```[javascript]

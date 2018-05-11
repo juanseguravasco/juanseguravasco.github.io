@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Single File Components](#single-file-components)
+  - [\<template>](#%5Ctemplate)
+  - [\<script>](#%5Cscript)
+  - [\<style>](#%5Cstyle)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Single File Components
 Declarar los componentes como hemos visto con `Vue.component()` en el fichero JS de la instancia genera varios problemas:
 * Los nombres de los componentes deben ser únicos

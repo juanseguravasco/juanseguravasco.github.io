@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Falta por hacer](#falta-por-hacer)
+- [Usar Bootstrap](#usar-bootstrap)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Falta por hacer
 Además de lo que hay abajo:
 * validar formularios con subcomponentes con veeValidator

@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Componentes](#componentes)
+  - [Registrar un componente](#registrar-un-componente)
+  - [Parámetros: _props_](#par%C3%A1metros-_props_)
+  - [A tener en cuenta](#a-tener-en-cuenta)
+    - [_template_ debe contener un único elemento](#_template_-debe-contener-un-%C3%BAnico-elemento)
+    - [_data_ debe ser una función](#_data_-debe-ser-una-funci%C3%B3n)
+    - [Registrar un componente localmente](#registrar-un-componente-localmente)
+  - [Ejemplo de aplicación](#ejemplo-de-aplicaci%C3%B3n)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Componentes
 El sistema de componentes es un comcepto importante en Vue. Nuestras aplicaciones estarán compuestas de pequeños componentes independiantes y reusables en diferentes partes de nuestra aplicación o en otras aplicaciones. También es habitual que un componente contenga otros subcomponentes (estableciéndose realciones padre-hijo).
 

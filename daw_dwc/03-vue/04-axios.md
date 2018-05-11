@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Axios](#axios)
+  - [Instalación](#instalaci%C3%B3n)
+  - [Usar _axios_](#usar-_axios_)
+- [Aplicación de ejemplo](#aplicaci%C3%B3n-de-ejemplo)
+  - [Solución](#soluci%C3%B3n)
+    - [Pedir los datos al cargarse](#pedir-los-datos-al-cargarse)
+    - [Borrar un todo](#borrar-un-todo)
+    - [Añadir un todo](#a%C3%B1adir-un-todo)
+    - [Actualizar el campo _done_](#actualizar-el-campo-_done_)
+    - [Borrar todas las tareas](#borrar-todas-las-tareas)
+  - [json-server](#json-server)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Axios
 El framework _Vue_ sólo se ocupa de la capa de vista de la aplcación pero su "ecosistema" como sus creadores le llaman, incluye multitud de herramientas para todo lo que podamos necesitar a la hora de realizar grandes proyectos.
 

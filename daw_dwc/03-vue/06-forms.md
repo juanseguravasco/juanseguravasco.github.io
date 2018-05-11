@@ -1,3 +1,33 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Formularios en Vue](#formularios-en-vue)
+  - [Enlazar diferentes inputs](#enlazar-diferentes-inputs)
+    - [input normal](#input-normal)
+    - [radio button](#radio-button)
+    - [checkbox](#checkbox)
+    - [checkbox múltiple](#checkbox-m%C3%BAltiple)
+      - [Generar los checkbox automáticamente](#generar-los-checkbox-autom%C3%A1ticamente)
+    - [select](#select)
+    - [Ejemplo](#ejemplo)
+- [Validar formularios](#validar-formularios)
+  - [Validar con VeeValidate](#validar-con-veevalidate)
+    - [Instalación](#instalaci%C3%B3n)
+    - [Uso de VeeValidate](#uso-de-veevalidate)
+    - [Ejemplo](#ejemplo-1)
+    - [Personalizar el validador](#personalizar-el-validador)
+    - [Validación final](#validaci%C3%B3n-final)
+- [Inputs en subcomponentes](#inputs-en-subcomponentes)
+  - [_v-model_ en subcomponente input](#_v-model_-en-subcomponente-input)
+    - [Ejemplo](#ejemplo-2)
+  - [_slots_](#_slots_)
+    - [Ejemplo](#ejemplo-3)
+    - [_Slots_ con nombre](#_slots_-con-nombre)
+    - [Scoped slot](#scoped-slot)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Formularios en Vue
 Para poder tener sincronizado el formulario con nuestros datos utilizamos la directiva **v-model** en cada campo. Algunos modificadores útiles de _v-model_ son:
 * **.lazy**: hace que _v-model_ sincronice al producirse el evento _change_ en vez del _input_, es decir, que no sincroniza con cada tecla que pulsemos sino cuando acabamos de escribir y salimos del input.

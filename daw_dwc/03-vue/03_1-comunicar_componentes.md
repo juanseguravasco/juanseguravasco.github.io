@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Comunicación entre componentes](#comunicaci%C3%B3n-entre-componentes)
+  - [_props_](#_props_)
+    - [No cambiar el valor de una _prop_](#no-cambiar-el-valor-de-una-_prop_)
+    - [Validación de _props_](#validaci%C3%B3n-de-_props_)
+  - [Emitir eventos](#emitir-eventos)
+  - [Bus de comunicaciones](#bus-de-comunicaciones)
+  - [Vuex](#vuex)
+  - [Otras formas de comunicarse](#otras-formas-de-comunicarse)
+- [Aplicación de ejemplo](#aplicaci%C3%B3n-de-ejemplo)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Comunicación entre componentes
 Ya hemos visto que podemos pasar parámetros a un componente mediante _props_. Esto permite la comunicación de padres a hijos, pero queda por resolver cómo comunicarse los hijos con sus padres para informarles de cambios o eventos producidos y cómo comunicarse otros componentes entre sí.
 

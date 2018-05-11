@@ -1,3 +1,11 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [El framework Vue JS](#el-framework-vue-js)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # El framework Vue JS
 Contenidos:
 1. [Conceptos básicos](./01-basics.md)

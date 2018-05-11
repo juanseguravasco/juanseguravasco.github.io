@@ -1,3 +1,20 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Conceptos básicos](#conceptos-b%C3%A1sicos)
+  - [Instalar Vue](#instalar-vue)
+  - [La primera aplicación Vue](#la-primera-aplicaci%C3%B3n-vue)
+    - [HTML](#html)
+    - [Javascript](#javascript)
+  - [_Binding_ de variables](#_binding_-de-variables)
+    - [Enlace unidireccional: interpolación {{...}}](#enlace-unidireccional-interpolaci%C3%B3n-)
+    - [Enlazar a un atributo: v-bind](#enlazar-a-un-atributo-v-bind)
+    - [Enlace bidireccional: v-model](#enlace-bidireccional-v-model)
+  - [Vue devtools](#vue-devtools)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Conceptos básicos
 Aquí veremos lo básico para conover el framework Vue2 y ser capaces de utilizarlo como plataforma de desarrollo de aplicaciones web.
 

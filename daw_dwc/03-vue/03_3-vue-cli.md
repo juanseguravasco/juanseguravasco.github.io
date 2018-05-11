@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Vue-cli](#vue-cli)
+  - [Instalación](#instalaci%C3%B3n)
+  - [Ejemplo plantilla simple](#ejemplo-plantilla-simple)
+  - [Ejemplo webpack-simple](#ejemplo-webpack-simple)
+  - [_Scaffolding_ creado](#_scaffolding_-creado)
+  - [package.json](#packagejson)
+  - [Estructura de nuestra aplicación](#estructura-de-nuestra-aplicaci%C3%B3n)
+  - [Crear un nuevo componente](#crear-un-nuevo-componente)
+  - [Depurar el código en la consola](#depurar-el-c%C3%B3digo-en-la-consola)
+- [Aplicación de ejemplo](#aplicaci%C3%B3n-de-ejemplo)
+  - [Solución](#soluci%C3%B3n)
+    - [comp-todo/TodoItem.vue](#comp-todotodoitemvue)
+    - [comp-todo/AddItem.vue](#comp-todoadditemvue)
+    - [comp-todo/DelAll.vue](#comp-tododelallvue)
+    - [comp-todo/TodoList.vue](#comp-todotodolistvue)
+    - [App.vue](#appvue)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Vue-cli
 Se trata de una herramienta que incluye Vue que nos ayuda en:
 * Crea automáticamente el _scaffolding_ básico de nuestro proyecto basándose en una serie de plantillas perdefinidas

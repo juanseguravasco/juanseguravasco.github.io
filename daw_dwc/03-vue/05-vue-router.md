@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Vue-router](#vue-router)
+  - [Instalación](#instalaci%C3%B3n)
+  - [Usar _VueRouter_](#usar-_vuerouter_)
+  - [Crear un menú](#crear-un-men%C3%BA)
+  - [Saltar a una ruta](#saltar-a-una-ruta)
+  - [Cambio de parámetros en una ruta](#cambio-de-par%C3%A1metros-en-una-ruta)
+  - [this.$route](#thisroute)
+  - [Vistas  con nombre y Subvistas](#vistas--con-nombre-y-subvistas)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Vue-router
 Es otra de las librerías del "ecosistema" de Vue más utilizadas ya que la necesitamos para hacer SPA (_Single Page Applications_).
 

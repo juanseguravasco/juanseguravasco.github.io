@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+Tabla de contenidos
+
+- [Mòdulo de Desenvolupament Web en entorn Client](#m%C3%B2dulo-de-desenvolupament-web-en-entorn-client)
+  - [Guía didàctica](#gu%C3%ADa-did%C3%A0ctica)
+    - [1 Introducció](#1-introducci%C3%B3)
+    - [2 Coneixements previs](#2-coneixements-previs)
+    - [3 Objectius](#3-objectius)
+    - [4 Continguts](#4-continguts)
+    - [5 Metodologia](#5-metodologia)
+    - [6 Temporalització](#6-temporalitzaci%C3%B3)
+    - [7 Criteris d'avaluació i qualificació](#7-criteris-davaluaci%C3%B3-i-qualificaci%C3%B3)
+      - [7.1 Recuperacions](#71-recuperacions)
+      - [7.2 Qualificació dels exercicis](#72-qualificaci%C3%B3-dels-exercicis)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Mòdulo de Desenvolupament Web en entorn Client
 
 ## Guía didàctica
