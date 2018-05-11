@@ -40,7 +40,7 @@ Podemos ver las principales marcas a utilizar en innumerables páginas como:
 Un resumen muy básico de las mismas es:
 * cabeceras: # (# = h1, ## = h2, ..., ###### = h6)
 
->Ejemplo **ecribes**:
+>Ejemplo **escribes**:
 >> \# Título 1  
 >> \## Título 2  
 >> \### Título 3
@@ -53,7 +53,13 @@ Un resumen muy básico de las mismas es:
 * nuevo párrafo: línea en blanco de separación (es decir, 2 intros)
 * nueva línea: 2 espacios seguidos
 * regla horizontal: 3 = o - o *
-* cursiva: texto entre * o _ (sin espacios)
+
+> **Escribes**:
+>> \===
+
+> **Obtienes**:
+>> ===
+* cursiva: texto entre * o _ (sin espacios). Ej. `\_cursiva_` -> _cursiva_
 * negrita: igual pero entre 2 * o 2 _
 * listas desordenadas: * y espacio al principio de la línea
 * listas ordenadas: nº, punto y espacio
