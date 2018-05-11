@@ -39,9 +39,11 @@ Podemos ver las principales marcas a utilizar en innumerables páginas como:
 
 Un resumen muy básico de las mismas es:
 * cabeceras: # (# = h1, ## = h2, ..., ###### = h6)
+
 | Escribes | Obtienes |
 | -- | -- |
 | \# Título 1 | # Título 1 |
+
 * nuevo párrafo: línea en blanco de separación (es decir, 2 intros)
 * nueva línea: 2 espacios seguidos
 * regla horizontal: 3 = o - o *
