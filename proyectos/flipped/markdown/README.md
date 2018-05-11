@@ -98,7 +98,7 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 **Escribes**:
 > \`\`\`\[html]  
 > \<h1>Hola\</h1>  
-> \`\`\`\`
+> \`\`\`
 
 **Obtienes**:
 > ```[html]
