@@ -50,7 +50,7 @@ Algunos de los más conocidos son [Fiddle](https://jsfiddle.net) y [Plunker](htt
 El código Javascript va entre etiquetas _\<script>_. Puede ponerse en el _\<head>_ (el código no se ejecuta hasta que es llamado) o en el _\<body>_ en cuyo caso se ejecuta la etiqueta en el momento que la renderiza el navegador. Lo mejor en cuanto a rendimiento es ponerla al final del _\<body>_, justo antes de la etiqueta _\</html>_ para que no se detenga el renderizado de la página mientras se ejecuta el código.
 
 Podemos poner el código directamente entre la etiqueta _\<script>_ pero lo correcto es que esté en un fichero externo (con extensión **.js**) que cargamos mediante el atributo _src_ de la etiqueta:
-```[html]
+```html
 <script src="./scripts/main.js"></script>
 ```
 Así mejoramos la legibilidad del código y facilitamos su mantenimento.
