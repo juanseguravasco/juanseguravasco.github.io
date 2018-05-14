@@ -117,7 +117,7 @@ Aquí se configura nuestra aplicación:
 
 ## Estructura de nuestra aplicación
 **Fichero index.html:**
-```[html]
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -133,7 +133,7 @@ Aquí se configura nuestra aplicación:
 Simplemente tiene el \<div> _app_ y vincula el script _build.js_.
 
 **Fichero main.js:**
-```[javascript]
+```javascript
 import Vue from 'vue'
 import App from './App.vue'
 
@@ -148,7 +148,7 @@ Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y
 Es el componente principal de la aplicación. Veamos qué contiene cada sección
 
 _template_
-```[html]
+```html
 <template>
   <div id="app">
     <img src="./assets/logo.png">
@@ -173,7 +173,7 @@ _template_
 Incluye el _\<div#app>_ que contiene la aplicación. También muestra una imagen. Las imágenes se guardan dentro de **/src/assets/**.
 
 _script_
-```[javascript]
+```javascript
 export default {
   name: 'app',
   data () {
@@ -191,7 +191,7 @@ Aquí se definen los estilos de este componente
 ## Crear un nuevo componente
 
 Creamos un nuevo fichero en **/src** (o en alguna subcarpeta dentro) con extensión _.vue_. Donde queramos usar ese componente debemos importarlo y registrarlo como hemos visto en el artículo de los _Single File Components_. 
-```[javascript]
+```javascript
 import CompName from './CompName.vue'
 
 export default {
@@ -203,7 +203,7 @@ export default {
 }
 ```
 Y ya podemos incluir el componente en el HTML:
-```[html]
+```html
 <comp-name ...> ... </comp-name>
 ```
 
@@ -222,7 +222,7 @@ Vamos a añadir bajo la página de nuestro proyecto una lista de tareas a hacer 
 ## Solución
 
 ### comp-todo/TodoItem.vue
-```[vue]
+```vue
 <template>
   <li @dblclick="delTodo">
     <label>
@@ -255,7 +255,7 @@ export default {
 ```
 
 ### comp-todo/AddItem.vue
-```[vue]
+```vue
 <template>
   <div>
     <input v-model="newTodo">
@@ -284,7 +284,7 @@ export default {
 ```
 
 ### comp-todo/DelAll.vue
-```[vue]
+```vue
 <template>
   <button @click="delTodos">Borrar toda la lista</button>
 </template>
@@ -304,7 +304,7 @@ export default {
 ```
 
 ### comp-todo/TodoList.vue
-```[vue]
+```vue
 <template>
   <div>
     <h2>{{ title }}</h2>
@@ -362,12 +362,12 @@ export default {
 ### App.vue
 
 En el _template_ añadimos
-```[html]
+```html
 <todo-list title="Tengo que aprender:"></todo-list>
 ```
 
 Y en el _script_
-```[javascript]
+```javascript
 import TodoList from './comp-todo/TodoList.vue'
 
 export default {

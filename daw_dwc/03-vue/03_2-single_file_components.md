@@ -50,7 +50,7 @@ Aquí incluiremos el HTML que sustituirá a la etiqueta del componente. Recuerda
 
 ## \<script>
 Aquí definimos el componente. Será un objeto que exportaremos con sus diferentes propiedades. Si utiliza subcomponentes hay que importarlos antes y registrarlos:
-```[javascript]
+```javascript
 import TodoItem from './TodoItem.vue'
 import AddItem from './AddItem.vue'
 import DelAll from './DelAll.vue'

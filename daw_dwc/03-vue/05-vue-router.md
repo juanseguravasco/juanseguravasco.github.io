@@ -26,7 +26,7 @@ npm install vue-router -S
 
 ## Usar _VueRouter_
 La importaremos en el fichero principal de nuestra aplicación, _main.js_. A continuación la declaramos, creamos una instancia para nuestras rutas y la configuramos. También debemos importar todos los componentes que definamos en el router:
-```[vue]
+```vue
 import Vue from 'vue'
 import Router from 'vue-router'
 
@@ -88,13 +88,13 @@ Además de esas propiedades podemos indicar más para cada ruta:
 * props: se usa en rutas dinámicas e indica que el componente recibirá el parámetro de la ruta en sus _props_. Si no se pone para acceder al parámetro _id_ lo haría desde `this.$route.params.id` 
 
 En la parte del HTML en que queramos que se carguen los diferentes componentes de nuestra SPA incluiremos la etiqueta:
-```[html]
+```html
 \<router-view>\</router-view>
 ```
 
 ## Crear un menú
 Seguramente querremos un menú en nuestra SPA que nos permita ir a las diferentes rutas (que provocarán que se carguen los componentes). Para ello usaremos la etiqueta **\<router-link>**. Ejemplo:
-```[html]
+```html
 \<router-link to="/">Home\</router-link>
 \<router-link to="/about">Acerca de...\</router-link>
 ```
@@ -102,12 +102,12 @@ Seguramente querremos un menú en nuestra SPA que nos permita ir a las diferente
 Cuando accedemos a una ruta su elemento _\<router-link> adquiere la clase _.router-link-active.
 
 Si le hemos puesto la propiedad _name_ a una ruta podemos hacer un enlace a ella con
-```[html]
+```html
 \<router-link to="{name: 'nombre_de_a_ruta'}">Home\</router-link>
 ```
 
 Se puede hacer (aunque no es lo normal) una opción de menú a una ruta dinámica y pasarle el parámetro deseado. Por ejemplo para editar el usuario 5 haremos:
-```[html]
+```html
 \<router-link to="{name: 'edit', params: {id: 5}}">Editar usuario 5\</router-link>
 ```
 En este caso es necesario que la ruta dinámica tenga un _name_.
@@ -155,14 +155,14 @@ Más información en su [API](https://router.vuejs.org/es/api/route-object.html)
 
 ## Vistas  con nombre y Subvistas
 Podemos cargar más de un componente usando varias etiquetas `<router-view>`. Por ejemplo si nestra página constará de 3  componentes (uno en la cabecera, otro el principal y otro en un _aside_ pondremos en el HTML:
-```[html]
+```html
 <router-view class="cabecera" name="top"></router-view>
 <router-view class="main"></router-view>
 <router-view class="aside" name="aside"></router-view>```
 ```
 
 Para que se carguen los 3 componentes lo debemos indicar al definir las rutas:
-```[javascript]
+```javascript
 {
     path: '/',  
     components: {
@@ -178,7 +178,7 @@ También un componente puede incluir su propia etiqueta `<router-view>` que carg
 *  _/user/:id/profile_: debajo cargará el componente con el perfil del usuario
 *  _/user/:id/posts_: debajo cargará el componente con los posts del usuario
 Definiremos la ruta del siguiente modo:
-```[javascript]
+```javascript
 {
     path: '/',  
     components: {

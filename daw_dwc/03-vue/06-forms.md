@@ -19,11 +19,11 @@ Tabla de contenidos
     - [Personalizar el validador](#personalizar-el-validador)
     - [Validación final](#validaci%C3%B3n-final)
 - [Inputs en subcomponentes](#inputs-en-subcomponentes)
-  - [_v-model_ en subcomponente input](#_v-model_-en-subcomponente-input)
+  - [v-model en subcomponente input](#v-model-en-subcomponente-input)
     - [Ejemplo](#ejemplo-2)
-  - [_slots_](#_slots_)
+  - [Slots](#slots)
     - [Ejemplo](#ejemplo-3)
-    - [_Slots_ con nombre](#_slots_-con-nombre)
+    - [Slots con nombre](#slots-con-nombre)
     - [Scoped slot](#scoped-slot)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -39,14 +39,14 @@ Vamos a ver cómo usar los diferentes tipos de campos con Vue.
 ## Enlazar diferentes inputs
 ### input normal
 En este caso simplemente añadimos la directiva **v-model** al input:
-```[html]
+```html
 <label>Nombre:</label>
 <input type="text" v-model="user.nombre">
 ```
 
 ### radio button
 Ponemos en todos los radiobuttons el **v-model** y a cada uno el **value** que se guardará al escoger dicha opción:
-```[html]
+```html
 <label>Sexo:</label>
 <input type="radio" value="H" name="sexo" v-model="user.sexo">Hombre
 <input type="radio" value="M" name="sexo" v-model="user.sexo">Mujer
@@ -54,13 +54,13 @@ Ponemos en todos los radiobuttons el **v-model** y a cada uno el **value** que s
 
 ### checkbox
 Igual que cualquier input, le ponemos el **v-model**. Si no ponemos un _value_ los valores que se guardarán serán _true_ si está marcado y _false_ si no lo está:
-```[html]
+```html
 <input type="checkbox" v-model="user.acepto">Acepto las condiciones
 ```
 
 ### checkbox múltiple
 Se trata de varios checkbox pero cuyos valores se guardan en el mismo campo, que debe ser un array. Le ponemos el **v-model** y el **value** que queramos que se guarde. La variable (en este ejemplo _user.ciclos_ será un array y guardará el value de cada checkbox marcado:
-```[html]
+```html
 <input type="checkbox" v-model="user.ciclosImparte" value="smx">Sistemas Microinformáticos y Redes<br>
 <input type="checkbox" v-model="user.ciclosImparte" value="asix">Administración de Sistemas Informáticos y Redes<br>
 <input type="checkbox" v-model="user.ciclosImparte" value="dam">Desarrollo de Aplicaciones Multiplataforma<br>
@@ -70,7 +70,7 @@ Si tenemos marcadas las casillas 1 y 3 el valor de _user.ciclos_ será \['smx', 
 
 #### Generar los checkbox automáticamente
 Muchas veces las opciones a mostrar las tendremos en algún objeto (una tabla de la BBDD, ...). En ese caso podemos generar automáticamente un checkbox para cada elemento:
-```[javascript]
+```javascript
 ciclos: [
   {cod: 'smx', desc: 'Sistemas Microinformáticos y Redes'},
   {cod: 'asix', desc: 'Administración de Sistemas Informáticos y Redes'},
@@ -79,14 +79,14 @@ ciclos: [
 ]
 ```
 
-```[html]
+```html
 <div v-for="ciclo in ciclos" :key="ciclo.cod">
   <input type="checkbox" v-model="user.ciclosImparte" :value="ciclo.cod">{{ ciclo.desc }}<br>
 </div>
 ```
 ### select
 Lo único que hay que hacer es poner al select la directiva **v-model**:
-```[html]
+```html
 <select v-model="user.tutor">
   <option value=''>No es tutor</option>
   <option value="smx">Sistemas Microinformáticos y Redes</option>
@@ -96,7 +96,7 @@ Lo único que hay que hacer es poner al select la directiva **v-model**:
 </select>
 ```
 También podemos generar las opciones automáticamente:
-```[html]
+```html
 <select v-model="user.tutor">
   <option value=''>No es tutor</option>
   <option  v-for="ciclo in ciclos" :key="ciclo.cod" :value="ciclo.cod">
@@ -137,14 +137,14 @@ Como esta librería vamos a usarla en producción la instalaremos como dependenc
 npm install vee-validate -S
 ```
 La importaremos en el fichero principal de nuestra aplicación, _main.js_ y la declaramos:
-```[vue]
+```vue
 import VeeValidate from 'vee-validate';
 
 Vue.use(VeeValidate)
 ```
 
 También es posible usarla directamente desde un CDN:
-```[javascript]
+```javascript
 <script src="https://unpkg.com/vee-validate@latest"></script>
 <script>
   Vue.use(VeeValidate);
@@ -153,12 +153,12 @@ También es posible usarla directamente desde un CDN:
 
 ### Uso de VeeValidate
 Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input (el input debe tener un __name__ que es el valor por el que buscamos los errores):
-```[html]
+```html
 <input v-validate="'required|email'" name="email" type="text">
 <span>{{ errors.first('email') }}</span>
 ```
 Estamos indicando que debe cumplir las validaciones _required_ (no puede estar vacío) y _email_ (debe parecer un e-mail). También puede ponerse en formato de objeto:
-```[html]
+```html
 <input v-validate="{required: true, email: true}" name="email" type="text">
 ```
 En la documentación de la librería podemos consultar las diferentes [reglas de validación](https://baianat.github.io/vee-validate/guide/rules.html) (hay más de 30). Algunas de las más comunes son:
@@ -167,7 +167,7 @@ En la documentación de la librería podemos consultar las diferentes [reglas de
 * _regex_: debe concordar con la expresión regular pasada
 * _min_:4 (longitud mínima 4), _max_:50, _min_value_:18 (debe ser un nº >= 18), _max_value_:65, _between_:18:65, _date\_detween_, _in_:1,2,3, _not\_in:1,2,3, ...
 * _is_ compara un campo con otro:
-```[html]
+```html
 <input v-validate="{ is: confirmation }" type="text" name="password">
 <input v-model="confirmation" type="text" name="password_confirmation">
 ```
@@ -186,7 +186,7 @@ Vamos a ver cómo se validaría el formulario anterior con esta librería:
 Para acabar el ejemplo nos falta validar que deba seleccionar entre 1 y 3 ciclos. Además deberíamos personalizar los mensajes de error (por defecto en inglés). 
 
 Para validar los ciclos vamos a construir nuestro propio validador personalizado. Le llamaremos **arraylength**:
-```[html]
+```html
       <div v-for="ciclo in ciclos" :key="ciclo.cod">
         <input v-validate="'arraylenght:1-3'" name="ciclos" type="checkbox" v-model="user.ciclos" :value="ciclo.cod">{{ ciclo.desc }}<br>
       </div>
@@ -194,7 +194,7 @@ Para validar los ciclos vamos a construir nuestro propio validador personalizado
 Al validador le va a llegar como parámetro lo que yoescriba tras el carácter '**:**', en este caso _1-3_.
 
 Ahora construimos nuestro validador personalizado:
-```[javascript]
+```javascript
 import { Validator } from 'vee-validate';
 
 Validator.extend('arraylenght', {
@@ -216,7 +216,7 @@ Debe tener un nombre (_arraylenght_) y 2 métodos:
 * _validatee_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
 
 Ahora falta personalizar el resto de mensajes del validador. Para ello construimos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadimos al diccionario de la librería. El idioma por defecto de los mensajes es el inglés por lo que si personalizamos los mensajes para otro idioma hemos de indicar el idioma que queremos usar (los mensajes no personalizados aparecerán en inglés):
-```[javascript]
+```javascript
 const dictionary = {
   es: {
     messages:{
@@ -244,7 +244,7 @@ Antes de enviar el formulario conviene validar todos los campos y no enviarlo si
 <form @submit.prevent="checkForm">
 ```
 * la función le dice a la librería que valide todo llamando al método **validateAll()**. Este método devuelve una promesa (asíncrona, como una petición Ajax) cuyo resultado será _true_ si el formulario és válido o _false_ si no lo es:
-```[javascript]
+```javascript
 checkForm() {
   this.$validator.validateAll()
     .then(result=>{
@@ -278,13 +278,13 @@ La solución es imitar lo que hace un _v-model_ que en realidad está formado po
 
 Así que lo que haremos es:
 * en el componente del formulario ponemos un _v-model_ que se encargue de actualizar la variable
-```[html]
+```html
 <form-input v-model=”campo”></form-input> 
 ```
 * en el subcomponente del inpit ponemos 
   * un _v-bind_ que muestre el valor inicial
   * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
-```[html]
+```html
 <input ref="input" :value="value" v-on:input="updateValue($event.target.value)">
 ```<template>
 	<div class="control-group">
@@ -296,7 +296,7 @@ Así que lo que haremos es:
 	</div>	
 </template>
 
-```[javascript]
+```javascript
 props: ['value'],
 methods: {
     updateValue(value) {
@@ -307,7 +307,7 @@ methods: {
 
 ### Ejemplo
 **Componente padre: formulario**
-```[html]
+```html
     <form class="form-horizontal">
 	<form-input v-model="user.id" titulo="Id" nombre="id"></form-input>
 	<form-input v-model="user.name" titulo="Nombre" nombre="name"></form-input>
@@ -320,7 +320,7 @@ methods: {
 ```
 
 **Subcomponente: form-input**
-```[vue]
+```vue
 <template>
 	<div class="control-group">
 	  <label class="control-label" :for="nombre">{{ titulo }}</label>
@@ -346,25 +346,25 @@ export default {
 ## Slots
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
 * HTML que llama al componente:
-```[html]
+```html
 <navigation-link url="/profile">
   Your Profile
 </navigation-link>
 ```
 * \<template> del componente:
-```[html]
+```html
 <a  v-bind:href="url"  class="nav-link">
   <slot>Contenido por defecto</slot>
 </a>
 ```
 Al renderizar el componente el resultado será:
-```[html]
+```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Your Profile
 > </a>
 ```
 Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
-```[html]
+```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Contenido por defecto
 > </a>
@@ -374,7 +374,7 @@ Esto podemos usarlo en los formularios de forma que el <input> con el v-model lo
 
 ### Ejemplo
 **Componente padre: formulario**
-```[html]
+```html
     <form class="form-horizontal">
 	<form-input titulo="Id">
             <input v-model="user.id" type="text" id="id" name="id" class="form-control" disabled>
@@ -401,7 +401,7 @@ Esto podemos usarlo en los formularios de forma que el <input> con el v-model lo
 ```
 
 **Subcomponente: form-input**
-```[vue]
+```vue
 <template>
     <div class="control-group">
     <label class="control-label">{{ titulo }}</label>
@@ -428,7 +428,7 @@ export default {
 A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
 
 Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
-```[html]
+```html
 <div class="container">
   <header>
     <slot name="header"></slot>
@@ -442,7 +442,7 @@ Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otr
 </div>
 ```
 A la hora de llamar al componente hacemos:
-```[html]
+```html
 <base-layout>
   <template slot="header">
     <h1>Here might be a page title</h1>
@@ -459,7 +459,7 @@ A la hora de llamar al componente hacemos:
 Lo que está dentro de un _template slot_ con nombre irá al_slot_ con ese nombre y el resto irá al _slot_ por defecto (el que no tiene nombre).
 
 También podemos usar el stributo _slot_ directamente en cada elemento;
-```[html]
+```html
 <base-layout>
   <h1 slot="header">Here might be a page title</h1>
 

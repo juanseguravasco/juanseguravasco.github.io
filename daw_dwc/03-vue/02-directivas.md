@@ -37,7 +37,7 @@ La directiva v-for recorre el array _todos_ y para cada elemento del array crea 
 Además del elemento nos puede devolver su índice en el array: `v-for="(elem,index) in todos" ...`.
 
 Vue es más eficiente a la hora de renderizar si cada elemento que crea *v-for* tiene su propia clave, lo que se consigue con el atributo *key*. Podemos indicar como clave algún campo del elemento o el índice:
-```[html]
+```html
 \<... v-for="(elem,index) in todos" :key="index" ...>
 ```
 
@@ -51,7 +51,7 @@ El evento que queremos capturar se pone tras ':' y se indica el método que se e
 Fijaos en el método _delTodos()_ que para hacer referencia desde el objeti Vue a alguna variable o método se le antepone *this.*
 
 Esta directiva se usa mucho así que se puede abreviar con '@'. El código equivalente sería:
-```[hTML]
+```html
 <button @click="delTodos">
 ```
 ### Modificadores de eventos
@@ -62,7 +62,7 @@ A un evento podemos añadirle (separado por .) un modificador. Alguno de los má
 * _.once_: sólo se lanza la primera vez que se produce el evento
 
 Ejemplo:
-```[HTML]
+```html
 <form @submit.prevent="enviaForm">
 ```
 

@@ -21,7 +21,7 @@ En definitiva nuestra aplicación será como un árbol de componentes con la ins
 
 ## Registrar un componente
 Para registrarlo debemos darle un nombre y definir el objeto con sus _data_, _methods_, _template_ (el código HTML que se insertará donde pongamos el componente), etc. Lo hacemos en nuestro fichero JS:
-```[javascript]
+```javascript
 Vue.component('todo-item', {
   template: '<li>Cosa a hacer</li>'
 })
@@ -29,7 +29,7 @@ Vue.component('todo-item', {
 El nombre de un componente puede estar el kebab-case (my-component-name) o en PascalCase (MyComponentName). Se recomienda que el nombre de un componente tenga al menos 2 palabras para evitar que pueda llamarse como alguna futura etiqueta HTML.
 
 Ahora ya podemos usar el componente en nuestro HTML:
-```[html]
+```html
 <ul>
   <todo-item></todo-item>
 </ul>
@@ -40,7 +40,7 @@ Ahora ya podemos usar el componente en nuestro HTML:
 ></ul>
 
 Podemos utilizar la etiqueta tal cual (_<todo-item>_) o ponerla como valor del atributo _is_:
-```[html]
+```html
 <ul>
   <li is="todo-item"></li>
 </ul>
@@ -49,13 +49,13 @@ De esta forma evitamos errores de validación de HTML ya que algunos elementos s
 
 ## Parámetros: _props_
 Podemos pasar parámetros a un componente anñadiendo atributos a su etiqueta:
-```[html]
+```html
 <ul>
   <todo-item todo="Aprender Vue"></todo-item>
 </ul>
 ```
 El parámetro lo recibimos en el componente en _props_:
-```[javascript]
+```javascript
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.title }}</li>'
@@ -69,14 +69,14 @@ NOTA: si un parámetro tiene más de 1 palabra en el HTML lo pondremos en forma 
 ></ul>
 
 Lo que pasamos como parámetro a un componente se considera como _String_. Para pasar una variable o expresión JS debemos hacerlo con la directiva _v-bind_:
-```[html]
+```html
 <ul>
   <todo-item :todo="todos[0]"></todo-item>
 </ul>
 ```
 
 En nuestro caso queremos un componente _todo-item_ para cada elemento del array _todos_:
-```[html]
+```html
 <ul>
   <todo-item v-for="item in todos" :key="item.id" :todo="item"></todo-item>
 </ul>
@@ -97,7 +97,7 @@ A la hora de definir componentes hay un par de cosa que debemos tener en cuenta
 ### _template_ debe contener un único elemento
 El template de un componente debe tener un único elemento raíz por lo que, si queremos tener más de uno hay que englobarlos en un elemento (normalmente un <div>):
 
-```[javascript]
+```javascript
 // MAL
 Vue.component('my-comp', {
   template: '<input id="query">
@@ -116,7 +116,7 @@ Vue.component('my-comp', {
 ### _data_ debe ser una función
 Un componente puede tener sus propios métodos y datos pero estos últimos no pueden devolverse directamente sino que _data_ debe ser una función:
 
-```[javascript]
+```javascript
 // MAL
 Vue.component('my-comp', {
   data: {
@@ -126,7 +126,7 @@ Vue.component('my-comp', {
 })
 ```
 
-```[javascript]
+```javascript
 // BIEN
 Vue.component('my-comp', {
   data(): {
@@ -144,11 +144,11 @@ Un componente registrado como hemos visto es _global_ y puede usarse en cualquie
 Pero a veces queremos registrar un componente _localmente_ de forma que sólo se pueda usar localmente dentro de la instancia Vue o del subcomponente en que se registra.
 
 En ese caso el componente a registrar se guarda en un objeto
-```[javascript]
+```javascript
 var ComponentA={ /* .... */ }
 ```
 y se registra en cada instancia o subcomponente en que quiera usarse:
-```[javascript]
+```javascript
 // Para usarlo en la instancia raíz
 new Vue({
   el: '#app',
@@ -166,7 +166,7 @@ var ComponentB={
 }
 ```
 Si estamos usando ES2015 (que es lo normal) loque se hace es guardar cada componente en un fichero con extensión _.vue_ e importarlo donde vaya a usarse:
-```[javascript]
+```javascript
 // fichero ComponentB.vue
 import ComponentA from './ComponentA.vue'
 

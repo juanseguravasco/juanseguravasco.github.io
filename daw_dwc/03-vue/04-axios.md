@@ -29,7 +29,7 @@ npm install axios -S
 
 ## Usar _axios_
 En el componente en que vayamos a usarla la importaremos:
-```[vue]
+```vue
 import axios from 'axios'
 ```
 Como es una dependencia incluida en el _package.json_ no se indica su ruta (se buscará en **node-modules**).
@@ -52,7 +52,7 @@ La respuesta del servidor tiene, entre otras, las propiedades:
 * ...
 
 La sintaxis de una petición GET a axios sería algo como:
-```[javascript]
+```javascript
 axios.get(url)
   .then(response => ...realiza lo que sea con response.data ...)
   .catch(response => ... trata el error ...)
@@ -74,14 +74,14 @@ Vamos a modificar los diferentes componentes para implementar os cambios requeri
 ### Pedir los datos al cargarse
 Modificamos el fichero **Todo-List.vue** para añadir en su sección _script_:
 * antes del objeto vue:
-```[javascript]
+```javascript
 import axios from 'axios'
 
 const url='http://localhost:3000'
 ```
 
 Dentro del objeto añadimos el _hook_ **monted** para hacer la petición Ajax al montar el componente:
-```[javascript]
+```javascript
 ...
   mounted() {
     axios.get(url+'/todos')
@@ -101,7 +101,7 @@ Dentro del objeto añadimos el _hook_ **monted** para hacer la petición Ajax al
 
 ### Borrar un todo
 Modificamos el método _delTodo_ del fichero **Todo-List.vue**:
-```[javascript]
+```javascript
     delTodo(index){
       var id=this.todos[index].id;
       axios.delete(url+'/todos/'+id)
@@ -112,7 +112,7 @@ Modificamos el método _delTodo_ del fichero **Todo-List.vue**:
 
 ### Añadir un todo
 Modificamos el método _addTodo_ del fichero **Todo-List.vue**:
-```[javascript]
+```javascript
     addTodo(title) {
       axios.post(url+'/todos', {title: title, done: false})
         .then(response => this.todos.push({
@@ -128,7 +128,7 @@ Al servidor hay que pasarle como parámetro el objeto a añadir. E el caso del j
 
 ### Actualizar el campo _done_
 Ahora ya no nos es útil el índice de la tarea a actualizar sino que necesitamos su id, su título y su estado así que modificamos el _teamplate_ del fichero **Todo-List.vue** para pasar el elemento entero a la función:
-```[html]
+```html
       <todo-item 
         v-for="(item,index) in todos" 
         :key="item.id"
@@ -139,7 +139,7 @@ Ahora ya no nos es útil el índice de la tarea a actualizar sino que necesitamo
 ```
 
 A continuación modificamos el método _changeTodo_ del fichero **Todo-List.vue**:
-```[javascript]
+```javascript
     changeTodo(todo) {
       axios.put(url+'/todos/'+todo.id, {
           id: todo.id, 
@@ -154,7 +154,7 @@ Lo que hay que pasar en el objeto y qué se devuelve en la respuesta depende del
 
 ### Borrar todas las tareas
 Modificamos el método _delTodos_ del fichero **Todo-List.vue**. Como el servidor no tiene una llamada para borrar todos los datos podemos recorrer el array _todos_ y borrar cada tarea usando el método **delTodo** que ya tenemos hecho:
-```[javascript]
+```javascript
     delTodos() {
       this.todos.forEach((todo, index) => this.delTodo(index));
     }

@@ -27,20 +27,20 @@ Nos podemos encontrar las siguientes situaciones:
 Ya hemos visto que permiten pasar parámetros del padre al componente hijo. Si el valor del parámetro cambia en el padre automáticamente se reflejan esos cambos en el hijo.
 
 Cualquier parámetro que pasemos sin _v-bind_ se considera texto. Si queremos pasar un número, booleano, array u objeto hemos de pasarlo con _v-bind_ igual que hacemos con las variables para que no se considere texto:
-```[html]
+```html
 <ul>
   <todo-item todo="Aprender Vue" :done="false" ></todo-item>
 </ul>
 ```
 
 Podemos pasar varios parámetros en un atributo _v-bind_ sin nombre:
-```[html]
+```html
 <ul>
   <todo-item v-bind="{ todo: 'Aprender Vue, done: false }" ></todo-item>
 </ul>
 ```
 y en e componente se reciben sus propiedades separadamente:
-```[javascript]
+```javascript
 Vue.component('todo-item, {
   props: ['todo', 'done'],
   ...
@@ -50,7 +50,7 @@ Vue.component('todo-item, {
 Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
 
 Si debemos cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
-```[javascript]
+```javascript
 props: ['initialValue'],
 data(): {
   return {
@@ -60,7 +60,7 @@ data(): {
 ```
 
 Si debemos darle determinado formato también lo haremos sobre otra variable que es con la que trabajaremos:
-```[javascript]
+```javascript
 props: ['cadenaSinFormato'],
 computed(): {
   cadenaFormateada() {
@@ -73,7 +73,7 @@ computed(): {
 
 ### Validación de _props_
 Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
-```[javascript]
+```javascript
 props: {
   prop1: {
     type: String,
@@ -96,18 +96,18 @@ props: {
 
 ## Emitir eventos
 Si un componente hijo debe pasarle un dato a su padre o informarle de algo puede emitir un evento que el padre capturará y tratará convenientemente. Para emitir el evento el hijo hace:
-```[javascript]
+```javascript
   this.$emit('nombreEv', parametro);
 ```
 
 El padre debe capturar el evento como cualquier otro. En su HTML hará:
-```[html]
+```html
 <my-component @nombreEv="fnManejadora"
 ...
 ```
 
 y en su JS tendrá la función para manejar ese evento:
-```[javascript]
+```javascript
   ...
   methods: {
     fnManejadora(param) {
@@ -120,7 +120,7 @@ y en su JS tendrá la función para manejar ese evento:
 El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
 
 También se puede "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo con el modificador _.sync_ pero no es muy recomendable porque hace el código más difícil de mantener:
-```[html]
+```html
 <ul>
   <todo-item todo="Aprender Vue" :done.sync="false" ></todo-item>
 </ul>
@@ -131,18 +131,18 @@ Si cambia el valor de _done_ en el hijo también cambiará en el padre.
 Si queremos pasar información entre varios componentes que no tienen por qué ser padres/hijos podemos crear un componente que haga de bus y que lo incluiremos en cada componente que queramos comunicar:
 
 Para crear el objeto que gestione la comunicación entre componentes haremos:
-```[javascript]
+```javascript
 var EventBus = new Vue;
 ```
 En cada componente que queramos que escuche eventos de ese bus importamos el componente y creamos un escuchador en el hook _created_:
-```[javascript]
+```javascript
 created() {
     EventBus.$on('nombreEv', function(param) {
         …
     })
 ```
 Cada componente que queramos que emita al bus deberá también tener importado el _EventBus_. Para emitir, en el método del componente que queramos lanzamos el evento con:
-```[javascript]
+```javascript
 EventBus.$emit('nombreEv', param)
 ```
 
@@ -161,17 +161,17 @@ Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más 
 Vamos a hacer que funcione la aplicación que separamos en componentes.
 
 En primer lugar vamos a darle funcionalidad al botón de borrar toda la lista. En la función manejadora del componente sustituimos el _alert_ por
-```[javascript]
+```javascript
 this.$emit('delAll');
 ```
 Ahora en el _template_ del componente padre capturaremos el evento _delAll_ (podríamos haber emitido también un 'click') y llamamos a la función que borrará toda la lista.
 
 Con el botón de añadir haremos lo mismo pero en este caso al emitir el evento le pasaremos el texto a añadir:
-```[javascript]
+```javascript
 this.$emit('newl', this.newTodo);
 ```
 Y la función manejadora lo recibe como parámetro (pero no se pone en el HTML):
-```[javascript]
+```javascript
 addTodo(title) {
   this.todos.push({title: title, done: false});
 },

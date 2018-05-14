@@ -35,12 +35,12 @@ Depende de la aplicación a desarrollar y de los gustos del programador. Tenéis
 
 ## Instalar Vue
 Para utilizar Vue sólo necesitamos enlazarlo en nuestra página desde un CDN:
-```[HTML]
+```html
 <!-- development version, includes helpful console warnings -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
 o
-```[HTML]
+```html
 <!-- production version, optimized for size and speed -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
@@ -73,7 +73,7 @@ pasan de inicio, usado en componentes), *computed* (propiedades calculadas), etc
 Para probar su funcionamiento conviene que nos descarguemos los ficheros y los abramos en local.
 
 Fichero HTML:
-```[HTML]
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +93,7 @@ Fichero HTML:
 Nuestro código debemos cargarlo después de cargar la librería y de crear el elemento HTML que cnotenga la aplicación.
 
 Fichero JS:
-```[Javascript]
+```javascript
 var miApp = new Vue({
   el: '#app',
   data: {
@@ -103,7 +103,7 @@ var miApp = new Vue({
 ```
 ### Enlace unidireccional: interpolación {{...}}
 Hemos creado una variable _miApp_ que contiene nuestro objeto Vue y que podemos ver y manipular desde la consola. Si cambiamos el valor de la variable _message_
-```[Javascript]
+```javascript
 miApp.message = "Hola Vue2!";
 ```
 vemos que cambia lo que muestra nuestra página.
@@ -112,21 +112,21 @@ Esto es porque Vue (al igual que Angular o React) enlazan el DOM y los datos de 
 
 ### Enlazar a un atributo: v-bind
 Para mostrar un dato en el DOM usamos `{{ }}` pero si queremos nostrarlo como atributo de una etiqueta debemos usar `v-bind`:
-```[HTML]
+```html
   <p v-bind:title="message">
     Hover your mouse over me for a few seconds
     to see my dynamically bound title!
   </p>
 ```
 Vue incorpora estos '_atributos_' que podemos usar en las etiquetas HTML y que se llaman **directivas**. Todas las directivas comienzan por `v-`. Como la directiva `v-bind` se utiliza mucho se puede abreviar símplemente como `:`. El siguiente código es equivalente al de antes:
-```[HTML]
+```html
   <p :title="message">
 ```
 ### Enlace bidireccional: v-model
 Tanto `{{ }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el valor de un dato y reaccionan ante cualquier cambio en dicho valor. 
 
 Tenemos además está la directiva `v-model` que es un enlace bidireccional que enlace un dato a un campo de formulario y permite cambiar el valor del campo al cambiar el dato pero también cambia el dato si se modifica lo introducido en el input. 
-```[HTML]
+```html
   <input v-model="message">
 ```
 

@@ -26,7 +26,7 @@ Tabla de contenidos
 
 # Variables
 Javascript es un lenguaje débilmente tipado. Esto significa que no se indica de qué tipo es una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa. Ejemplo:
-```[javascript]
+```javascript
 let miVariable;         // declaro miVariable y como no se asigno un valor valdrá _undefined_
 miVariable='Hola';      // ahora su valor es 'Hola', por tanto contiene una cadena de texto
 miVariable=34;          // pero ahora contiene un número
@@ -35,7 +35,7 @@ miVariable=undefined;   // para volver a valer elvalor especial _undefined_
 ```
 
 Ni siquiera estamos obligados a declarar una variable antes de usarla, aunque es recomendable para evitar errores que nos constara depurar. Para que se produzca un error si no declaramos una variable debemos incluir en nuestro código la instrucción
-```[javascript]
+```javascript
 'use strict'
 ```
 
@@ -52,7 +52,7 @@ Puede usarse una función antes de haberla declarado por el _hoisting_ de Javasc
 
 ### Parámetros
 Si se llama una función con menos parámetros de los declarados el valor de los parámetros no pasados será _undefined_:
-```[javascript]
+```javascript
 potencia(4);
 
 function potencia(base, exponente) {
@@ -66,7 +66,7 @@ function potencia(base, exponente) {
 }
 ```
 Podemos dar un **valor por defecto** a los parámetros por si no los pasan asignándoles el valor al definirlos:
-```[javascript]
+```javascript
 potencia(4);
 
 function potencia(base, exponente=2) {
@@ -81,14 +81,14 @@ function potencia(base, exponente=2) {
 ```
 
 > NOTA: En ES5 para hacer esto se hacía
-> ```[javascript]
+> ```javascript
 > function potencia(base, exponente) {
 >     exponente = exponente | 2;
 > ...
 > ```
 
 También es posible acceder a los parámetros desde el array **arguments[]** si no sabemos cuántos recibiremos:
-```[javascript]
+```javascript
 function suma () {
     var result = 0;
     for (var i=0; i<arguments.length; i++)
@@ -98,7 +98,7 @@ function suma () {
 ```
 ### Funciones anónimas
 Podemos definir una función sin darle un nombre que pueden asignarse a una variable, autoejecutarse o asignasrse a un manejador de eventos. Ejemplo:
-```[javascript]
+```javascript
 let holaMundo = function() {
     alert('Hola mundo!');
 }
@@ -108,7 +108,7 @@ holaMundo();        // se ejecuta la función
 
 ### Arrow functions (funciones _labda_)
 ES2015 permite declarar una función anónima de forma más corta. Ejemplo sin _arrow function_:
-```[javascript]
+```javascript
 let potencia = function(base, exponente) {
     let valor=1;
     for (let i=1; i<=exponente; i++) {
@@ -124,7 +124,7 @@ Lo que hacemos es:
 * Si la función sólo tiene 1 línea eliminamos las { } y la palabra _return_
 
 El ejemplo con _arrow function_:
-```[javascript]
+```javascript
 let potencia = (base, exponente) => {
     let valor=1;
     for (let i=1; i<=exponente; i++) {
@@ -134,20 +134,20 @@ let potencia = (base, exponente) => {
 }
 ```
 Otro ejemplo, sin _arrow function_:
-```[javascript]
+```javascript
 let cuadrado = function(base) {
     return base * base;
 }
 ```
 conn _arrow function_:
-```[javascript]
+```javascript
 let cuadrado = base => base * base;
 ```
 
 # Estructuras y bucles
 ## Estructura condicional _if_
 El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden anidarse varios con **else if**.
-```[javascript]
+```javascript
 if (condicion) {
     ...
 } else if (condicion2) {
@@ -159,13 +159,13 @@ if (condicion) {
 }
 ```
 Se puede usar el operador **? :** que es como un _if_ que devuelve un valor:
-```[javascript]
+```javascript
 let esMayor = (edad>18)?true:false;
 ```
 
 ## Estructura condicional _switch_
 El **switch** también es como en la mayoría de lenguajes. Hay que poner _break_ al final de cada bloque para que no continúe evaluando:
-```[javascript]
+```javascript
 switch(color) {
     case 'blanco':
     case 'amarillo':    // Ambos colores entran aquí
@@ -179,7 +179,7 @@ switch(color) {
 }
 ```
 Javascript permite que el _switch_ en vez de evaluar valores pueda evaluar expresiones. EN este caso se pone como condición _true_:
-```[javascript]
+```javascript
 switch(true) {
     case age < 18:
         console.log("Eres muy joven para entrar");
@@ -193,13 +193,13 @@ switch(true) {
 ```
 ## Bucle _while_
 Podemos poner
-```[javascript]
+```javascript
 while (condicion) {
     // sentencias
 }
 ```
 que se ejecutará 0 o más veces o
-```[javascript]
+```javascript
 do {
     // sentencias
 } while (condicion)
@@ -210,7 +210,7 @@ que al menos se ejecutará 1 vez.
 Tenemos muchos _for_ que podemos usar.
 
 ### Bucle _for_ con contador
-```[javascript]
+```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
 
@@ -220,7 +220,7 @@ for (let i=0; i<datos.length; i++) {
 // El valor de sumaDatos será 125
 ```
 ### Bucle _for ... in_
-```[javascript]
+```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
 
@@ -230,7 +230,7 @@ for (let indice in datos) {
 // El valor de sumaDatos será 125
 ```
 También sirve para recorrer las propiedades de un objeto:
-```[javascript]
+```javascript
 let profe={
     nom:”Juan”, 
     ape1=”Pla”, 
@@ -245,7 +245,7 @@ for (var campo in profe) {
 ```
 ### Bucle _for ... of_
 Es similar al _for...in_ pero en vez de devolver cada índice devuelve cada elemento. Es nuevo en ES2015:
-```[javascript]
+```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
 
@@ -255,7 +255,7 @@ for (let valor of datos) {
 // El valor de sumaDatos será 125
 ```
 También sirve para recorrer los caracteres de una cadena de texto:
-```[javascript]
+```javascript
 let cadena='Hola';
 
 for (let letra of cadena) {
@@ -322,7 +322,7 @@ Algunos métodos y propiedades de las cadenas son:
 
 ### Template literals
 Desde ES2015 también podemos poner una cadena entre \` (acento grave) y en ese caso podemos poner dentro variables y expresiones que serán evaluadas al ponerlas dentro de **${}**. También se respetan los saltos de línea, tabuladores, etc que haya dentro. Ejemplo:
-```[javascript]
+```javascript
 let edad=25;
 
 console.log(\`El usuario tiene:
