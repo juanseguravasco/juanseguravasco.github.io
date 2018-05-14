@@ -47,11 +47,6 @@ Ejemplo **escribes**:
 ### Título 3
 ```
 
-Ejemplo **escribes**:
-> \# Título 1  
-> \## Título 2  
-> \### Título 3
-
 **Obtienes**:
 > # Título 1
 > ## Título 2
@@ -62,7 +57,9 @@ Ejemplo **escribes**:
 * regla horizontal: 3 = o - o *
 
 **Escribes**:
-> \***
+```md
+***
+```
 
 **Obtienes**:
 > ***
@@ -72,6 +69,12 @@ Ejemplo **escribes**:
 * listas desordenadas: * y espacio al principio de la línea. Para hacer sublistas tabulamos con 4 espacios en blanco
 
 **Escribes**:
+```md
+* Item 1  
+    * Item 1.1  
+    * Item 1.2  
+* Item 2
+```
 > \* Item 1  
 > &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.1  
 > &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.2  
