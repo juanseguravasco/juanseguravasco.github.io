@@ -75,6 +75,7 @@ Ejemplo **escribes**:
     * Item 1.2  
 * Item 2
 ```
+
 > \* Item 1  
 > &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.1  
 > &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.2  
@@ -89,10 +90,12 @@ Ejemplo **escribes**:
 * listas ordenadas: nº, punto y espacio
 
 **Escribes**:
-> 1. Item 1  
-> &nbsp;&nbsp;&nbsp;&nbsp; 1. Item 1.1  
-> &nbsp;&nbsp;&nbsp;&nbsp; 1. Item 1.2  
-> 1. Item 2
+```md
+1. Item 1  
+    1. Item 1.1  
+    1. Item 1.2  
+1. Item 2
+```
 
 **Obtienes**:
 > 1. Item 1
@@ -106,9 +109,11 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 * código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo. Ej.: ``código`` ->  `código`
 
 **Escribes**:
-> \`\`\`\[html]  
-> \<h1>Hola\</h1>  
-> \`\`\`
+```md
+```html  
+<h1>Hola</h1>  
+```
+```
 
 **Obtienes**:
 > ```[html]
@@ -119,11 +124,13 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 * tablas: se separan las columnas con \|
 
 **Escribes**:
-> Encab 1 \| Encab 2  
-> \--|--  
-> dato 1.1 \| dato 1.2  
-> dato 2.1 \| dato 2.2  
-> dato 3.1 \| dato 3.2
+```md
+Encab 1 | Encab 2  
+--|--  
+dato 1.1 | dato 1.2  
+dato 2.1 | dato 2.2  
+dato 3.1 | dato 3.2
+```
 
 **Obtienes**:
 > Encab 1 | Encab 2
@@ -135,7 +142,9 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 Podemos incluir código HTML en nuestro documento y también lo interpretará el navegador
 
 **Escribes**:
-> \<p align="center">Párrafo con \<b>Negrita\</b> y centrado\</p>
+```md
+<p align="center">Párrafo con <b>Negrita</b> y centrado</p>
+```
 
 **Obtienes**:
 > <p align="center">Párrafo con <b>Negrita</b> y centrado</p>
@@ -143,17 +152,17 @@ Podemos incluir código HTML en nuestro documento y también lo interpretará el
 ### Añadir vídeos
 En principio no se pueden incluir vídeos pero es sencillo hacerlo de varias formas. Una de las más 'limpias' es crear una página HTML (podemos llamarla youtubePlayes.html) dentro del directorio \_includes con el código:
 
-```[HTML]
+```html
 <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ include.id }}" frameborder="0" allowfullscreen></iframe>
 ```
 
 Donde queremos que se muestre el vídeo ponemos el código:
-```[HTML]
+```html
 {\% include youtubePlayer.html id=page.youtubeId %}
 ```
 Si queremos mostrar vídeos de Vimeo podemos crear la página vimeoPlayer.html con el código:
 
-```[HTML]
+```html
 <iframe src="https://player.vimeo.com/video/{{ include.id }}" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 ```
 
@@ -215,11 +224,11 @@ Una opción si queremos hacer una "web" de documentación más compleja es utliz
 Jekyll es un generador de blogs que soporta MarkDown y recomendado para hacer gh-pages.
 
 ### Instalación
-```[bash] 
+```bash 
 $ sudo apt install ruby (se necesita versión >= 2.2.5)
 ```
 Comprobamos si están instalados gcc, g++ y make
-```[bash] 
+```bash 
 $ gcc -v
 $ g++ -v
 $ make -v
@@ -227,29 +236,29 @@ $ make -v
 Si falta alguno lo instalaremos.
 
 Comprobamos si están instalados los headers de Ruby
-```[bash] 
+```bash 
 $ apt list --installed ruby-dev
 ruby-dev/version... [instalado]
 ```
 Si no lo instalaremos con:
-```[bash] 
+```bash 
 $ sudo install ruby-dev
 ```
 
 Instalamos Jekyll y su bundler:
-```[bash] 
+```bash 
 $ sudo gem install jekyll
 $ sudo gem install jekyll bundler
 ```
 
 ### Uso básico
 Creamos nuestro sitio con:
-```[bash] 
+```bash 
 $ sudo jekyll new mipagina
 ```
 
-Abrimos el fichero _config y cambiamos las configuraciones básicoas (nombre, ...)
-```[bash] 
+Abrimos el fichero \_config y cambiamos las configuraciones básicoas (nombre, ...)
+```bash 
 $ sudo gem install jekyll
 ```
 
@@ -264,22 +273,22 @@ $ sudo gem install jekyll
 Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestro documento Markdown que tenga una entrada en la tabla para cada título de la página.
 
 Una de estas utilidades es [doctoc](https://github.com/thlorenz/doctoc). La instalamos con npm:
-```[bash]
+```bash
 npm install -g doctoc
 ```
 
 Ahora indicamos el fichero/s al que le queremos crear la ToC:
-```[bash]
+```bash
 doctoc README.md introduccion.md
 ```
 
 Si indicamos un directorio creará la ToC para todos los ficheros que haya allí y en sus subdirectorios. Es lo más sencillo:
-```[bash]
+```bash
 doctoc .
 ```
 
 Si un fichero ya tiene una ToC de doctoc al volver a ejecutar el comando no añade una nueva sino que actualiza la existente. Las ToC van entre los comentarios
-```[md]
+```md
 \<!-- START doctoc -->
 y
 \<!-- END doctoc -->
