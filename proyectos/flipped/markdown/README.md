@@ -41,6 +41,13 @@ Un resumen muy básico de las mismas es:
 * cabeceras: # (# = h1, ## = h2, ..., ###### = h6)
 
 Ejemplo **escribes**:
+```md
+# Título 1  
+## Título 2  
+### Título 3
+```
+
+Ejemplo **escribes**:
 > \# Título 1  
 > \## Título 2  
 > \### Título 3
