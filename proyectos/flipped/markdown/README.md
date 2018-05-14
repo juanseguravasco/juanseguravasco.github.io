@@ -76,11 +76,6 @@ Ejemplo **escribes**:
 * Item 2
 ```
 
-> \* Item 1  
-> &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.1  
-> &nbsp;&nbsp;&nbsp;&nbsp; \* Item 1.2  
-> \* Item 2
-
 **Obtienes**:
 > * Item 1
 >   * Item 1.1
@@ -112,11 +107,11 @@ Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo"
 ```md
 ```html  
 <h1>Hola</h1>  
-```
+``\`
 ```
 
 **Obtienes**:
-> ```[html]
+> ```html
 > <h1>Hola</h1>
 > ```
 
@@ -225,7 +220,7 @@ Jekyll es un generador de blogs que soporta MarkDown y recomendado para hacer gh
 
 ### Instalación
 ```bash 
-$ sudo apt install ruby (se necesita versión >= 2.2.5)
+$ sudo apt install ruby     # (se necesita versión >= 2.2.5)
 ```
 Comprobamos si están instalados gcc, g++ y make
 ```bash 
@@ -238,7 +233,7 @@ Si falta alguno lo instalaremos.
 Comprobamos si están instalados los headers de Ruby
 ```bash 
 $ apt list --installed ruby-dev
-ruby-dev/version... [instalado]
+$ ruby-dev/version... [instalado]
 ```
 Si no lo instalaremos con:
 ```bash 
@@ -274,24 +269,24 @@ Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestr
 
 Una de estas utilidades es [doctoc](https://github.com/thlorenz/doctoc). La instalamos con npm:
 ```bash
-npm install -g doctoc
+$ npm install -g doctoc
 ```
 
 Ahora indicamos el fichero/s al que le queremos crear la ToC:
 ```bash
-doctoc README.md introduccion.md
+$ doctoc README.md introduccion.md
 ```
 
 Si indicamos un directorio creará la ToC para todos los ficheros que haya allí y en sus subdirectorios. Es lo más sencillo:
 ```bash
-doctoc .
+$ doctoc .
 ```
 
 Si un fichero ya tiene una ToC de doctoc al volver a ejecutar el comando no añade una nueva sino que actualiza la existente. Las ToC van entre los comentarios
 ```md
-\<!-- START doctoc -->
+<!-- START doctoc -->
 y
-\<!-- END doctoc -->
+<!-- END doctoc -->
 ```
 
 Por defecto creará la ToC al principio del fichero pero si la queremos en otro sitio sólo tenemos que poner allí estas etiquetas.
