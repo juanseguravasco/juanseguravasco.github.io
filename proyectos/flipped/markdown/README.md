@@ -101,7 +101,7 @@ Ejemplo **escribes**:
 * enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
 Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
 * imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
-* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (pueden ir seguidas del lenguaje entre corchetes) y al final del bloque 3 más para cerrarlo. Ej.: ``código`` ->  `código`
+* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (acentros graves, seguidos opcionalmente del lenguaje) y al final del bloque 3 acentos más para cerrarlo. Ej.: ``código`` ->  `código`
 
 **Escribes**:
 ```md
