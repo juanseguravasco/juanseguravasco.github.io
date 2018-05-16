@@ -83,7 +83,7 @@ function potencia(base, exponente=2) {
 > NOTA: En ES5 para hacer esto se hacía
 > ```javascript
 > function potencia(base, exponente) {
->     exponente = exponente | 2;
+>     exponente = exponente || 2;
 > ...
 > ```
 
