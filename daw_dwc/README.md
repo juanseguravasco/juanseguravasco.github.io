@@ -11,5 +11,5 @@ Tabla de contenidos
 Explicación del módulo y su importancia
 
 ## Bloques
-* JS
+* [Javascript](01-js)
 * [Vue JS](03-vue)
