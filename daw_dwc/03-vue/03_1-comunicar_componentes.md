@@ -23,7 +23,7 @@ Nos podemos encontrar las siguientes situaciones:
 * Comunicación entre otros componentes: crear un componente que haga de _bus_ de comunicaciones
 * Comunicación más compleja: Vuex
 
-## _props_
+## Props
 Ya hemos visto que permiten pasar parámetros del padre al componente hijo. Si el valor del parámetro cambia en el padre automáticamente se reflejan esos cambos en el hijo.
 
 Cualquier parámetro que pasemos sin _v-bind_ se considera texto. Si queremos pasar un número, booleano, array u objeto hemos de pasarlo con _v-bind_ igual que hacemos con las variables para que no se considere texto:
@@ -46,7 +46,7 @@ Vue.component('todo-item, {
   ...
 ```
 
-### No cambiar el valor de una _prop_
+### No cambiar el valor de una prop
 Al pasar un parámetro mediante una _prop_ su valor se mantendrá actualizado en el hijo si su valor cambiara en el padre, pero no al revés por lo que no debemos cambiar su valor en el componente hijo.
 
 Si debemos cambiar su valor porque lo que nos pasan es sólo un valor inicial asignaremos el parámetro a otra variable:
@@ -71,8 +71,14 @@ computed(): {
 
 **OJO**: Si el parámetro es un objeto o un array éste se pasa por referencia por lo que si lo cambiamos en el componente hijo  afectará al padre, lo que debemos evitar.
 
-### Validación de _props_
-Al pasar un parámetro podemos indicar algunas cosas como su tipo, su valor por defecto si no se pasa, si es o no obligatorio e incluso una función para validaciones más complejas. Ej.:
+### Validación de props
+Al pasar un parámetro podemos indicar algunas cosas como:
+* **type**: su tipo (String, Boolean, Number, Object, ...). Puede ser un array con varios tipos: `type: [Boolean, Number]`
+* **default**: su valor por defecto si no se pasa ese parámetro
+* **required**: si es o no obligatorio
+* e incluso una función para validaciones más complejas
+
+Ejemplos:
 ```javascript
 props: {
   prop1: {
