@@ -145,7 +145,7 @@ let cuadrado = base => base * base;
 ```
 
 # Estructuras y bucles
-## Estructura condicional _if_
+## Estructura condicional: if
 El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden anidarse varios con **else if**.
 ```javascript
 if (condicion) {
@@ -163,7 +163,7 @@ Se puede usar el operador **? :** que es como un _if_ que devuelve un valor:
 let esMayor = (edad>18)?true:false;
 ```
 
-## Estructura condicional _switch_
+## Estructura condicional: switch
 El **switch** también es como en la mayoría de lenguajes. Hay que poner _break_ al final de cada bloque para que no continúe evaluando:
 ```javascript
 switch(color) {
@@ -206,10 +206,10 @@ do {
 ```
 que al menos se ejecutará 1 vez.
 
-## Bucle _for_
+## Bucle: for
 Tenemos muchos _for_ que podemos usar.
 
-### Bucle _for_ con contador
+### Bucle: for con contador
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
@@ -219,7 +219,7 @@ for (let i=0; i<datos.length; i++) {
 }  
 // El valor de sumaDatos será 125
 ```
-### Bucle _for ... in_
+### Bucle: for...in
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
@@ -243,7 +243,7 @@ for (var campo in profe) {
 }  
 // El valor de nombre será “Juan Pla Pla ”
 ```
-### Bucle _for ... of_
+### Bucle: for...of
 Es similar al _for...in_ pero en vez de devolver cada índice devuelve cada elemento. Es nuevo en ES2015:
 ```javascript
 let datos=[5, 23, 12, 85]
