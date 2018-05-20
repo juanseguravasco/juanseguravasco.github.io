@@ -32,7 +32,12 @@ Cada elemento del menú es una etiqueta `<v-list-tile>` dentro del `<v-navigatio
 
 Para cada elemento que queramos añadir:
 * Su icono está dentro de `<v-icon>` y para elegirlo vamos a [Material Design](https://material.io/tools/icons/?style=baseline) y elegimos el que queramos. Para modificar su aspecto vamos a _Vuetify -> UI components -> Icons_ y copiamos el código que queramos
-
+* Para que enlace a la ruta que queramos añadimos a la etiqueta `<v-list-tile-title>` una etiqueta `<router-link :to="{ name: nombre_de_la_ruta }>`, ejemplo:
+```html
+<v-list-tile-title>
+  <routerlink :to="{ name: 'perfil' }">Perfil</router-link>
+</v-list-tile-title>
+```
 
 Respecto al _footer_ 
 
