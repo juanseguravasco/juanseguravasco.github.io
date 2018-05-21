@@ -40,38 +40,31 @@ import UserEdit from './components/UserEdit.vue'
 Vue.use(Router)
 
 const router=new Router({
+  mode: 'history',
   routes: [
 	{
 		path: '/',
-		component: 'AppHome'
+		component: AppHome
 	},{
 		path: '/about',
-		component: 'AppAbout'
+		component: AppAbout
 	},{
 		path: '/users',
-		component: 'UsersTable'
+		component: UsersTable
 	},{
 		path: '/new',
-		component: 'UserNew'
+		component: UserNew
 	},{
 		path: '/edit/:id',
-		component: 'UserEdit'
+		component: UserEdit
 		props: true
 	}
   ],
-  mode: 'history'
 }
 
 new Vue({
   el: '#app',
   router: router,
-  components: {
-	AppHome,
-	AppAbout,
-	UsersTable,
-	UserNew,
-	UserEdit,
-  },
   render: h => h(App)
 })
 ```
@@ -89,26 +82,26 @@ Además de esas propiedades podemos indicar más para cada ruta:
 
 En la parte del HTML en que queramos que se carguen los diferentes componentes de nuestra SPA incluiremos la etiqueta:
 ```html
-\<router-view>\</router-view>
+<router-view></router-view>
 ```
 
 ## Crear un menú
 Seguramente querremos un menú en nuestra SPA que nos permita ir a las diferentes rutas (que provocarán que se carguen los componentes). Para ello usaremos la etiqueta **\<router-link>**. Ejemplo:
 ```html
-\<router-link to="/">Home\</router-link>
-\<router-link to="/about">Acerca de...\</router-link>
+<router-link to="/">Home</router-link>
+<router-link to="/about">Acerca de...</router-link>
 ```
 
 Cuando accedemos a una ruta su elemento _\<router-link> adquiere la clase _.router-link-active.
 
 Si le hemos puesto la propiedad _name_ a una ruta podemos hacer un enlace a ella con
 ```html
-\<router-link to="{name: 'nombre_de_a_ruta'}">Home\</router-link>
+<router-link to="{name: 'nombre_de_a_ruta'}">Home</router-link>
 ```
 
 Se puede hacer (aunque no es lo normal) una opción de menú a una ruta dinámica y pasarle el parámetro deseado. Por ejemplo para editar el usuario 5 haremos:
 ```html
-\<router-link to="{name: 'edit', params: {id: 5}}">Editar usuario 5\</router-link>
+<router-link to="{name: 'edit', params: {id: 5}}">Editar usuario 5</router-link>
 ```
 En este caso es necesario que la ruta dinámica tenga un _name_.
 
