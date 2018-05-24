@@ -285,8 +285,7 @@ Así que lo que haremos es:
   * un _v-bind_ que muestre el valor inicial
   * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
 ```html
-<input ref="input" :value="value" v-on:input="updateValue($event.target.value)">
-```<template>
+<template>
 	<div class="control-group">
 	  <!-- id -->
 	  <label class="control-label" :for="nombre">{{ titulo }}</label>
