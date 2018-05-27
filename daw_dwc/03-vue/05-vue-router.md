@@ -14,9 +14,9 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Vue-router
-Es otra de las librerías del "ecosistema" de Vue más utilizadas ya que la necesitamos para hacer SPA (_Single Page Applications_).
+Como comentamos al pricipio Vue nos va a permitir crear SPA (_Single Page Applications_) lo que significa que sólo se cargará una pagina: _index.html_. Sin embargo nuestra aplicación estará dividida en diferentes vistas que el usuario percibirá como si fueran páginas diferentes y el envargado de gestionar la anvegación entre estas vistas/Páginas de **Vue-router** que es otra de las librerías del "ecosistema" de Vue.
 
-Lo que haremos es _mapear_ componentes de nuestra aplicación a rutas URL de forma que cuando se pone determinada ruta en el navegador se carga en la página el componente indicado. También permite tener subrutas que mapeen subcomponentes dentro de otros.
+Lo que haremos es definir rutas que _mapean_ componentes de nuestra aplicación a rutas URL de forma que cuando se pone determinada ruta en el navegador se carga en nuestra página el componente indicado. También permite tener subrutas que mapeen subcomponentes dentro de otros.
 
 ## Instalación
 Como esta librería vamos a usarla en producción la instalaremos como dependencia del proyecto:
@@ -24,13 +24,12 @@ Como esta librería vamos a usarla en producción la instalaremos como dependenc
 npm install vue-router -S
 ```
 
-## Usar _VueRouter_
-La importaremos en el fichero principal de nuestra aplicación, _main.js_. A continuación la declaramos, creamos una instancia para nuestras rutas y la configuramos. También debemos importar todos los componentes que definamos en el router:
+## Crear las rutas
+Podemos hacerlo en el fichero principal de nuestra aplicación, _main.js_, pero para que el código quede más legible conviene hacerlo en un fichero diferente (por ejemplo en _router/index.js_). Allí importamos _Vue-router_, lo declaramos, creamos una instancia para nuestras rutas (que es el objeto que exportamos) y la configuramos. También debemos importar todos los componentes que definamos en el router:
 ```vue
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import App from './App.vue'
 import AppHome from './components/AppHome.vue'
 import AppAbout from './components/AppAbout.vue'
 import UsersTable from './components/UsersTable.vue'
@@ -39,7 +38,7 @@ import UserEdit from './components/UserEdit.vue'
 
 Vue.use(Router)
 
-const router=new Router({
+export default new Router({
   mode: 'history',
   routes: [
 	{
@@ -60,25 +59,32 @@ const router=new Router({
 		props: true
 	}
   ],
-}
+})
+```
 
+Ahora en el fichero _main.js_ importamos el objeto router que hemos creado y lo declaramos en la instancia de Vue:
+```vue
+...
+import router from './router'
+...
 new Vue({
   el: '#app',
   router: router,
   render: h => h(App)
 })
 ```
-El valor 'history' de la propiedad _mode_ indica que use rutas "amigables" y que no incluyan la # (ya que en realidad no se están cargando diferentes páginas sino partes de una única página -es una SPA-).
+
+El valor 'history' de la propiedad _mode_ de nuestro router indica que use rutas "amigables" y que no incluyan la # (ya que en realidad no se están cargando diferentes páginas sino partes de una única página -es una SPA-).
 
 Para cada ruta que queramos mapear hay que definir:
 * **path**: la url que hará que se cargue el componente
 * **component**: el componente que se cargará donde se encuentre la etiqueta **\<router-view>** en el HTML
 
-_VueRouter_ permite rutas dinámicas como la indicada para el componente _UserEdit_. La ruta _/edit/_ seguida de algo más hará que se cargue el componente _UserEdit_ y que dicho componente reciba en un parámetro llamado _id_ la parte final de la ruta (por ejemplo /edit/5 hace que el componente reciba una _prop_ llamada _id_ con valor 5).
+_VueRouter_ permite rutas dinámicas como la indicada para el componente _UserEdit_. La ruta _/edit/_ seguida de algo más hará que se cargue el componente _UserEdit_ y que dicho componente reciba en un parámetro llamado _id_ la parte final de la ruta (por ejemplo /edit/5 hace que el componente reciba en sus _props_ una variable llamada _id_ con valor 5).
 
 Además de esas propiedades podemos indicar más para cada ruta:
-* name: le damos a la ruta un nombre que luego podemos usar
-* props: se usa en rutas dinámicas e indica que el componente recibirá el parámetro de la ruta en sus _props_. Si no se pone para acceder al parámetro _id_ lo haría desde `this.$route.params.id` 
+* name: le damos a la ruta un nombre que luego podemos usar para referirnos a ella
+* props: se usa en rutas dinámicas e indica que el componente recibirá el parámetro de la ruta en sus _props_. Si no se pone el componente accederá al parámetro _id_ desde `this.$route.params.id` 
 
 En la parte del HTML en que queramos que se carguen los diferentes componentes de nuestra SPA incluiremos la etiqueta:
 ```html
