@@ -50,13 +50,13 @@ La opción -g es para que lo instale globalmente en el sistema y no instale unca
 
 Para crear un nuevo proyecto haremos:
 ```[bash]
-vue init _plantilla_ nombre-proyecto
+vue init _<plantilla>_ _<directorio_proyecto>_
 ```
 Podemos usar, entre otras, las siguientes plantillas:
-* simple: el proyecto será un único fichero que contendrá todo el código
-* webpack-simple: crea un scaffolding sencillo que incluye webpack
-* webpack: incluye también herramientas para testear el proyecto, entre otras
-* PWA: para crear una Progressive Web App (App para móviles similar a una app nativa)
+* simple: el proyecto será un único fichero HTML que contendrá todo el código
+* webpack-simple: crea un scaffolding sencillo que incluye webpack y Vue-loader
+* webpack: incluye también herramientas para testear el proyecto, _linting_, extración de CSS,entre otras
+* PWA: para crear una Progressive Web App (App para móviles similar a una app nativa) basada en Webpack y Vue-loader
 
 ## Ejemplo plantilla simple
 La crearemos con
