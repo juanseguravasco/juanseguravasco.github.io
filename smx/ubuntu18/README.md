@@ -41,7 +41,7 @@ network:
             dhcp4: false
             optional: true
 ```
-![Configuració de xarxa](./img/Ubuntu18-xarxa-01.jpg)
+![Configuració de xarxa](./img/Ubuntu18-xarxa-01.png)
 
 **ATENCIÓ**: ha d'haver-hi un espai entre els : i el valor de l'opció i no pot haver-hi espais al final d'una línia.
 
@@ -51,7 +51,7 @@ netplan apply
 ```
 
 En el cas de la versió Desktop segueix sent **NetworkManager** qui s'encarrega de configurar la xarxa, la qual cosa s'indica en el fitxer que hi ha en _/etc/netplan_:
-![netplan](./img/Ubuntu18-xarxa-03.jpg)
+![netplan](./img/Ubuntu18-xarxa-02.png)
 
 ## Enrutament
 Una vegada les 2 targetes estiguen correctament configurades perquè els clients tinguen accés a Internet haurem de configurar el enrutamiento en el servidor, la qual cosa comporta 2 accions:
