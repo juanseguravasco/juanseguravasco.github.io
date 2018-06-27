@@ -18,6 +18,13 @@ El sistema de componentes es un comcepto importante en Vue. Nuestras aplicacione
 
 Para sabér qué debe ser un componente y que no podemos considerar un componente como un elemento que tiene entidad propia, tanto a nivel funcional como visual, es decir, que puede ponerse en el lugar que queramos de la aplicación y se verá y funcionará correctamente. Además es algo que es muy posible que pueda aparecer en más de un lugar de la aplicación.
 
+Separar nuestra aplicación en componentes nos va a ofrecer muchas ventajas:
+* encapsulamos el código de la aplicación en elementos más sencillos
+* facilita la reutilización de código
+* evita tener código repetido
+
+El primer paso a la hora de hacer una aplicación debe ser analizar qué componentes tendrá
+
 En definitiva nuestra aplicación será como un árbol de componentes con la instancia principal de Vue como raíz.
 ![Árbol de componentes](https://vuejs.org/images/components.png)
 
