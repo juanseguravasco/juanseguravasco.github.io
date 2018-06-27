@@ -11,7 +11,8 @@ Els canvis que açò comporta són, entre uns altres:
     ip link set $targeta up
     ip link set $targeta down
 ```
-* hi ha una nova comanda, networkctl, per a veure què dispositius tenim. Amb el paràmetre status ens dóna la configuració de cadascun
+* hi ha una nova comanda, networkctl, per a veure què dispositius tenim. Amb el paràmetre `status` ens dóna la configuració de cadascun:
+![Configuració de xarxa](./img/Ubuntu18-xarxa-04.png)
 
 ### Fitxer de configuració
 Es tracta d'un fitxer YAML. Açò significa que cada opció va en una línia i si una està dins de l'anterior ha d'anar indentada cap a dins 4 espais (ULL han de ser 4 i no serveix tabulador).
