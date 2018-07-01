@@ -32,6 +32,11 @@ Depende de la aplicación a desarrollar y de los gustos del programador. Tenéis
 * [Angular vs. React vs. Vue: A 2017 comparison](https://medium.com/unicorn-supplies/angular-vs-react-vs-vue-a-2017-comparison-c5c52d620176)
 * ...
 
+Las razones de que veamos Vue en vez de Angular o React son, en resumen:
+* **Sencillez**: aunque Angular es el framework más demandado hoy en el mercado su curva de aprendizaje es muy pronunciada. Vue es mucho más sencillo de aprender pero su forma de trabajar es muy similar a Angular por lo que el paso desde Vue a Angular es relativamente sencillo
+* **Escalabilidad** React es también muy sencillo ya que es simplemente Javascript en el que podemos codificar la vista con JSX, pero la forma de trabajar de Vue es más àrecida a otros frameworks, especialmente a Angular por lo que lo aprendido nos servirá a la hora de aprender otros framework
+* Vue hace uso del concepto de _Virtual DOM_ igual que React por lo que también ofrecebuen rendimiento
+* **Popilaridad**: es el framwork cyua popularidad más está creciendo y ya ha superado incluso a React. Como muestra en 2016 los proyectos desarrollados con Vue obtuvieron 7600 estrellas en GitHub, en 2017 fueron 36700 estrellas y en Junio de 2018 ya han superado las 100000.
 
 ## Instalar Vue
 Para utilizar Vue sólo necesitamos enlazarlo en nuestra página desde un CDN:
