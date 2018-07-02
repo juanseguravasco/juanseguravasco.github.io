@@ -179,10 +179,17 @@ _style_
 Aquí se definen los estilos de este componente 
 
 ### Añadir nuevos plugins y dependencias
-Para instalar un nuevo plugin
-vue add
+Para instalar un nuevo plugin (antes conviene haber hecho un _commit_) usamos `vue add`, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
+```bash
+vue add vuetify
+```
+Esto automáticamente instala el plugin dentro de _node-modules_ y modifica el fichero _package.json_.
 
-paquete (por ejemplo _axios_ para hacer peticiones Ajax) ejecutamos en la terminal `npm install axios -S` (npm instala el paquete en node-modules y además con la opción -S se añade a las dependencias de package.json
+Si queremos instalar un paquete que no funciona como plugin lo haremos desde _npm_:
+```bash
+npm install nombre-paquete
+```
+Esto instala el paquete en node-modules Para que lo añada a las dependencias del _package.json_  le pondremos la opción **-S** (dependencia de producción) o **-D** (dependencias de desarrollo).
 
 ## Crear un nuevo componente
 
