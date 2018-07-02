@@ -59,40 +59,18 @@ Vue nos ofrece 2 opciones:
 * **default**: prouecto básico con los plugins para _Babel_ y _esLint_, Mäs adelante podremos añadir más si los necesitamos.
 * **manual**: escogemos que plugins instalar para el proyecto de entre los siguientes:
 
-![Nuevo Proyecto Manual](./img/)
+![Nuevo Proyecto Manual](https://cli.vuejs.org/cli-select-features.png)
 
-Podemos usar, entre otras, las siguientes plantillas:
-* simple: el proyecto será un único fichero HTML que contendrá todo el código
-* webpack-simple: crea un scaffolding sencillo que incluye webpack y Vue-loader
-* webpack: incluye también herramientas para testear el proyecto, _linting_, extración de CSS,entre otras
-* PWA: para crear una Progressive Web App (App para móviles similar a una app nativa) basada en Webpack y Vue-loader
-
-## Ejemplo plantilla simple
-La crearemos con
+Tabién podemos crear y gestionar nuestros proyectos desde el entorno gráfico ejecutando el comando:
 ```[bash]
-vue init simple miAppSimple
+vue ui
 ```
-Esto crea la carpeta _miAppSimple_ y dentro de ella el fichero _index.html_. No hay componentes ni ninguna herramienta extra, simplemente el fichero HTML donde está incluido también el JS.
+Este comando arranca un servidor web en el puerto 8000 y abre el navegador para gestionar nuestros proyectos.
 
-Además nos hace una serie de preguntas (su nombre y su autor) para configurar nuestro proyecto:
-![Crear proyecto de plantilla simple](./img/vue-simple.png)
-
-La página generada es:
-![Proyecto de plantilla simple](./img/vue-simple-app.png)
-
-## Ejemplo webpack-simple
+### Ejemplo proyecto por defecto
+Para arrancar el proyecto entramos a la carpeta y ejecutamos en la terminal
 ```[bash]
-vue init webpack-simple appUsers
-```
-![Crear proyecto de plantilla simple](./img/vue-webpack-simple.png)
-
-Una vez creado el proyecto instalaremos sus dependencias entrando dentro de la carpeta y ejecutmos:
-```[bash]
-npm install
-```
-Para arrancar el proyecto ejecutamos en la terminal
-```[bash]
-npm run dev
+npm run serve
 ```
 Este script compila el código, muestra si hay errores, lanza un servidor web en el puerto 8080 y carga el proyecto en el navegador (localhost:8080). Si cambiamos cualquier fichero JS de _src_ recompila y recarga la página automáticamente. La página generada es:
 ![Proyecto de plantilla simple](./img/vue-webpack-simple-app.png)
@@ -101,30 +79,33 @@ Cuando nuestra aplicación esté lista para subir a producción ejecutaremos el 
 ```[bash]
 npm run build
 ```
+Este comando genera los JS y CSS para subir a producción dentro de la carpeta _dist_.
 
-## _Scaffolding_ creado
-Se ha creado la carpeta _miAppWpSimple_ y dentro el scaffolding para nuestro proyecto con soporte para Webpack:
+### _Scaffolding_ creado
+Se ha creado la carpeta con el nombre del proyecto y dentro el scaffolding para nuestro proyecto:
 ![Directorios del proyecto de plantilla simple](./img/vue-webpack-simple-folders.png)
 
 Los principales ficheros y directorios creados son:
 * package.json: configuración del proyecto (nombre, autor, ...) y dependencias
-* webpack.config.js: configuración de webpack
-* index.html: html con un div donde se cargará la app y que carga el script build.js
+* babel.config.js: configuración de Babel
+* public/index.html: html con un div donde se cargará la app y que carga el script build.js
 * node_modules: librerías de las dependencias
-* src/assets: nuestros CSS, imágenes, etc
-* src/main.js: carga componentes y crea la instancia de Vue que 'pinta' el App.vue 
-* src/....vue: los diferentes componentes
+* src: todo el código
+    * assets/: nuestros CSS, imágenes, etc
+    * main.js: JS principal que carga componentes y crea la instancia de Vue que 'pinta' el App.vue 
+    * App.vue: página de inicio del proyecto. Aquí cargaremos la cabecera, el menú,... y los diferentes componentes
+    * components/: carpeta que contendrá los ficheros .vue de los diferentes componentes
 
-## package.json
+#### package.json
 Aquí se configura nuestra aplicación:
-* name, description, version, author, license, ...: configuración general de la aplicación
-* scripts: ejecutan entornos de configuración para webpack. Por defecto tenemos 2:
-  * dev: lanza el servidor web de webpack y configura webpack y vue para el entorno de desarrollo
-  * build: crea el fichero **/dist/build.js** con todo el código JS de la aplicación (es el único que vincularemos en index.html)
-* dependences: se incluyen las librerías que utiliza nuestra aplicación en producción. Todas las dependencias se instalan dentro de **/node-modules**. Para instalar un nuevo paquete (por ejemplo _axios_ para hacer peticiones Ajax) ejecutamos en la terminal `npm install axios -S` (npm instala el paquete en node-modules y además con la opción -S se añade a las dependencias de package.json
+* name, version, author, license, ...: configuración general de la aplicación
+* scripts: ejecutan entornos de configuración para webpack. Por defecto tenemos 3:
+  * serve: lanza el servidor web de webpack y configura webpack y vue para el entorno de desarrollo
+  * build: crea los ficheros JS y CSS dentro de **/dist** con todo el código de la aplicación (es lo único que vincularemos en index.html)
+* dependences: se incluyen las librerías y plugins que utiliza nuestra aplicación en producción. Todas las dependencias se instalan dentro de **/node-modules**. Posteriormente veremos como añadir nuevas dependencias
 * devDependencies: igual pero son paquetes que sólo se usan en desarrollo (babel, webpack, etc). También se instalan dentro de node-modules pero no estarán en build.js cuando se genere el fichero para producción. Para instalar una nueva dependencia de desarrollo ejecutaremos `npm install _paquete_ -D` (la opción -D la añade a package.json pero como dependencia de desarrollo).
 
-## Estructura de nuestra aplicación
+#### Estructura de nuestra aplicación
 **Fichero index.html:**
 ```html
 <!DOCTYPE html>
@@ -196,6 +177,12 @@ Simplemente define el componente 'app' que tiene una variable, _msg_, que es el 
 
 _style_
 Aquí se definen los estilos de este componente 
+
+### Añadir nuevos plugins y dependencias
+Para instalar un nuevo plugin
+vue add
+
+paquete (por ejemplo _axios_ para hacer peticiones Ajax) ejecutamos en la terminal `npm install axios -S` (npm instala el paquete en node-modules y además con la opción -S se añade a las dependencias de package.json
 
 ## Crear un nuevo componente
 
