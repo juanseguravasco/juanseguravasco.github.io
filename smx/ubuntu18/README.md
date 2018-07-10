@@ -1,5 +1,14 @@
 # Coses a tindre en compte amb Ubuntu 18.04
 
+## Nom de les targetes
+Les targetes de xarxa s'identifiquen com ethX (eth0, eth1, ...) si són targetes ethernet cablejades o wlanX si són targetes WiFi (en ocasions es diuen athX si són wifis Atheros o amb altres noms depenent del fabricant).
+
+El problema és que el nom que se li assigna depèn de quan es configura la targeta en arrancar (la primera serà la eth0, la segona la eth1) el que podria canviar entre un reinicie i un altre. A més algunes distribucions, com Ubuntu, assignen sempre el mateix nom d'interfície a cada MAC pel que si es desbarata una targeta i la canviem la nova ja no seria eth0 sinó el següent nom no usat. Açò també passa en màquines virtuals on podem canviar les MAC de les nostres targetes.
+
+Moltes configuracions (firewall, etc) depenen del nom que tinguen les targetes pel que si aquest canvia deixaran de funcionar correctament. Per a evitar aquests problemes de no saber com es dirà cada interfície de xarxa en les últimes distribucions GNU/Linux s'utilitza Predictable Network Interface Names que pretén assignar identificadors estables a les interfícies de xarxa basant-se en el tipus (local Ethernet, WLAN, WWAN…).
+
+Així les targetes que el kernel nomena com ethX són renombrades a enoX (si la targeta està integrada en la placa base) o enpXsY (per a targetes en slots PCI) i aquests noms seran sempre els mateixos per a cada targeta. En màquines de VirtualBox la primera sol ser la emp0s3, la segona la enp0s8, ...
+
 ##  Xarxa en Ubuntu 18.04
 Des de la versió 18.04 Server Ubuntu ha abandonat el sistema de configuració de la xarxa **ifupdown** i lo ha canviat per **netplan**.
 
@@ -12,7 +21,12 @@ Els canvis que açò comporta són, entre uns altres:
     ip link set $targeta down
 ```
 * hi ha una nova comanda, networkctl, per a veure què dispositius tenim. Amb el paràmetre `status` ens dóna la configuració de cadascun:
+
 ![Configuració de xarxa](./img/Ubuntu18-xarxa-04.png)
+
+Si li poem el nom d'una targeta ens dona la informació de la mateixa:
+
+![Configuració de xarxa](./img/Ubuntu18-xarxa-05.png)
 
 ### Fitxer de configuració
 Es tracta d'un fitxer YAML. Açò significa que cada opció va en una línia i si una està dins de l'anterior ha d'anar indentada cap a dins 4 espais (ULL han de ser 4 i no serveix tabulador).
@@ -52,6 +66,7 @@ netplan apply
 ```
 
 En el cas de la versió Desktop segueix sent **NetworkManager** qui s'encarrega de configurar la xarxa, la qual cosa s'indica en el fitxer que hi ha en _/etc/netplan_:
+
 ![netplan](./img/Ubuntu18-xarxa-02.png)
 
 ## Enrutament
@@ -59,6 +74,7 @@ Una vegada les 2 targetes estiguen correctament configurades perquè els clients
 * habilitar l'enrutament
 * configurar NAT
 
+### Habilitar l'enrutament
 L'enrutament el que fa és redirigir a la targeta de xarxa externa el tràfic de la targeta interna amb destinació a altres xarxes (com a Internet).
 
 Per a habilitar l'enrutament editem el fitxer /etc/sysctl.conf i descomentem la línia:
@@ -83,7 +99,35 @@ cat /proc/sys/net/ipv4/ip_forward
 ```
 (si retorna 1 és que està habilitat).
 
-Respecte al NAT hem d'afegir una regla a iptables. Per exemple si la nostra targeta externa és la eth0 amb IP 10.0.2.20 i la nostra xarxa interna és la 192.168.10.0 el comando per a activar NAT seria:
+### Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)
+Amb netplan s'utilitza el Firewal ufw (uncomplicated Firewall). Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos ufw enable i ufw disable. Per a veure la configuració executem ufw status verbose:
+
+![netplan](./img/Ubuntu18-xarxa-06.png)
+
+Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
+  1. Editar el fitxer **/etc/default/ufw** i canviar la línia `DEFAULT_FORWARD_POLICY="DROP"` per 
+  ```bash
+  DEFAULT_FORWARD_POLICY="ACCEPT"
+  ```
+  1. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
+```bash
+# NAT table rules
+*nat
+:POSTROUTING ACCEPT [0:0]
+
+# Forward traffic through eth0 - Change to match you out-interface
+-A POSTROUTING -s 192.168.100.0/24 -o enp0s3 -j MASQUERADE
+
+# don't delete the 'COMMIT' line or these nat table rules won't be processed
+COMMIT
+```
+
+Només queda reiniciar el Firewall (podem desactivar-ho i tornar-lo a activar). Per a comprovar les regles que estan aplicant-se executem el comando que ja hem vist:
+```bash
+iptables  -t nat -L
+```
+### ### Configurar NAT amb `iptables`
+Si volem podem afegir una regla a iptables igual que es feia en les versions anterios. Per exemple si la nostra targeta externa és la eth0 amb IP 10.0.2.20 i la nostra xarxa interna és la 192.168.10.0 el comando per a activar NAT seria:
 ```bash
 iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o enp0s3 -j SNAT --to 10.0.2.20
 ```
