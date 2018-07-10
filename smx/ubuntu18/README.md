@@ -109,7 +109,7 @@ Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
   ```bash
   DEFAULT_FORWARD_POLICY="ACCEPT"
   ```
-1. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
+2. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
 ```bash
 # NAT table rules
 *nat
