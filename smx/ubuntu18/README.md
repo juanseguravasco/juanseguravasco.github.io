@@ -105,11 +105,11 @@ Amb netplan s'utilitza el Firewal ufw (uncomplicated Firewall). Per defecte est�
 ![netplan](./img/Ubuntu18-xarxa-06.png)
 
 Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
-  1. Editar el fitxer **/etc/default/ufw** i canviar la línia `DEFAULT_FORWARD_POLICY="DROP"` per 
+1. Editar el fitxer **/etc/default/ufw** i canviar la línia `DEFAULT_FORWARD_POLICY="DROP"` per 
   ```bash
   DEFAULT_FORWARD_POLICY="ACCEPT"
   ```
-  1. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
+1. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
 ```bash
 # NAT table rules
 *nat
