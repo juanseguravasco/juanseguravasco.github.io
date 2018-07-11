@@ -77,12 +77,18 @@ Una vegada les 2 targetes estiguen correctament configurades perquè els clients
 ### Habilitar l'enrutament
 L'enrutament el que fa és redirigir a la targeta de xarxa externa el tràfic de la targeta interna amb destinació a altres xarxes (com a Internet).
 
-Per a habilitar l'enrutament editem el fitxer /etc/sysctl.conf i descomentem la línia:
+Si estem en Ubuntu 17.10 i posterior utilitzarem el Firewal **ufw** (uncomplicated Firewall). Per a habilitar l'enrutament editem el fitxer **/etc/ufw/sysctl.conf** i descomentem la línia:
 ```bash
 net.ipv4.ip_forward=1
 ```
+Per a recarregar el firewal el des-habilitem i el tornem a habilitar:
+```bash
+ufw disable
+ufw enable
+```
+També podem activar eixa opció en la configuració del sistema en compte de en la del firewal descomentant la mateixa línia però del fitxer **/etc/ufw/sysctl.conf** (es el que hem de fer si tenim la versió 17.04 o anterior que no utilitza el firewall).
 
-Perquè faça efecte hem de recarregar la configuració amb:
+En aquest cas perquè faça efecte hem de recarregar la configuració amb:
 ```bash
 sysctl -p
 ```
@@ -100,7 +106,7 @@ cat /proc/sys/net/ipv4/ip_forward
 (si retorna 1 és que està habilitat).
 
 ### Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)
-Amb netplan s'utilitza el Firewal ufw (uncomplicated Firewall). Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos ufw enable i ufw disable. Per a veure la configuració executem ufw status verbose:
+Amb netplan s'utilitza el Firewal **ufw**. Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos ufw enable i ufw disable. Per a veure la configuració executem ufw status verbose:
 
 ![netplan](./img/Ubuntu18-xarxa-06.png)
 
@@ -109,16 +115,12 @@ Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
   ```bash
   DEFAULT_FORWARD_POLICY="ACCEPT"
   ```
-2. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi (abnans de les regles de filtrat (`*filter`)
+2. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi, abnans de les regles de filtrat (`*filter`)
 ```bash
 # NAT table rules
 *nat
 :POSTROUTING ACCEPT [0:0]
-
-# Forward traffic through eth0 - Change to match you out-interface
 -A POSTROUTING -s 192.168.100.0/24 -o enp0s3 -j MASQUERADE
-
-# don't delete the 'COMMIT' line or these nat table rules won't be processed
 COMMIT
 ```
 
@@ -126,6 +128,11 @@ Només queda reiniciar el Firewall (podem desactivar-ho i tornar-lo a activar). 
 ```bash
 iptables  -t nat -L
 ```
+Si volem eliminar totes les regles que tenim ara en iptables (per a tornar-las a posar o per si ens hem equivocat):
+```bash
+iptables  -t nat -F
+```
+
 ### ### Configurar NAT amb `iptables`
 Si volem podem afegir una regla a iptables igual que es feia en les versions anterios. Per exemple si la nostra targeta externa és la eth0 amb IP 10.0.2.20 i la nostra xarxa interna és la 192.168.10.0 el comando per a activar NAT seria:
 ```bash
