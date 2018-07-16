@@ -81,6 +81,8 @@ npm run build
 ```
 Este comando genera los JS y CSS para subir a producción dentro de la carpeta _dist_.
 
+También podemos ejecutar el comando `npm run lint` para ejecutar esta herramienta y comprobar nuestro código.
+
 ### _Scaffolding_ creado
 Se ha creado la carpeta con el nombre del proyecto y dentro el scaffolding para nuestro proyecto:
 ![Directorios del proyecto de plantilla simple](./img/vue-webpack-simple-folders.png)
@@ -189,7 +191,7 @@ Si queremos instalar un paquete que no funciona como plugin lo haremos desde _np
 ```bash
 npm install nombre-paquete
 ```
-Esto instala el paquete en node-modules Para que lo añada a las dependencias del _package.json_  le pondremos la opción **-S** (dependencia de producción) o **-D** (dependencias de desarrollo).
+El comando `npm install` instala el paquete en _node-modules_ Para que lo añada a las dependencias del _package.json_  le pondremos la opción **-S** (dependencia de producción) o **-D** (dependencias de desarrollo).
 
 ## Crear un nuevo componente
 
@@ -213,7 +215,7 @@ Y ya podemos incluir el componente en el HTML:
 ## Depurar el código en la consola
 Podemos seguir depurando nuestro código, poniendo puntos de interrupción y usando todas las herramientas que nos proporciona la consola mientras estamos en modo de depuración (si hemos abierto la aplicación con `npm run dev`).
 
-Para localizar nuestros fichero varemos que en nuestras fuetes de software aparece **webpack** y dentro nuestras carpetas con el código (**src**, ...):
+Para localizar nuestros fichero varemos que en nuestras fuentes de software aparece **webpack** y dentro nuestras carpetas con el código (**src**, ...):
 ![Depurar en la consola](./img/console-webpack.png)
 
 Recordad que si hemos instalado las **Vue DevTools** tenemos una nueva pestaña en la consola desde la que podemos ver todos nuestros componentes con sus propiedades y datos:
