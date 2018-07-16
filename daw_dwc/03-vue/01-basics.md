@@ -142,7 +142,22 @@ Vemos que al escribir en el _input_ automáticamente cambia lo mostrado en el pr
 NOTA: toda la apliación debe estar dentro del elemento _app_ para que funcione.
 
 ## [Vue devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?utm_source=chrome-app-launcher-info-dialog)
-Es una extensión para Chrome que nos permite inspeccionar nuestro objeto Vue y acceder a todos los datos de nuestra aplicación. Conviene instalarlo porque nos ayudará mucho a depurar nuestra aplicación, especialmente cuando comencemos a usar componentes.
+Es una extensión para Chrome y Firefox que nos permite inspeccionar nuestro objeto Vue y acceder a todos los datos de nuestra aplicación. Conviene instalarlo porque nos ayudará mucho a depurar nuestra aplicación, especialmente cuando comencemos a usar componentes.
 
-Para trabajar sin servidor web (desde file://...) hay que habilitar el acceso a ficheros en la extensión.
+Si tenemos las DevTools instaladas en la herramienta de desarrollador aparece una nueva opción, _Vue_, con 4 botones:
+* Componentes: es lavista por defecto y nos permite inspeccionar todos los componentes Vue creados (ahora tenemos sólo 1, el principal, pero más adelante haremos componentes hijos)
+* Vuex: esla herramienta de gestión de estado para aplicaciones medias/grandes
+* Eventos: permite ver todos los eventos emitidos
+* Refrescar: refresca la herramienta
 
+Junto al componente que estamos inspeccionando aparece **= $vm0** que indica que DevTools ha creado una variable con ese nombre que contiene el componente por si queremos inspeccionarlo usando la consola.
+
+Cuando inspeccinamos nuestros componentes, bajo la barra de botones aparece otra barra con 3 herramientas:
+* Buscar: permite buscar el componente con el ombre introducido aquí
+* Seleccionar componente en la página: al pulsarlo (se dibuja un punto en su interior) hace que al pulsar sobre un componente en nuestra página se seleccione en la herramienta de inspeccionar componentes
+* Formatear nombre de componentes: muestra los nombres de componentes en el modo _camelCase_ o _kebab-case_
+
+NOTA: Si por algún motivo queremos trabajar sin servidor web (desde file://...) hay que habilitar el acceso a ficheros en la extensión.
+
+## Extensiones para el editor de código
+Cuando empecemos a trabajar con componentes usaremos ficheros con extensión **.vue** que integran el HTML, el JS y el CSS de cada componente. Para que nuestro editor los detecte correctamente es conveniente instalar la extensión para Vue (en el caso de Visual Studio Code se llama **Vetur**).
