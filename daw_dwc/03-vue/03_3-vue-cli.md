@@ -122,22 +122,28 @@ Aquí se configura nuestra aplicación:
   </body>
 </html>
 ```
-Simplemente tiene el \<div> _app_ y vincula el script _build.js_.
+Simplemente tiene el \<div> _app_ que es el que contendrá la aplicación.
 
 **Fichero main.js:**
 ```javascript
 import Vue from 'vue'
 import App from './App.vue'
 
+Vue.config.productionTip = false
+
 new Vue({
   el: '#app',
   render: h => h(App)
 })
 ```
-Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y renderiza el componente _App_.
+Es el fichero JS principal. Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y renderiza el componente _App_.
+
+Además indica que no estamos en modo producción lo que hace que en la consola aparezca un mensaje indicando que se está en modo desarrollo.
 
 **Fichero App.vue:**
-Es el componente principal de la aplicación. Veamos qué contiene cada sección
+Es el componente principal de la aplicación. Lo que contiene el apartado _template_ es lo que se renderizará en el div _app_ que hay en _index.html_. Si contiene algún otro componente se indica aquí dónde renderizarlo.
+
+Veamos qué contiene cada sección
 
 _template_
 ```html
@@ -178,7 +184,7 @@ export default {
 Simplemente define el componente 'app' que tiene una variable, _msg_, que es el título que se muestra en el template.
 
 _style_
-Aquí se definen los estilos de este componente 
+Aquí se definen los estilos de este componente. Si la etiqueta tiene el atributo _scoped_ (`<style scoped>`) significa que los estilos incluidos se aplicarán sólo a este componente.
 
 ### Añadir nuevos plugins y dependencias
 Para instalar un nuevo plugin (antes conviene haber hecho un _commit_) usamos `vue add`, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
