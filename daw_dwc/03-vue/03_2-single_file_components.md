@@ -83,31 +83,28 @@ Entre las propiedades que podemos incluir están:
 * created(), mounted(), ...: funciones hook que se ejecutarán al crearse el componente, al montarse, ...
 
 ## \<style>
-Aquí pondremos estilos CSS que se aplicarán al componente
-```[CSS]
-body {
-  background: #20262E;
-  padding: 20px;
-  font-family: Helvetica;
-}
+Aquí pondremos estilos CSS que se aplicarán al componente. Si la etiqueta incluye el atributo _scoped_ estos estilos se aplicarán únicamente a este componente.
 
-#app {
-  background: #fff;
-  border-radius: 4px;
-  padding: 20px;
-  transition: all 0.2s;
-}
+La forma más común de asignar estilos a elementos es usando clases. Para conseguir que su estilo cambie fácilmente podemos asignar al elemento clases dinámicas que hagan referencia a variables del componente. Ej.:
+```vue
+<template>
+  <p :class="[decoration, {weight: isBold}]">Hi!</p>
+</template>
 
-li {
-  margin: 8px 0;
+<script>
+export default {
+  data() {
+    return {
+      decoration: 'underline',
+      isBold: true
+    }
+  }
 }
+</script>
 
-h2 {
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-del {
-  color: rgba(0, 0, 0, 0.3);
-}
+<style>
+  .underline { text-decoration: underline; }
+  .weight { font-weight: bold; }
+</style>
 ```
+El párrafo tendrá la clase indicada en la variable _decoration_ (en este caso _underline_) y además si el valor de _isBold_ es verdadero tendrá la clase _weight_. Hacer que cambien las clases del elemento es tan sencillo como cambiar el vaor de las variables.
