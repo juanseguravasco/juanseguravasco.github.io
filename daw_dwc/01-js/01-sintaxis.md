@@ -43,7 +43,7 @@ Las variables de declaran con **let** (lo recomendado desde ES2015), aunque tamb
 
 Se recomenda que Los nombres de las variables sigan la sintaxis _camelCase_ (ej.: _miPrimeraVariable_).
 
-Desde ES2015 también podemos declarar constantes con **const**. Se les debe dar un valor al declararlas y si intentamos modificarlo posteriorment se produce un error.
+Desde ES2015 también podemos declarar constantes con **const**. Se les debe dar un valor al declararlas y si intentamos modificarlo posteriorment se produce un error. Se aconseja que el nombre de las constantes globales sea en mayúsculas.
 
 ## Funciones
 Se declaran con **function** y se les pasan los parámetros entre paréntesis. La función puede devolver un valor usando **return** (si no tiene _return_ es como si devolviera _undefined_). 
@@ -350,4 +350,7 @@ También tenemos 2 operadores de _diferente_: **!=** y **!==** que se comportan 
 
 Los operadores relacionales son >, >=, <, <=. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23>'5'` devuelve _true_, aunque `'23'>'5'` devuelve _false_)  
 
+## Referencia vs Copia
+
 ## Arrays
+Son un tipo de objetos
