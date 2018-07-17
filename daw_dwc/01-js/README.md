@@ -20,11 +20,11 @@ En este primer bloque vamos a conocer el lenguaje Javascript. Se trata de un len
 * Validar datos
 * ...
 
-Javascript es una implementación del lenguaje **ECMAScript** (el estándar que define sus características). Nosotros usaremos la versión **ES2015** (también llamada ES6) que introdujo muchas e importantes mejoras sobre su predecesora la **ES5** de 2009 (hubo una versión menor, la ES5.1 en 2011). Desde entonces van saliendo nuevas versiones cada año pero los cambios que introducen son muy pequeños. 
+Javascript es una implementación del lenguaje **ECMAScript** (el estándar que define sus características). El lenguaje surgió en 1997 y todos los navegadores a partir de 2012 soportan al menos la versión **ES5.1** completamente. En 2015 se lanzó la 6ª versión, inicialmente llamada **ES6** y que ahora se llama **ES2015**, que introdujo importantes mejoras en el lenguaje y que es la versión que usaremos nosotros. Desde entonces van saliendo nuevas versiones cada año que introducen cambios pequeños. La última es la **ES2018** aprobada en Junio.
 
 Los navegadores no se adaptan inmediatamente a las nuevas versiones de Javascript por lo que puede ser un problema usar una versión muy moderna ya que puede haber partes de los programas que no funcionen en los navegadores de muchos usuarios. En la página de [_Kangax_](https://kangax.github.io/compat-table/es6/) podemos ver la compatibilidad de los diferentes navegadores con las distintas versiones de Javascript.
 
-Si queremos asegurar la máxima compatibilidad debemos usar la versión ES5 (pro nos perdemos muchas mejoras del lenguaje) o mejor, usar la ES6 (o posterior) y después _transpilar_ nestro código a la version ES5. De esto se ocupan los _transpiladores_ (**Babel** es el más conocido) por lo que no suponen un esfuerzo extra para el programador.
+Si queremos asegurar la máxima compatibilidad debemos usar la versión ES5 (pero nos perdemos muchas mejoras del lenguaje) o mejor, usar la ES6 (o posterior) y después _transpilar_ nestro código a la version ES5. De esto se ocupan los _transpiladores_ (**Babel** es el más conocido) por lo que no suponen un esfuerzo extra para el programador.
 
 ## Herramientas
 ### La consola del navegador
@@ -37,16 +37,16 @@ Además en ella vemos los errores y advertencias que genera nuestro código y to
 Siempre depuraremos los programas desde aquí (ponemos puntos de interrupción, vemos el valor de las variables, ...).
 
 ### Editores
-Podemos usar el que más nos guste, desde editores tan simples como NotePad++ hasta complejos IDEs. La mayoría soportan las últimas versiones de la sintaxis de Javascript (Netbeans, Eclipse, Visual Studio, Sublime, Atom, Kate, Notepad++, ...). Yo voy a utilizar [**Sublime text**](https://www.sublimetext.com/) por su sencillez y por los plugins que incorpora para hacer más cómodo mi trabajo.
+Podemos usar el que más nos guste, desde editores tan simples como NotePad++ hasta complejos IDEs. La mayoría soportan las últimas versiones de la sintaxis de Javascript (Netbeans, Eclipse, Visual Studio, Sublime, Atom, Kate, Notepad++, ...). Yo voy a utilizar [[**Visual Studio Code**]](https://code.visualstudio.com/) o [**Sublime text**](https://www.sublimetext.com/) por su sencillez y por los plugins que incorpora para hacer más cómodo mi trabajo.
 
-### Editores web
+### Editores on-line
 Son muy útiles porque permiten ver el código y el resultado a la vez. Normalmente tienen varias pestañas o secciones de la página donde poner el código HTML, CSS yJavascript y ver su resultado. 
 
 Algunos de los más conocidos son [Fiddle](https://jsfiddle.net) y [Plunker](https://plnkr.co), aunque hay muchos más.
 
 >>> NOTA: Poner ejemplo
 
-## Incluir el código en la página
+## Incluir javascript en una página web
 El código Javascript va entre etiquetas _\<script>_. Puede ponerse en el _\<head>_ (el código no se ejecuta hasta que es llamado) o en el _\<body>_ en cuyo caso se ejecuta la etiqueta en el momento que la renderiza el navegador. Lo mejor en cuanto a rendimiento es ponerla al final del _\<body>_, justo antes de la etiqueta _\</html>_ para que no se detenga el renderizado de la página mientras se ejecuta el código.
 
 Podemos poner el código directamente entre la etiqueta _\<script>_ pero lo correcto es que esté en un fichero externo (con extensión **.js**) que cargamos mediante el atributo _src_ de la etiqueta:
