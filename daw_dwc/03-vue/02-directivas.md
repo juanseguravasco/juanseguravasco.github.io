@@ -11,12 +11,31 @@ Tabla de contenidos
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Directivas básicas
-Vamos a ver algunas de las directivas básicas que incorpora Vue:
+# Directivas en Vue
+Las directivas son atributos especiales que se ponen en las etiquetas HTML y que les dan cierta funcionalidad. Todas comienzan por **v-**. 
+
+## Directivas básicas
+Las más comunes son:
+* `v-text`: es equivalente a hacer una interpolación (_{{...}}_). Muestra el valor en la etiqueta
+* `v-once`: igual pero no cambia lo mostrado si cambia el valor de la variable que se muestra
+* `v-html`: permite que el texto que se muestra contenga caracteres HTML que interpretará el navegador (al usar la interpolación las etiquetas HTML son escapadas)
+* `v-bind`: para asignar el valor de una variable a un atributo de una etiqueta HTML, no entre la etiqueta y su cierre como hace la interpolación. Por ejemplo si tenemos la variable _estado_ cuyo valor es _error_ y queremos que se muestre dentro de un _span_ ese valor pero que también tenga una clase con ese valor haremos:
+```html
+<span v-bind:class="estado">estado</span>
+```
+El resultado será: `<span class="error">error</span>`. La directiva _v-bind:_ se puede abreviar simplemente como _:_ (`<span :class="estado">estado</span>`)
 * `v-model`: permite enlazar un input a una variable (la hemos visto en el capítulo anterior)
 * `v-if`: renderiza o no el elemento que la contiene en función de una condición
-* `v-for`: repite un elemento HTML para cada elemento de un array
-* `v-on`: para gesionar eventos
+* `v-show`: similar al _v-if_ pero siempre renderiza el elemento (está en el DOM) y lo que hace es mostrarlo u ocultarlo (`display: none`) en función de la condición
+* `v-for`: repite el elemento HTML que contiene esta etiqueta para cada elemento de un array
+* `v-on`: le pone al elemento HTML un escuchador de eventos (ej `<button v-on:click="pulsado">Pulsa</button>`. La directiva `v-on:` se puede abreviar como `@` (`<button @click="pulsado">Pulsa</button>`).
+
+Lo que enlazamos en una directiva o una interpolación puede ser una variable o una expresión javascript. Ej.:
+```html
+<p>{{ name }}</p>
+<p>{{ 'Cómo estás ' + name }}</p>
+<p>{{ name=='root'?'Como jefe puedes cambiar cualquier cosa':'Como usuario '+name+' puedes cambiar tus datos' }}</p>
+```
 
 ## Condicionales: v-if
 Esta directiva permite renderizar o no un elemento HTML en función de una variable o expresión.
@@ -36,7 +55,7 @@ La directiva v-for recorre el array _todos_ y para cada elemento del array crea 
 
 Además del elemento nos puede devolver su índice en el array: `v-for="(elem,index) in todos" ...`.
 
-Vue es más eficiente a la hora de renderizar si cada elemento que crea *v-for* tiene su propia clave, lo que se consigue con el atributo *key*. Podemos indicar como clave algún campo del elemento o el índice:
+Vue es más eficiente a la hora de renderizar si cada elemento que crea *v-for* tiene su propia clave, lo que se consigue con el atributo *key*. Podemos indicar como clave algún campo único del elemento o el índice:
 ```html
 \<... v-for="(elem,index) in todos" :key="index" ...>
 ```
@@ -48,14 +67,25 @@ Esta directiva captura un evento y ejecuta un método como respuesta al mismo.
 
 El evento que queremos capturar se pone tras ':' y se indica el método que se ejecutará.
 
-Fijaos en el método _delTodos()_ que para hacer referencia desde el objeti Vue a alguna variable o método se le antepone *this.*
+Fijaos en el método _delTodos()_ que para hacer referencia desde el objeto Vue a alguna variable o método se le antepone *this.*
+
+Se puede pasar un parámetro a la función escuchadora:
+```vue
+<button v-on:click="pulsado('prueba')">Pulsa</button>
+```
+```javascript
+  pulsado(valor) {
+    alert(valor);
+  }
+```
 
 Esta directiva se usa mucho así que se puede abreviar con '@'. El código equivalente sería:
 ```html
-<button @click="delTodos">
+<button @click="pulsado('prueba')">Pulsa</button>
 ```
+
 ### Modificadores de eventos
-A un evento podemos añadirle (separado por .) un modificador. Alguno de los más usados son:
+A un evento gestionado por una directiva _v-on_ podemos añadirle (separado por .) un modificador. Alguno de los más usados son:
 * _.prevent_: equivale a hacer un preventDefault()
 * _.stop_: como stopPropagation()
 * _.self_: sólo se lanza si el evento se produce en este elemento y no en alguno de sus hijos
@@ -78,7 +108,8 @@ Además queremos que:
 * bajo la lista aparecerá un input con un botón para añadir nuevas cosas a la lista. Sólo se añade si hemos introducido texto y su estado al añadirla será de NO hecha
 * debajo tendremos un botón que borrará toda la lista de cosas a hacer tras pedir confirmación al usuario
 
-*Solución*
+### Solución de la aplicación
+Puedes ver una solución al problema planteado en:
 <script async src="//jsfiddle.net/juansegura/qfbtewhe/embed/js,html,result/"></script>
 
 Cosas a comentar:
