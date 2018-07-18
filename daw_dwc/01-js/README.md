@@ -1,3 +1,18 @@
+# El lenguaje Javascript
+En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
+* [Introducción a Javascript](#introducci%C3%B3n-a-javascript)
+* [1-Sintaxis](./01-sintaxis.md)
+* [2-Arrays](./02-arrays.md)
+* [3-Objetos y funciones globales](./01-sintaxis.md)
+* [4-DOM y BOM](./01-sintaxis.md)
+* [5-Eventos](./01-sintaxis.md)
+* [6-Prograaicón orientada a objetos](./01-sintaxis.md)
+* [7-Ajax](./01-sintaxis.md)
+*  -Promesas
+*  -Herramientas: npm y webpack
+*  -Utilidades: Geolocalización. Local Storage. API de Google Maps
+
+# Introducción a Javascript
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
@@ -12,21 +27,7 @@ Tabla de contenidos
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# El lenguaje Javascript
-En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
-* [Introducción a Javascript](#introducción-a-javascript)
-* [1-Sintaxis](./01-sintaxis.md)
-* [2-Arrays](./02-arrays.md)
-* [3-Objetos y funciones globales](./01-sintaxis.md)
-* [4-DOM y BOM](./01-sintaxis.md)
-* [5-Eventos](./01-sintaxis.md)
-* [6-Prograaicón orientada a objetos](./01-sintaxis.md)
-* [7-Ajax](./01-sintaxis.md)
-*  -Promesas
-*  -Herramientas: npm y webpack
-*  -Utilidades: Geolocalización. Local Storage. API de Google Maps
-
-# Introducción a Javascript
+## Introducción
 Se trata de un lenguaje interpretado, no compilado y nosotros vamos a ejecutarlo en un navegador web (lo más habitual). Lo usaremos para:
 * Cambiar el contenido de la página
 * Cambiar los atributos de un elemento
