@@ -13,7 +13,21 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # El lenguaje Javascript
-En este primer bloque vamos a conocer el lenguaje Javascript. Se trata de un lenguaje interpretado, no compilado y nossotros vamos a ejecutarlo en un navegador web (lo más habitual). Lo usaremos para:
+En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
+* [Introducción a Javascript]()
+* [1-Sintaxis](./01-sintaxis.md)
+* [2-Arrays](./02-arrays.md)
+* [3-Objetos y funciones globales](./01-sintaxis.md)
+* [4-DOM y BOM](./01-sintaxis.md)
+* [5-Eventos](./01-sintaxis.md)
+* [6-Prograaicón orientada a objetos](./01-sintaxis.md)
+* [7-Ajax](./01-sintaxis.md)
+*  -Promesas
+*  -Herramientas: npm y webpack
+*  -Utilidades: Geolocalización. Local Storage. API de Google Maps
+
+# Introducción a Javascript
+Se trata de un lenguaje interpretado, no compilado y nosotros vamos a ejecutarlo en un navegador web (lo más habitual). Lo usaremos para:
 * Cambiar el contenido de la página
 * Cambiar los atributos de un elemento
 * Cambiar la apariencia de algo
@@ -64,3 +78,5 @@ Javascript permite mostrar al usuario ventanas modales para pedirle o mostrarle 
 También se pueden escribir las funciones sin _window._ (es decir `alert('Hola')` en vez de `window.alert('Hola')`) ya que en Javascript todos los métodos y propiedades que no se indica de qué objeto son se supone que son del objeto _window_.
 
 Si queremos mostrar una información para depurar nuestro código no utilizaremos _alert(mensaje)_ sino `console.log(mensaje)` o `console.error(mensaje)`. Estas funciones muestran la información pero en la consola del navegador. La diferencia es que _console.error_ la muestra como si fuera un error de Javascript.
+
+
