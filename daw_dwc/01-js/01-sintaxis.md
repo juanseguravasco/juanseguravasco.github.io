@@ -1,3 +1,5 @@
+# Sintaxis
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
@@ -24,7 +26,7 @@ Tabla de contenidos
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Variables
+## Variables
 Javascript es un lenguaje débilmente tipado. Esto significa que no se indica de qué tipo es una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa. Ejemplo:
 ```javascript
 let miVariable;         // declaro miVariable y como no se asigno un valor valdrá _undefined_
@@ -144,8 +146,8 @@ conn _arrow function_:
 let cuadrado = base => base * base;
 ```
 
-# Estructuras y bucles
-## Estructura condicional: if
+## Estructuras y bucles
+### Estructura condicional: if
 El **if** es como en la mayoría de lenguajes. Puede tener asociado un **else** y pueden anidarse varios con **else if**.
 ```javascript
 if (condicion) {
@@ -163,7 +165,7 @@ Se puede usar el operador **? :** que es como un _if_ que devuelve un valor:
 let esMayor = (edad>18)?true:false;
 ```
 
-## Estructura condicional: switch
+### Estructura condicional: switch
 El **switch** también es como en la mayoría de lenguajes. Hay que poner _break_ al final de cada bloque para que no continúe evaluando:
 ```javascript
 switch(color) {
@@ -191,7 +193,7 @@ switch(true) {
         console.log("Eres muy mayor para entrar");
 }
 ```
-## Bucle _while_
+### Bucle _while_
 Podemos poner
 ```javascript
 while (condicion) {
@@ -206,7 +208,7 @@ do {
 ```
 que al menos se ejecutará 1 vez.
 
-## Bucle: for
+### Bucle: for
 Tenemos muchos _for_ que podemos usar.
 
 ### Bucle: for con contador
@@ -219,7 +221,7 @@ for (let i=0; i<datos.length; i++) {
 }  
 // El valor de sumaDatos será 125
 ```
-### Bucle: for...in
+#### Bucle: for...in
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
@@ -243,7 +245,7 @@ for (var campo in profe) {
 }  
 // El valor de nombre será “Juan Pla Pla ”
 ```
-### Bucle: for...of
+#### Bucle: for...of
 Es similar al _for...in_ pero en vez de devolver cada índice devuelve cada elemento. Es nuevo en ES2015:
 ```javascript
 let datos=[5, 23, 12, 85]
@@ -263,7 +265,7 @@ for (let letra of cadena) {
 }  
 ```
 
-# Tipos de datos básicos
+## Tipos de datos básicos
 Para saber de qué tipo es el valor de una variable tenemos el operador **typeof**. Ej.:
 * `typeof 3` devuelve _number_
 * `typeof 'Hola'` devuelve _string_
@@ -283,7 +285,7 @@ Como hemos dicho las variables pueden contener cualquier tipo de valor y en las 
 
 Además comentar que en Javascript todo son ojetos por lo que todo tiene métodos y propiedades.
 
-## Number
+### Number
 Sólo hay 1 tipo de números, no existen enteros y decimales. El tipo de dato para cualquier número es **number**. EL carácter para la coma decimal es el **.** (como en inglés, así que 23,12 debemos escribirlo como 23.12).
 
 Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (`23 / 0` no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_).
@@ -296,7 +298,7 @@ Podemos forzar la conversión a número con la función **Number(valor)**. Ejemp
 
 También es muy útil el método **.toFixed(num)** que redondea un número a los decimales indicados. Ej.: `23.2376.toFixed(2)` devuelve 23.24
 
-## String
+### String
 Las cadenas de texto van entre comillas simples o dobles, es indiferente. Podemos escapar un caràcter con \ (ej. `"Hola \"Mundo\""` devuelve _Hola "Mundo"_).
 
 Para forzar la conversión a cadena e usa la función **String(valor)** (ej. `String(23)` devuelve '23')
@@ -320,7 +322,7 @@ Algunos métodos y propiedades de las cadenas son:
 * **.repeat(veces)**: `'Hola mundo'.repeat(3)` devuelve "Hola mundoHola mundoHola mundo"
 * **.split(sepadaror)**: `'Hola mundo'.split(' ')` devuelve el array \['Hola', 'mundo']. `'Hola mundo'.split('')` devuelve el array \['H','o',l','a',' ','m','u','n','d','o']
 
-### Template literals
+#### Template literals
 Desde ES2015 también podemos poner una cadena entre \` (acento grave) y en ese caso podemos poner dentro variables y expresiones que serán evaluadas al ponerlas dentro de **${}**. También se respetan los saltos de línea, tabuladores, etc que haya dentro. Ejemplo:
 ```javascript
 let edad=25;
@@ -333,7 +335,7 @@ Mostrará en la consola:
 
 > 25 años
 
-## Boolean
+### Boolean
 Los valores booleanos son **true** y **false**. Para convertir algo a booleano se usar **Boolean(valor)** aunque también puede hacerse con la doble negación (**!!**). Cualquier valor se evaluará a _true_ excepto 0, NaN, null, undefined o una cadena vacía ('') que se evaluarán a _false_.
 
 Los operadores lógicos son ! (negación), && (and), || (or).
@@ -349,8 +351,3 @@ Para comparar valores tenemos **==** y **===**. La triple igualdad devuelve _tru
 También tenemos 2 operadores de _diferente_: **!=** y **!==** que se comportan como hemos dicho antes.
 
 Los operadores relacionales son >, >=, <, <=. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23>'5'` devuelve _true_, aunque `'23'>'5'` devuelve _false_)  
-
-## Referencia vs Copia
-
-## Arrays
-Son un tipo de objetos
