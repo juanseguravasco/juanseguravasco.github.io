@@ -14,7 +14,7 @@ Tabla de contenidos
 
 # El lenguaje Javascript
 En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
-* [Introducción a Javascript]()
+* [Introducción a Javascript](#introducción-a-javascript)
 * [1-Sintaxis](./01-sintaxis.md)
 * [2-Arrays](./02-arrays.md)
 * [3-Objetos y funciones globales](./01-sintaxis.md)
