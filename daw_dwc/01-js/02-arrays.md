@@ -80,7 +80,7 @@ let a=['Lunes', 'Martes', 2, 4, 6];
 let borrado=a.slice(1, 3);       // ahora a=['Lunes', 'Martes', 2, 4, 6] y borrado=['Martes', 2, 4];
 ```
 
-### Arrays y String
+### Arrays y Strings
 Cada objeto (y los arrays son un tipo de objeto) tienen definido el método `.toString()` que lo convierte en una cadena. Este método es llamado automáticamente cuando, por ejemplo, queremos mostrar un array por la consola. En realidad `console.log(a)` ejecuta `console.log(a.toString())`. 
 
 Además podemos convertir los elementos de un array a una cadena con `.join()` especificando qué carácter que se pondrá entre los elementos. Ej.:
@@ -96,6 +96,15 @@ let arrayNotas=notas.split('-');        // arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3]
 let cadena='Que tal estás';
 let arrayPalabras=cadena.split(' ');    // arrayPalabras=['Que`, 'tal', 'estás']
 let arrayLetras=cadena.split('');       // arrayLetras=['Q','u','e`,' ','t',a',l',' ','e',s',t',á',s']
+```
+
+### Otros métodos comunes
+Otros métodos que se usan a menudo con arrays son:
+* `.concat()`: concatena arrays
+```javascript
+let a=[2, 4, 6];
+let b=['a', 'b', 'c'];
+let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
 ```
 
 
