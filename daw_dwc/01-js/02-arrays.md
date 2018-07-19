@@ -106,6 +106,24 @@ let a=[2, 4, 6];
 let b=['a', 'b', 'c'];
 let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
 ```
+* `.reverse()`: invierte el orden de los elementos del array
+```javascript
+let a=[2, 4, 6];
+let c=a.reverse();       // c=[6, 4, 2]
+```
+* `.reverse()`: invierte el orden de los elementos del array
+```javascript
+let a=[2, 4, 6];
+let b=['a', 'b', 'c'];
+let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
+```
+* `.sort()`: ordena **alfabéticamente** los elementos del array
+```javascript
+let a=['hola','adios','Hola','Adios',2,5,13,45]
+let b=a.sort();       // b=[13, 2, 45, 5, "Adios", "Hola", "adios", "hola"]
+```
+* `.indexOf()`: devuelve la primera posición del elemento pasado como parámetro o -1 si no se encuentra en el array
+* `.lastIndexOf()`: devuelve la última posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 
 
 ## Referencia vs Copia
