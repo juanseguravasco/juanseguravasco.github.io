@@ -57,7 +57,7 @@ Podemos usar el que más nos guste, desde editores tan simples como NotePad++ ha
 ### Editores on-line
 Son muy útiles porque permiten ver el código y el resultado a la vez. Normalmente tienen varias pestañas o secciones de la página donde poner el código HTML, CSS yJavascript y ver su resultado. 
 
-Algunos de los más conocidos son [Fiddle](https://jsfiddle.net) y [Plunker](https://plnkr.co), aunque hay muchos más.
+Algunos de los más conocidos son [Fiddle](https://jsfiddle.net), [Plunker](https://plnkr.co), [CodePen](https://codepen.io/pen/), ...aunque hay muchos más.
 
 >>> NOTA: Poner ejemplo
 
