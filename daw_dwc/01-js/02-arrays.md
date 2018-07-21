@@ -237,3 +237,21 @@ arrayParrafos.filter(parrafo => parrafo.startsWith('NOTA:).forEach(parrafo => co
 ```
 
 ## Referencia vs Copia
+Cuando copiamos una variable de tipo _boolean_, _string_ o _number_ o se pasa como parámetro a una función se hace una copia de la misma y si se modifica la variable original no es modificada. Ej.:
+```javascript
+let a=54;
+let b=a;      // a=54; b=54
+b=86;         // a=54; b=86
+```
+Sin embargo al copiar aobjetos (y los arrays son un tipo de objeto) la nueva variable apunta a la misma posición de memoria que la antigua por lo que los datos de ambas son los mismos:
+```javascript
+let a=[54, 23, 12];
+let b=a;      // a=[54, 23, 12]; b=[54, 23, 12]
+b[0]=3;       // a=[3, 23, 12]; b=[3, 23, 12]
+let fecha1=new Date('2018-09-23');
+let fecha2=fecha1;          // fecha1='2018-09-23';   fecha2='2018-09-23';
+fecha2.setFullYear(1999);   // fecha1='1999-09-23';   fecha2='1999-09-23';
+```
+
+
+## Rest y Spread
