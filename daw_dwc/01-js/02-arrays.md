@@ -233,7 +233,7 @@ Esto nos devuelve una colección con todos los párrafos de la página (lo verem
 ```javascript
 let arrayParrafos=Array.from(parrafos);
 // y ya podemos usar los métodos que queramos:
-arrayParrafos.filter(parrafo => parrafo.startsWith('NOTA:).forEach(parrafo => console.log(parrafo));
+arrayParrafos.filter(parrafo => parrafo.startsWith('NOTA:').forEach(parrafo => console.log(parrafo));
 ```
 
 ## Referencia vs Copia
