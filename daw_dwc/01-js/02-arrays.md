@@ -146,7 +146,13 @@ let aprobados=arrayNotas.filter(nota => nota>=5);
 
 #### find
 Como _filter_ pero devuelve el primer elemento que cumpla la condición (o _undefined_ si no la cumple nadie). Ejemlplo:
-
+let todosAprobados=arrayNotas.every(nota => nota>=5);   // false
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let primerAprobado=arrayNotas.find(nota => nota>=5);    // primerAprobado=5
+```
+#### findIndex
+Como _find_ pero en vez de devolver el elemento devuelve su posición (o -1 si nadie cumple la condición). En el ejemplo anterior el valor devuelto sería 0 (ya que el primer elemento cumple la condición).
 
 #### every / some
 La primera devuelve **true** si TODOS los elementos del array cumplen la condición y **false** en caso contrario. La segunda
@@ -156,6 +162,40 @@ let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
 let todosAprobados=arrayNotas.every(nota => nota>=5);   // false
 let algunAprobado=arrayNotas.some(nota => nota>=5);     // true
 ```
+
+#### reduce
+Devuelve un valor calculado a partir de los elementos del array. En este caso la función recibe como primer parámetro el valor calculado hasta ahora y el método tiene como 1º parámetro la función y como 2º parámetro al valor calculado inicial (si no se indica será el primer alemento del array).
+
+Ejemplo: queremos obtener la suma de las notas:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let total=arrayNotas.reduce((total,nota) => total+=nota, 0);    // total=35.15
+// podríamos haber omitido el valor inicial 0 para total
+let total=arrayNotas.reduce((total,nota) => total+=nota);    // total=35.15
+```
+Ejemplo: queremos obtener la nota más alta:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let maxNota=arrayNotas.reduce((max,nota) => nota>max?nota:max);    // max=9.75
+```
+
+#### map
+Permite modificar cada elemento de un array y devuelve un nuevo array con los elementos del original modificados. Ejemplo: queremos subir un 10% cada nota:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let arrayNotasSubidas=arrayNotas.map(nota => nota+nota*10%);
+```
+
+
+#### forEach
+
+#### includes
+Devuelve **true** si el array incluye el elemento pasado como parámetro. Ejemplo:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+arrayNotas.includes(7.5);     // true
+```
+
 
 ```javascript
 array.filter(
