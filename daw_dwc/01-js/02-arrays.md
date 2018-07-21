@@ -305,5 +305,7 @@ Es cono un_Map_ pero que no almacena los vaores sino sólo la clave. Podemos ver
 Una forma sencilla de eliminar los duplicados de un array es crear con él un _Set_:
 ```javascript
 let ganadores=['Márquez', 'Rossi', 'Márquez', 'Lorenzo', 'Rossi', 'Márquez', 'Márquez'];
-let ganaoresNoDuplicados=new Set(ganadores);    // {'Márquez, 'Rossi', 'Lorenzo'}
+let ganadoresNoDuplicados=new Set(ganadores);    // {'Márquez, 'Rossi', 'Lorenzo'}
+// o si lo queremos en un array:
+let ganadoresNoDuplicados=Array.from(new Set(ganadores));    // ['Márquez, 'Rossi', 'Lorenzo']
 ```
