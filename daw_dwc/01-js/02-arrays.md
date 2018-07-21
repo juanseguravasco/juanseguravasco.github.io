@@ -125,5 +125,40 @@ let b=a.sort();       // b=[13, 2, 45, 5, "Adios", "Hola", "adios", "hola"]
 * `.indexOf()`: devuelve la primera posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 * `.lastIndexOf()`: devuelve la última posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 
+### Functional Programming
+Desde la versión 5.1 javascript incorpora métodos de FP en el lenguaje, especialmente para trabajar con arrays:
+
+#### filter
+Devuelve un nuevo array con los elementos que cumplen determinada condición del array al que se aplica. Su parámetro es una función, habitualmente anónima, que va interactuando con los elementos del array. Esta función recibe como primer parámetro el elemento actual, como segundo parámetro su índice y como tercer parámetro el array completo y devuelve **true** para los elementos que se incluirán en el array a devolver y **false** para el resto.
+
+Ejemplo: dado un array con todas devolver un array con las notas de los aprobados:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let aprobados=arrayNotas.filter(function(nota) {
+  return nota>=5;
+});       // aprobados=[5, 6, 9.75, 7.5]
+```
+Usando funciones lambda la sintaxis queda mucho más simple:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let aprobados=arrayNotas.filter(nota => nota>=5);
+```
+
+#### find
+Como _filter_ pero devuelve el primer elemento que cumpla la condición (o _undefined_ si no la cumple nadie). Ejemlplo:
+
+
+#### every / some
+La primera devuelve **true** si TODOS los elementos del array cumplen la condición y **false** en caso contrario. La segunda
+devuelve **true** si ALGÚN elemento del array cumple la condición. Ejemplo:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let todosAprobados=arrayNotas.every(nota => nota>=5);   // false
+let algunAprobado=arrayNotas.some(nota => nota>=5);     // true
+```
+
+```javascript
+array.filter(
+```
 
 ## Referencia vs Copia
