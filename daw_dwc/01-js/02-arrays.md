@@ -119,9 +119,32 @@ let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
 ```
 * `.sort()`: ordena **alfabéticamente** los elementos del array
 ```javascript
-let a=['hola','adios','Hola','Adios',2,5,13,45]
-let b=a.sort();       // b=[13, 2, 45, 5, "Adios", "Hola", "adios", "hola"]
+let a=['hola','adios','Bien','Mal',2,5,13,45]
+let b=a.sort();       // b=[13, 2, 45, 5, "Bien", "Mal", "adios", "hola"]
 ```
+> También podemos pasarle una función que le indique cómo ordenar que devolverá un valor negativo si el primer elemento es mayor, positivo si es mayor el segundo o 0 si son iguales.
+> Ejemplo: ordenar un array de cadenas sin tener en cuenta si son mayúsculas o minúsculas:
+```javascript
+let a=['hola','adios','Bien','Mal']
+let b=a.sort(function(elem1, elem2) {
+  if (elem1.toLocaleLowerCase > elem2.toLocaleLowerCase)
+    return -1
+  if (elem1.toLocaleLowerCase < elem2.toLocaleLowerCase)
+    return 1
+  return 0
+});       // b=["adios", "Bien", "hola", "Mal"]
+```
+> Como más se utiliza es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _persona_ con los campos _nombre_ y _edad_, para ordenar un array de dichos objetos por su edad haremos:
+```javascript
+let personasOrdenado=personas.sort(function(persona1, persona2) {
+  return persona1.edad-persona2.edad;
+});
+```
+> Usando _arrow functions_ quedaría más sencillo:
+```javascript
+let personasOrdenado=personas.sort((persona1, persona2) => persona1.edad-persona2.edad);
+```
+
 * `.indexOf()`: devuelve la primera posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 * `.lastIndexOf()`: devuelve la última posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 
@@ -186,8 +209,14 @@ let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
 let arrayNotasSubidas=arrayNotas.map(nota => nota+nota*10%);
 ```
 
-
 #### forEach
+Es el método más general de los que hemos visto. No devuelve nada sino que permite realizar algo con cada elemento del array.
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+arrayNotas.foreach((nota, indice) => {
+  console.log('El elemento de la posición '+indice+' es: '+nota);
+});
+```
 
 #### includes
 Devuelve **true** si el array incluye el elemento pasado como parámetro. Ejemplo:
