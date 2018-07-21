@@ -109,13 +109,7 @@ let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
 * `.reverse()`: invierte el orden de los elementos del array
 ```javascript
 let a=[2, 4, 6];
-let c=a.reverse();       // c=[6, 4, 2]
-```
-* `.reverse()`: invierte el orden de los elementos del array
-```javascript
-let a=[2, 4, 6];
-let b=['a', 'b', 'c'];
-let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
+let b=a.reverse();       // b=[6, 4, 2]
 ```
 * `.sort()`: ordena **alfabéticamente** los elementos del array
 ```javascript
@@ -134,7 +128,7 @@ let b=a.sort(function(elem1, elem2) {
   return 0
 });       // b=["adios", "Bien", "hola", "Mal"]
 ```
-> Como más se utiliza es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _persona_ con los campos _nombre_ y _edad_, para ordenar un array de dichos objetos por su edad haremos:
+> Como más se utiliza es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _persona_ con los campos _nombre_ y _edad_, para ordenar un array de objetos persona por su edad haremos:
 ```javascript
 let personasOrdenado=personas.sort(function(persona1, persona2) {
   return persona1.edad-persona2.edad;
@@ -225,9 +219,21 @@ let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
 arrayNotas.includes(7.5);     // true
 ```
 
-
+#### Array.from
+Devuelve un array a partir de otro al que aplica una función de transformación (es similar a _map_). Ejemplo: queremos subir un 10% cada nota:
 ```javascript
-array.filter(
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let arrayNotasSubidas=Array.from(arrayNotas, nota => nota+nota*10%);
+```
+Se utiliza mucho para convertir colecciones en arrays y así poder usar los métodos de arrays que hemos visto. Por ejemplo si queremos mostrar por consola cada párrafo de la página que comience por la palabra 'NOTA:' en primer lugar obtenemos todos los párrafos con:
+```javascript
+let parrafos=document.getElementsByTagName('p');
+```
+Esto nos devuelve una colección con todos los párrafos de la página (lo veremos más adelante al ver DOM). Podríamos hacer un **for** para recorrer la colección y mirar los que empiecen por lo indicado pero no podemos aplicarle los métodos vistos aquí porque son sólo para arrays así que hacemos:
+```javascript
+let arrayParrafos=Array.from(parrafos);
+// y ya podemos usar los métodos que queramos:
+arrayParrafos.filter(parrafo => parrafo.startsWith('NOTA:).forEach(parrafo => console.log(parrafo));
 ```
 
 ## Referencia vs Copia
