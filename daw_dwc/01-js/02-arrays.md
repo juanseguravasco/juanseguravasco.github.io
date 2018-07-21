@@ -253,5 +253,57 @@ let fecha2=fecha1;          // fecha1='2018-09-23';   fecha2='2018-09-23';
 fecha2.setFullYear(1999);   // fecha1='1999-09-23';   fecha2='1999-09-23';
 ```
 
-
 ## Rest y Spread
+Permiten extraer a parámetros los elementos de un array o string (_spread_) o convertir en un array un grupo de parámetros (_rest_). El operador de ambos es **...** (3 puntos).
+
+Para usar _rest_ como parámetro de una función debe ser siempre el último parámetro:
+```javascript
+function notaMedia(...notas) {
+  let total=notas.reduce((total,nota) => total+=nota);
+  return total/notas.length;
+}
+
+console.log(notaMedia(5, 3.9, 6, 9.75, 7.5, 3));    // le pasamos un número variable de parámetros
+```
+Si lo que queremos es convertir un array en un grupo de elementos haremos _spread_. Por ejemplo el objeto _Math_ porporciona métodos para trabajar con números como _.max_ que devuelve el máximo de los números pasados como parámetro. Para saber la nota máxima en vez de _.reduce_ como hicimos en el ejemplo anterior podemos hacer:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let maxNota=Math.max(...arrayNotas);    // maxNota=9.75
+// hacemos Math.max(arrayNotas) devuelve NaN porque arrayNotas es un array y no un número
+```
+
+## Desestructuración de arrays
+Similar a _rest_ y _spread_, permiten extraer los elementos del array directamente a variables y viceversa. Ejemplo:
+```javascript
+let arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3];
+let [primera, segunda, tercera]=arrayNotas;   // primera=5, segunda=3.9, tercera=6
+let [primera, , , cuarta]=arrayNotas;         // primera=5, cuarta=9.75
+let [primera, ...resto]=arrayNotas;           // primera=5, resto=[3.9, 6, 9.75, 3]
+```
+También se pueden asignar valores por defecto:
+```javascript
+let preferencias=['Javascript', 'NodeJS'];
+let [lenguaje, backend='Laravel', frontend='VueJS'];  // lenguaje='Javascript', backend='NodeJS', frontend='VueJS'
+```
+
+## Map
+Es una colección de parejas de \[clave,valor]. Un objeto en Javascript es un tipo particular de _Map_ en que las claves sólo pueden ser texto o números. Se puede acceder a una propiedad con **.** o **\[propiedad]**. Ejemplo:
+```javascript
+let persona={
+  nombre='John',
+  apellido='Doe',
+  edad=39
+}
+console.log(persona.nombre);      // John
+console.log(persona['nombre']);   // John
+```
+Un _Map_ permite que la clave sea cualquier cosa (array, objeto, ...). No vamos a ver en profundidad estos objetos pero podéis saber más en [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) o cualwuier otra página. 
+
+## Set
+Es cono un_Map_ pero que no almacena los vaores sino sólo la clave. Podemos verlo como una colección que no permite duplicados. Tiene la propiedad **size** que devuelve su tamaño y los métodos **.add** (añade un elemento), **.delete** (lo elimina) o **.has** (indica si el elemento pasado se encuentra o no en la colección) y también podemos recorrerlo con **.forEach**.
+
+Una forma sencilla de eliminar los duplicados de un array es crear con él un _Set_:
+```javascript
+let ganadores=['Márquez', 'Rossi', 'Márquez', 'Lorenzo', 'Rossi', 'Márquez', 'Márquez'];
+let ganaoresNoDuplicados=new Set(ganadores);    // {'Márquez, 'Rossi', 'Lorenzo'}
+```
