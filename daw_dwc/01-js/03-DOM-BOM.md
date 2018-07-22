@@ -160,6 +160,7 @@ Podemos ver y modificar los valores de los atributos de cada elemento HTML y tam
 * `elemento.hasAttribute('nombreAtributo')`: indica si _elemento_ tiene o no definido el atributo _nombreAtributo_
 * `elemento.getAttribute('nombreAtributo')`: devuelve el valor del atributo _nombreAtributo_ de _elemento_
 * `elemento.setAttribute('nombreAtributo', 'valor')`: establece _valor_ como nuevo valor del atributo _nombreAtributo_ de _elemento_
+* `elemento.removeAttribute('nombreAtributo')`: elimina el atributo _nombreAtributo_ de _elemento_
 
 Algunos atributos comunes se pueden acceder y cambiar como una propiedad del elemento como `id`, `title` o `className` (para el atributo **class**). Ejemplo:
 ```javascript
