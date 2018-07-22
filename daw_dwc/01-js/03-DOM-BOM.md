@@ -1,9 +1,9 @@
-# Document Object Model (DOM) y Browser Object Model (BOM)
+# Document Object Model (DOM)
 
 ## Introducción
-La mayoría de las veces que programamos con Javascript es para que se ejecute en una página web mostrada por el navegador. En este contexto tenemos acceso a ciertos objetos que nos permiten interactuar con la página (DOM) y con el navegador (BOM).
+La mayoría de las veces que programamos con Javascript es para que se ejecute en una página web mostrada por el navegador. En este contexto tenemos acceso a ciertos objetos que nos permiten interactuar con la página (DOM) y con el navegador ( y Browser Object Model, BOM).
 
-## Document Object Model (DOM)
+## Introducción
 Es una estructura en árbol que representa todos los elementos HTML de la página y sus atributos. Todo lo que contien la página se representa como nodos del árbol y me diante el DOM podemos acceder a cada nodo, modificarlo, eliminarlo o añadir nuevos nodos de forma que cambiamos dinámicamente la página mostrada al usuario.
 
 La raíz del árbol DOM es **document** y de este nodo cuelgan el resto de elementos HTML. Cada uno constituye su propio nodo y tiene subnodos con sus _atributos_, _estilos_ y elementos HTML que contiene. 
@@ -31,7 +31,7 @@ Cada etiqueta HTML suele originar 2 nodos:
 
 Cada nodo es un objeto con sus propiedades y métodos.
 
-### Acceso a los nodos
+## Acceso a los nodos
 Los principales métodos para acceder a los diferentes nodos son:
 * `document.getElementById('id')`: devuelve el nodo con la _id_ indicada. Ej.:
 ```javascript
@@ -65,7 +65,7 @@ NOTA: al aplicar estos métodos sobre _document_ se seleccionará sobre la pági
 * `document.images`: devuelve una colección con todas las imágenes del documento
 * `document.scripts`: devuelve una colección con todos los scripts del documento
   
-### Acceso a nodos a partir de otros
+## Acceso a nodos a partir de otros
 En muchas ocasiones queremos acceder a cierto nodo a partir de uno dado. Para ello tenemos los siguientes métodos que se aplican sobre un elemento del árbol DOM:
 * `elemento.parentNode`: devuelve el padre de _elemento_
 * `elemento.children`: devuelve la colección con todos los elementos hijo de _elemento_ (sólo elementos HTML, no comentarios ni nodos de tipo texto)
@@ -99,7 +99,7 @@ let contenido=elemento.textContent;   // contenido='Esta página es muy simple'
 * `elemento.clientLeft` / `elemento.clientTop`: devuelve la distancia de _elemento_ al borde izquierdo / superior
 * `elemento.offsetLeft` / `elemento.offsetTop`: devuelve los píxels que hemos desplazado _elemento_ a la izquierda / abajo
 
-### Manipular el árbol DOM
+## Manipular el árbol DOM
 Vamos a ver qué métodos nos permiten cambiar el árbol DOM, y por tanto modificar la página:
 * `document.createElement('etiqueta')`: crea un nuevo elemento HTML con la etiqueta indicada, pero aún no se añade a la página. Ej.:
 ```javascript
