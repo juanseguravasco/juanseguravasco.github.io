@@ -142,3 +142,36 @@ Ejemplo: tenemos un código HTML con un DIV que contiene 3 párrafos y vamos a a
 <script async src="//jsfiddle.net/juansegura/qfcdseua/embed/js,html,result/"></script>
 
 Si utilizamos la propiedad **innerHTML** el código a usar es mucho más simple:
+
+<script async src="//jsfiddle.net/juansegura/x9s7v8kn/embed/js,html,result/"></script>
+
+Podemos ver más ejemplos de creación y eliminación en [W3Schools](http://www.w3schools.com/js/js_htmldom_nodes.asp).
+
+### Modificar el DOM con [ChildNode](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode)
+Childnode es una interfaz que permite maipular del DOM de forma más sencilla pero no está soportada en los navegadores Safari de IOS. Incluye los métodos:
+* `elemento.before(nuevoNodo)`: añade el _nuevoNodo_ pasado antes del nodo _elemento_
+* `elemento.after(nuevoNodo)`: añade el _nuevoNodo_ pasado después del nodo _elemento_
+* `elemento.replaceWith(nuevoNodo)`: reemplaza el nodo _elemento_ con el _nuevoNodo_ pasado
+* `elemento.remove()`: elimina el nodo _elemento_
+
+## Atributos de los nodos
+Podemos ver y modificar los valores de los atributos de cada elemento HTML y también añadir o eliminar atributos:
+* `elemento.attributes`: devuelve un array con todos los atributos de _elemento_
+* `elemento.hasAttribute('nombreAtributo')`: indica si _elemento_ tiene o no definido el atributo _nombreAtributo_
+* `elemento.getAttribute('nombreAtributo')`: devuelve el valor del atributo _nombreAtributo_ de _elemento_
+* `elemento.setAttribute('nombreAtributo', 'valor')`: establece _valor_ como nuevo valor del atributo _nombreAtributo_ de _elemento_
+
+Algunos atributos comunes se pueden acceder y cambiar como una propiedad del elemento como `id`, `title` o `className` (para el atributo **class**). Ejemplo:
+```javascript
+let miPrimeraLista=document.getElementsByTagName('ul')[0];  // selecciona el 1º UL de la página
+miPrimeraLista.id='primera-lista';
+// es equivalente ha hacer:
+miPrimeraLista.setAttribute('id', 'primera-lista');
+```
+
+### Estilos de los nodos
+Los estilos están accesibles como el atributo **style**. Cualquier estilo es una propiedad de dicho atributo pero con la sintaxis _caelCase_ en vez de _kebab-case_. Por ejemplo para poner el color de fondo _rojo_ al elemento _miPrimeraLista_ haremos:
+```javascript
+miPrimeraLista.style.backgroundColor='red';
+```
+
