@@ -137,12 +137,8 @@ miPrimeraLista.replaceChild(nuevoLi, primerElementoDeLista);    // reemplaza el 
 ```
 * `elementoAClonar.cloneNode(boolean)`: devuelve un clon de _elementoAClonar_ o de _elementoAClonar_ con todos sus descendientes según le pasemos como parámetro _false_ o _true_. Luego podremos insertarlo donde queramos.
 
-Ejemplo: dado el siguiente código HTML vamos a añadir un nuevo párrafo al final del div con el texto 'Párrafo añadido al final' y otro que sea el 2º del div co el texto 'Este es el <strong>nuevo</strong> segundo párrafo':
-```html
-<div id="articulos">
-  <p>Este es el primer párrafo que tiene <strong>algo en negrita</strong>.</p>
-  <p>Este era el segundo párrafo pero será desplazado hacia abajo.</p>
-  <p>Y este es el último párrafo pero luego añadiremos otro después.<p>
-</div>
-```
-El código a ejecutar es:
+Ejemplo: tenemos un código HTML con un DIV que contiene 3 párrafos y vamos a añadir un nuevo párrafo al final del div con el texto 'Párrafo añadido al final' y otro que sea el 2º del div con el texto 'Este es el <strong>nuevo</strong> segundo párrafo':
+
+<script async src="//jsfiddle.net/juansegura/qfcdseua/embed/js,html,result/"></script>
+
+Si utilizamos la propiedad **innerHTML** el código a usar es mucho más simple:
