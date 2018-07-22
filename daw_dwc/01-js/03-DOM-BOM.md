@@ -30,3 +30,39 @@ Cada etiqueta HTML suele originar 2 nodos:
 
 Cada nodo es un objeto con sus propiedades y métodos.
 
+### Acceso a los nodos
+Los principales métodos para acceder a los diferentes nodos son:
+* `document.getElementById('id')`: devuelve el nodo con la _id_ indicada. Ej.:
+```javascript
+let nodo=document.getElementById('main');   // nodo contendrá el nodo cuya id es _main_
+```
+* `document.getElementsByClassName('clase')`: devuelve una colección (similar a un array) con todos los nodos de la _clase_ indicada. Ej.:
+```javascript
+let nodos=document.getElementsByClassName('error');   // nodos contendrá todos los nodos cuya clase es _error_
+```
+* `document.getElementsByTagName('etiqueta')`: devuelve una colección con todos los nodos de la _etiqueta_ HTML indicada. Ej.:
+```javascript
+let nodos=document.getElementsByTagName('p');   // nodos contendrá todos los nodos de tipo  _<p>_
+```
+* `document.querySelector('selector')`: devuelve el primer nodo seleccionad por el _selector_ CSS indicado. Ej.:
+```javascript
+let nodo=document.querySelector('p.error');   // nodo contendrá el primer párrafo de clase _error_
+```
+* `document.querySelectorAll('selector')`: devuelve una colección con todos los nodos seleccionados por el _selector_ CSS indicado. Ej.:
+```javascript
+let nodos=document.querySelectorAll('p.error');   // nodos contendrá todos los párrafos de clase _error_
+```
+NOTA: al aplicar estos métodos sobre _document_ se seleccionará sobre la página pero podrían también aplicarse a cualquier nodo y en ese caso la búsqueda se realizaría sólo entre los descendientes de dicho nodo.
+
+NOTA: las colecciones son similares a arrays (se accede a sus elementos con _\[indice]_) pero no se les pueden aplicar sus métodos _filter_, _map_, ... a menos que se conviertan a arrays con _Array.from()_
+* `document.documentElement`: devuelve el nodo del elemento _<html>_
+* `document.head`: devuelve el nodo del elemento _<head>_
+* `document.body`: devuelve el nodo del elemento _<body>_
+* `document.title`: devuelve el nodo del elemento _<title>_
+* `document.link`: devuelve una colección con todos los hiperenlaces del documento
+* `document.anchor`: devuelve una colección con todas las anclas del documento
+* `document.form`: devuelve una colección con todos los formularios del documento
+* `document.images`: devuelve una colección con todas las imágenes del documento
+* `document.scripts`: devuelve una colección con todos los scripts del documento
+  
+
