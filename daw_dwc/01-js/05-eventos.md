@@ -68,18 +68,18 @@ Se producen en los formularios:
 Al producirse un evento se generan automáticamente en su función manejadora 2 objetos:
 * **this**: hace referencia al elemento sobre el que se ha producid el evento
 * **event**: es un objeto cin propiedades y métodos que nos dan información sobre el evento:
-    * **.type**: qué evento se ha producido (click, submit, keyDown, ...)
-    * **.target**: el elemento que lanza el evento (normalmente el mismo que _this_)
-    * **cancelable**: si el evento puede cancelarse. En caso afirmativo se puede llamar a **event.preventDefault()** para cancelarlo
-    * **.preventDefault()**: si un evento tiene un escuchador asociado se ejecuta el código de dicho escuchador y después el navegador realiza la acción que correspondería por defecto al evento si no tuviera escuchador (por ejemplo un escuchador del evento _click_ sobre un hiperenlace harái que se ejecute su código y después se saltará a la página indicada en el _href_ del hiperenlace). Este método cancela la acción por defecto del navegador para el evento. Por ejemplo si el evento era el _submit_ de un formulario éste no se enviará o si era un _click_ sobre un hiperenlace no se irá a la página indicada en él.
-    * **.stopPropagation**: un evento se produce sobre un elemento y todos su padres. Por ejemplo si hacemos click en un \<span> que está en un \<p> que está en un \<div> que está en el BODY el evento se va propagando por todos estos elementos y saltarían los escuchadores asociados a todos ellos. Si alguno llama a este mátodo el evento no se propagará a los demás elementos padre.
-    * dependiento del tipo de evento tendrá más propiedades:
-        * eventos de ratón:
-            * **.button**: qué botón del ratón se ha pulsado (0: izq, 1: rueda; 2: dcho).
-            * **.clientX** / **.clientY**: las coordenadas del ratón respecto a la ventana cuando se produjo el evento
-            * **.pageX** / **.pageY**: las coordenadas del ratón respecto al documento (si se ha hecho un scroll será el clientX/Y más el scroll)
-            * **.screenX** / **.screenY**: las corrdenadas del ratón respecto a la pantalla
-            * **.detail**: si se ha hecho click, doble click o triple click
-        * eventos de teclado
+  * **.type**: qué evento se ha producido (click, submit, keyDown, ...)
+  * **.target**: el elemento que lanza el evento (normalmente el mismo que _this_)
+  * **cancelable**: si el evento puede cancelarse. En caso afirmativo se puede llamar a **event.preventDefault()** para cancelarlo
+  * **.preventDefault()**: si un evento tiene un escuchador asociado se ejecuta el código de dicho escuchador y después el navegador realiza la acción que correspondería por defecto al evento si no tuviera escuchador (por ejemplo un escuchador del evento _click_ sobre un hiperenlace harái que se ejecute su código y después se saltará a la página indicada en el _href_ del hiperenlace). Este método cancela la acción por defecto del navegador para el evento. Por ejemplo si el evento era el _submit_ de un formulario éste no se enviará o si era un _click_ sobre un hiperenlace no se irá a la página indicada en él.
+  * **.stopPropagation**: un evento se produce sobre un elemento y todos su padres. Por ejemplo si hacemos click en un \<span> que está en un \<p> que está en un \<div> que está en el BODY el evento se va propagando por todos estos elementos y saltarían los escuchadores asociados a todos ellos. Si alguno llama a este mátodo el evento no se propagará a los demás elementos padre.
+  * dependiento del tipo de evento tendrá más propiedades:
+    * eventos de ratón:
+      * **.button**: qué botón del ratón se ha pulsado (0: izq, 1: rueda; 2: dcho).
+      * **.clientX** / **.clientY**: las coordenadas del ratón respecto a la ventana cuando se produjo el evento
+      * **.pageX** / **.pageY**: las coordenadas del ratón respecto al documento (si se ha hecho un scroll será el clientX/Y más el scroll)
+      * **.screenX** / **.screenY**: las corrdenadas del ratón respecto a la pantalla
+      * **.detail**: si se ha hecho click, doble click o triple click
+    * eventos de teclado
 y muchas más: .button (botón del ratón pulsado), .which (código de la tecla pulsada), ...
 
