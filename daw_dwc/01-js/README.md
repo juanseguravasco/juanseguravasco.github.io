@@ -5,8 +5,8 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [2-Arrays](./02-arrays.md)
 * [3-Document Object Model - DOM](./03-DOM.md)
 * [4-Brpwser Object Model - BOM](./04-BOM.md)
+* [5-Eventos](./05-eventos.md)
 * [3-Objetos y funciones globales](./01-sintaxis.md)
-* [5-Eventos](./01-sintaxis.md)
 * [6-Prograaicón orientada a objetos](./01-sintaxis.md)
 * [7-Ajax](./01-sintaxis.md)
 *  -Promesas
