@@ -21,25 +21,32 @@ Ambas funciones devuelven un identificador que nos permitirá cancelar la ejecuc
 
 Ejemplo:
 ```javascript
+let idTimeout=setTimeout(function() {
+	alert('Timeout que se ejecuta al cabo de 1 seg.')
+}, 1000);
 
+let i=1;
+let idInterval=setInterval(function() {
+	alert('Interval cada 3 seg. Ejecución nº: '+i++);
+   if (i==5) {
+      clearInterval(idInterval);
+      alert('Fin de la ejecución del Interval');
+	}
+}, 3000);
 ```
 
 ## Objetos del BOM
 Al contrario que para el DOM, no existe un estándar de BOM pero es bastante parecido en los diferentes navegadores. 
 
 ### Objeto [window](http://www.w3schools.com/jsref/obj_window.asp)
-Representa la ventana del navegador y es el objeto principal. De hecho puede omitirse al llamar a sus propiedades y métodos, por ejemplo, el método `alert()` es en realidad `window.alert()`.
+Representa la ventana del navegador y es el objeto principal. De hecho puede omitirse al llamar a sus propiedades y métodos, por ejemplo, el método `setTimeout()` es en realidad `window.setTimeout()`.
 
 Sus principales propiedades y métodos son:
 * `.name`: nombre de la ventana actual
-* `.location`: URL de la ventana
 * `.status`: valor de la barra de estado
-* `.history`: array con el historial de páginas
 * `.screenX`/`.screenY`: distancia del elemento a la esquina izquierda/superior pantalla
 * `.outerWidth`/`.outerHeight`: ancho/alto total de la pantalla, sin contar la barra superior del navegador
 * `.innerWidth`/`.innerHeight`: ancho/alto visible del documento
-* `.screen.width`/`.screen.height`: ancho/alto total de la pantalla (resolución)
-* `.screen.availWidth`/`.screen.availHeight`: igual pero excluyendo la barra del S.O.
 * `.open(url, nombre, opciones)`: abre una nueva ventana. Devuelve el nuevo objeto ventana. Las principales opciones son:
     * `.toolbar`: si tendrá barra de herramientas
     * `.location`: si tendrá barra de dirección
@@ -52,7 +59,6 @@ Sus principales propiedades y métodos son:
     * `.left=px`/`.top=px`: posición izq/sup de la ventana
 * `.opener`: ventana desde a que se abrió
 * `.close()`: la cierra (pide confirmación, a menos que la hayamos abierto con open)
-* `.alert()`, `.confirm()`, `.prompt()`: ya los conocemos
 * `.moveTo(x,y)`: la mueve a las coord indicadas
 * `.moveBy(x,y)`: la desplaza los px indicados
 * `.resizeTo(x,y)`: la da el ancho y alto indicados
@@ -60,16 +66,37 @@ Sus principales propiedades y métodos son:
 * Otros métodos: `.back()`, `.forward()`, `.home()`, `.stop()`, `.focus()`, `.blur()`, `.find()`, `.print()`, …
 NOTA: por seguridad no se puede mover una ventana fuera de la pantalla ni darle un tamaño menor de 100x100 px ni tampoco se puede mover una ventana no abierta con .open() o si tiene varias pestañas
 
-#### Diĺogos
+#### Diálogos
+Hay 3 métodos del objeto _window_ que ya conocemos y que nos permiten abrir ventanas de diálogo con el usuario:
+* `window.alert(mensaje)`: muestra un diálogo con el mensaje indicado y un botón de 'Aceptar'
+* `window.confirm(mensaje)`: muestra un diálogo con el mensaje indicado y botones de 'Aceptar' y 'Cancelar'. Devuelve _true_ si se ha pulsado el botón de aceptar del diálogo y _false_ si no.
+* `window.prompt(mensaje [, valor predeterminado])`: muestra un diálogo con el mensaje indicado, un cuadro de texto (vacío o co el valor predeterminado indicado) y botones de 'Aceptar' y 'Cancelar'. Si se pulsa 'Aceptar' devolverá un _string_ con el valor que haya en el cuadro de texto y si se pulsa 'Cancelar' o se cierra devolverá _null_.
 
 ### Objeto [location](http://www.w3schools.com/jsref/obj_location.asp)
 Contiene información sobre la URL actual del navegador y podemos modificarla. Sus principales propiedades y métodos son:
+* `.href`: devuelve la URL actual completa
+* `.protocol`, `.host`, `.port`: devuelve el protocolo, host y puerto respectivamente de la URL actual
+* `.pathname`: devuelve la ruta al recurso actual
+* `.reload()`: recarga la página actual
+* `.assign(url)`: carga la página pasada como parámetro
+* `.replace(url)`: ídem pero sin guardar la actual en el historial
+
+### Objeto [history](http://www.w3schools.com/jsref/obj_history.asp)
+Permite acceder al historial de páginas visitadas y navegar por él:
+* `.length`: muestra el número de páginas almacenadas en el historial
+* `.back()`: vuelve a la página anterior
+* `.forward()`: va a la siguiente página
+* `.go(num)`: se mueve _num_ páginas hacia adelante o hacia atrás (si _num_ es negativo) en el historial
 
 ### Otros objetos
 Los otros objetos que incluye BOM son:
-* [document](http://www.w3schools.com/jsref/dom_obj_document.asp)
-* [history](http://www.w3schools.com/jsref/obj_history.asp)
-* [navigator](http://www.w3schools.com/jsref/obj_navigator.asp)
-* [screen](http://www.w3schools.com/jsref/obj_screen.asp)
-
+* [document](http://www.w3schools.com/jsref/dom_obj_document.asp): el objeto _document_ que hemos visto en el DOM
+* [navigator](http://www.w3schools.com/jsref/obj_navigator.asp): nos informa sobre el navegador y el sistema en que se ejecuta
+    * `.userAgent`: muestra información sobre el navegador que usamos
+    * `.plataform`: muestra información sobre la plataforma sobre la que se ejecuta
+    * ...
+* [screen](http://www.w3schools.com/jsref/obj_screen.asp): nos da información sobre la pantalla
+    * `.width`/`.height`: ancho/alto total de la pantalla (resolución)
+    * `.availWidth`/`.availHeight`: igual pero excluyendo la barra del S.O.
+    * ...
 
