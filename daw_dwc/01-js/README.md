@@ -6,9 +6,9 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [3-Document Object Model - DOM](./03-DOM.md)
 * [4-Brpwser Object Model - BOM](./04-BOM.md)
 * [5-Eventos](./05-eventos.md)
-* [3-Objetos y funciones globales](./01-sintaxis.md)
-* [6-Prograaicón orientada a objetos](./01-sintaxis.md)
-* [7-Ajax](./01-sintaxis.md)
+* [6-Objetos y funciones globales](./06-globales.md)
+* [6-Prograaicón orientada a objetos](./07-POO.md)
+* [7-Ajax](./07-ajax.md)
 *  -Promesas
 *  -Herramientas: npm y webpack
 *  -Utilidades: Geolocalización. Local Storage. API de Google Maps
