@@ -14,14 +14,25 @@ La forma tradicional (no recomendada) es añadir el elemento HTML un atributo qu
 
 Una mejora es sacar el código Javascript del HTML:
 
-<script async src="//jsfiddle.net/juansegura/L4z3jd87/embed/js,html,result/"></script>
+<script async src="//jsfiddle.net/juansegura/x9gmrckq/embed/js,html,result/"></script>
+
+NOTA: hay que tener cuidado porque si se ejecuta el código antes de que se haya creado el botón estaremos asociando la función al evento _click_ de un elemento que aún no existe así que no hará nada. Para evitarlo siempre es conveniente poner el código que atiende a los eventos dentro de una función que se ejecute al producirse el evento _load_. Este evento se produce cuando se han cargado todos los elementos HTML de la página y se ha creado el árbol DOM. Lo mismo habría que hacer con cualquier código que modifique el árbol DOM. El código correcto sería:
+```javascript
+window.onload=function() {
+  document.getElementById('acepto').onclick=function() {
+    alert('Se ha aceptado');
+  }
+}
+```
 
 ### Event listeners
 La forma recomendada de hacerlo es usando escuchadores de eventos. El método `addEventListener` recibe como primer parámetro el nombre del evento a escuchar y como segundo parámetro la función a ejecutar cuando se produzca:
 
-<script async src="//jsfiddle.net/juansegura/L4z3jd87/embed/js,html,result/"></script>
+<script async src="//jsfiddle.net/juansegura/L5pkg93w/1/embed/js,html,result/"></script>
 
-Podemos poner varios escuchadores para el mismo evento y se ejecutarán todos ellos. Para eliminar un escuchador se usa el método `removeEventListener`.
+NOTA: igual que antes debemos estar seguros de que se ha creado el árbol DOM antes de poner un escuchador por lo que se recomienda ponerlos siempre dentro de la función asociada al evento `window.onload` (o mejor `window.addEventListener('load', ...)`.
+
+Una ventaja de este método es que podemos poner varios escuchadores para el mismo evento y se ejecutarán todos ellos. Para eliminar un escuchador se usa el método `removeEventListener`.
 
 ## Tipos de eventos
 Según qué o dónde se produce un evento estos se clasifican en:
