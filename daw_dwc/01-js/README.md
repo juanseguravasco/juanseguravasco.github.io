@@ -7,7 +7,7 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [4-Brpwser Object Model - BOM](./04-BOM.md)
 * [5-Eventos](./05-eventos.md)
 * [6-Objetos y funciones globales](./06-globales.md)
-* [6-Prograaicón orientada a objetos](./07-POO.md)
+* [6-Programación orientada a objetos](./07-POO.md)
 * [7-Ajax](./07-ajax.md)
 *  -Promesas
 *  -Herramientas: npm y webpack
