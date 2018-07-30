@@ -351,3 +351,39 @@ Para comparar valores tenemos **==** y **===**. La triple igualdad devuelve _tru
 También tenemos 2 operadores de _diferente_: **!=** y **!==** que se comportan como hemos dicho antes.
 
 Los operadores relacionales son >, >=, <, <=. Cuando se compara un número y una cadena ésta se convierte a número y no al revés (`23>'5'` devuelve _true_, aunque `'23'>'5'` devuelve _false_)  
+
+## Buenas prácticas
+Javascript nos permite hacer muchas cosas que otros lenguajes no nos dejan por lo que debemos ser cuidadosos para no cometer errores de los que no se nos va a avisar.
+
+### 'use strict'
+Si ponemos siempre esta sentencia al principio de nuestro código el intérprete nos avisará si usamos una variale sin declarar (muchas vecees por equivocarnos al escrbir su nombre). En concreto fuerza al navegador a no permitir:
+* Usar una variable sin declarar
+* Definir más de 1 vez una propiedad de un objeto
+* Duplicar un parámetro en una función
+* Usar números en octal
+* Modificar una propiedad de sólo lectura
+
+### Variables
+Algunas de las prácticas que deberíamos seguir respecto a las variables son:
+* Evitar en lo posible variables globales
+* Declarar todas las variables al principio
+* Inicializar las variables al declararlas
+* Evitar conversiones de tipo automáticas
+* Usar para nombrarlas la notación _camelCase_
+* Poner los nombres de las constantes en mayúsculas
+
+También es conveniente, por motivos de eficiencia no usar objetos Number, String o Boolean sino los tipos primitivos (no usar `let numero=new Number(5)` sino `let numero=5`) y lo mismo al crear arrays, objetos o expresiones regulares (no usar `let miArray=new Array()` sino `let miArray=[]`).
+
+### Otras
+Algunas reglas más que deberíamos seguir son:
+* Debemos ser coherentes a la hora de escribir código: por ejemplo podemos poner o no espacios antes y después del `=` en una asignación pero debemos hacerlo siempre igual. Para obligarnos a ello podemos usar alguna herramienta [_linter_](https://www.codereadability.com/what-are-javascript-linters/).
+* También es conveniente para mejorar la legibilidad de nuestro código separar las líneas de más de 80 caracteres.
+* Usar `===` en las comparaciones
+* Si un parámetro puede faltar al llamar a una función darle un valor por defecto
+* Y para acabar: **comentar el código**
+
+**OJO**: al sumar floats podemos tener problemas:
+```javascript
+console.log(0.1 + 0.2)    // imprime 0.30000000000000004
+```
+Para evitarlo redondead los resultados (o `(0.1*10 + 0.2*10) / 10`).
