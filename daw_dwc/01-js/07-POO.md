@@ -84,4 +84,83 @@ let cpo=new AlumnInf('Carlos', 'Pérez Ortiz', 19, 'DAW');
 console.log(cpo.getInfo());     // imprime 'El alumno Carlos Pérez Ortíz tiene 19 años y estudia el Grado Superior de DAW'
 ```
 
+### Métodos estáticos
+En ES2015 podemos declarar métodos estáticos, pero no propiedades estáticas. Estos métodos se llaman directamente utilizando el nombre de la clase y no tienen acceso al objeto _this_ (ya que no hay objeto instanciado).
+```javascript
+class User {
+    ...
+    static getRoles() {
+        return ["user", "guest", "admin"];
+    }
+}
 
+console.log(User.getRoles()); // ["user", "guest", "admin"]
+let user = new User("john");
+console.log(user.getRoles()); // Uncaught TypeError: user.getRoles is not a function
+```
+
+### toString() y valueOf()
+Al convertir un objeto a string (por ejemplo al hacer un `console.log` o al concatenarlo) se llama al método **_.toString()_** del mismo que devuelve `[object Object]`. Podemos sobrecargar este método para que devuelva lo que queramos:
+```javascript
+class Alumno {
+    ...
+    toString() {
+        return this.apellidos+', '+this.nombre;
+    }
+}
+
+let cpo=new Alumno('Carlos', 'Pérez Ortiz', 19);
+console.log(cpo);     // imprime 'Pérez Ortíz, Carlos'
+```
+
+Este método también es el que se usará si queremos ordenar una array de objetos (recordad que _.sort()_ ordena alfabéticamente para lo que llama al método _.toString()_ del objeto a ordenar. Por ejemplo, tenemos el array de alumnos _misAlumnos_ que queremos ordenar alfabéticamente. Ya no es necesario hacer:
+```javascript
+misAlumnos.sort(function(alum1, alum2) {
+    if (alum1.apellidos > alum2.apellidos)
+      return -1
+    if (alum1.apellidos < alum2.apellidos)
+      return 1
+    return alum1.nombre < alum2.nombre
+});   
+```
+como vimos en el tema de [Arrays](./02-arrays.md) sino que podemos hacer directamente:
+```javascript
+misAlumnos.sort();   
+```
+Al comparar objetos (con >, <, ...) se usa el valor devuelto por el método _.toString()_ pero si sobrecargamos el método **_.valueOf()_** será este el que se usará en comparaciones:
+```javascript
+class Alumno {
+    ...
+    valueOf() {
+        return this.edad;
+    }
+}
+
+let cpo=new Alumno('Carlos', 'Pérez Ortiz', 19);
+let cpo2=new Alumno('Ana', 'Abad Tudela', 23);
+console.log(cpo<cpo2);     // imprime true ya que 19<23
+```
+
+## POO en ES5
+Las versiones de Javascript anteriores a ES2015 no soportan clases ni herencia por lo que había que emularlas. Este apartado está sólo para que comprendamos este código si lo vemos en algún programa pero nosotros programaremos como hemos visto antes.
+
+Para crear el constructor se creaba una función con el nombre del objeto y para crear los métodos se aconsejaba hacerlo en el _prototipo_ del objeto para que no se creara una copia del mismo por cada instancia que creemos:
+```javascript
+function Alumno(nombre, apellidos, edad) {
+    this.nombre=nombre;
+    this.apellidos=apellidos;
+    this.edad=edad;
+}
+Alumno.prototype.getInfo=function() {
+        return 'El alumno '+this.nombre+' '+this.apellidos+' tiene '+this.edad+' años';
+    }
+}
+
+let cpo=new Alumno('Carlos', 'Pérez Ortiz', 19);
+console.log(cpo.getInfo());     // imprime 'El alumno Carlos Pérez Ortíz tiene 19 años'
+```
+
+Cada objeto tiene un prototipo del que hereda sus propiedades y métodos (es el equivalente a su clase). Si añadimos una propiedad o método al prototipo se añade a todos los objetos creados a partir de él.
+
+## Bibliografía
+* Curso 'Programación con JavaScript'. CEFIRE Xest. Arturo Bernal Mayordomo
