@@ -246,3 +246,11 @@ console.log(str.replace(/am/gi, function(match) {
   return "-" + match.toUpperCase() + "-";
 })); // Imprime "I -AM- -AM-azed in -AM-erica"
 ```
+
+No vamos a profundizar más sobre las expresiones regulares. Es muy fácil encontrar por internet la que necesitemos (para validar un e-mail, un NIF, un CP, ...). Podemos aprender más en:
+* [w3schools](http://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+* [regular-expressions.info](http://www.regular-expressions.info/)
+* [html5pattern](http://html5pattern.com/)
+* y muchas otras páginas
+
+También, hay páginas que nos permiten probar expresiones regulares con cualquier texto, como [regexr](http://regexr.com/).
