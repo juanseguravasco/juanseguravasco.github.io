@@ -376,7 +376,7 @@ También es conveniente, por motivos de eficiencia no usar objetos Number, Strin
 
 ### Otras
 Algunas reglas más que deberíamos seguir son:
-* Debemos ser coherentes a la hora de escribir código: por ejemplo podemos poner o no espacios antes y después del `=` en una asignación pero debemos hacerlo siempre igual. Para obligarnos a ello podemos usar alguna herramienta [_linter_](https://www.codereadability.com/what-are-javascript-linters/).
+* Debemos ser coherentes a la hora de escribir código: por ejemplo podemos poner o no espacios antes y después del `=` en una asignación pero debemos hacerlo siempre igual. Existen muchas guías de estilo y muy buenas: [Airbnb](https://github.com/airbnb/javascript), [Google](https://google.github.io/styleguide/javascriptguide.xml), [Idiomatic](https://github.com/rwaldron/idiomatic.js), etc. Para obligarnos a seguir las reglas podemos usar alguna herramienta [_linter_](https://www.codereadability.com/what-are-javascript-linters/).
 * También es conveniente para mejorar la legibilidad de nuestro código separar las líneas de más de 80 caracteres.
 * Usar `===` en las comparaciones
 * Si un parámetro puede faltar al llamar a una función darle un valor por defecto
