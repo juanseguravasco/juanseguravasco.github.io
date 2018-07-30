@@ -93,17 +93,18 @@ Es la clase que usremos siempre que vayamos a trabajar con fechas. Al crear una 
 ```javascript
 let date1=new Date();    // Mon Jul 30 2018 12:44:07 GMT+0200 (CEST) (es cuando he ejecutado la instrucción)
 let date2=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST) (la fecha pasada a las 0h. GMT)
-let date2=new Date('2018-07-30 05:30');  // Mon Jul 30 2018 05:30:00 GMT+0200 (CEST) (la fecha pasada a las 05:300h. local)
-let date2=new Date(2018,7,30);    // Thu Ago 30 2018 00:00:00 GMT+0200 (CEST) (OJO: 0->Ene,1->Feb... y a las 0h. local)
-let date2=new Date(2018,7,30,5,30);    // Thu Ago 30 2018 05:30:00 GMT+0200 (CEST) (OJO: 0->Ene,1->Feb,...)
-let date2=new Date('07-30-2018');    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) (OJO: formato MM-DD-AAAA)
-let date2=new Date('30-Jul-2018');    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) (tb. podemos poner 'Julio')
+let date3=new Date('2018-07-30 05:30');  // Mon Jul 30 2018 05:30:00 GMT+0200 (CEST) (la fecha pasada a las 05:300h. local)
+let date4=new Date(2018,7,30);    // Thu Ago 30 2018 00:00:00 GMT+0200 (CEST) (OJO: 0->Ene,1->Feb... y a las 0h. local)
+let date5=new Date(2018,7,30,5,30);    // Thu Ago 30 2018 05:30:00 GMT+0200 (CEST) (OJO: 0->Ene,1->Feb,...)
+let date6=new Date('07-30-2018');    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) (OJO: formato MM-DD-AAAA)
+let date7=new Date('30-Jul-2018');    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) (tb. podemos poner 'Julio')
+let date7=new Date(1532908800000);    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) (miliseg. desde 1/1/1070)
 ```
 Cuando ponemos la fecha como texto, como separador de las fechas podemos usar `-`, `/` o ` ` (espacio). Como separador de las horas debemos usar `:`. Cuando ponemos la fecha cono parámetros numéricos (separados por `,`) podemos poner valores fuera de rango que se sumarán al valor anterior. Por ejemplo:
 ```javascript
-let date2=new Date(2018,7,41);    // Mon Sep 10 2018 00:00:00 GMT+0200 (CEST) -> 41=31Ago+10Sep
-let date2=new Date(2018,7,0);     // Tue Jul 31 2018 00:00:00 GMT+0200 (CEST) -> 0=0Ago=31Jul (el anterior)
-let date2=new Date(2018,7,-1);    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) -> -1=0Ago-1=31Jul-1=30Jul
+let date=new Date(2018,7,41);    // Mon Sep 10 2018 00:00:00 GMT+0200 (CEST) -> 41=31Ago+10Sep
+let date=new Date(2018,7,0);     // Tue Jul 31 2018 00:00:00 GMT+0200 (CEST) -> 0=0Ago=31Jul (el anterior)
+let date=new Date(2018,7,-1);    // Mon Jul 30 2018 00:00:00 GMT+0200 (CEST) -> -1=0Ago-1=31Jul-1=30Jul
 ```
 OJO con el rango de los meses que empieza en 0->Ene, 1->Feb,...,11->Dic
 
@@ -111,40 +112,61 @@ Tenemos métodos **_getter_** y **_setter_** para obtener o cambiar los valores 
 * **fullYear**: permite ver (_get_) y cambiar (_set_) el año de la fecha:
 ```javascript
 let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-console.log( fecha.getFullYear();    // imprime 2018
+console.log( fecha.getFullYear() );  // imprime 2018
 fecha.setFullYear(2019);             // Tue Jul 30 2019 02:00:00 GMT+0200 (CEST)
 ```
 * **month**: devuelve/cambia el número de mes, pero recuerda que 0->Ene,...,11->Dic
 ```javascript
 let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-console.log( fecha.getMonth();       // imprime 6
+console.log( fecha.getMonth() );     // imprime 6
 fecha.setMonth(8);                   // Mon Sep 30 2019 02:00:00 GMT+0200 (CEST)
 ```
 * **date**: devuelve/cambia el número de día:
 ```javascript
 let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-console.log( fecha.getDate();        // imprime 30
+console.log( fecha.getDate() );      // imprime 30
 fecha.setDate(-2);                   // Thu Jun 28 2018 02:00:00 GMT+0200 (CEST)
 ```
 * **day**: devuelve el número de día de la semana (0->Dom, 1->Lun, ..., 6->Sáb). Este método NO tiene _setter_:
 ```javascript
 let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-console.log( fecha.getDay();         // imprime 1
+console.log( fecha.getDay() );       // imprime 1
 ```
 * **hours**, **minutes**, **seconds**, **milliseconds**, : devuelve/cambia el número de la hora, minuto, segundo o milisegundo, respectivamente.
-
-Para mostrar la fecha tenemos varios métodos diferentes:
-* **toString()**: "Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)"
-* **toISOString()**: "2018-07-30T00:00:00.000Z"
-* **toString()**: Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-* **toString()**: Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-* **toString()**: Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-*
-
+* **time**: devuelve/cambia el número de milisegundos desde Epoch(1/1/1970 00:00:00 GMT):
 ```javascript
 let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
-console.log( fecha.getDate();        // imprime 30
-fecha.setDate(-2);                   // Thu Jun 28 2018 02:00:00 GMT+0200 (CEST)
+console.log( fecha.getTime() );      // imprime 1532908800000
+fecha.setTime(1000*60*60*24*25);     // Fri Jan 02 1970 01:00:00 GMT+0100 (CET) (le hemos añadido 25 días a Epoch)
 ```
 
-, **date**
+Para mostrar la fecha tenemos varios métodos diferentes:
+* **.toString()**: "Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)"
+* **.toUTCString()**: "Mon, 30 Jul 2018 00:00:00 GMT"
+* **.toDateString()**: "Mon, 30 Jul 2018"
+* **.toTimeString()**: "02:00:00 GMT+0200 (hora de verano de Europa central)"
+* **.toISOString()**: "2018-07-30T00:00:00.000Z"
+* **.toLocaleString()**: "30/7/2018 2:00:00"
+* **.toLocaleDateString()**: "30/7/2018"
+* **.toLocaleTimeString()**: "2:00:00"
+
+**NOTA**: recuerda que las fchas son objetos y que se copian y se pasan como parámetro por refrencia:
+```javascript
+let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
+let otraFecha=fecha;
+otraFecha.setDate(28);               // Thu Jun 28 2018 02:00:00 GMT+0200 (CEST)
+console.log( fecha.getDate() );      // imprime 28 porque fecha y otraFecha son el mismo objeto
+```
+Una forma sencilla de copiar una fecha es crear una nueva pasándole el tiempo Epoch de la que queremos copiar:
+```javascript
+let fecha=new Date('2018-07-30');    // Mon Jul 30 2018 02:00:00 GMT+0200 (CEST)
+let otraFecha=nre Date(fecha.getTime());
+otraFecha.setDate(28);               // Thu Jun 28 2018 02:00:00 GMT+0200 (CEST)
+console.log( fecha.getDate() );      // imprime 30
+```
+
+Podemos probar los distintos métodos de las fechas en la página de [w3schools](http://www.w3schools.com/jsref/jsref_obj_date.asp).
+
+# RegExp
+Las expresiones regulres permiten buscar un patrón dado en una cadena de texto. Se usan mucho a la hora de validar formularios o para buscar y reemplazar texto. En Javascript se crean ponién solas entre `/` o instanciándolas de la clase _RegExp_.
+
