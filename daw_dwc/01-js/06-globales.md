@@ -167,6 +167,82 @@ console.log( fecha.getDate() );      // imprime 30
 
 Podemos probar los distintos métodos de las fechas en la página de [w3schools](http://www.w3schools.com/jsref/jsref_obj_date.asp).
 
-# RegExp
-Las expresiones regulres permiten buscar un patrón dado en una cadena de texto. Se usan mucho a la hora de validar formularios o para buscar y reemplazar texto. En Javascript se crean ponién solas entre `/` o instanciándolas de la clase _RegExp_.
+## RegExp
+Las expresiones regulres permiten buscar un patrón dado en una cadena de texto. Se usan mucho a la hora de validar formularios o para buscar y reemplazar texto. En Javascript se crean ponién solas entre `/` o instanciándolas de la clase _RegExp_:
+```javascript
+let cadena='Hola mundo';
+let expr=/mundo/;
+expr.test(cadena);      // devuelve true porque en la cadena se encuentra la expresión 'mundo'
+```
 
+### Patrones
+La potencia de las expresiones regulares es que podemos usar patrones para construir la expresión. Los más comunes son:
+* **\[..]** (corchetes): dentro se ponen varios caracteres o un rango y permiten comprobar si el carácter de esa posición de la cadena coincide con alguno de ellos. Ejemplos:
+  * `[abc]`: cualquier carácter de los indicados ('a' o 'b' o 'c')
+  * `[^abc]`: cualquiera excepto los indicados
+  * `[a-z]`: cualquier minúscula (el carácter '-' indica el rango entre 'a' y 'z', incluidas)
+  * `[a-zA-Z]`: cualquier letra
+* **( | )** (_pipe_): debe coincidir con una de las opciones indocadas:
+  * `(x|y)`: la letra x o la y (sería equivalente a `[xy]`
+  * `(http|https)`: cualquiera de las 2 palabras
+* **Metacaracteres**:
+  * `.` (punto): un único carácter, sea el que sea
+  * `\d`: un dígito (`\D`: cualquier cosa menos dígito)
+  * `\s`: espacio en blanco (`\S`: lo opuesto)
+  * `\w`: una palabra o carácter alfanumérico (`\W` lo contrario)
+  * `\b`: delimitador de palabra (espacio, ppio, fin)
+  * `\n`: nueva línea
+* **Cuantificadores**:
+  * `+`: al menos 1 vez (ej. `[0-9]+` al menos un dígito)
+  * `*`: 0 o más veces
+  * `?`: 0 o 1 vez
+  * `{n}`: n caracteres (ej. `[0-9]{5}` = 5 dígitos)
+  * `{n,}`: n o más caracteres
+  * `{n,m}`: entre n y m caracteres
+  * `^`: al ppio de la cadena (ej.: `^[a-zA-Z]` = empieza por letra)
+  * `$`: al final de la cadena (ej.: `[0-9]$` = que acabe en dígito)
+* **Modificadores**:
+  * `/i`: que no distinga entre Maysc y minsc (Ej. `/html/i` = buscará html, Html, HTML, ...)
+  * `/g`: búsqueda global, busca todas las coincidencias y no sólo la primera
+  * `/m`: busca en más de 1 línea (para cadenas con saltos de línea)
+  
+## Métodos
+Los usaremos para saber si la cadena coincide con determinada expresión o para buscar y reemplazar texto:
+* `expr.test(cadena)`: devuelve **true** si la cadena coincide con la expresión. Con el modificador _/g_ hará que cada vez que se llama busque desde la posición de la última coincidencia. Ejemplo:
+```javascript
+let str = "I am amazed in America";
+let reg = /am/g;
+console.log(reg.test(str)); // Imprime true
+console.log(reg.test(str)); // Imprime true
+console.log(reg.test(str)); // Imprime false, hay solo dos coincidencias
+
+let reg2 = /am/gi;          // ahora no distinguirá mayúsculas y minúsculas
+console.log(reg.test(str)); // Imprime true
+console.log(reg.test(str)); // Imprime true
+console.log(reg.test(str)); // Imprime true. Ahora tenemos 3 coincidencias con este nuevo patrón
+```
+* `expr.exec(cadena)`: igual pero en vez de _true_ o _false_ devuelve un objeto con la coincidencia encontrada, su posición y la cadena completa:
+```javascript
+let str = "I am amazed in America";
+let reg = /am/gi;
+console.log(reg.exec(str)); // Imprime ["am", index: 2, input: "I am amazed in America"]
+console.log(reg.exec(str)); // Imprime ["am", index: 5, input: "I am amazed in America"]
+console.log(reg.exec(str)); // Imprime ["Am", index: 15, input: "I am amazed in America"]
+console.log(reg.exec(str)); // Imprime null
+```
+* `cadena.match(expr)`: igual que _exec_ pero se aplica a la cadena y se le pasa la expresión. Si ésta tiene el modificador _/g_ devolverá un array con todas las coincidencis:
+```javascript
+let str = "I am amazed in America";
+let reg = /am/gi;
+console.log(str.match(reg)); // Imprime ["am", "am", "Am"}
+```
+* `cadena.search(expr)`: devuelve la posición donde se encuentra la coincidencia buscada o -1 si no aparece
+* `cadena.replace(expr, cadena2)`: devuelve una nueva cadena xon las coincidncias de la cadena reemplazadas por la cedena pasada como 2º parámetro:
+```javascript
+let str = "I am amazed in America";
+console.log(str.replace(/am/gi, "xx")); // Imprime "I xx xxazed in xxerica"
+
+console.log(str.replace(/am/gi, function(match) {
+  return "-" + match.toUpperCase() + "-";
+})); // Imprime "I -AM- -AM-azed in -AM-erica"
+```
