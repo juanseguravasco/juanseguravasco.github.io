@@ -84,4 +84,5 @@ Si queremos mostrar una información para depurar nuestro código no utilizaremo
 # Bibliografía
 * Curso 'Programación con JavaScript'. CEFIRE Xest. Arturo Bernal Mayordomo
 * [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/JavaScript). Moz://a. https://developer.mozilla.org/es/docs/Web/JavaScript
-* 
+* [Introducción a JavaScript](http://librosweb.es/libro/javascript/). Librosweb. http://librosweb.es/libro/javascript/
+*
