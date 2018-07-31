@@ -27,15 +27,15 @@ Hay diferentes tipos de petición que podemos hacer:
 
 ## Realizar peticiones Ajax
 Para hacer una petición debemos crear una instancia del objeto **XMLHttpRequest** que es el que controlará todo el proceso. Los pasos a seguir son:
-1 Creamos la instancia del objeto: `let peticion=new XMLHttpRequest()`
-1 Para establecer la comunicación con el servidor ejecutamos el método **.open()** al que se le pasa como parámetro el tipo de petición (GET, POST, ...) y la URL del servidor: `peticion.open('GET', 'https://jsonplaceholder.typicode.com/users')`
-1 OPCIONAL: Si queremos añadir cabeceras a la petición HTTP llamaremos al método **.setRequestHeader()**. Por ejemplo si enviamos datos con POST hay que añadir la cabecera _Content-type_ que le indica al servidor en qué formato van los datos: `peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded)`
-1 Enviamos la petición al servidor con el método **.send()**. A este método se le pasa como parámetro los datos a enviar al servidor (o nada si no se envían datos, por ejemplo, en una petición GET): `peticion.send('dato1='+encodeURIComponent(dato1)+'&dato2='+encodeURIComponent(dato2))`
-1 Escuchamos los enventos que se producen nuestro objeto _peticion_ para saber cuándo está disponible la respuesta del servidor
+1. Creamos la instancia del objeto: `let peticion=new XMLHttpRequest()`
+1. Para establecer la comunicación con el servidor ejecutamos el método **.open()** al que se le pasa como parámetro el tipo de petición (GET, POST, ...) y la URL del servidor: `peticion.open('GET', 'https://jsonplaceholder.typicode.com/users')`
+1. OPCIONAL: Si queremos añadir cabeceras a la petición HTTP llamaremos al método **.setRequestHeader()**. Por ejemplo si enviamos datos con POST hay que añadir la cabecera _Content-type_ que le indica al servidor en qué formato van los datos: `peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded)`
+1. Enviamos la petición al servidor con el método **.send()**. A este método se le pasa como parámetro los datos a enviar al servidor (o nada si no se envían datos, por ejemplo, en una petición GET): `peticion.send('dato1='+encodeURIComponent(dato1)+'&dato2='+encodeURIComponent(dato2))`
+1. Escuchamos los enventos que se producen nuestro objeto _peticion_ para saber cuándo está disponible la respuesta del servidor
 
 ## Eventos de XMLHttpRequest
 Vamos a ver alguno de los eventos que se producen en el objeto de la petición
- * **readystatechange**: se produce cada vez que cambia el estado de la petición. Cuando hay un cambio en el estado cambia el valor de la propiedad **readyState**. Sus valores posibles son:
+* **readystatechange**: se produce cada vez que cambia el estado de la petición. Cuando hay un cambio en el estado cambia el valor de la propiedad **readyState**. Sus valores posibles son:
   * 0: petición no iniciada
   * 1: establecida conexión con el servidor
   * 2: petición recibida por el servidor
