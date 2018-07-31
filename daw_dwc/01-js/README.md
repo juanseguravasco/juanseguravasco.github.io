@@ -81,4 +81,7 @@ También se pueden escribir las funciones sin _window._ (es decir `alert('Hola')
 
 Si queremos mostrar una información para depurar nuestro código no utilizaremos _alert(mensaje)_ sino `console.log(mensaje)` o `console.error(mensaje)`. Estas funciones muestran la información pero en la consola del navegador. La diferencia es que _console.error_ la muestra como si fuera un error de Javascript.
 
-
+# Bibliografía
+* Curso 'Programación con JavaScript'. CEFIRE Xest. Arturo Bernal Mayordomo
+* [MDN Web Docs](https://developer.mozilla.org/es/docs/Web/JavaScript). Moz://a. https://developer.mozilla.org/es/docs/Web/JavaScript
+* 
