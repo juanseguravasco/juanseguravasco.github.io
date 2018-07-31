@@ -34,14 +34,30 @@ Para hacer una petición debemos crear una instancia del objeto **XMLHttpRequest
 1. Escuchamos los enventos que se producen nuestro objeto _peticion_ para saber cuándo está disponible la respuesta del servidor
 
 ## Eventos de XMLHttpRequest
-Vamos a ver alguno de los eventos que se producen en el objeto de la petición
-* **readystatechange**: se produce cada vez que cambia el estado de la petición. Cuando hay un cambio en el estado cambia el valor de la propiedad **readyState**. Sus valores posibles son:
+El evento más importante para gestionar la petición Ajax es **readystatechange** que se produce cada vez que cambia el estado de la petición. Cuando hay un cambio en el estado cambia el valor de la propiedad **readyState**. Sus valores posibles son:
   * 0: petición no iniciada
   * 1: establecida conexión con el servidor
   * 2: petición recibida por el servidor
   * 3: se está procesando la petición
   * 4: petición finalizada y respuesta lista 
-A nosotros sólo nos interesa cuando su valor sea 4 que significa que ya están los datos. En ese momento la propiedad **status** contiene el estado de la petición HTTP (200: Ok, 404: Servidor no encontrado, 500: Error de servidor, ...) que ha devuelto el servidor. Cuando _readyState_ vale 4 y _status_ vale 200 tenemos los datos en la propiedad **responseText** (o **responseXML** si el servidor los envía en formato XML).
+A nosotros sólo nos interesa cuando su valor sea 4 que significa que ya están los datos. En ese momento la propiedad **status** contiene el estado de la petición HTTP (200: Ok, 404: Noy found, 500: Server error, ...) que ha devuelto el servidor. Cuando _readyState_ vale 4 y _status_ vale 200 tenemos los datos en la propiedad **responseText** (o **responseXML** si el servidor los envía en formato XML). Ejemplo:
+```javascript
+let peticion=new XMLHttpRequest();
+peticion.open('GET', 'https://jsonplaceholder.typicode.com/users');
+peticion.send();
+peticion.addEventListener('readystatechange', function() {
+    if (peticion.readyState===4) {
+        if (status===200) {
+            let usuarios=JSON.parse(peticion.responseText);  // Convertirmos los datos JSON a un objeto
+            // procesamos los datos que tenemos en usuarios
+        } else {
+            // mostramos que ha habido un error
+        }
+    }
+})
+```
+
+Además hay otros eventos que nos pueden ser de utilidad:
 * **load**: se produce cuando se recibe la respuesta del servidor. Equivale a _readyState===4_. En _status_ tendremos el estado de la respuesta
 * **error**: se produce si sucede algún error al procesar la petición (de red, de servidor, ...)
 * **timeout**: si ha transcurrido el tiempo indicado y no se ha recibido respuesta del servidor. Podemos cambiar el tiempo por defecto modificando la propiedad **timeout** antes de enviar la petición
