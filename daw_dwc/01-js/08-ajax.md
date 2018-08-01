@@ -40,7 +40,7 @@ El evento más importante para gestionar la petición Ajax es **readystatechange
   * 2: petición recibida por el servidor
   * 3: se está procesando la petición
   * 4: petición finalizada y respuesta lista 
-A nosotros sólo nos interesa cuando su valor sea 4 que significa que ya están los datos. En ese momento la propiedad **status** contiene el estado de la petición HTTP (200: Ok, 404: Noy found, 500: Server error, ...) que ha devuelto el servidor. Cuando _readyState_ vale 4 y _status_ vale 200 tenemos los datos en la propiedad **responseText** (o **responseXML** si el servidor los envía en formato XML). Ejemplo:
+A nosotros sólo nos interesa cuando su valor sea 4 que significa que ya están los datos. En ese momento la propiedad **status** contiene el estado de la petición HTTP (200: Ok, 404: Not found, 500: Server error, ...) que ha devuelto el servidor. Cuando _readyState_ vale 4 y _status_ vale 200 tenemos los datos en la propiedad **responseText** (o **responseXML** si el servidor los envía en formato XML). Ejemplo:
 ```javascript
 let peticion=new XMLHttpRequest();
 console.log("Estado inicial de la petición: "+peticion.readyState);
@@ -66,7 +66,7 @@ El resultado de ejecutar ese código es el siguiente:
 
 ![Ejemplo 1: consola](./img/ajax-ej1.png)
 
-Fijaos cúando cambia de estado (_readyState_) la petición:
+Fijaos cuándo cambia de estado (_readyState_) la petición:
 * vale 0 al crear el objeto XMLHttpRequest
 * vale 1 cuando abrimos la conexión con el servidor
 * luego se envía al servidor y es éste el que va informando al cliente de cuándo cambia su estado
@@ -197,3 +197,10 @@ En una SPA sólo se carga la página de inicio (es la única página que existe)
 Un buen lugar para obtener más información de Ajax o ver ejemplos más complejos es la página del [IES San Clemente](https://manuais.iessanclemente.net/index.php/MediaWiki:Libros/Introduccion-Ajax).
 
 ## Promesas
+Son un objeto que se crea para resolver una función asíncrona. Si se resuelve satisfactoriamente se llama a su función **_resolve()_** y si se produce algún error se rechaza la promesa llamando a su función **_reject()_**.
+
+Nos suscribimos a una promesa usando sus métodos:
+* **_.then(datos)_**: se produce al resolverse la promesa. Recibe como parámetro los datos devueltos por la misma, si los hay
+* **_.catch(error)_**: se produce si se rechaza. Recibe como parámetro el error producido al rechazarse a promesa
+
+Básicamente lo que nos van a proporcionar las promesas es un código más claro y mantenible ya que el código a ejecutar cuando se obtengan los datos asíncronamente estará donde se pide esos datos y no en una función escuchadora como sucede ahora. Vamos a ver esto con un ejemplo; el siguiente código es el que se encarga de mostrar en la página los datos del usuario que se nos pasa como parámetro:
