@@ -195,3 +195,5 @@ Ajax es la base para construir SPAs que permiten al usuario interactuar con una 
 En una SPA sólo se carga la página de inicio (es la única página que existe) que se va modificando y cambiando sus datos como respuesta a la interacción del usuario. Para obtener los nuevos datos se realizan peticiones al servidor (normalmente Ajax). La respuesta son trozos de HTML que se cargan en determinadas partes o datos (JSON, XML, …) que modifican la página mostrada.
 
 Un buen lugar para obtener más información de Ajax o ver ejemplos más complejos es la página del [IES San Clemente](https://manuais.iessanclemente.net/index.php/MediaWiki:Libros/Introduccion-Ajax).
+
+## Promesas
