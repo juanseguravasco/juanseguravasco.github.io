@@ -197,10 +197,33 @@ En una SPA sólo se carga la página de inicio (es la única página que existe)
 Un buen lugar para obtener más información de Ajax o ver ejemplos más complejos es la página del [IES San Clemente](https://manuais.iessanclemente.net/index.php/MediaWiki:Libros/Introduccion-Ajax).
 
 ## Promesas
-Son un objeto que se crea para resolver una función asíncrona. Si se resuelve satisfactoriamente se llama a su función **_resolve()_** y si se produce algún error se rechaza la promesa llamando a su función **_reject()_**.
+Son una forma más limpia de resolver una función asíncrona. Dentro de la función que devuelve la promesa se hace la llamada a la función asíncorna. Cuando esta se resuelva satisfactoriamente se llama a una función **_resolve()_** y los datos estarán disponibles para quien llamó a la promesa. Si se produce algún error se rechaza la promesa llamando a su función **_reject()_** y quien la llamó tendrá la informaciónde que ha fallado la llamada y por qué.
 
-Nos suscribimos a una promesa usando sus métodos:
-* **_.then(datos)_**: se produce al resolverse la promesa. Recibe como parámetro los datos devueltos por la misma, si los hay
-* **_.catch(error)_**: se produce si se rechaza. Recibe como parámetro el error producido al rechazarse a promesa
+Desde donde llamamos a la promesa nos suscribimos a ella usando sus métodos:
+* **_.then(datos)_**: se ejecuta al resolverse la promesa. Recibe como parámetro lo que se pase al llamar al _resolve_ de la promesa (normalmente los datos devueltos por la función asíncrona a la que se ha llamado)
+* **_.catch(error)_**: se produce si se rechaza la promesa llamando al _reject_ de la misma
 
-Básicamente lo que nos van a proporcionar las promesas es un código más claro y mantenible ya que el código a ejecutar cuando se obtengan los datos asíncronamente estará donde se pide esos datos y no en una función escuchadora como sucede ahora. Vamos a ver esto con un ejemplo; el siguiente código es el que se encarga de mostrar en la página los datos del usuario que se nos pasa como parámetro:
+Básicamente lo que nos van a proporcionar las promesas es un código más claro y mantenible ya que el código a ejecutar cuando se obtengan los datos asíncronamente estará donde se pide esos datos y no en una función escuchadora como sucede ahora. 
+
+Vamos a ver esto con un ejemplo de una llamada a Ajax (asíncorna). Vamos a hacer una página que muestre en una tabla los posts del usuario indicado en un input. En resumen lo que hacemos es:
+1. El usuario de nuestra aplicación introduce el código del usuario del que queremos ver sus posts
+1. Tenemos un escuchador para que al introducir un código de un usuario llamamos a una función _getPosts()_ que:
+  1. Se encarga de hacer la petición Ajax al servidor
+  1. Cuando recibe los datos se encarga de pintarlos en la tabla
+  1. Si se produce un error se encarga de informar al usuario de nuestra aplicación
+  
+Por tanto todo el código, no sólo de la petición Ajax sino también de qué ahcer con los datos cuando llegan, se encuentra en la función que pide los datos al servidor. Aquí tenéis cómo podría quedar código de esta página:
+
+<script async src="//jsfiddle.net/juansegura/y8xdk1t4/embed/js,html,result/"></script>
+
+Utilizando promesas vamos a conseguir que la función _getPosts()_ se encargue sólo de obtener los datos y cuando los tenga los devuelve a quien la llamó que será el encargado de pintar los datos en la tabla o informar si hay un error:
+1. El usuario de nuestra aplicación introduce el código del usuario del que queremos ver sus posts
+1. Tenemos un escuchador para que al introducir un código de un usuario llamamos a una función _getPosts()_ que:
+  1. Se encarga de hacer la petición Ajax al servidor y devuelve una promesa
+1. Cuando se resuelve la promesa:
+  1. Si se reciben los datos se encarga de pintarlos en la tabla
+  1. Si se produce un error se encarga de informar al usuario de nuestra aplicación
+
+El código usando promesas sería el siguiente:
+
+<script async src="//jsfiddle.net/juansegura/t4o8vq10/embed/js,html,result/"></script>
