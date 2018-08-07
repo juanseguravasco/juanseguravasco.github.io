@@ -206,7 +206,7 @@ La potencia de las expresiones regulares es que podemos usar patrones para const
   * `/g`: búsqueda global, busca todas las coincidencias y no sólo la primera
   * `/m`: busca en más de 1 línea (para cadenas con saltos de línea)
   
-## Métodos
+### Métodos
 Los usaremos para saber si la cadena coincide con determinada expresión o para buscar y reemplazar texto:
 * `expr.test(cadena)`: devuelve **true** si la cadena coincide con la expresión. Con el modificador _/g_ hará que cada vez que se llama busque desde la posición de la última coincidencia. Ejemplo:
 ```javascript
@@ -250,7 +250,31 @@ console.log(str.replace(/am/gi, function(match) {
 No vamos a profundizar más sobre las expresiones regulares. Es muy fácil encontrar por internet la que necesitemos (para validar un e-mail, un NIF, un CP, ...). Podemos aprender más en:
 * [w3schools](http://www.w3schools.com/jsref/jsref_obj_regexp.asp)
 * [regular-expressions.info](http://www.regular-expressions.info/)
-* [html5pattern](http://html5pattern.com/)
+* [html5pattern](http://html5pattern.com/) atributo
 * y muchas otras páginas
 
 También, hay páginas que nos permiten probar expresiones regulares con cualquier texto, como [regexr](http://regexr.com/).
+
+## Validación de formularios
+Es una de las principales tareas para las que usaremos expresiones regulares. Los datos introducidos por los usuarios en un formulario SIEMPRE deben ser validados en el servidor pero una validación previa en el cliente es muy útil por:
+* el usuario obtiene inmediatamente la información sobre el error producido, sin tener que esperar la respuesta del servidor
+* no cargamos de trabajo al servidor haciéndole procesar un formulario no válido
+
+Sin embargo la validación en el cliente NO puede sustituir a la del servidor ya que en el navegador podemos manipular los datos que enviamos o deshabilitar javascript.
+
+HTML5 incorpora la posibilidad de validar los formularios añadiendo a los elementos los atributos:
+* **required**: indica que el campo es obligatorio y no se puede dejar vacío
+* **pattern**: nos permite poner una expresión regular con la que debe concordar lo introducid en ese campo. Este atribito sólo puede aplicarse a \<input>, no a \<textarea>. Los \<input> de tipo _mail_ o _url_ ya tienen incorporado internamente el pattern correspondiente por lo que no es necesario indicarlo
+* **maxlength**: permite indicar el número máximo de caracteres de un elemento. Normalmente el navegador no permite seguir escribiendo al llegar al máximo indicado
+* **min**, **max**: permiten especificar un rango dentro del cual tiene que estar el valor proporcionado en el elemento
+
+Si un elemento no es válido recibe automáticamente la pseudoclase CSS **:invalid** y si es válido la pseudoclase CSS **:valid**.
+
+De todas formas podemos deshabilitar la validación por parte del navegador (poniendo en la etiqueta\<form> el atribito **novalidate**) y realizar toda la validación pro javscript para tener un control total de la misma. Y existe un opción intermedia que es validar mediante Javascript pero usando la API de validación de formularios, aunque aún no está soportada por todos los navegadores.
+
+En cualquier caso, debemos ser conscientes que los formularios son normalmente una carga que soportan los usuarios por lo que debemos ayudarles lo máximo posible a introducir los datos que les pedimos de forma fácil y clara. Para validar el formulario deberemos preguntarnos:
+* Qué hacer si el formulario no es válído: normalmente no querré que se envíe al servidor. Además deberé decidir si quiero resaltar esos campos, mostrar mensajes de error (y en ese caso dónde: junto al alemento, al final del formulario, ...)
+* Cómo ayudar al usuario a introducir los datos correctamente: si hay un error debemos mostrar un mensaje claro de qué ha hecho mal e incluso sugerencias o ejemplos de cómo debería hacerlo
+* Usar validación remota cuando sea conveniente:en un formulario de registro no es agradable para el usuario rellenar todos los campos para que tras enviarse al servidor le conteste que el usuario escogido ya existe o algo similar. En este caso es conveniente hacer una petición Ajax (ya las veremos más adelante) para que el servidor nos diga si el usuario escogido está dsponible mientras se están rellenando los campos
+
+Podéis ver ejemplos de cómo validar un formulario en [MDN](https://developer.mozilla.org/es/docs/Learn/HTML/Forms/Validacion_formulario_datos)
