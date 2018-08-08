@@ -8,10 +8,10 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [5-Eventos](./05-eventos.md)
 * [6-Objetos y funciones globales. Expresiones regulares](./06-globales.md)
 * [7-Programación orientada a objetos](./07-POO.md)
-* [8-Ajax](./08-ajax.md)
-* Promesas
-* Herramientas: npm y webpack
+* [8-Ajax. Promesas](./08-ajax.md)
 * Utilidades: Geolocalización. Local Storage. API de Google Maps
+* Herramientas: npm y webpack
+* [Ejercicios](./ejercicios.md)
 
 # Introducción a Javascript
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
