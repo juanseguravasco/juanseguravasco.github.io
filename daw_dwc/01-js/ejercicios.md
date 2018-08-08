@@ -1,11 +1,24 @@
 # Ejercicios de Javascript
 
 ## 1.- Sintaxis
-### 1.1 Recorre array
-Crea una función que recibe un array de datos, lo recorre y devuelve un nuevo array con cada valor convertido a número (si no se puede convertir no lo incluirá en el nuevo array). Para añadir un elemento a un array haz `array.push(elemento)`. Mostraremos por consola el array resultante. Llama a la función con el array \[23, “Hola”, null, “3catorce”, “tres14”, “14,12”, “14.12”, undefined]
+### 1.1 Frase
+Vamos a pedir al usuario que introduzca una frase y a continuación mostraremos en la consola:
+* el número de letras y de palabras que tiene
+* la frase en mayúsculas
+* la frase con la primera letra de cada palabra en mayúsculas
+* la frase escrita con las letras al revés
+* la frase escrita con las palabras al revés
+* si es o no un palíndromo (si se lee igual al revés) pero omitiendo espacios en blanco y sin diferenciar mayúsculas y minúsculas. 
 
-### 1.2 Compara variables
-Crea una función llamada _compara_ que recibirá 2 parámetros y mostrará por la consola el tipo de cada uno de ellos, el mayor de ellos, la suma de ambos y la mutiplicación de ambos. Llama a la función varias veces con distintos parámetros (números, mayúsculas, minúsculas, booleanos, null, unndefined, ...).
+Ej.: con la frase introducida “_La ruta nos aporto otro paso natural_” se mostraría
+36 letras y 7 palabras
+LA RUTA NOS APORTO OTRO PASO NATURAL
+La Ruta Nos Aporto Otro Paso Natural
+larutan osap orto otropa son atur aL
+natural paso otro aporto nos ruta La
+Sí es un palíndromo
+
+Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join` (lo opuesto) de String y Array nos pueden ayudar a algunas cosas.
 
 **RECUERDA**:
 * el código deberá estar en un fichero externo y se incluirá al final del body
