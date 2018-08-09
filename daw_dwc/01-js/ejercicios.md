@@ -32,18 +32,30 @@ Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join`
 ## 2.- Arrays
 ### 2.1 Array de productos
 En este ejercicio vamos a trabajar con los productos de un almacén. Cada producto será un objeto con las propiedades _cod_, _descrip_, _price_, _stock_ (unidades en stock del producto) y _minStock_ (cantidad mínima que queremos tener siempre en stock). Todos ellos estarán en un array llamado _store_ y tenemos que crear las siguientes funcines:
-* **_storePrice_**: recibe un array de productos y devuelve el valor total de los mismos
 * **_findProduct_**: recibe un array de productos y un código y devuelve el producto que tiene dicho código o _null_ si el código no existe
-* **_soldProduct_**: recibe un array de productos, el código de un producto y una cantidad. Si no existe el producto devuelve -1, si existe pero el stock es menor que la cantidad que nos piden devuelve el stock actual y lo pone a 0. Si existe y hay suficientes unidades devuelve 0 y resta del stock la cantidad pedida
-* **_orderProducts_**: recibe un array de productos y devuelve un nuevo array con el pedido a realizar. En dicho array estarán todos los productos del array recibido cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
+* **_sellProduct_**: recibe un array de productos, el código de un producto y una cantidad. Si no existe el producto o si existe pero el stock es menor que la cantidad que nos piden devuelve _false_. Si existe y hay suficientes unidades devuelve _true_ y las resta del stock del producto
+* **_totalPrice_**: recibe un array de productos y devuelve el valor total de los mismos
+* **_replenishStock_**: recibe un array de productos y devuelve un nuevo array con el pedido a realizar. En dicho array estarán todos los productos del array recibido cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
 * **_newProducts_**: recibe el array de productos del almacén y un nuevo array con los nuevos productos que han llegado y debe añadirlos al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo producto en el almacén y le pone como _minStock_ la unidades recibidas / 5 (redondeado).
 * **_orderByStock_**: recibe un array de productos y devuelve uno ordenado por stock descendente
 * **_orderByDescrip_**: recibe un array de productos y devuelve uno ordenado por la descripción pero sin tener en cuenta la capitalización
 
-## 3.- DOM
+## 3.- POO
 ### 3.1 Array de Productos
-Vamos a modificar el ejercicio anterior para aprovechar las ventajas de la POO. Crearemos la clase _Producto_ con las propiedades vistas antes y convertiremos las funciones _findProduct_ y _soldProduct_ que creamos antes en métodos de la clase. También crearemos los siguientes métodos:
-* **_buyProduct_**:
+Vamos a modificar el ejercicio anterior para aprovechar las ventajas de la POO. Crearemos las clases:
+* **_Product_**: es cada uno de los productos y tendrá las propiedades que hemos visto antes y los métodos:
+  * **_sellProduct_**: recibe la cantidad a vender y devuelve _false_ si no hay suficiente stock o _true_ si sí que lo hay en cuyo caso resta del stock la cantidad
+  * **_buyProduct_**: al revés, para cuando compramos producto. Devuuelve _true_ y suma al stock la cantidad pasada 
+* **_Store_**: es el almacén y tendrá las propiedades _id_ (código numérico que nos pasan al crear el almacén) y _products_ (array de productos que al crearlo estará vacío) y los métodos:
+* **_findProduct_**: recibe un código de producto y devuelve el producto que tiene dicho código o _null_ si ese código no existe en el almacén
+* **_addProduct_**: recibe un producto y lo añade al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo elemento en el array
+* **_replenishStock_**: devuelve un array con el pedido a realizar. En dicho array estarán todos los productos del almacén cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
+
+* **_totalPrice_**: devuelve el valor total de los productos del almacén
+
+y _Cart_ con las propiedades vistas antes y convertiremos las funciones _findProduct_ y _soldProduct_ que creamos antes en métodos de la clase. También crearemos los siguientes métodos:
+
+## 4.- DOM
 
 ## 4.- BOM
 
