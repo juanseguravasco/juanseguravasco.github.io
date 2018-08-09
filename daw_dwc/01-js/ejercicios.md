@@ -42,7 +42,8 @@ En este ejercicio vamos a trabajar con los productos de un almacén. Cada produc
 
 ## 3.- DOM
 ### 3.1 Array de Productos
-
+Vamos a modificar el ejercicio anterior para aprovechar las ventajas de la POO. Crearemos la clase _Producto_ con las propiedades vistas antes y convertiremos las funciones _findProduct_ y _soldProduct_ que creamos antes en métodos de la clase. También crearemos los siguientes métodos:
+* **_buyProduct_**:
 
 ## 4.- BOM
 
