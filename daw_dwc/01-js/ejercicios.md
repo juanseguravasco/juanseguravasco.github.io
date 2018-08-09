@@ -44,16 +44,15 @@ En este ejercicio vamos a trabajar con los productos de un almacén. Cada produc
 ### 3.1 Array de Productos
 Vamos a modificar el ejercicio anterior para aprovechar las ventajas de la POO. Crearemos las clases:
 * **_Product_**: es cada uno de los productos y tendrá las propiedades que hemos visto antes y los métodos:
-  * **_sellProduct_**: recibe la cantidad a vender y devuelve _false_ si no hay suficiente stock o _true_ si sí que lo hay en cuyo caso resta del stock la cantidad
-  * **_buyProduct_**: al revés, para cuando compramos producto. Devuuelve _true_ y suma al stock la cantidad pasada 
+  * **_changeStocksellProduct_**: recibe la cantidad a vender y devuelve _false_ si no hay suficiente stock o _true_ si sí que lo hay en cuyo caso resta del stock la cantidad
+  * **_buyProduct_**: al revés, para cuando compramos producto. Devuuelve _true_ y suma al stock la cantidad pasada. NOTA: podríamos hacer un único método para ambas cosas???
 * **_Store_**: es el almacén y tendrá las propiedades _id_ (código numérico que nos pasan al crear el almacén) y _products_ (array de productos que al crearlo estará vacío) y los métodos:
-* **_findProduct_**: recibe un código de producto y devuelve el producto que tiene dicho código o _null_ si ese código no existe en el almacén
-* **_addProduct_**: recibe un producto y lo añade al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo elemento en el array
-* **_replenishStock_**: devuelve un array con el pedido a realizar. En dicho array estarán todos los productos del almacén cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
+  * **_findProduct_**: recibe un código de producto y devuelve el producto que tiene dicho código o _null_ si ese código no existe en el almacén
+  * **_addProduct_**: recibe un producto y lo añade al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo elemento en el array
+  * **_replenishStock_**: devuelve un array con el pedido a realizar. En dicho array estarán todos los productos del almacén cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
+  * **_totalPrice_**: devuelve el valor total de los productos del almacén
+* **_Cart_**: para crear carritos de compra con los productos a comprar. Esta clase hereda de _Store_ y tendrá además la propiedad _idUser_ con el identificador del usuario que hace la compra y que nos los pasarán al crear el carrito.las propiedades vistas antes y convertiremos las funciones _findProduct_ y _soldProduct_ que creamos antes en métodos de la clase. También crearemos los siguientes métodos:
 
-* **_totalPrice_**: devuelve el valor total de los productos del almacén
-
-y _Cart_ con las propiedades vistas antes y convertiremos las funciones _findProduct_ y _soldProduct_ que creamos antes en métodos de la clase. También crearemos los siguientes métodos:
 
 ## 4.- DOM
 
