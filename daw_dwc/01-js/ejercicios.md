@@ -30,8 +30,19 @@ Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join`
 * siempre es bueno refactorizar el código: cuando nuestro programa ya funciona bien le damos un “repaso” para mejorar su claridad (y lo volvemos a probar)
 
 ## 2.- Arrays
+### 2.1 Array de productos
+En este ejercicio vamos a trabajar con los productos de un almacén. Cada producto será un objeto con las propiedades _cod_, _descrip_, _price_, _stock_ (unidades en stock del producto) y _minStock_ (cantidad mínima que queremos tener siempre en stock). Todos ellos estarán en un array llamado _store_ y tenemos que crear las siguientes funcines:
+* **_storePrice_**: recibe un array de productos y devuelve el valor total de los mismos
+* **_findProduct_**: recibe un array de productos y un código y devuelve el producto que tiene dicho código o _null_ si el código no existe
+* **_soldProduct_**: recibe un array de productos, el código de un producto y una cantidad. Si no existe el producto devuelve -1, si existe pero el stock es menor que la cantidad que nos piden devuelve el stock actual y lo pone a 0. Si existe y hay suficientes unidades devuelve 0 y resta del stock la cantidad pedida
+* **_orderProducts_**: recibe un array de productos y devuelve un nuevo array con el pedido a realizar. En dicho array estarán todos los productos del array recibido cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
+* **_newProducts_**: recibe el array de productos del almacén y un nuevo array con los nuevos productos que han llegado y debe añadirlos al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo producto en el almacén y le pone como _minStock_ la unidades recibidas / 5 (redondeado).
+* **_orderByStock_**: recibe un array de productos y devuelve uno ordenado por stock descendente
+* **_orderByDescrip_**: recibe un array de productos y devuelve uno ordenado por la descripción pero sin tener en cuenta la capitalización
 
 ## 3.- DOM
+### 3.1 Array de Productos
+
 
 ## 4.- BOM
 
