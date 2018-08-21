@@ -3,12 +3,12 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [Introducción a Javascript](#introducci%C3%B3n-a-javascript)
 * [1-Sintaxis](./01-sintaxis.md)
 * [2-Arrays](./02-arrays.md)
-* [3-Document Object Model - DOM](./03-DOM.md)
-* [4-Brpwser Object Model - BOM](./04-BOM.md)
-* [5-Eventos](./05-eventos.md)
-* [6-Objetos y funciones globales. Expresiones regulares](./06-globales.md)
-* [7-Programación orientada a objetos](./07-POO.md)
-* [8-Ajax. Promesas](./08-ajax.md)
+* [3-Programación orientada a objetos](./03-POO.md)
+* [4-Document Object Model - DOM](./03-DOM.md)
+* [5-Brpwser Object Model - BOM](./04-BOM.md)
+* [6-Eventos](./05-eventos.md)
+* [7-Objetos y funciones globales. Expresiones regulares](./06-globales.md)
+* [9-Ajax. Promesas](./08-ajax.md)
 * Utilidades: Geolocalización. Local Storage. API de Google Maps
 * Herramientas: npm y webpack
 * [Ejercicios](./ejercicios.md)
