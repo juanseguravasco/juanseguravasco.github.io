@@ -85,6 +85,13 @@ Vamos a permitir que los usuarios hagan compras on-line para lo que crearemos un
 Haz además las funciones **_addToCart_** y **_removeFromCart_** que nos permitan añadir y quitar productos del carro y que recibirán como parámetros el código del producto y las unidades a añadir o quitar.
 
 ## 4.- DOM
+Vamos a mostrar en una tabla los products de nuestro almacén. Cada fila corresponderá a un producto y se mostrará su código, nombre, unidades, precio por unidad e importe. Debajo de la tabla mostraremos el importe total del almacén.
+
+Además cada vez que creemos un carrito se mostrará en la página una nueva UL con su código y su usuario. Cada artículo del carro será una LI de la UL y al final habrá una LI con el importe total del carro. Ej.:
+> Carro 2 - juan
+> * 1 x TV Samsung MP45 (345.95 €) = 345.95 €
+> * 3 x USB Kingston 16GB (5.95 €) = 17.85 €
+> * Importe total: 353.80 €
 
 ## 5.- BOM
 
