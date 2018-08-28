@@ -30,17 +30,11 @@ Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join`
 * siempre es bueno refactorizar el código: cuando nuestro programa ya funciona bien le damos un “repaso” para mejorar su claridad (y lo volvemos a probar)
 
 ## 2.- Arrays
+Podemos hacer un array de notas para sacar aprobados, suspensos, media, ...
 NO este. Pensar uno
 
-### 2.1 Array de productos
-En este ejercicio vamos a trabajar con los productos de un almacén. Cada producto será un objeto con las propiedades _cod_, _descrip_, _price_, _stock_ (unidades en stock del producto) y _minStock_ (cantidad mínima que queremos tener siempre en stock). Todos ellos estarán en un array llamado _store_ y tenemos que crear las siguientes funcines:
-* **_findProduct_**: recibe un array de productos y un código y devuelve el producto que tiene dicho código o _null_ si el código no existe
-* **_sellProduct_**: recibe un array de productos, el código de un producto y una cantidad. Si no existe el producto o si existe pero el stock es menor que la cantidad que nos piden devuelve _false_. Si existe y hay suficientes unidades devuelve _true_ y las resta del stock del producto
-* **_totalPrice_**: recibe un array de productos y devuelve el valor total de los mismos
-* **_replenishStock_**: recibe un array de productos y devuelve un nuevo array con el pedido a realizar. En dicho array estarán todos los productos del array recibido cuyo stock es menor que _minStock_ y cada elemento del array será un objeto con las propiedades _cod_, _descrip_ y _units_ (unidades a pedir que serán las que faltan para tener en stock 5 veces el mínimo, p.ej. si _minStock_=10 y _stock_=7 habrá que pedir 43 unidades para volver a tener 10*5=50)
-* **_newProducts_**: recibe el array de productos del almacén y un nuevo array con los nuevos productos que han llegado y debe añadirlos al almacén (si ya existe el código suma las unidades que han llegado al stock y si no existe crea un nuevo producto en el almacén y le pone como _minStock_ la unidades recibidas / 5 (redondeado).
-
 ## 3.- POO
+### 3.1.- Productos de un almacén
 En este ejercicio vamos a trabajar con los productos de un almacén, para lo que crearemos las clases:
 * **_Product_**: cada producto será un objeto con las propiedades _cod_, _name_, _price_ y _units_ (las unidades que tenemos de ese producto). Si no le pasamos unidades al constructor su número por defecto será 1. Esta clase tendrá los siguientes métodos:
   *  **_changeUnits_**: recibe la cantidad a aumentar (positiva o negativa) e incrementa (o decrementa) las unidades en la cantidad recibida. Si se intentan restar más unidades de las que hay no hace nada y devuelve _false_ y en otro caso cambia las unidades y devuelve _true_
@@ -75,7 +69,7 @@ almacen.products.forEach(prod=>console.log(prod.toString()));
 ```
 Queremos también que se muestro por consola todos los productos de los que tenemos menos de 5 unidades en stock o cuyo importe es inferior a 150 €.
 
-### 3.2.-
+### 3.2.- Carro de compra
 Vamos a permitir que los usuarios hagan compras on-line para lo que crearemos una clase para los carritos de la compra:
 * **_Cart_**: esta clase la usaremos para crear carritos de compra con los productos a comprar. Es como la clase _Store_ pero tiene además la propiedad _user_ con el identificador del usuario que hace la compra y que nos lo pasarán al crear el carrito. Además el método _delProduct_ eliminará el producto del array de productos si sus unidades son 0.
 
@@ -83,13 +77,11 @@ Haz además las funciones **_addToCart_** y **_removeFromCart_** que nos permita
 
 ## 4.- DOM
 
-## 4.- BOM
+## 5.- BOM
 
-## 5.- Eventos
+## 6.- Eventos
 
-## 6.- Objetos globales
-
-## 7.- POO
+## 7.- Objetos globales
 
 ## 8.- Ajax
 
