@@ -85,7 +85,9 @@ Vamos a permitir que los usuarios hagan compras on-line para lo que crearemos un
 Haz además las funciones **_addToCart_** y **_removeFromCart_** que nos permitan añadir y quitar productos del carro y que recibirán como parámetros el código del producto y las unidades a añadir o quitar.
 
 ## 4.- DOM
-Vamos a mostrar en una tabla los products de nuestro almacén. Cada fila corresponderá a un producto y se mostrará su código, nombre, unidades, precio por unidad e importe. Debajo de la tabla mostraremos el importe total del almacén.
+Vamos a mostrar en una tabla los products de nuestro almacén. Cada fila corresponderá a un producto y se mostrará su código, nombre, unidades, precio por unidad e importe. Debajo de la tabla mostraremos el importe total del almacén. En el fichero _index.html_ crearemos la tabla vacía y el párrafo para poner el importe total.
+
+Para simplificar nuestro código a la clase _Product_ le añadiremos el método **_toTR_** que devolverá el código HTML para mostrar una fila con los datos del producto y a la clase _Store_ le añadiremos el método **_toHTML_** que devolverá el código HTML que insertaremos dentro de la tabla del almacén. 
 
 Además cada vez que creemos un carrito se mostrará en la página una nueva UL con su código y su usuario. Cada artículo del carro será una LI de la UL y al final habrá una LI con el importe total del carro. Ej.:
 > Carro 2 - juan
@@ -93,13 +95,20 @@ Además cada vez que creemos un carrito se mostrará en la página una nueva UL 
 > * 3 x USB Kingston 16GB (5.95 €) = 17.85 €
 > * Importe total: 353.80 €
 
+NOTA: podemos hacer algo para que sea más fácil crear los elementos del DOM tal y como hems hecho para crear la tabla???.
+
+OPCIONAL: mejorar la presentación usando bootstrap. Pondremos la tabla del almacén y debajo los carritos, 2 por fila.
+
 ## 5.- BOM
 
 ## 6.- Eventos
+Botones y enlaces para el ejercicio del almacén
 
 ## 7.- Objetos globales
+Fechas, ...
 
 ## 8.- Ajax
+Leer y guardar el almacén (y los carritos?)
 
 ## 9.- APIs
 
