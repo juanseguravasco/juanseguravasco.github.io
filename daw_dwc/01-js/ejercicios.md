@@ -30,8 +30,17 @@ Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join`
 * siempre es bueno refactorizar el código: cuando nuestro programa ya funciona bien le damos un “repaso” para mejorar su claridad (y lo volvemos a probar)
 
 ## 2.- Arrays
-Podemos hacer un array de notas para sacar aprobados, suspensos, media, ...
-NO este. Pensar uno
+Vamos a hacer un programa que va pidiendo al usuario que introduzca las notas de un examen y las va guardando en un array. El usuario puede introducir una sóla nota o varias separadas por un guión (ej. 4,5 - 6 - 8,75) y se continuará pidiendo notas al usuario hasta que éste pulse 'Cancelar'. Recuerda que en Javascript el símbolo decimal es el punto pero el usuario puede introducir decimales con la coma.
+
+Cada nota introducida se almacenará en un array y una vez que estén todas se mostrará por la consola:
+* el array con los datos suministrados por el usuario
+* el array "limpiado": quitaremos del mismo todo lo que no sean números o no estén entre 0 y 10
+* el nº total de aprobados y sus notas
+* el nº total de suspensos y sus notas
+* la nota del 1º suspenso y su posición en el array
+* la nota media del examen
+
+Siempre que sea posible utilizaremos métodos de arrays en lugar de bucles.
 
 ## 3.- POO
 ### 3.1.- Productos de un almacén
