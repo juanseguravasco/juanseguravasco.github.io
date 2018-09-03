@@ -3,9 +3,14 @@
 Tabla de contenidos
 
 - [Single File Components](#single-file-components)
-  - [\<template>](#%5Ctemplate)
-  - [\<script>](#%5Cscript)
-  - [\<style>](#%5Cstyle)
+  - [Secciones de un Single File Component](#secciones-de-un-single-file-component)
+    - [\<template>](#%5Ctemplate)
+    - [\<script>](#%5Cscript)
+    - [\<style>](#%5Cstyle)
+  - [TodoList con Single File Components](#todolist-con-single-file-components)
+    - [\<template>](#%5Ctemplate-1)
+    - [\<script>](#%5Cscript-1)
+    - [\<style>](#%5Cstyle-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

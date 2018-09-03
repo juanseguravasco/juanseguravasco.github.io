@@ -1,3 +1,21 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Ajax](#ajax)
+  - [Introducción](#introducci%C3%B3n)
+  - [Métodos HTTP](#m%C3%A9todos-http)
+  - [Realizar peticiones Ajax](#realizar-peticiones-ajax)
+  - [Eventos de XMLHttpRequest](#eventos-de-xmlhttprequest)
+  - [Ejemplos de envío de datos](#ejemplos-de-env%C3%ADo-de-datos)
+    - [Enviar datos al servidor en formato JSON](#enviar-datos-al-servidor-en-formato-json)
+    - [Enviar datos al servidor en formato URIEncoded](#enviar-datos-al-servidor-en-formato-uriencoded)
+    - [Enviar ficheros al servidor con FormData](#enviar-ficheros-al-servidor-con-formdata)
+  - [Single Page Application](#single-page-application)
+  - [Promesas](#promesas)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Ajax
 
 ## Introducción

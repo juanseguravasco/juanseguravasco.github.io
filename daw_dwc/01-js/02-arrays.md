@@ -1,3 +1,35 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Arrays](#arrays)
+  - [Introducción](#introducci%C3%B3n)
+  - [Operaciones con Arrays](#operaciones-con-arrays)
+    - [lenght](#lenght)
+    - [Añadir elementos](#a%C3%B1adir-elementos)
+    - [Eliminar elementos](#eliminar-elementos)
+    - [splice](#splice)
+    - [slice](#slice)
+    - [Arrays y Strings](#arrays-y-strings)
+    - [Otros métodos comunes](#otros-m%C3%A9todos-comunes)
+    - [Functional Programming](#functional-programming)
+      - [filter](#filter)
+      - [find](#find)
+      - [findIndex](#findindex)
+      - [every / some](#every--some)
+      - [reduce](#reduce)
+      - [map](#map)
+      - [forEach](#foreach)
+      - [includes](#includes)
+      - [Array.from](#arrayfrom)
+  - [Referencia vs Copia](#referencia-vs-copia)
+  - [Rest y Spread](#rest-y-spread)
+  - [Desestructuración de arrays](#desestructuraci%C3%B3n-de-arrays)
+  - [Map](#map)
+  - [Set](#set)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Arrays
 
 ## Introducción

@@ -1,3 +1,23 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Eventos](#eventos)
+  - [Introducción](#introducci%C3%B3n)
+  - [Escuchadores de eventos](#escuchadores-de-eventos)
+    - [Forma clásica](#forma-cl%C3%A1sica)
+    - [Event listeners](#event-listeners)
+  - [Tipos de eventos](#tipos-de-eventos)
+    - [Eventos de página](#eventos-de-p%C3%A1gina)
+    - [Eventos de ratón](#eventos-de-rat%C3%B3n)
+    - [Eventos de teclado](#eventos-de-teclado)
+    - [Eventos de toque](#eventos-de-toque)
+    - [Eventos de formulario](#eventos-de-formulario)
+  - [Los objetos _this_ y _event_](#los-objetos-_this_-y-_event_)
+  - [Propagación de eventos (bubbling)](#propagaci%C3%B3n-de-eventos-bubbling)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Eventos
 
 ## Introducción

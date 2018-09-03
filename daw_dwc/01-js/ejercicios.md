@@ -1,3 +1,23 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Ejercicios de Javascript](#ejercicios-de-javascript)
+  - [1.- Sintaxis](#1--sintaxis)
+    - [1.1 Frase](#11-frase)
+  - [2.- Arrays](#2--arrays)
+  - [3.- POO](#3--poo)
+    - [3.1.- Productos de un almacén](#31--productos-de-un-almac%C3%A9n)
+    - [3.2.- Carro de compra](#32--carro-de-compra)
+  - [4.- DOM](#4--dom)
+  - [5.- BOM](#5--bom)
+  - [6.- Eventos](#6--eventos)
+  - [7.- Objetos globales](#7--objetos-globales)
+  - [8.- Ajax](#8--ajax)
+  - [9.- APIs](#9--apis)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Ejercicios de Javascript
 
 ## 1.- Sintaxis

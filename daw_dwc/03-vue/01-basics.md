@@ -12,6 +12,7 @@ Tabla de contenidos
     - [Enlazar a un atributo: v-bind](#enlazar-a-un-atributo-v-bind)
     - [Enlace bidireccional: v-model](#enlace-bidireccional-v-model)
   - [Vue devtools](#vue-devtools)
+  - [Extensiones para el editor de código](#extensiones-para-el-editor-de-c%C3%B3digo)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

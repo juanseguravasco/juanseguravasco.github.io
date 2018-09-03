@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Nuestro entorno de trabajo](#nuestro-entorno-de-trabajo)
+  - [Sublime text](#sublime-text)
+  - [Visual Studio Code](#visual-studio-code)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Nuestro entorno de trabajo
 
 ## Sublime text

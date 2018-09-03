@@ -2,7 +2,9 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
 
-- [Introducción](#introducci%C3%B3n)
+- [Vue con Laravel](#vue-con-laravel)
+  - [Instalación](#instalaci%C3%B3n)
+    - [Saber más](#saber-m%C3%A1s)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

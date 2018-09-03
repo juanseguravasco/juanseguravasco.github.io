@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Document Object Model (DOM)](#document-object-model-dom)
+  - [Introducción](#introducci%C3%B3n)
+  - [Acceso a los nodos](#acceso-a-los-nodos)
+  - [Acceso a nodos a partir de otros](#acceso-a-nodos-a-partir-de-otros)
+    - [Propiedades de un nodo](#propiedades-de-un-nodo)
+  - [Manipular el árbol DOM](#manipular-el-%C3%A1rbol-dom)
+    - [Modificar el DOM con ChildNode](#modificar-el-dom-con-childnode)
+  - [Atributos de los nodos](#atributos-de-los-nodos)
+    - [Estilos de los nodos](#estilos-de-los-nodos)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Document Object Model (DOM)
 
 ## Introducción

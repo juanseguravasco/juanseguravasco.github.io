@@ -18,13 +18,14 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
 
-- [El lenguaje Javascript](#el-lenguaje-javascript)
+  - [Introducción](#introducci%C3%B3n)
   - [Herramientas](#herramientas)
     - [La consola del navegador](#la-consola-del-navegador)
     - [Editores](#editores)
-    - [Editores web](#editores-web)
-  - [Incluir el código en la página](#incluir-el-c%C3%B3digo-en-la-p%C3%A1gina)
+    - [Editores on-line](#editores-on-line)
+  - [Incluir javascript en una página web](#incluir-javascript-en-una-p%C3%A1gina-web)
   - [Mostrar información](#mostrar-informaci%C3%B3n)
+- [Bibliografía](#bibliograf%C3%ADa)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

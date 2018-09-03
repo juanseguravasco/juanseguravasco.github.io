@@ -4,7 +4,7 @@ Tabla de contenidos
 
 - [Vue-router](#vue-router)
   - [Instalación](#instalaci%C3%B3n)
-  - [Usar _VueRouter_](#usar-_vuerouter_)
+  - [Crear las rutas](#crear-las-rutas)
   - [Crear un menú](#crear-un-men%C3%BA)
   - [Saltar a una ruta](#saltar-a-una-ruta)
   - [Cambio de parámetros en una ruta](#cambio-de-par%C3%A1metros-en-una-ruta)

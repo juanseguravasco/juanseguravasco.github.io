@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Browser Object Model (BOM)](#browser-object-model-bom)
+  - [Introducción](#introducci%C3%B3n)
+  - [Timers](#timers)
+  - [Objetos del BOM](#objetos-del-bom)
+    - [Objeto window](#objeto-window)
+      - [Diálogos](#di%C3%A1logos)
+    - [Objeto location](#objeto-location)
+    - [Objeto history](#objeto-history)
+    - [Otros objetos](#otros-objetos)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Browser Object Model (BOM)
 
 ## Introducción

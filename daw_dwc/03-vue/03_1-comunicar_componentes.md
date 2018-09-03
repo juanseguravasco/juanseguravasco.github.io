@@ -3,9 +3,9 @@
 Tabla de contenidos
 
 - [Comunicación entre componentes](#comunicaci%C3%B3n-entre-componentes)
-  - [_props_](#_props_)
-    - [No cambiar el valor de una _prop_](#no-cambiar-el-valor-de-una-_prop_)
-    - [Validación de _props_](#validaci%C3%B3n-de-_props_)
+  - [Props](#props)
+    - [No cambiar el valor de una prop](#no-cambiar-el-valor-de-una-prop)
+    - [Validación de props](#validaci%C3%B3n-de-props)
   - [Emitir eventos](#emitir-eventos)
   - [Bus de comunicaciones](#bus-de-comunicaciones)
   - [Vuex](#vuex)
