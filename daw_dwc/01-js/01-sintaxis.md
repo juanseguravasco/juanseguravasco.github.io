@@ -32,14 +32,14 @@ Tabla de contenidos
 ## Variables
 Javascript es un lenguaje débilmente tipado. Esto significa que no se indica de qué tipo es una variable al declararla e incluso puede cambiar su tipo a lo largo de la ejecución del programa. Ejemplo:
 ```javascript
-let miVariable;         // declaro miVariable y como no se asigno un valor valdrá _undefined_
+let miVariable;         // declaro miVariable y como no se asigno un valor valdrá undefined
 miVariable='Hola';      // ahora su valor es 'Hola', por tanto contiene una cadena de texto
 miVariable=34;          // pero ahora contiene un número
 miVariable=[3, 45, 2];  // y ahora un array
-miVariable=undefined;   // para volver a valer elvalor especial _undefined_
+miVariable=undefined;   // para volver a valer el valor especial undefined
 ```
 
-Ni siquiera estamos obligados a declarar una variable antes de usarla, aunque es recomendable para evitar errores que nos constara depurar. Para que se produzca un error si no declaramos una variable debemos incluir en nuestro código la instrucción
+Ni siquiera estamos obligados a declarar una variable antes de usarla, aunque es recomendable para evitar errores que nos costará depurar. Para que se produzca un error si no declaramos una variable debemos incluir al principio de nuestro código la instrucción
 ```javascript
 'use strict'
 ```
@@ -62,7 +62,7 @@ potencia(4);
 
 function potencia(base, exponente) {
     console.log(base);            // muestra 4
-    console.log(exponente);       // muestra _undefined_
+    console.log(exponente);       // muestra undefined
     let valor=1;
     for (let i=1; i<=exponente; i++) {
       valor=valor*base;
@@ -70,6 +70,7 @@ function potencia(base, exponente) {
     return valor;
 }
 ```
+
 Podemos dar un **valor por defecto** a los parámetros por si no los pasan asignándoles el valor al definirlos:
 ```javascript
 potencia(4);
@@ -83,12 +84,15 @@ function potencia(base, exponente=2) {
     }
     return valor;
 }
+
+console.log(potencia(4));         // mostrará 16 (4^2)
+console.log(potencia(4,3));         // mostrará 64 (4^3)
 ```
 
 > NOTA: En ES5 para hacer esto se hacía
 > ```javascript
 > function potencia(base, exponente) {
->     exponente = exponente || 2;
+>     exponente = exponente || 2;       // si exponente vale undefined se la asigna el valor 2
 > ...
 > ```
 
@@ -100,9 +104,13 @@ function suma () {
         result += arguments[i];
     return result;
 }
+
+console.log(suma(4, 2));                    // mostrará 6
+console.log(suma(4, 2, 5, 3, 2, 1, 3));     // mostrará 20
 ```
+
 ### Funciones anónimas
-Podemos definir una función sin darle un nombre que pueden asignarse a una variable, autoejecutarse o asignasrse a un manejador de eventos. Ejemplo:
+Podemos definir una función sin darle un nombre. Dicha función puede asignarse a una variable, autoejecutarse o asignasrse a un manejador de eventos. Ejemplo:
 ```javascript
 let holaMundo = function() {
     alert('Hola mundo!');
@@ -122,6 +130,7 @@ let potencia = function(base, exponente) {
     return valor;
 }
 ```
+
 Lo que hacemos es:
 * Eliminamos la palabra _function_
 * Si sólo tiene 1 parámetro podemos eliminar los paréntesis de los parámetros
@@ -157,12 +166,23 @@ if (condicion) {
     ...
 } else if (condicion2) {
     ...
-} else if (condicion2) {
+} else if (condicion3) {
     ...
 } else {
     ...
 }
 ```
+Ejemplo:
+```javascript
+if (edad < 18) {
+    console.log('Es menor de edad');
+} else if (edad > 65) {
+    console.log('Está jubilado');
+} else {
+    console.log('Edad correcta');
+}
+```
+
 Se puede usar el operador **? :** que es como un _if_ que devuelve un valor:
 ```javascript
 let esMayor = (edad>18)?true:false;
@@ -197,24 +217,41 @@ switch(true) {
 }
 ```
 ### Bucle _while_
-Podemos poner
+Podemos usar el bucle _while...do_
 ```javascript
 while (condicion) {
     // sentencias
 }
 ```
-que se ejecutará 0 o más veces o
+que se ejecutará 0 o más veces. Ejemplo:
+```javascript
+let nota=prompt('Introduce una nota (o cancela para finalizar)');
+while (nota) {
+    console.log('La nota introducida es: '+nota);
+    nota=prompt('Introduce una nota (o cancela para finalizar)');
+}
+```
+O el bucle _do...while_:
 ```javascript
 do {
     // sentencias
 } while (condicion)
 ```
-que al menos se ejecutará 1 vez.
+que al menos se ejecutará 1 vez. Ejemplo:
+```javascript
+let nota;
+do {
+    nota=prompt('Introduce una nota (o cancela para finalizar)');
+    console.log('La nota introducida es: '+nota);
+} while (nota)
+```
+
 
 ### Bucle: for
 Tenemos muchos _for_ que podemos usar.
 
 ### Bucle: for con contador
+Creamos una variable contador que controla las veces que seejecuta el for:
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
@@ -225,12 +262,13 @@ for (let i=0; i<datos.length; i++) {
 // El valor de sumaDatos será 125
 ```
 #### Bucle: for...in
+El bucle se ejecuta una vez para cada elemento del array (o propiedad del objeto) y se crea una variable contador que toma como valores la posición del elemento en el array:
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
 
 for (let indice in datos) {
-    sumaDatos += datos[indice];
+    sumaDatos += datos[indice];     // los valores que toma indice son 0, 1, 2, 3
 }  
 // El valor de sumaDatos será 125
 ```
@@ -249,13 +287,13 @@ for (var campo in profe) {
 // El valor de nombre será “Juan Pla Pla ”
 ```
 #### Bucle: for...of
-Es similar al _for...in_ pero en vez de devolver cada índice devuelve cada elemento. Es nuevo en ES2015:
+Es similar al _for...in_ pero la variable contador en vez de tomar como valor cada índice toma cada elemento. Es nuevo en ES2015:
 ```javascript
 let datos=[5, 23, 12, 85]
 let sumaDatos=0;
 
 for (let valor of datos) {
-    sumaDatos += valor;
+    sumaDatos += valor;       // los valores que toma valor son 5, 23, 12, 85
 }  
 // El valor de sumaDatos será 125
 ```
@@ -264,7 +302,7 @@ También sirve para recorrer los caracteres de una cadena de texto:
 let cadena='Hola';
 
 for (let letra of cadena) {
-    console.log(letra);
+    console.log(letra);     // los valores de letra son 'H', 'o', 'l', 'a'
 }  
 ```
 
@@ -277,7 +315,7 @@ En Javascript hay 2 valores especiales:
 * **undefined**: es lo que vale una variable a la que no se ha asignado ningún valor
 * **null**: es un tipo de valor especial que podemos asignar a una variable. Es como un objeto vacío (`typeof null` devuelve _object_)
 
-Como hemos dicho las variables pueden contener cualquier tipo de valor y en las operaciones Javascript realiza automáticamente la conversión necesaria para, si es posible, realizar la operación y no devolver **NaN** (_Not a Number_, el valore devuelto es erróneo). Por ejemplo:
+Como hemos dicho las variables pueden contener cualquier tipo de valor y, en las operaciones, Javascript realiza automáticamente la conversión necesaria para, si es posible, realizar la operación y no devolver **NaN** (_Not a Number_, el valor devuelto es erróneo). Por ejemplo:
 * `"4" / 2` devuelve 2 (convierte "4" en 4 y realiza la operación)
 * `"23" - null` devuelve 0 (hace 23 - 0)
 * `"23" - undefined` devuelve _NaN_ (no puede convertir undefined a nada así que no puede hacer la operación)
@@ -286,16 +324,14 @@ Como hemos dicho las variables pueden contener cualquier tipo de valor y en las 
 * `23 + "Hello"` devuelve "23Hello" (+ es el operador de concatenación así que convierte 23 a "23" y los concatena)
 * `23 + "23"` devuelve 2323 (OJO, convierte 23 a "23", no al revés)
 
-Además comentar que en Javascript todo son ojetos por lo que todo tiene métodos y propiedades.
+Además comentar que en Javascript todo son ojetos por lo que todo tiene métodos y propiedades. Veamos brevemente los tipos de datos básicos.
 
 ### Number
 Sólo hay 1 tipo de números, no existen enteros y decimales. El tipo de dato para cualquier número es **number**. EL carácter para la coma decimal es el **.** (como en inglés, así que 23,12 debemos escribirlo como 23.12).
 
-Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (`23 / 0` no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_).
+Tenemos los operadores aritméticos **+**, **-**, **\***, **/** y **%** y los unarios **++** y **--** y existen los valores especiales **Infinity** y **-Infinity** (`23 / 0` no produce un error sino que devuelve _Infinity_). La función **isFinite()** devuelve _true_ si el núemero es finito (no es _Infinity_ ni _-Infinity_). También esmuy útil la función **isNaN(valor)** que nos dice si el valor pasado es un número (false) o no (true).
 
 Podemos usar los operadores artmáticos junto al operador de asignación **=** (+=, -=, *=, /= y %=).
-
-También esmuy útil la función **isNaN(valor)** que nos dice si el valor pasado es un número (false) o no (true).
 
 Podemos forzar la conversión a número con la función **Number(valor)**. Ejemplo `Number("23.12")`devuelve 23.12
 
