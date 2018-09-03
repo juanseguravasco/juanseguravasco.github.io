@@ -1,4 +1,4 @@
-# El lenguaje Javascript
+# BLOQUE 1 - El lenguaje Javascript
 En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
 * [Introducción a Javascript](#introducci%C3%B3n-a-javascript)
 * [1-Sintaxis](./01-sintaxis.md)
