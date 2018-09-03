@@ -40,7 +40,7 @@ Podemos crearlos como instancias del objeto Array:
 let a=new Array();        // a = []
 let b=new Array(2,4,6);   // b = [2, 4, 6]
 ```
-o mejor aún usando notación JSON:
+o mejor aún usando notación JSON (recomendado):
 ```javascript
 let a=[];
 let b=[2,4,6);
@@ -82,8 +82,8 @@ a.unshift(7);     // ahora a=[7, 'Lunes', 'Martes', 2, 4, 6, 'Juan']
 Podemos borrar el elemento del final de un array con `pop` o el del principio con `shift`. Ambos métodos devuelven el elemento que hemos borrado:
 ```javascript
 let a=['Lunes', 'Martes', 2, 4, 6];
-let ultimo=a.pop();   // ahora a=['Lunes', 'Martes', 2, 4] y ultimo=6
-let primero=a.shift();           // ahora a=['Martes', 2, 4] y primero='Lunes'
+let ultimo=a.pop();         // ahora a=['Lunes', 'Martes', 2, 4] y ultimo=6
+let primero=a.shift();      // ahora a=['Martes', 2, 4] y primero='Lunes'
 ```
 
 ### [splice](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array/splice)
@@ -113,15 +113,15 @@ let borrado=a.slice(1, 3);       // ahora a=['Lunes', 'Martes', 2, 4, 6] y borra
 ```
 
 ### Arrays y Strings
-Cada objeto (y los arrays son un tipo de objeto) tienen definido el método `.toString()` que lo convierte en una cadena. Este método es llamado automáticamente cuando, por ejemplo, queremos mostrar un array por la consola. En realidad `console.log(a)` ejecuta `console.log(a.toString())`. 
+Cada objeto (y los arrays son un tipo de objeto) tienen definido el método `.toString()` que lo convierte en una cadena. Este método es llamado automáticamente cuando, por ejemplo, queremos mostrar un array por la consola. En realidad `console.log(a)` ejecuta `console.log(a.toString())`. En el caso de los arrays esta función devuelve una cadena con los elementos del array dentro de corchetes y separados por coma.
 
-Además podemos convertir los elementos de un array a una cadena con `.join()` especificando qué carácter que se pondrá entre los elementos. Ej.:
+Además podemos convertir los elementos de un array a una cadena con `.join()` especificando el carácter separador de los elementos. Ej.:
 ```javascript
 let a=['Lunes', 'Martes', 2, 4, 6];
 let cadena=a.join('-');       // cadena='Lunes-Martes-2-4-6'
 ```
 
-Este método es el contrario de `.split()` que convierte una cadena en un array. Ej.:
+Este método es el contrario del m `.split()` que convierte una cadena en un array. Ej.:
 ```javascript
 let notas='5-3.9-6-9.75-7.5-3';
 let arrayNotas=notas.split('-');        // arrayNotas=[5, 3.9, 6, 9.75, 7.5, 3]
