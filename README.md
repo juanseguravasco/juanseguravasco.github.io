@@ -3,6 +3,7 @@ Aquí está toda la documentación generada para los diferentes módulos y proye
 * Módulos
     * [Desarrollo web en entorno cliente](./daw_dwc) (2n DAW)
     * Sistemas Operativos en Red (2n SMX)
+        * [Red en Ubuntu 18](./smx/ubuntu18)
     * Sistemas operativos monousuario (1r SMX)
 * Proyectos
     * [Flipped Classroom](./proyectos/flipped/markdown)
