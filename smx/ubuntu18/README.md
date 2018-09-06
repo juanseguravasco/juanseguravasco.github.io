@@ -138,7 +138,7 @@ Si fem la configuració de l'enrutament des de Webmin tot funciona igual però l
 post-up iptables restore < /etc/iptables.up.rules
 ```
 
-### ### Configurar NAT amb `iptables`
+### Configurar NAT amb `iptables`
 Si volem podem afegir una regla a iptables igual que es feia en les versions anterios. Per exemple si la nostra targeta externa és la eth0 amb IP 10.0.2.20 i la nostra xarxa interna és la 192.168.10.0 el comando per a activar NAT seria:
 ```bash
 iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o enp0s3 -j SNAT --to 10.0.2.20
