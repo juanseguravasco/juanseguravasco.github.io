@@ -11,7 +11,6 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [9-Ajax. Promesas](./08-ajax.md)
 * Utilidades: Geolocalización. Local Storage. API de Google Maps
 * Herramientas: npm y webpack
-* [Ejercicios](./)
 
 # Introducción a Javascript
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
