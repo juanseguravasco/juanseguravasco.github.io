@@ -74,10 +74,10 @@ En este ejercicio vamos a trabajar con los productos de un almacén, para lo que
   * **_addProduct_**: recibe como parámetro el código y unidades a añadir y, opcionalmente, el nombre y precio (si se trata de un producto nuevo) y lo añade al almacén. Si ya existe el código suma al producto las unidades indicadas y si no existe crea un nuevo producto en el array. Devuelve _true_
   * **_delProduct_**: recibe como parámetro el código y las unidades a quitar de un producto y lo resta del almacén. Devuelve _true_ a menos que haya menos unidades de las que quieren restarse, en cuyo caso no hace nada y devuelve _false_
   * **_totalImport_**: devuelve el valor total de los productos del almacén
-  * **_orderByUnits_**: devuelve el array de productos ordenado por unidades descendente
   * **_orderByDescrip_**: devuelve el array de productos ordenado por el nombre
+  * **_orderByUnits_**: devuelve el array de productos ordenado por unidades descendente
 
-Para probar que funciona correctamente ejecutaremos el nuestro fichero main.js:
+Para probar que funciona correctamente ejecutaremos en nuestro fichero main.js:
 ```javascript
 let almacen=new Store(1);
 almacen.addProduct(1, 4, 'TV Samsung MP45', 345,95);
@@ -96,13 +96,15 @@ almacen.addProduct(6, 9);
 console.log('LISTADO DEL ALMACÉN');
 almacen.products.forEach(prod=>console.log(prod.toString()));
 ```
-Queremos también que se muestro por consola todos los productos de los que tenemos menos de 5 unidades en stock o cuyo importe es inferior a 150 €.
+Además en nuestro main.js haremos que se muestren por consola todos los productos de los que tenemos menos de 5 unidades en stock o cuyo importe es inferior a 150 €.
 
 ### 3.2.- Carro de compra
 Vamos a permitir que los usuarios hagan compras on-line para lo que crearemos una clase para los carritos de la compra:
-* **_Cart_**: esta clase la usaremos para crear carritos de compra con los productos a comprar. Es como la clase _Store_ pero tiene además la propiedad _user_ con el identificador del usuario que hace la compra y que nos lo pasarán al crear el carrito. Además el método _delProduct_ eliminará el producto del array de productos si sus unidades son 0.
-
-Haz además las funciones **_addToCart_** y **_removeFromCart_** que nos permitan añadir y quitar productos del carro y que recibirán como parámetros el código del producto y las unidades a añadir o quitar.
+* **_Cart_**: esta clase la usaremos para crear carritos de compra con los productos a comprar. Es como la clase _Store_ pero tiene además la propiedad _user_ con el identificador del usuario que hace la compra y que nos lo pasarán al crear el carrito. Respecto a sus métodos son igual que los de la clase _Store_ pero:
+    * el método _delProduct_ eliminará el producto del array de productos si sus unidades son 0
+    * tendrá dos nuevos métodos **_addToCart_** y **_removeFromCart_** que nos permitan añadir y quitar productos del carro y que recibirán como parámetros el código del producto y las unidades a añadir o quitar.
+    
+NOTA: la variable del almacén será una variable global en el fichero main.js
 
 ## 4.- DOM
 Vamos a mostrar en una tabla los products de nuestro almacén. Cada fila corresponderá a un producto y se mostrará su código, nombre, unidades, precio por unidad e importe. Debajo de la tabla mostraremos el importe total del almacén. En el fichero _index.html_ crearemos la tabla vacía y el párrafo para poner el importe total.
