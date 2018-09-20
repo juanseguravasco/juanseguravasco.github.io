@@ -31,12 +31,12 @@ Vamos a pedir al usuario que introduzca una frase y a continuación mostraremos 
 * si es o no un palíndromo (si se lee igual al revés) pero omitiendo espacios en blanco y sin diferenciar mayúsculas y minúsculas. 
 
 Ej.: con la frase introducida “_La ruta nos aporto otro paso natural_” se mostraría
-36 letras y 7 palabras
-LA RUTA NOS APORTO OTRO PASO NATURAL
-La Ruta Nos Aporto Otro Paso Natural
-larutan osap orto otropa son atur aL
-natural paso otro aporto nos ruta La
-Sí es un palíndromo
+> 36 letras y 7 palabras
+> LA RUTA NOS APORTO OTRO PASO NATURAL
+> La Ruta Nos Aporto Otro Paso Natural
+> larutan osap orto otropa son atur aL
+> natural paso otro aporto nos ruta La
+> Sí es un palíndromo
 
 Intenta usar en cada caso el bucle más adecuado. Las funciones `split` y `join` (lo opuesto) de String y Array nos pueden ayudar a algunas cosas.
 
