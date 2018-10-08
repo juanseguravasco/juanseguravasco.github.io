@@ -100,12 +100,12 @@ Se producen en los formularios:
 ## Los objetos _this_ y _event_
 Al producirse un evento se generan automáticamente en su función manejadora 2 objetos:
 * **this**: hace referencia al elemento sobre el que se ha producid el evento
-* **event**: es un objeto cin propiedades y métodos que nos dan información sobre el evento:
+* **event**: es un objeto con propiedades y métodos que nos dan información sobre el evento:
   * **.type**: qué evento se ha producido (click, submit, keyDown, ...)
   * **.target**: el elemento que lanza el evento (normalmente el mismo que _this_)
   * **cancelable**: si el evento puede cancelarse. En caso afirmativo se puede llamar a **event.preventDefault()** para cancelarlo
-  * **.preventDefault()**: si un evento tiene un escuchador asociado se ejecuta el código de dicho escuchador y después el navegador realiza la acción que correspondería por defecto al evento si no tuviera escuchador (por ejemplo un escuchador del evento _click_ sobre un hiperenlace harái que se ejecute su código y después se saltará a la página indicada en el _href_ del hiperenlace). Este método cancela la acción por defecto del navegador para el evento. Por ejemplo si el evento era el _submit_ de un formulario éste no se enviará o si era un _click_ sobre un hiperenlace no se irá a la página indicada en él.
-  * **.stopPropagation**: un evento se produce sobre un elemento y todos su padres. Por ejemplo si hacemos click en un \<span> que está en un \<p> que está en un \<div> que está en el BODY el evento se va propagando por todos estos elementos y saltarían los escuchadores asociados a todos ellos. Si alguno llama a este mátodo el evento no se propagará a los demás elementos padre.
+  * **.preventDefault()**: si un evento tiene un escuchador asociado se ejecuta el código de dicho escuchador y después el navegador realiza la acción que correspondería por defecto al evento si no tuviera escuchador (por ejemplo un escuchador del evento _click_ sobre un hiperenlace hará que se ejecute su código y después saltará a la página indicada en el _href_ del hiperenlace). Este método cancela la acción por defecto del navegador para el evento. Por ejemplo si el evento era el _submit_ de un formulario éste no se enviará o si era un _click_ sobre un hiperenlace no se irá a la página indicada en él.
+  * **.stopPropagation**: un evento se produce sobre un elemento y todos su padres. Por ejemplo si hacemos click en un \<span> que está en un \<p> que está en un \<div> que está en el BODY el evento se va propagando por todos estos elementos y saltarían los escuchadores asociados a todos ellos (si los hubiera). Si alguno llama a este método el evento no se propagará a los demás elementos padre.
   * dependiento del tipo de evento tendrá más propiedades:
     * eventos de ratón:
       * **.button**: qué botón del ratón se ha pulsado (0: izq, 1: rueda; 2: dcho).
