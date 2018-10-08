@@ -28,7 +28,7 @@ Usando los objetos BOM podemos:
 
 ## Timers
 Permiten ejecutar código en el futuro (cuando transcurran los milisegundos indicados). Hay 2 tipos:
-* `timeout(función, milisegundos)`: ejecuta la función indicada una sóla vez, cuando transcurran los milisegundos
+* `setTimeout(función, milisegundos)`: ejecuta la función indicada una sóla vez, cuando transcurran los milisegundos
 * `setInterval(función, milisegundos)`: ejecuta la función indicada cada vez que transcurran los milisegundos, hasta que sea cancelado el _timer_. A ambas se le pueden pasar más parámetros tras los milisegundos y serán los parámetros que recibirá la función a ejecutar.
 
 Ambas funciones devuelven un identificador que nos permitirá cancelar la ejecución del código, con:
@@ -43,7 +43,7 @@ let idTimeout=setTimeout(function() {
 
 let i=1;
 let idInterval=setInterval(function() {
-	alert('Interval cada 3 seg. Ejecución nº: '+i++);
+	alert('Interval cada 3 seg. Ejecución nº: '+ i++);
    if (i==5) {
       clearInterval(idInterval);
       alert('Fin de la ejecución del Interval');
