@@ -181,6 +181,7 @@ let otraFecha=nre Date(fecha.getTime());
 otraFecha.setDate(28);               // Thu Jun 28 2018 02:00:00 GMT+0200 (CEST)
 console.log( fecha.getDate() );      // imprime 30
 ```
+**NOTA**: la comparación entre fechas funciona correctamente con los operadores `>`, `>=`, `<` y `<=` pero NO con `==`, `===`, `!==` y `!===` ya que compara los objetos y ve que son objetos diferentes. Si queremos saber si 2 fechas son iguales (siendo diferentes objetos) el código que pondremos NO es `fecha1==fecha2` sino `fecha1.getTime()==fecha2.getTime()`.
 
 Podemos probar los distintos métodos de las fechas en la página de [w3schools](http://www.w3schools.com/jsref/jsref_obj_date.asp).
 
