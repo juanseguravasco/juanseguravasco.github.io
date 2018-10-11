@@ -90,7 +90,7 @@ console.log( Math.SQRT2 );         // imprime 1.4142135623730951
 * `Math.max(x1,x2,...)`: devuelve el número más alto de los argumentos que se le pasan.
 * `Math.pow(x, y)`: devuelve x y (x elevado a y).
 * `Math.abs(x)`: devuelve el valor absoluto de x.
-* `Math.random()`: devuelve un número decimal aleatorio entre 0 y 1 (no incluidos).
+* `Math.random()`: devuelve un número decimal aleatorio entre 0 (incluido) y 1 (no incluido). Si queremos un número entre otros rangos haremos `Math.random() * (max - min) + min` o si lo queremos sin decimales `Math.round(Math.random() * (max - min) + min)`
 * `Math.cos(x)`: devuelve el coseno de x (en radianes).
 * `Math.sin(x)`: devuelve el seno de x.
 * `Math.tan(x)`: devuelve la tangente de x.
