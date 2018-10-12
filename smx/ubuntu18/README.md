@@ -46,7 +46,7 @@ network:
     ethernets:
         enp0s3:
             addresses: [10.0.2.10/24]
-            gateway: 10.0.2.2
+            gateway4: 10.0.2.2
             nameservers:
                 addresses: [172.16.20.1]
             dhcp4: false
