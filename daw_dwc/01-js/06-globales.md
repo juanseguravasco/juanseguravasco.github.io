@@ -15,7 +15,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Objetos y Funciones globales. Expresiones regulares
+# Objetos y Funciones globales. Expresiones regulares. Validación de formularios
 
 ## Introducción
 En este tema vamos a ver 3 cosas fiferentes:
@@ -288,7 +288,7 @@ HTML5 incorpora la posibilidad de validar los formularios añadiendo a los eleme
 
 Si un elemento no es válido recibe automáticamente la pseudoclase CSS **:invalid** y si es válido la pseudoclase CSS **:valid**.
 
-De todas formas podemos deshabilitar la validación por parte del navegador (poniendo en la etiqueta\<form> el atribito **novalidate**) y realizar toda la validación pro javscript para tener un control total de la misma. Y existe un opción intermedia que es validar mediante Javascript pero usando la API de validación de formularios, aunque aún no está soportada por todos los navegadores.
+De todas formas podemos deshabilitar la validación por parte del navegador (poniendo en la etiqueta\<form> el atribito **novalidate**) y realizar toda la validación pro javscript para tener un control total de la misma. Y existe un opción intermedia que es validar mediante Javascript pero usando la API de validación de formularios, aunque aún no está soportada por todos los navegadores. Podéis ver los distintos [métodos que incluye esta API](https://html.spec.whatwg.org/dev/form-control-infrastructure.html#the-constraint-validation-api) y un [completo ejemplo](https://css-tricks.com/form-validation-part-2-constraint-validation-api-javascript/) de cómo usarla para validar formularios.
 
 En cualquier caso, debemos ser conscientes que los formularios son normalmente una carga que soportan los usuarios por lo que debemos ayudarles lo máximo posible a introducir los datos que les pedimos de forma fácil y clara. Para validar el formulario deberemos preguntarnos:
 * Qué hacer si el formulario no es válído: normalmente no querré que se envíe al servidor. Además deberé decidir si quiero resaltar esos campos, mostrar mensajes de error (y en ese caso dónde: junto al alemento, al final del formulario, ...)
