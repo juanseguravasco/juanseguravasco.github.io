@@ -227,6 +227,7 @@ La potencia de las expresiones regulares es que podemos usar patrones para const
 ### Métodos
 Los usaremos para saber si la cadena coincide con determinada expresión o para buscar y reemplazar texto:
 * `expr.test(cadena)`: devuelve **true** si la cadena coincide con la expresión. Con el modificador _/g_ hará que cada vez que se llama busque desde la posición de la última coincidencia. Ejemplo:
+
 ```javascript
 let str = "I am amazed in America";
 let reg = /am/g;
@@ -239,7 +240,9 @@ console.log(reg.test(str)); // Imprime true
 console.log(reg.test(str)); // Imprime true
 console.log(reg.test(str)); // Imprime true. Ahora tenemos 3 coincidencias con este nuevo patrón
 ```
+
 * `expr.exec(cadena)`: igual pero en vez de _true_ o _false_ devuelve un objeto con la coincidencia encontrada, su posición y la cadena completa:
+
 ```javascript
 let str = "I am amazed in America";
 let reg = /am/gi;
@@ -248,14 +251,18 @@ console.log(reg.exec(str)); // Imprime ["am", index: 5, input: "I am amazed in A
 console.log(reg.exec(str)); // Imprime ["Am", index: 15, input: "I am amazed in America"]
 console.log(reg.exec(str)); // Imprime null
 ```
+
 * `cadena.match(expr)`: igual que _exec_ pero se aplica a la cadena y se le pasa la expresión. Si ésta tiene el modificador _/g_ devolverá un array con todas las coincidencis:
+
 ```javascript
 let str = "I am amazed in America";
 let reg = /am/gi;
 console.log(str.match(reg)); // Imprime ["am", "am", "Am"}
 ```
+
 * `cadena.search(expr)`: devuelve la posición donde se encuentra la coincidencia buscada o -1 si no aparece
 * `cadena.replace(expr, cadena2)`: devuelve una nueva cadena xon las coincidncias de la cadena reemplazadas por la cedena pasada como 2º parámetro:
+
 ```javascript
 let str = "I am amazed in America";
 console.log(str.replace(/am/gi, "xx")); // Imprime "I xx xxazed in xxerica"
