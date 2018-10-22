@@ -295,7 +295,24 @@ HTML5 incorpora la posibilidad de validar los formularios añadiendo a los eleme
 
 Si un elemento no es válido recibe automáticamente la pseudoclase CSS **:invalid** y si es válido la pseudoclase CSS **:valid**.
 
-De todas formas podemos deshabilitar la validación por parte del navegador (poniendo en la etiqueta\<form> el atribito **novalidate**) y realizar toda la validación pro javscript para tener un control total de la misma. Y existe un opción intermedia que es validar mediante Javascript pero usando la API de validación de formularios, aunque aún no está soportada por todos los navegadores. Podéis ver los distintos [métodos que incluye esta API](https://html.spec.whatwg.org/dev/form-control-infrastructure.html#the-constraint-validation-api) y un [completo ejemplo](https://css-tricks.com/form-validation-part-2-constraint-validation-api-javascript/) de cómo usarla para validar formularios.
+Una opción para validar formularios es dejar que sea el navegador quien se encargue de ello, pero no tenemos apenas control sobre cuándo se informa de los errores y qué mensaje se muestra.
+
+Otra opción es no validar nada con HTML5 y hacerlo todo mediante Javascript, en cuyo caso tenemos el control absoluto de lo que se haga, pero es un trabajo laborioso.
+
+Y una tercera opción es aprovechar la **API de validación de formularios** del navegador pero encargándonos desde Javascript de controlar qué mensajes se dan y cuándo se muestran. El problema de esta solución (igual que la de que lo valide el navegador) es que esta API aún no está soportada totalmente por todos los navegadores (podemos consultar el soporte en [caniuse]()). Para usar esta forma de validar los formularios debemos en el HTML poner los atributos que queramos controlar (required, type, maxlength, min, pattern, ...) pero deshabilitar la validación por parte del navegador (poniendo en la etiqueta\<form> el atribito **novalidate**). 
+
+Podéis ver los distintos [métodos que incluye esta API](https://html.spec.whatwg.org/dev/form-control-infrastructure.html#the-constraint-validation-api) y un [completo ejemplo](https://css-tricks.com/form-validation-part-2-constraint-validation-api-javascript/) de cómo usarla para validar formularios. ALgunos de los métodos más útiles que incluye la API son:
+* `_form_.checkValidity()`: devuelve **true** si todos los valores del formulario son válidos y **false** si alguno no lo es
+* `_element_.checkValidity()`: devuelve **true** si el valor del elemento es válido y **false** si no lo es
+* `_element_.validationMessage`: devuelve una cadena con el texto del error de validación del elemento
+* `_element_.validaty.valueMissing`: devuelve **true** si el elemento no tiene valor pero tiene el atributo **required**
+* `_element_.validaty.typeMismatch`: devuelve **true** si el valor del elemento no es del tipo correcto (el especificado en **type**)
+* `_element_.validaty.patternMismatch`: devuelve **true** si el valor del elemento no cumple con lo indicado en su **pattern**
+* `_element_.validaty.tooLong / tooShort`: devuelve **true** si la longitud del valor del elemento es mayor de lo especificado en **maxlength** / es menor de lo especificado en **minlength** 
+* `_element_.validaty.rangeOverflow / rangeUnderflow`: devuelve **true** si el valor del elemento es mayor de lo especificado en **max** / es menor de lo especificado en **min** 
+* `_element_.validaty.stepMismatch`: devuelve **true** si el valor del elemento no cumple con lo indicado en su **step**
+* `_element_.validaty.customError`: devuelve **true** si al elemento le hemos puesto mediante código un error personalizado
+* `_element_.setCustomValidity(msg)`: le pone al elemento un error personalizado y su propiedad _validationMessage_ será el mensaje pasado como parámetro. Este elemento ya no será válido hasta que le quitemos el error personalizado llamando a esta función con un mensaje vacío: `_element_.setCustomValidity('')`
 
 En cualquier caso, debemos ser conscientes que los formularios son normalmente una carga que soportan los usuarios por lo que debemos ayudarles lo máximo posible a introducir los datos que les pedimos de forma fácil y clara. Para validar el formulario deberemos preguntarnos:
 * Qué hacer si el formulario no es válído: normalmente no querré que se envíe al servidor. Además deberé decidir si quiero resaltar esos campos, mostrar mensajes de error (y en ese caso dónde: junto al alemento, al final del formulario, ...)
