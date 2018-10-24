@@ -41,6 +41,38 @@ y la función 'actualizaDatos' podrá leer de nuevo lo que hay y actuar en conse
 _localStorage_, _sessionStorage_ y _cookies_ almacenan información en un navegador específico del cliente, y por tanto:
 * No podemos asegurar que permanecen ahí
 * Puede ser borrada/manipulada
-* Puede ser leída, por lo que no adecuada para información sensible. Sí para:
-Preferencias del usuario
-Marcadores de juegos
+* Puede ser leída, por lo que no adecuada para almacenar información sensible pero sí para preferencias del usuario, marcadores de juegos, etc
+
+Podríamos usar localStorage para almacenar localmente los datos con los que trabaja una aplicación web. Así conseguiríamos minimizan los accesos al servidor y que la velocidad de la aplicación será mucho mayor al trabajar con datos locales. Pero periódicamente debemos sincronizar la información con el servidor.
+
+### Storage vs cookies
+Ventajas de localStorage:
+* 5 o 10 MB de almacenamiento frente a 4 KB de las cookies
+* Todas cookies del dominio se envían al servidor con cada petición al mismo
+
+Ventajas de las cookies:
+* Soportadas por navegadores antiguos
+* Las cookies ofrecen algo de protección frente a XSS (Cross-Site Scripting)/Script injection
+
+### Cookies
+Son pequeños ficheros de texto y tienen las siguientes limitaciones:
+* Máximo 300 ccokies, si hay más se borran las antiguas
+* Máximo 4 KB por cookie, si nos pasamos se truncará
+* Máximo 20 cookies por dominio
+
+Cada cookie puede almacenar los siguientes datos:
+* Nombre  de la cookie (obligatorio)
+* Valor de la misma
+* Caducidad: timestamp en que se borrará (si no pone nada se borra al salir del dominio)
+* Path desde dónde es accesible (/: todo el dominio, /xxx: esa carpeta y subcarpetas). Si no se pone nada sólo lo será desde la carpeta actual
+* Dominio: ídem (ej.: .cipfpbatoi.es)
+* Secure: si sólo se enviará con https
+ 
+Puedo acceder a las coockies con **document.cookie** que es un array con las cookies de nuestras páginas. Para trabajar con ellas conviene que creemos funciones para guardar, leer o borrar cookies, por ejemplo:
+* Crear una nueva cookie
+
+* Leer una cookie
+
+* Borrar una cookie
+
+
