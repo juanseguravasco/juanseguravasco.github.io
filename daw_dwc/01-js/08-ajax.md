@@ -145,11 +145,12 @@ let newProduct={
 }    
 let peticion=new XMLHttpRequest();
 peticion.open('GET', 'https://localhost/products');
+peticion.setRequestHeader('Content-type', 'application/json);
 peticion.send(JSON.stringify(newProduct));
 peticion.addEventListener('load', function() {
 ...
 ```
-Para enviar el objeto hay que convertirlo a una cadena JSON con la función **JSON.stringify()** (es la opuesta a **JSON.parse()**). Como este formato es el predeterminado no es necesario añadir la cabecera de _Content-type_, que sería:
+Para enviar el objeto hay que convertirlo a una cadena JSON con la función **JSON.stringify()** (es la opuesta a **JSON.parse()**). Y siempre que enviamos datos al servidor debemos decirle el formato que tienen en la cabecera de _Content-type_:
 ```javascript
 peticion.setRequestHeader('Content-type', 'application/json);
 ```
