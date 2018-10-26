@@ -145,14 +145,14 @@ let newProduct={
 }    
 let peticion=new XMLHttpRequest();
 peticion.open('GET', 'https://localhost/products');
-peticion.setRequestHeader('Content-type', 'application/json);
+peticion.setRequestHeader('Content-type', 'application/json');
 peticion.send(JSON.stringify(newProduct));
 peticion.addEventListener('load', function() {
 ...
 ```
 Para enviar el objeto hay que convertirlo a una cadena JSON con la función **JSON.stringify()** (es la opuesta a **JSON.parse()**). Y siempre que enviamos datos al servidor debemos decirle el formato que tienen en la cabecera de _Content-type_:
 ```javascript
-peticion.setRequestHeader('Content-type', 'application/json);
+peticion.setRequestHeader('Content-type', 'application/json');
 ```
 
 ### Enviar datos al servidor en formato URIEncoded
@@ -164,7 +164,7 @@ let descrip=document.getElementById("descrip").value;
 
 let peticion=new XMLHttpRequest();
 peticion.open('GET', 'https://localhost/products');
-peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded);
+peticion.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 peticion.send('name='+encodeURIComponent(name)+'&descrip='+encodeURIComponent(descrip));
 peticion.addEventListener('load', function() {
 ...
