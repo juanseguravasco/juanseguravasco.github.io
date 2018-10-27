@@ -82,7 +82,7 @@ Se puede acceder a las coockies desde **document.cookie** que es una cadena con 
 function setCookie(cname, cvalue, cexpires, cpath, cdomain, csecure) {
   document.cookie = cname + "=" + cvalue + 
     (cexpires?";expires="+cexpires.toUTCString():"") + 
-    (cpath?";path="+cpath":"") + 
+    (cpath?";path="+cpath:"") + 
     (cdomain?";domain="+cdomain:"") + 
     (csecure?";secure":"");  
 }
