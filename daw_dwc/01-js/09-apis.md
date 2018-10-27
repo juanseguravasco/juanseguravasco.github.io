@@ -21,22 +21,40 @@ Para poder realizar la operación _event_ tiene el objeto **dataTransfer** en el
 
 Los pasos para arrastrar y soltar un elemento son:
 1. El elemento debe ser **_draggable_**
-1. Capturamos el evento **dragstart**. Este evento se produce sobre un elemento cuando comenzamos a arrastarlo. Deberemos almacenar en el _dataTransfer_ quién está siendo arrastrado. Ej:
+1. Capturamos el evento [**dragstart**](https://developer.mozilla.org/en-US/docs/Web/Events/dragstart). Este evento se produce sobre un elemento cuando comenzamos a arrastarlo. Deberemos almacenar en el _dataTransfer_ quién está siendo arrastrado (si no guardamos nada se guarda automáticamente el _src_ si es una imagen o en _href_ si es un enlace). Ej.:
 
 ```html
 <img id="imgGoogle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google.png/320px-Google.png">
+<div id="zonaDrop" class="drop"></div>
 ```
 
 ```javascript
 document.getElementById('imgGoogle').addEventListener('dragstart', function(event) {
-    event.dataTransfer.setData('text/plain', this.id);  // Estamos guardando el texto 'imgGoogle'
+    event.dataTransfer.setData('text/plain', event.target.id);  // Estamos guardando el texto 'imgGoogle'
 })
 ```
 
-1. 
+3. Capturamos el evento [**dragover**](https://developer.mozilla.org/en-US/docs/Web/Events/dragover). Este evento se produce cada pocas décimas de segundo sobre elemento sobre el que se está arrastrando algo. Por defecto no se puede soltar un elemento en ningún sitio así que capturamos este evento para evitar que el navegador haga la acción por defecto e impida que se suelte lo que estamos arrastrando. Ej.: 
 
+```javascript
+document.getElementById('zonaDrop').addEventListener('dragover', function(event) {
+    event.preventDefault();
+})
+```
+
+4. Capturamos el evento [**drop**](https://developer.mozilla.org/en-US/docs/Web/Events/drop). Este evento se produce sobre elemento sobre el que se suelta lo que estábamos arrastrando. Lo que haremos es evitar el comportamiento por defecto del navegador (que en caso de imágenes o enlaces es cargarlos en la página), obtener quién se ha soltado a partir del objeto _dataTransfer_ y relizar lo que queramos, que normalmente será añadir el objeto arrastardo como hijo del objeto sobre el que se ha hecho el _drop_. Ej.: 
+
+```javascript
+document.getElementById('zonaDrop').addEventListener('drop', function(event) {
+    event.preventDefault();
+    let data=event.dataTransfer.getData("text/plain");      // Obtenemos ìmgGoogle'
+    event.target.appendChild(document.getElementById(data));
+})
+```
 
 NOTA: si hacemos _draggable_ un elemento, por ejemplo un párrafo, ya no se puede seleccionar con el ratón ya que a pinchar y arrastrar se muevo, no se selecciona. Para poder seleccionarlo debemos pinchar y arrastrar el ratón con la tecla _Alt_ pulsada o hacerlo con el teclado.
+
+Podemos obtener más información de este método en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) y ver y modificar ejemplos en [w3schhols](https://www.w3schools.com/html/html5_draganddrop.asp) y muchas otras páginas.
 
 ## Almacenamiento en el cliente: API Storage
 Antes de HTML5 la única manera que tenían los programadores de guardar algo en el navegador del cliente (como sus preferencias, su idioma predeterminado para nuestra web, etc) era utilizando _cookies_. Las cookies tienen muchas limitaciones (como vermoes más adelante) y es engorroso trabajar con ellas. 
