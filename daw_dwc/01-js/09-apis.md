@@ -61,24 +61,59 @@ Son pequeños ficheros de texto y tienen las siguientes limitaciones:
 * Máximo 20 cookies por dominio
 
 Cada cookie puede almacenar los siguientes datos:
-* Nombre  de la cookie (obligatorio)
+* Nombre de la cookie (obligatorio)
 * Valor de la misma
-* Caducidad: timestamp en que se borrará (si no pone nada se borra al salir del dominio)
-* Path desde dónde es accesible (/: todo el dominio, /xxx: esa carpeta y subcarpetas). Si no se pone nada sólo lo será desde la carpeta actual
-* Dominio: ídem (ej.: .cipfpbatoi.es)
-* Secure: si sólo se enviará con https
- 
-Puedo acceder a las coockies con **document.cookie** que es un array con las cookies de nuestras páginas. Para trabajar con ellas conviene que creemos funciones para guardar, leer o borrar cookies, por ejemplo:
+* expires: timestamp en que se borrará (si no pone nada se borra al salir del dominio)
+* max-age: en lugar de _expires_ podemos indicar aquí los segundos que durará la cookie antes de expirar
+* path: ruta desde dónde es accesible (/: todo el dominio, /xxx: esa carpeta y subcarpetas). Si no se pone nada sólo lo será desde la carpeta actual
+* domain: dominio desde el que es accesible. SI no ponemos nada lo será desde este dominio y sus subdominios
+* secure: si aparece indica que sólo se enviará esta cookie con https
+
+Un ejemplo de cookie sería:
+
+```javascript
+username=John Doe; expires=Thu, 18 Dec 2013 12:00:00 UTC;
+```
+
+Se puede acceder a las coockies desde **document.cookie** que es una cadena con las cookies de nuestras páginas. Para trabajar con ellas conviene que creemos funciones para guardar, leer o borrar cookies, por ejemplo:
 * Crear una nueva cookie
 
 ```javascript
-function setCookie(nombre, valor, expira, path, dominio, seguro) {
-    document.cookie=
+function setCookie(cname, cvalue, cexpires, cpath, cdomain, csecure) {
+  document.cookie = cname + "=" + cvalue + 
+    (cexpires?";expires="+cexpires.toUTCString():"") + 
+    (cpath?";path="+cpath":"") + 
+    (cdomain?";domain="+cdomain:"") + 
+    (csecure?";secure":"");  
 }
 ```
 
 * Leer una cookie
 
+```javascript
+function getCookie(cname) {
+    if(document.cookie.length>0){
+        start=document.cookie.indexOf(cname + "=");
+        if (start!=-1) {   // Existe la cookie, busquemos dónde acaba su valor
+            //El inicio de la cookie, el nombre de la cookie mas les simbolo '='
+            start=start + nombre.length+1;
+            //Buscamos el final de la cookie (es el simbolo ';')
+            end=document.cookie.indexOf(";",start + cname.length + 1);
+            if (end==-1) {   // si no encuentra el ; es que es la última cookie
+                end=document.cookie.length;
+            }
+            return document.cookie.substring(start + cname.length + 1, end));
+        }
+    }
+    return "";   // Si estamos aquí es que no hemos encontrado la cookie
+}
+```
+
 * Borrar una cookie
 
+```javascript
+function delCookie(cname) {
+    return document.cookie = cname + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+}
+```
 
