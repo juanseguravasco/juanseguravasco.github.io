@@ -1,4 +1,4 @@
-# Utilidades: Geolocalización. Local Storage. API de Google Maps
+# Utilidades: Drag And Drop. Local Storage. Geolocalización. API de Google Maps
 
 ## Introducción
 En este tema varemos diferentes APIs incluidas en HTML5 (como la de Local Storage) y otras que se han hecho muy populares como la de Google Maps.
@@ -9,6 +9,34 @@ HTML5 incluye un buen número de APIs que facilitan el trabajo con cosas complej
 * API de dibujo canvas (en el módulo de DIW)
 
 Aquí comentaremos Storage, Drag&Drop, Geolocation, File Access, Communication, Web Workers, History y Offline
+
+## HTML Drag And Drop API
+Con HTML5 es muy sencillo arrastrar y soltar elementos en una página web. POdemos arrastrar y soltar cualquier nodo DOM (una imagen, un archivo, enlaces, texto seleccionado, ...). Para ello sólo es necesario que ese elemento tenga el atributo `dragable="true"`. Si le ponemos  no se podrá arrastrar y si no definimos el atributo podrá o no arrastrarse según el valor predeterminado del navegador (en la mayoría son _dragables_ las imágenes, los links y las selecciones de texto).
+
+Al arrastrar y soltar intervienen 2 elementos diferentes:
+* el elemento que estamos arrastrando
+* el elemento sobre el cual lo soltamos
+
+Para poder realizar la operación _event_ tiene el objeto **dataTransfer** en el que almacenamos qué elemento estamos arrastrando (o cualquier otra cosa que queramos) para que cuando se suelte sobre el elemento destino éste pueda saber quién se le ha soltado.
+
+Los pasos para arrastrar y soltar un elemento son:
+1. El elemento debe ser **_draggable_**
+1. Capturamos el evento **dragstart**. Este evento se produce sobre un elemento cuando comenzamos a arrastarlo. Deberemos almacenar en el _dataTransfer_ quién está siendo arrastrado. Ej:
+
+```html
+<img id="imgGoogle" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Google.png/320px-Google.png">
+```
+
+```javascript
+document.getElementById('imgGoogle').addEventListener('dragstart', function(event) {
+    event.dataTransfer.setData('text/plain', this.id);  // Estamos guardando el texto 'imgGoogle'
+})
+```
+
+1. 
+
+
+NOTA: si hacemos _draggable_ un elemento, por ejemplo un párrafo, ya no se puede seleccionar con el ratón ya que a pinchar y arrastrar se muevo, no se selecciona. Para poder seleccionarlo debemos pinchar y arrastrar el ratón con la tecla _Alt_ pulsada o hacerlo con el teclado.
 
 ## Almacenamiento en el cliente: API Storage
 Antes de HTML5 la única manera que tenían los programadores de guardar algo en el navegador del cliente (como sus preferencias, su idioma predeterminado para nuestra web, etc) era utilizando _cookies_. Las cookies tienen muchas limitaciones (como vermoes más adelante) y es engorroso trabajar con ellas. 
