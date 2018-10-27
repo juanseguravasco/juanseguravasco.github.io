@@ -71,6 +71,12 @@ Cada cookie puede almacenar los siguientes datos:
 Puedo acceder a las coockies con **document.cookie** que es un array con las cookies de nuestras páginas. Para trabajar con ellas conviene que creemos funciones para guardar, leer o borrar cookies, por ejemplo:
 * Crear una nueva cookie
 
+```javascript
+function setCookie(nombre, valor, expira, path, dominio, seguro) {
+    document.cookie=
+}
+```
+
 * Leer una cookie
 
 * Borrar una cookie
