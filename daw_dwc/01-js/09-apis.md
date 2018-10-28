@@ -163,3 +163,13 @@ function delCookie(cname) {
 }
 ```
 
+## Geolocation API
+Esta API permite a la aplicación web acceder a la localización del usuario si éste da su permiso. Muchos navegadores sólo permiten usarlo en páginas seguras (https).
+
+Podemos acceder a esta API mediente el objeto **geolocation** de _navigator_. Para saber si nuestro navegador soporta o no la API podemos hacer:
+
+```javascript
+if (geolocation in navigator)   // devuelve true si está soportado
+```
+
+P
