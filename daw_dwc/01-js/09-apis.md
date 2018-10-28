@@ -54,7 +54,7 @@ document.getElementById('zonaDrop').addEventListener('drop', function(event) {
 
 NOTA: si hacemos _draggable_ un elemento, por ejemplo un párrafo, ya no se puede seleccionar con el ratón ya que a pinchar y arrastrar se muevo, no se selecciona. Para poder seleccionarlo debemos pinchar y arrastrar el ratón con la tecla _Alt_ pulsada o hacerlo con el teclado.
 
-Podemos obtener más información de este método en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) y ver y modificar ejemplos en [w3schhols](https://www.w3schools.com/html/html5_draganddrop.asp) y muchas otras páginas.
+Podemos obtener más información de esta API [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) y ver y modificar ejemplos en [w3schhols](https://www.w3schools.com/html/html5_draganddrop.asp) y muchas otras páginas.
 
 ## Almacenamiento en el cliente: API Storage
 Antes de HTML5 la única manera que tenían los programadores de guardar algo en el navegador del cliente (como sus preferencias, su idioma predeterminado para nuestra web, etc) era utilizando _cookies_. Las cookies tienen muchas limitaciones (como vermoes más adelante) y es engorroso trabajar con ellas. 
@@ -201,6 +201,16 @@ let watchIdent=navigator.geolocation.watchPosition(
 navigator.geolocation.clearWatch(watchIdent);
 ```
 
-Podemos obtener más información de este método en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) y ver y modificar ejemplos en [w3schhols](http://www.w3schools.com/html/html5_geolocation.asp) y muchas otras páginas.
+Podemos obtener más información de esta API en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) y ver y modificar ejemplos en [w3schhols](http://www.w3schools.com/html/html5_geolocation.asp) y muchas otras páginas.
 
 ## Google Maps API
+Para poder utilizar la API en primer lugar debemos [obtener una API KEY](https://developers.google.com/maps/documentation/javascript/get-api-key) de Google.
+
+Una vez hecho incluir un mapa en nuestra web es tán sencillo como el siguiente ejemplo:
+
+```javascript
+
+```
+
+
+Podemos obtener más información de esta API en [Google Maps Plataform](https://developers.google.com/maps/documentation/javascript/tutorial), en el tutorial de [w3schhols](https://www.w3schools.com/graphics/google_maps_intro.asp) y en muchas otras páginas.
