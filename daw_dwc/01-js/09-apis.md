@@ -201,3 +201,6 @@ let watchIdent=navigator.geolocation.watchPosition(
 navigator.geolocation.clearWatch(watchIdent);
 ```
 
+Podemos obtener más información de este método en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) y ver y modificar ejemplos en [w3schhols](http://www.w3schools.com/html/html5_geolocation.asp) y muchas otras páginas.
+
+## Google Maps API
