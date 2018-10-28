@@ -172,4 +172,32 @@ Podemos acceder a esta API mediente el objeto **geolocation** de _navigator_. Pa
 if (geolocation in navigator)   // devuelve true si está soportado
 ```
 
-P
+Para obtener la posición este objeto proporciona el método **.getCurrentPosition()** que hace una petición **asíncrona**. CUando se reciba la posición se ejecutará la función _callback_ que pasemos como parámetro. Podemos pasar otra como segundo parámetro que se ejecutará si se produce algú error. Ej.:
+
+```javascript
+navigator.geolocation.getCurrentPosition(
+    function(position) {
+        pinta_posicion(position.coords.latitude, position.coords.longitude);
+    },
+    function(error) {
+        muestra_error(error);
+    }
+);
+```
+
+Si queremos ir obteniendo contínuamente la posición podemos usar el método  **.watchPosition()** que tiene los mismos paŕametros y funciona igual pero se ejecuta repetidamente. Este método devuelve un identificador para que lo podemos detener cuando queremos con **.clearWatch(ident)**. Ej.:
+
+```javascript
+let watchIdent=navigator.geolocation.watchPosition(
+    function(position) {
+        pinta_posicion(position.coords.latitude, position.coords.longitude);
+    },
+    function(error) {
+        muestra_error(error);
+    }
+);
+...
+// Cuando queremos dejar de obtener la posición haremos
+navigator.geolocation.clearWatch(watchIdent);
+```
+
