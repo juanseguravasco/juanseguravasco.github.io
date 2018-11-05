@@ -8,8 +8,8 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [5-Brpwser Object Model - BOM](./04-BOM.md)
 * [6-Eventos](./05-eventos.md)
 * [7-Objetos y funciones globales. Expresiones regulares. Validación de formularios](./06-globales.md)
-* [9-Ajax. Promesas](./08-ajax.md)
-* Utilidades: Geolocalización. Local Storage. API de Google Maps
+* [8-Ajax. Promesas](./08-ajax.md)
+* [9-APIs HTML5: Geolocalización. Local Storage. API de Google Maps](./09-apis.md)
 * Herramientas: npm y webpack
 
 # Introducción a Javascript
