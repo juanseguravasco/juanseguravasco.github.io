@@ -201,16 +201,43 @@ let watchIdent=navigator.geolocation.watchPosition(
 navigator.geolocation.clearWatch(watchIdent);
 ```
 
-Podemos obtener más información de esta API en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) y ver y modificar ejemplos en [w3schhols](http://www.w3schools.com/html/html5_geolocation.asp) y muchas otras páginas.
+Podemos obtener más información de esta API en [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) y ver y modificar ejemplos en [w3schhols](http://www.w3schools.com/html/html5_geolocation.asp) y muchas otras páginas. i
 
 ## Google Maps API
 Para poder utilizar la API en primer lugar debemos [obtener una API KEY](https://developers.google.com/maps/documentation/javascript/get-api-key) de Google.
 
-Una vez hecho incluir un mapa en nuestra web es tán sencillo como el siguiente ejemplo:
+Una vez hecho para incluir un mapa en nuestra web debemos cargar la librería para lo que incluiremos en nuestro código el  script:
 
 ```javascript
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=ESCRIBE_AQUI_TU_API_KEY&callback=initMap">
+</script>
+```
+(el parámetro callback será el encargado de llamar a la función initMap() que inicie el mapa)
 
+Ahora incluir un mapa es tán sencillo como crear un nuevo objeto de tipo _Map_ que recibe el elemento DOM donde se pintará (un div normalmente) y un objeto con los parámetros del mapa (como mínimo su centro y el zoom):
+
+```javascript
+let map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 38.6909085, lng: -0.4963000000000193},
+    zoom: 12
+  });
+}
 ```
 
+Por su parte añadir un marcador es igual de simple. Creamos una instancia de la clase _Marker_ a la que le pasamos al menos la posición, el mapa en que se creará y un título para el marcador:
+
+```javascript
+let marker = new google.maps.Marker({
+  position: {lat: 38.6909085, lng: -0.4963000000000193},
+  map: map,
+  title: 'CIP FP Batoi'
+});
+```
+
+Aquí tenéis el ejemplo anterior:
+<script async src="//jsfiddle.net/juansegura/aqwLznor/embed/"></script>
 
 Podemos obtener más información de esta API en [Google Maps Plataform](https://developers.google.com/maps/documentation/javascript/tutorial), en el tutorial de [w3schhols](https://www.w3schools.com/graphics/google_maps_intro.asp) y en muchas otras páginas.
