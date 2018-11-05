@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Coses a tindre en compte amb Ubuntu 18.04](#coses-a-tindre-en-compte-amb-ubuntu-1804)
+  - [Nom de les targetes](#nom-de-les-targetes)
+  - [Xarxa en Ubuntu 18.04](#xarxa-en-ubuntu-1804)
+    - [Fitxer de configuració](#fitxer-de-configuraci%C3%B3)
+  - [Enrutament](#enrutament)
+    - [Habilitar l'enrutament](#habilitar-lenrutament)
+    - [Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)](#configurar-nat-en-sistemes-netplan-ubuntu-1710-i-posteriors)
+    - [Configurar NAT des de Webmin](#configurar-nat-des-de-webmin)
+    - [Configurar NAT amb `iptables`](#configurar-nat-amb-iptables)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Coses a tindre en compte amb Ubuntu 18.04
 
 ## Nom de les targetes

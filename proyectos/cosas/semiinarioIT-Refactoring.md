@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Refactoring](#refactoring)
+  - [Conceptos](#conceptos)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Refactoring
 Seminario de Escuela IT el 22-10-2018
 

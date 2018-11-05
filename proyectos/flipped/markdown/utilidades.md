@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
 
-- [Documentación en](#documentaci%C3%B3n-en)
+- [Utilidades](#utilidades)
   - [Convertir de HTML a MD](#convertir-de-html-a-md)
   - [Convertir PDF a MD](#convertir-pdf-a-md)
   - [Convertir MD a PDF](#convertir-md-a-pdf)

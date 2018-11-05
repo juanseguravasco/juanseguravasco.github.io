@@ -1,3 +1,19 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [APIs HTML5: Drag And Drop. Local Storage. Geolocalización. API de Google Maps](#apis-html5-drag-and-drop-local-storage-geolocalizaci%C3%B3n-api-de-google-maps)
+  - [Introducción](#introducci%C3%B3n)
+  - [HTML Drag And Drop API](#html-drag-and-drop-api)
+  - [Almacenamiento en el cliente: API Storage](#almacenamiento-en-el-cliente-api-storage)
+    - [A tener en cuenta](#a-tener-en-cuenta)
+    - [Storage vs cookies](#storage-vs-cookies)
+    - [Cookies](#cookies)
+  - [Geolocation API](#geolocation-api)
+  - [Google Maps API](#google-maps-api)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # APIs HTML5: Drag And Drop. Local Storage. Geolocalización. API de Google Maps
 
 ## Introducción
