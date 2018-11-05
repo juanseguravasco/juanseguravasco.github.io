@@ -1,4 +1,4 @@
-# Utilidades: Drag And Drop. Local Storage. Geolocalización. API de Google Maps
+# APIs HTML5: Drag And Drop. Local Storage. Geolocalización. API de Google Maps
 
 ## Introducción
 En este tema varemos diferentes APIs incluidas en HTML5 (como la de Local Storage) y otras que se han hecho muy populares como la de Google Maps.
