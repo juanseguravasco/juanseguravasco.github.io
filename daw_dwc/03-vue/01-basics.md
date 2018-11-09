@@ -146,10 +146,12 @@ NOTA: toda la apliación debe estar dentro del elemento _app_ para que funcione.
 Es una extensión para Chrome y Firefox que nos permite inspeccionar nuestro objeto Vue y acceder a todos los datos de nuestra aplicación. Conviene instalarlo porque nos ayudará mucho a depurar nuestra aplicación, especialmente cuando comencemos a usar componentes.
 
 Si tenemos las DevTools instaladas en la herramienta de desarrollador aparece una nueva opción, _Vue_, con 4 botones:
-* Componentes: es lavista por defecto y nos permite inspeccionar todos los componentes Vue creados (ahora tenemos sólo 1, el principal, pero más adelante haremos componentes hijos)
+* Componentes: es la vista por defecto y nos permite inspeccionar todos los componentes Vue creados (ahora tenemos sólo 1, el principal, pero más adelante haremos componentes hijos)
 * Vuex: esla herramienta de gestión de estado para aplicaciones medias/grandes
 * Eventos: permite ver todos los eventos emitidos
 * Refrescar: refresca la herramienta
+
+![DevTools](./img/DevTools.png)
 
 Junto al componente que estamos inspeccionando aparece **= $vm0** que indica que DevTools ha creado una variable con ese nombre que contiene el componente por si queremos inspeccionarlo usando la consola.
 
