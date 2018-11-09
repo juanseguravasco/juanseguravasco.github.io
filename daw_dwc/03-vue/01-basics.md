@@ -36,8 +36,8 @@ Depende de la aplicación a desarrollar y de los gustos del programador. Tenéis
 Las razones de que veamos Vue en vez de Angular o React son, en resumen:
 * **Sencillez**: aunque Angular es el framework más demandado hoy en el mercado su curva de aprendizaje es muy pronunciada. Vue es mucho más sencillo de aprender pero su forma de trabajar es muy similar a Angular por lo que el paso desde Vue a Angular es relativamente sencillo
 * **Uso del framework**: React es también muy sencillo ya que es simplemente Javascript en el que podemos codificar la vista con JSX, pero la forma de trabajar de Vue es más pàrecida a otros frameworks, especialmente a Angular por lo que lo aprendido nos servirá a la hora de aprender otros framework
-* **Rendimiento**:Vue hace uso del concepto de _Virtual DOM_ igual que React por lo que también ofrecebuen rendimiento
-* **Popilaridad**: es el framwork cyua popularidad más está creciendo y ya ha superado incluso a React. Como muestra en 2016 los proyectos desarrollados con Vue obtuvieron 7600 estrellas en GitHub, en 2017 fueron 36700 estrellas y en Junio de 2018 ya han superado las 100000.
+* **Rendimiento**:Vue hace uso del concepto de _Virtual DOM_ igual que React por lo que también ofrece buen rendimiento
+* **Popularidad**: es el framwork cyua popularidad más está creciendo y ya ha superado incluso a React. Como muestra en 2016 los proyectos desarrollados con Vue obtuvieron 7600 estrellas en GitHub, en 2017 fueron 36700 estrellas y en Junio de 2018 ya han superado las 100000.
 
 ## Instalar Vue
 Para utilizar Vue sólo necesitamos enlazarlo en nuestra página desde un CDN:
@@ -63,7 +63,7 @@ En el HTML debemos vincular los scripts de la librería de Vue y de nuestro cód
 
 Vue se ejecutará dentro de un elemento de nuestra página (al que se le suele poner como id _app_) que en este caso es un `<div>`.
 
-Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `{{ ... }}` ) que muestra en
+Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `\{\{ ... \}\}` ) que muestra en
 la página la variable o expresión Javscript que contiene.
 
 ### Javascript
