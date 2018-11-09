@@ -129,7 +129,7 @@ Vue incorpora estos '_atributos_' que podemos usar en las etiquetas HTML y que s
   <p :title="message">
 ```
 ### Enlace bidireccional: v-model
-Tanto `{{ }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el valor de un dato y reaccionan ante cualquier cambio en dicho valor. 
+Tanto `\{{ }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el valor de un dato y reaccionan ante cualquier cambio en dicho valor. 
 
 Tenemos además está la directiva `v-model` que es un enlace bidireccional que enlace un dato a un campo de formulario y permite cambiar el valor del campo al cambiar el dato pero también cambia el dato si se modifica lo introducido en el input. 
 ```html
