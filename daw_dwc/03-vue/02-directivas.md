@@ -23,9 +23,9 @@ Las más comunes son:
 * `v-html`: permite que el texto que se muestra contenga caracteres HTML que interpretará el navegador (al usar la interpolación las etiquetas HTML son escapadas)
 * `v-bind`: para asignar el valor de una variable a un atributo de una etiqueta HTML, no entre la etiqueta y su cierre como hace la interpolación. Por ejemplo si tenemos la variable _estado_ cuyo valor es _error_ y queremos que se muestre dentro de un _span_ ese valor pero que también tenga una clase con ese valor haremos:
 ```html
-<span v-bind:class="estado">\{\{ estado }}</span>
+<span v-bind:class="estado">\{ { estado }}</span>
 ```
-El resultado será: `<span class="error">error</span>`. La directiva _v-bind:_ se puede abreviar simplemente como _:_ (`<span :class="estado">\{{ estado }}</span>`)
+El resultado será: `<span class="error">error</span>`. La directiva _v-bind:_ se puede abreviar simplemente como _:_ (`<span :class="estado">{ { estado }}</span>`)
 * `v-model`: permite enlazar un input a una variable (la hemos visto en el capítulo anterior)
 * `v-if`: renderiza o no el elemento que la contiene en función de una condición
 * `v-show`: similar al _v-if_ pero siempre renderiza el elemento (está en el DOM) y lo que hace es mostrarlo u ocultarlo (`display: none`) en función de la condición
