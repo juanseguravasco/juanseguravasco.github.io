@@ -8,7 +8,7 @@ Tabla de contenidos
     - [HTML](#html)
     - [Javascript](#javascript)
   - [_Binding_ de variables](#_binding_-de-variables)
-    - [Enlace unidireccional: interpolación {{...}}](#enlace-unidireccional-interpolaci%C3%B3n-)
+    - [Enlace unidireccional: interpolación { {...}}](#enlace-unidireccional-interpolaci%C3%B3n-)
     - [Enlazar a un atributo: v-bind](#enlazar-a-un-atributo-v-bind)
     - [Enlace bidireccional: v-model](#enlace-bidireccional-v-model)
   - [Vue devtools](#vue-devtools)
@@ -63,7 +63,7 @@ En el HTML debemos vincular los scripts de la librería de Vue y de nuestro cód
 
 Vue se ejecutará dentro de un elemento de nuestra página (al que se le suele poner como id _app_) que en este caso es un `<div>`.
 
-Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `{{ ... }}` ) que muestra en
+Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `{ { ... }}` ) que muestra en
 la página la variable o expresión Javscript que contiene.
 
 ### Javascript
@@ -88,7 +88,7 @@ Fichero HTML:
 <body>
 
   <div id="app">
-    <p>{{ message }}</p>
+    <p>{ { message }}</p>
   </div>
 
   <script src="https://unpkg.com/vue"></script>
@@ -107,7 +107,7 @@ var miApp = new Vue({
   }
 })
 ```
-### Enlace unidireccional: interpolación {{...}}
+### Enlace unidireccional: interpolación { {...}}
 Hemos creado una variable _miApp_ que contiene nuestro objeto Vue y que podemos ver y manipular desde la consola. Si cambiamos el valor de la variable _message_
 ```javascript
 miApp.message = "Hola Vue2!";
@@ -117,7 +117,7 @@ vemos que cambia lo que muestra nuestra página.
 Esto es porque Vue (al igual que Angular o React) enlazan el DOM y los datos de forma que cualquier cambio en uno se refleja automáticamente en el otro.
 
 ### Enlazar a un atributo: v-bind
-Para mostrar un dato en el DOM usamos ` {{  }} ` pero si queremos nostrarlo como atributo de una etiqueta debemos usar `v-bind`:
+Para mostrar un dato en el DOM usamos ` { {  }} ` pero si queremos nostrarlo como atributo de una etiqueta debemos usar `v-bind`:
 ```html
   <p v-bind:title="message">
     Hover your mouse over me for a few seconds
@@ -129,7 +129,7 @@ Vue incorpora estos '_atributos_' que podemos usar en las etiquetas HTML y que s
   <p :title="message">
 ```
 ### Enlace bidireccional: v-model
-Tanto `\{{ }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el valor de un dato y reaccionan ante cualquier cambio en dicho valor. 
+Tanto ` { { }}` como `v-bind` son un enlace unidireccional: muestran en el DOM el valor de un dato y reaccionan ante cualquier cambio en dicho valor. 
 
 Tenemos además está la directiva `v-model` que es un enlace bidireccional que enlace un dato a un campo de formulario y permite cambiar el valor del campo al cambiar el dato pero también cambia el dato si se modifica lo introducido en el input. 
 ```html
