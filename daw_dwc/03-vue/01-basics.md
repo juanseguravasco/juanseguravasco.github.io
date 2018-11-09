@@ -8,7 +8,7 @@ Tabla de contenidos
     - [HTML](#html)
     - [Javascript](#javascript)
   - [_Binding_ de variables](#_binding_-de-variables)
-    - [Enlace unidireccional: interpolación { {...}}](#enlace-unidireccional-interpolaci%C3%B3n-)
+    - [Enlace unidireccional: interpolación {\{...}}](#enlace-unidireccional-interpolaci%C3%B3n-)
     - [Enlazar a un atributo: v-bind](#enlazar-a-un-atributo-v-bind)
     - [Enlace bidireccional: v-model](#enlace-bidireccional-v-model)
   - [Vue devtools](#vue-devtools)
