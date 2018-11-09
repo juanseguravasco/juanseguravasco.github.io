@@ -63,7 +63,7 @@ En el HTML debemos vincular los scripts de la librería de Vue y de nuestro cód
 
 Vue se ejecutará dentro de un elemento de nuestra página (al que se le suele poner como id _app_) que en este caso es un `<div>`.
 
-Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `\{\{ ... \}\}` ) que muestra en
+Dentro de ese elemento podemos usar expresiones de Vue. En este ejemplo se usa el _moustache_ ( `{{ ... }}` ) que muestra en
 la página la variable o expresión Javscript que contiene.
 
 ### Javascript
@@ -117,7 +117,7 @@ vemos que cambia lo que muestra nuestra página.
 Esto es porque Vue (al igual que Angular o React) enlazan el DOM y los datos de forma que cualquier cambio en uno se refleja automáticamente en el otro.
 
 ### Enlazar a un atributo: v-bind
-Para mostrar un dato en el DOM usamos `{{ }}` pero si queremos nostrarlo como atributo de una etiqueta debemos usar `v-bind`:
+Para mostrar un dato en el DOM usamos ` {{  }} ` pero si queremos nostrarlo como atributo de una etiqueta debemos usar `v-bind`:
 ```html
   <p v-bind:title="message">
     Hover your mouse over me for a few seconds
