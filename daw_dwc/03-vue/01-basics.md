@@ -75,6 +75,23 @@ es _message_. A cada variable le debemos dar un valor inicial.
 * pueden haber más como *methods* (objeto con métodos que podemos llamar desde la vista), *props* (array de variables que se 
 pasan de inicio, usado en componentes), *computed* (propiedades calculadas), etc. que veremmos más adelante.
 
+## La instancia _Vue_
+La instancia que hemos creado (y cada componente) recibe un objeto de opciones con:
+* **el**: el elemento que contendrá la aplicación identificado en notación CSS (# para id, . para clase, ...). Si hubiera más de 1 elemento identificado así se cogería sólo el primero (es como hacer un querySelector del mismo)
+* **data**: objeto donde definiremos todas las variables que vamos a usar en la vista (las variables que sólo uemos en el javascript las definiremos con **let** en el método donde vayamos a usarlas. Todas son accesibles desde la vista poniendo su nombre y desde el código JS poniendo *this.su_nombre*.
+* **methods**: objeto con métodos a los que podemos llamar desde la vista
+* **computed**: son métodos igual pero que se 'cachean'
+* _Eventos del ciclo de vida de la instancia_: para ejecutar código en determinados momentos: **'created'**, **'mounted'**, **'updated'**, **'destroyed'**. Ej.:
+
+```javascript
+created() {
+    console.log('instancia creada'); 
+}
+```
+En la siguiente imagen podéis ver el ciclo de vida de la instancia Vue (y de cualquier componente) y los eventos que se generan y que podemos interceptar:
+
+![Ciclo de vida de Vue](https://vuejs.org/images/lifecycle.png)
+
 ## _Binding_ de variables
 Para probar su funcionamiento conviene que nos descarguemos los ficheros y los abramos en local.
 
