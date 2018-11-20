@@ -179,7 +179,7 @@ Cuando inspeccinamos nuestros componentes, bajo la barra de botones aparece otra
 
 NOTA: Si por algún motivo queremos trabajar sin servidor web (desde file://...) hay que habilitar el acceso a ficheros en la extensión.
 
-![DevTools](./img/DevTools-AllowFiles.png)
+![DevTools](./img/DevTolols-AllowFiles.png)
 
 ## Extensiones para el editor de código
 Cuando empecemos a trabajar con componentes usaremos ficheros con extensión **.vue** que integran el HTML, el JS y el CSS de cada componente. Para que nuestro editor los detecte correctamente es conveniente instalar la extensión para Vue (en el caso de Visual Studio Code se llama **Vetur**).
