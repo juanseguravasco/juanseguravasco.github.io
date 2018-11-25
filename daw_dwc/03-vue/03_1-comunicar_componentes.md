@@ -267,7 +267,7 @@ Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más 
 
 * [slots](https://vuejs.org/v2/guide/components-slots.html): permiten pasar cualquier cosa en el innerHTML de un componente que el componente mostrará tal cual:
 
-```javascript
+```html
 // Al llamar al componente ponemos algo en su innerHTML
 <navigation-link url="/profile">
   <span class="fa fa-user"></span>
