@@ -67,7 +67,7 @@ El parámetro lo recibimos en el componente en _props_:
 ```javascript
 Vue.component('todo-item', {
   props: ['todo'],
-  template: '<li>{ { todo.title }}</li>'
+  template: '<li>{\{ todo.title }}</li>'
 })
 ```
 NOTA: si un parámetro tiene más de 1 palabra en el HTML lo pondremos en forma kebeb-case (ej.: `<todo-item :todo-elem=...>`) pero en el Javascript irá en camelCase (`Vue.component('todo-item',{ props: ['todoElem'],...})`).
