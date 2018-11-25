@@ -152,6 +152,112 @@ Cada componente que queramos que emita al bus deberá también tener importado e
 EventBus.$emit('nombreEv', param)
 ```
 
+## Compartir datos
+Una forma más sencilla de modificar datos de un componente desde otro es compartendo los datos. Definimos fuera de la instancia Vue y de cualquier componente un objeto que contendrá todos los datos a compartir entre componentes y lo registramos en el _data_ de cada componente que tenga que acceder a él. Ejemplo:
+
+```javascript
+const store={
+  message: '',
+  ...
+}
+
+Vue.component('comp-a', {
+  ...
+  data() {
+    return {
+      store,
+      // y a continuación el resto de data del componente
+      ...
+    }
+  },
+  methods: {
+    changeMessage(newMessage) {
+      this.store.message=newMessage;
+    }
+  },
+  ...
+})
+
+Vue.component('comp-b', {
+  ...
+  data() {
+    return {
+      store,
+      // y a continuación el resto de data del componente
+      ...
+    }
+  },
+  methods: {
+    delMessage() {
+      this.store.message='';
+    }
+  },
+  ...
+})
+```
+
+Tanto desde _comp-a_ como desde _comp-b_ podemos modificar el contenido de **store** y esos cambios se reflejarán automáticamente tanto en la vista de _comp-a_ como en la de _comp-b_. Fijaos que declaro el objeto como una constante porque NO puedo cambiar su valor para que pueda ser usado por todos los componentes, pero sí el de sus propiedades.
+
+Esto tiene un grave inconveniente y es que el valor de cualquier dato puede ser modificado desde cualquier parte de la aplicación, lo que es una pesadilla a la hora de depurarel código y encontrar errores.
+
+Para evitar esto podemos usar un patrón de almacén.
+
+### Store pattern
+Es el mismo caso de antes pero las acciones que modifiquen los datos del almacén están incluidas dentro del propio almacén, lo que facilita su seguimiento:
+
+```javascript
+const store={
+  debug: true,
+  state: {
+    message: '',
+    ...
+  },
+  setMessageAction (newValue) {
+    if (this.debug) console.log('setMessageAction triggered with', newValue)
+    this.state.message = newValue
+  },
+  clearMessageAction () {
+    if (this.debug) console.log('clearMessageAction triggered')
+    this.state.message = ''
+  }
+}
+
+Vue.component('comp-a', {
+  ...
+  data() {
+    return {
+      sharedData: store.state,
+      // y a continuación el resto de data del componente
+      ...
+    }
+  },
+  methods: {
+    changeMessage(newMessage) {
+      store.setMessageAction(newMessage);
+    }
+  },
+  ...
+})
+
+Vue.component('comp-b', {
+  ...
+  data() {
+    return {
+      sharedData: store.state,
+      // y a continuación el resto de data del componente
+      ...
+    }
+  },
+  methods: {
+    delMessage() {
+      store.clearMessageAction();
+    }
+  },
+  ...
+})
+```
+
+
 ## Vuex
 Es un patrón y una librería para gestionar los estados en una aplicación Vue. Ofrece un almacenamiento centralizado para todos los componentes con unas reglas para asegurar que un estado sólo cambia de determinada manera.
 
