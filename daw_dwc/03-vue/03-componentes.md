@@ -115,10 +115,10 @@ Vue.component('my-comp', {
 
 // BIEN
 Vue.component('my-comp', {
-  template: '<div>
+  template: `<div>
                <input id="query">
                <button id="search">Buscar</button>
-             </div>',
+             </div>`,
 })
 ```
 
