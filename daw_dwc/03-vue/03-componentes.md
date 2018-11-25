@@ -109,8 +109,8 @@ El template de un componente debe tener un único elemento raíz por lo que, si 
 ```javascript
 // MAL
 Vue.component('my-comp', {
-  template: '<input id="query">
-             <button id="search">Buscar</button>',
+  template: `<input id="query">
+             <button id="search">Buscar</button>`,
 })
 
 // BIEN
