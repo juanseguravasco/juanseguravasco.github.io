@@ -24,7 +24,7 @@ Tabla de contenidos
 
 # Vue-cli
 Se trata de una herramienta que incluye Vue que nos ayuda en:
-* Crea automáticamente el _scaffolding_ básico de nuestro proyecto basándose en una serie de plantillas perdefinidas
+* Crea automáticamente el _scaffolding_ básico de nuestro proyecto basándose en una serie de plantillas predefinidas
 * Incluye herramientas como Webpack, Babel, Uglify, ... que permiten
   * gestionar las dependencias de nuestro código
   * empaquetar todos los ficheros _.vue_ y librerías en un único fichero JS y CSS
