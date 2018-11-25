@@ -265,13 +265,28 @@ Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más 
 
 ## Otras formas de comunicarse
 
-* slots
-* .native
-* v-model de componentes
+* [slots](https://vuejs.org/v2/guide/components-slots.html): permiten pasar cualquier cosa en el innerHTML de un componente que el componente mostrará tal cual:
+
+```javascript
+// Al llamar al componente ponemos algo en su innerHTML
+<navigation-link url="/profile">
+  <span class="fa fa-user"></span>
+  Your Profile
+</navigation-link>
+
+// que el componente mostrará tal cual en sustitución de su etiqueta <slot>
+<a v-bind:href="url" class="nav-link">
+  <slot></slot>
+</a>
+```
+
+* [.native](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components): permite que un evento se escuche en el elemento que llama al componente y no en el componente
+* [v-model de componentes](https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model): permite que los inputs de un formulario sean subcomponentes y que puedan seguir enlazadas mediante _v-model_ con datos del formulario.
 
 # Aplicación de ejemplo
 Vamos a hacer que funcione la aplicación que separamos en componentes.
 
+## Solución emitiendo eventos
 En primer lugar vamos a darle funcionalidad al botón de borrar toda la lista. En la función manejadora del componente sustituimos el _alert_ por
 ```javascript
 this.$emit('delAll');
@@ -297,3 +312,5 @@ Para evitarlo cambiamos el _v-model_ que es bidireccional (al modificar el check
 
 **Solución**:
 <script async src="//jsfiddle.net/juansegura/u2joasts/embed/"></script>
+
+## Solución con _Store pattern_
