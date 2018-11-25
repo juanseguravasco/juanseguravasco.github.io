@@ -314,3 +314,9 @@ Para evitarlo cambiamos el _v-model_ que es bidireccional (al modificar el check
 <script async src="//jsfiddle.net/juansegura/u2joasts/embed/"></script>
 
 ## Solución con _Store pattern_
+Creamos el _store_ para el array de cosas a hacer que debe ser accesible desde varios componentes. En él incluimos métodos para añadir y borrar un nuevo _todo_, para cambiar el estado de un _todo_ y para borrarlos todos.
+
+En el componente _todo_list_ debemos incluir el array _todos_ lo que haremos en su data. El resto de componentes no necesitan acceder al array, por lo que no lo incluimos e su data, pero sí llamarán a los métodos para cambiarlo.
+
+**Solución**:
+<script async src="//jsfiddle.net/juansegura/o0951fzr/embed/"></script>
