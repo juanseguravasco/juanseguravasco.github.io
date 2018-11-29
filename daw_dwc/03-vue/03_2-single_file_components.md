@@ -82,7 +82,7 @@ El párrafo tendrá la clase indicada en la variable _decoration_ (en este caso 
 ## TodoList con Single File Components
 Vamos a ver cómo sería el fichero **TodoList.vue** con el componente _todo-list_ de la aplicación anterior.
 ### \<template>
-```[html
+```html
   <div>
     <h2>{{ title }}</h2>
     <ul>
