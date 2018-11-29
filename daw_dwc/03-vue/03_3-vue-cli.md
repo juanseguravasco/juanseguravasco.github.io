@@ -39,21 +39,21 @@ Para usar **vue-cli** necesitamos tener instalado **npm** (el gestor de paquetes
 * Si nuestra dsitribución es muy actual podemos instalarlo desde los repositorios como cualquier otro programa (`apt install nodejs`)
 * Podemos [descargarlo desde NodeJS.org](https://nodejs.org/es/download/), descomprimir el paquete e instalarlo (`dpkg -i _nombrepaquete_`)
 * O bien [instalarlo desde NodeSource](https://nodejs.org/es/download/package-manager/#distribuciones-de-linux-basadas-en-debian-y-ubuntu)_ con
-```[bash]
+```bash
 curl -sL https://deb.nodesource.com/setup_X.y | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 (cambiaremos _X.y_ por la versión que queramos, vue-cli requiere al menos la 8.10.0).
 
 Una vez instalado **npm** Vue-cli se instala con
-```[bash]
+```bash
 npm install -g @vue/cli
 ```
-La opción -g es para que lo instale globalmente en el sistema y no instale unca copia para cada proyecto.
+La opción -g es para que lo instale globalmente en el sistema y no instale una copia para cada proyecto.
 
 ## Creación de un nuevo proyecto
 Para crear un nuevo proyecto haremos:
-```[bash]
+```bash
 vue create _<directorio_proyecto>_
 ```
 Vue nos ofrece 2 opciones:
@@ -63,21 +63,21 @@ Vue nos ofrece 2 opciones:
 ![Nuevo Proyecto Manual](https://cli.vuejs.org/cli-select-features.png)
 
 Tabién podemos crear y gestionar nuestros proyectos desde el entorno gráfico ejecutando el comando:
-```[bash]
+```bash
 vue ui
 ```
 Este comando arranca un servidor web en el puerto 8000 y abre el navegador para gestionar nuestros proyectos.
 
 ### Ejemplo proyecto por defecto
 Para arrancar el proyecto entramos a la carpeta y ejecutamos en la terminal
-```[bash]
+```bash
 npm run serve
 ```
 Este script compila el código, muestra si hay errores, lanza un servidor web en el puerto 8080 y carga el proyecto en el navegador (localhost:8080). Si cambiamos cualquier fichero JS de _src_ recompila y recarga la página automáticamente. La página generada es:
 ![Proyecto de plantilla simple](./img/vue-webpack-simple-app.png)
 
 Cuando nuestra aplicación esté lista para subir a producción ejecutaremos el script:
-```[bash]
+```bash
 npm run build
 ```
 Este comando genera los JS y CSS para subir a producción dentro de la carpeta _dist_.
