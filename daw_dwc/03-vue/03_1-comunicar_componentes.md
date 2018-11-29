@@ -23,7 +23,7 @@ Nos podemos encontrar las siguientes situaciones:
 * Comunicación entre otros componentes: crear un componente que haga de _bus_ de comunicaciones
 * Comunicación más compleja: Vuex
 
-## Props
+## Props (de padre a hijo)
 Ya hemos visto que permiten pasar parámetros del padre al componente hijo. Si el valor del parámetro cambia en el padre automáticamente se reflejan esos cambos en el hijo.
 
 Cualquier parámetro que pasemos sin _v-bind_ se considera texto. Si queremos pasar un número, booleano, array u objeto hemos de pasarlo con _v-bind_ igual que hacemos con las variables para que no se considere texto:
@@ -36,7 +36,7 @@ Cualquier parámetro que pasemos sin _v-bind_ se considera texto. Si queremos pa
 Podemos pasar varios parámetros en un atributo _v-bind_ sin nombre:
 ```html
 <ul>
-  <todo-item v-bind="{ todo: 'Aprender Vue, done: false }" ></todo-item>
+  <todo-item v-bind="{ todo: 'Aprender Vue', done: false }" ></todo-item>
 </ul>
 ```
 y en e componente se reciben sus propiedades separadamente:
@@ -69,7 +69,7 @@ computed(): {
 }
 ```
 
-**OJO**: Si el parámetro es un objeto o un array éste se pasa por referencia por lo que si lo cambiamos en el componente hijo  afectará al padre, lo que debemos evitar.
+**OJO**: Si el parámetro es un objeto o un array éste se pasa por referencia por lo que si lo cambiamos en el componente hijo  SÍ se cambiará en el padre, lo que debemos evitar.
 
 ### Validación de props
 Al pasar un parámetro podemos indicar algunas cosas como:
@@ -100,15 +100,15 @@ props: {
   }
 ```
 
-## Emitir eventos
+## Emitir eventos (de hijo a padre)
 Si un componente hijo debe pasarle un dato a su padre o informarle de algo puede emitir un evento que el padre capturará y tratará convenientemente. Para emitir el evento el hijo hace:
 ```javascript
-  this.$emit('nombreEv', parametro);
+  this.$emit('nombreevento', parametro);
 ```
 
 El padre debe capturar el evento como cualquier otro. En su HTML hará:
 ```html
-<my-component @nombreEv="fnManejadora"
+<my-component @nombreevento="fnManejadora"
 ...
 ```
 
@@ -125,7 +125,8 @@ y en su JS tendrá la función para manejar ese evento:
 
 El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
 
-También se puede "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo con el modificador _.sync_ pero no es muy recomendable porque hace el código más difícil de mantener:
+### sync
+Una alternativa a emitir eventos es "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo, lo que se hace con el modificador _.sync_, pero no es muy recomendable porque hace el código más difícil de mantener:
 ```html
 <ul>
   <todo-item todo="Aprender Vue" :done.sync="false" ></todo-item>
@@ -140,24 +141,25 @@ Para crear el objeto que gestione la comunicación entre componentes haremos:
 ```javascript
 var EventBus = new Vue;
 ```
-En cada componente que queramos que escuche eventos de ese bus importamos el componente y creamos un escuchador en el hook _created_:
+En cada componente que queramos que escuche eventos de ese bus importamos el componente y creamos un escuchador en el hook _created_ o _mounted_:
 ```javascript
 created() {
-    EventBus.$on('nombreEv', function(param) {
+    EventBus.$on('nombreevento', function(param) {
         …
     })
 ```
 Cada componente que queramos que emita al bus deberá también tener importado el _EventBus_. Para emitir, en el método del componente que queramos lanzamos el evento con:
 ```javascript
-EventBus.$emit('nombreEv', param)
+EventBus.$emit('nombreevento', param)
 ```
 
 ## Compartir datos
-Una forma más sencilla de modificar datos de un componente desde otro es compartendo los datos. Definimos fuera de la instancia Vue y de cualquier componente un objeto que contendrá todos los datos a compartir entre componentes y lo registramos en el _data_ de cada componente que tenga que acceder a él. Ejemplo:
+Una forma más sencilla de modificar datos de un componente desde otros es compartendo los datos. Definimos fuera de la instancia Vue y de cualquier componente un objeto que contendrá todos los datos a compartir entre componentes y lo registramos en el _data_ de cada componente que tenga que acceder a él. Ejemplo:
 
 ```javascript
 const store={
   message: '',
+  newData: { },
   ...
 }
 
@@ -227,7 +229,8 @@ Vue.component('comp-a', {
   data() {
     return {
       sharedData: store.state,
-      // y a continuación el resto de data del componente
+      // o aún mejor declaramos sólo las variables que necesitemos, ej
+      // message: store.state.message,
       ...
     }
   },
