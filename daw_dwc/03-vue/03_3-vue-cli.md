@@ -432,7 +432,16 @@ import Vue from 'vue';
 export const EventBus = new Vue();
 ```
 
-En los componentes donde queramos usar el _EventBus_ sólo tenemos que importar el fichero anterior.
+En los componentes donde queramos usar el _EventBus_ sólo tenemos que importar el fichero anterior:
+```javascript
+import { EventBus } from '../event-bus.js';
+
+export default {
+  name: "MyCOmponent",
+  created() {
+    EventBus.$on(...)
+      ...
+```
 
 ## Store pattern
 La solución en este caso es muy similar. Creamos un fichero **store.js** en el que guardamos el _store_ con los datos compartidos y los métodos que los modifican:
@@ -447,4 +456,14 @@ export const store = {
 };
 ```
 
-Y donde vayamos a usar los datos compartidos importaremos el fichero anterior.
+Y donde vayamos a usar los datos compartidos importaremos el fichero anterior:
+```javascript
+import { store } from '../store.js';
+
+export default {
+  name: "MyCOmponent",
+  data() {
+    return {
+      storeState: store.state
+      ...
+```
