@@ -18,6 +18,7 @@ y poner más ejempls y ejerciccios de todo
 
 # Usar Bootstrap
 Mirar: https://www.sitepoint.com/bootstrap-vue-js-bootstrap-vue/
+FA icons: https://github.com/FortAwesome/vue-fontawesome
 
 Se puede vincular el CSS directamente en index.html
 o
