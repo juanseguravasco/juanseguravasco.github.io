@@ -161,6 +161,54 @@ Modificamos el método _delTodos_ del fichero **Todo-List.vue**. Como el servido
 ```
 Si lo probáis con muchos registros es posible que no se borren todos correctamente (en realidad sí se borran de la base de datos pero no del array). ¿Sabes por qué?. ¿Cómo lo podemos arreglar? (PISTA: el índice cambia según los elementos que haya y las peticiones asíncronas pueden no ejecutarse en el orden que esperamos).
 
+## Solución mejor organizada
+Vamos a crear un fichero que será donde estén las peticiones a axios de forma que nuestro código quede más limpio en los componentes. Podemos llamar al fichero APIService.js y allí creamos una clase que se ocupe de todo:
+```javascript
+import axios from 'axios';
+const API_URL = 'http://localhost:3000';
+
+export class APIService{
+  constructor(){
+  }
+  getTodos() {
+    return axios.get(url+'/todos').then(response => response.data)
+  }
+  delTodo(id){
+    axios.delete(url+'/todos/'+id).then(response => response.data)
+  },
+  addTodo(newTodo) {
+    axios.post(url+'/todos', newTodo).then(response => response.data)
+  },
+  changeTodo(todo) {
+    axios.put(url+'/todos/'+todo.id, {
+      id: todo.id, 
+      title: todo.title, 
+      done: !todo.done
+    }).then(response => response.data)
+  },
+}
+```
+Y en los componentes donde queramos usarlo importamos ela clase y creamos una instacia de la misma:
+```javascript
+import { APIService } from '../APIService';
+
+const apiService=new APIService();
+
+export default {
+  ...
+  methods: {
+    getTodos() {
+      apiService.getTodos().then(todos=>
+        todos.forEach(todo=>this.todos.push(todo))
+      )
+    },
+    ...
+  },
+  mounted() {
+    this.getTodos();
+  },
+```
+
 ## json-server
 Es un servidor API-REST que funciona bajo node.js y que utiliza un fichero JSON como contenedor de los datos en lugar de una base de datos.
 
