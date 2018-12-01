@@ -417,3 +417,34 @@ export default {
   },
   ...
 ```
+
+# Comunicación entre componentes en Vue-cli
+Como ya hemos visto los componentes tienen sus propios datos pero hay ocasiones en que varios componentes necesitan acceder a los mismos datos. Estos datos se consideran datos de nivel de aplicación, no de componente y hay varias formas de tratarlos.
+
+Entre padres e hijos ya hemos visto que se puede intercambiar información mediante _props_ y emitiendo eventos del hijo al padre. Además tenemos otras 2 maneras de comunicación:
+* Event Bus
+* Pattern Store
+
+## Event Bus
+Creamos un fichero **event-bus.js** donde declaramos el objeto que usaremos como bus de comunicaciones:
+```javascript
+import Vue from 'vue';
+export const EventBus = new Vue();
+```
+
+En los componentes donde queramos usar el _EventBus_ sólo tenemos que importar el fichero anterior.
+
+## Store pattern
+La solución en este caso es muy similar. Creamos un fichero **store.js** en el que guardamos el _store_ con los datos compartidos y los métodos que los modifican:
+```javascript
+export const store = {
+  state: {
+    todos: []
+  },
+  addTodoAction(newTodo) {
+    this.state.todos.push(newTodo);
+  }
+};
+```
+
+Y donde vayamos a usar los datos compartidos importaremos el fichero anterior.
