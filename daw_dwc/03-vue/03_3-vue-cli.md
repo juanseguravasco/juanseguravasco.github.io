@@ -212,10 +212,15 @@ Recibe el parámetro _msg_ que es de tipo String.
 
 
 ### Añadir nuevos plugins y dependencias
-Para instalar un nuevo plugin (antes conviene haber hecho un _commit_) usamos `vue add`, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
+Para instalar un nuevo plugin a nuestro proyecto (antes conviene haber hecho un _commit_) usamos `vue add` desde la carpeta del proyecto, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
 ```bash
 vue add vuetify
 ```
+O para añadir _bootstrap_ ejecutamos:
+```bash
+vue add bootstrap-vue
+```
+
 Esto automáticamente instala el plugin dentro de _node-modules_ y modifica el fichero _package.json_.
 
 Si queremos instalar un paquete que no funciona como plugin lo haremos desde _npm_:
