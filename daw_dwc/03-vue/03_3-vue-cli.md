@@ -134,16 +134,16 @@ import App from './App.vue'
 Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+  render: h => h(App),
+}).$mount('#app')
+
 ```
 Es el fichero JS principal. Importa la librería _Vue_ y el componente _App.vue_, crea la instancia de Vue y renderiza el componente _App_.
 
 Además indica que no estamos en modo producción lo que hace que en la consola aparezca un mensaje indicando que se está en modo desarrollo.
 
 **Fichero App.vue:**
-Es el componente principal de la aplicación. Lo que contiene el apartado _template_ es lo que se renderizará en el div _app_ que hay en _index.html_. Si contiene algún otro componente se indica aquí dónde renderizarlo.
+Es el componente principal de la aplicación. Lo que contiene el apartado _template_ es lo que se renderizará en el div _app_ que hay en _index.html_. Si contiene algún otro componente se indica aquí dónde renderizarlo (en este caso <HelloWorld>).
 
 Veamos qué contiene cada sección
 
@@ -151,42 +151,65 @@ _template_
 ```html
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <img alt="Vue logo" src="./assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 ```
-Incluye el _\<div#app>_ que contiene la aplicación. También muestra una imagen. Las imágenes se guardan dentro de **/src/assets/**.
+Muestra una imagen (las imágenes se guardan dentro de **/src/assets/**) y el subcomponente _HelloWorld_.
 
 _script_
 ```javascript
+<script>
+import HelloWorld from './components/HelloWorld.vue'
+
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    HelloWorld
   }
 }
+</script>
 ```
-Simplemente define el componente 'app' que tiene una variable, _msg_, que es el título que se muestra en el template.
+Importa y registra el componente _HelloWorld_ que se muestra en el template.
 
 _style_
 Aquí se definen los estilos de este componente. Si la etiqueta tiene el atributo _scoped_ (`<style scoped>`) significa que los estilos incluidos se aplicarán sólo a este componente.
+
+**Fichero components/HelloWorld.vue:**
+Es el componente que muestra el texto que aparece bajo la imagen. Recibe como parámetro el título a mostrar. Veamos qué contiene cada sección:
+
+_template_
+```html
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+    <p>
+      For a guide and recipes on how to configure / customize this project,<br>
+      check out the
+      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+    </p>
+    <h3>Installed CLI Plugins</h3>
+    <ul>
+       ...
+  </div>
+</template>
+```
+Muestra el _msg_ recibido y varios apartados con listas.
+
+_script_
+```javascript
+<script>
+export default {
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  }
+}
+</script>
+```
+Recibe el parámetro _msg_ que es de tipo String.
+
 
 ### Añadir nuevos plugins y dependencias
 Para instalar un nuevo plugin (antes conviene haber hecho un _commit_) usamos `vue add`, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
@@ -203,7 +226,7 @@ El comando `npm install` instala el paquete en _node-modules_ Para que lo añada
 
 ## Crear un nuevo componente
 
-Creamos un nuevo fichero en **/src** (o en alguna subcarpeta dentro) con extensión _.vue_. Donde queramos usar ese componente debemos importarlo y registrarlo como hemos visto en el artículo de los _Single File Components_. 
+Creamos un nuevo fichero en **/src/components** (o en alguna subcarpeta dentro) con extensión _.vue_. Donde queramos usar ese componente debemos importarlo y registrarlo como hemos visto con _HelloWorld_ (y como se explica en el artículo de los _Single File Components_). 
 ```javascript
 import CompName from './CompName.vue'
 
@@ -221,7 +244,7 @@ Y ya podemos incluir el componente en el HTML:
 ```
 
 ## Depurar el código en la consola
-Podemos seguir depurando nuestro código, poniendo puntos de interrupción y usando todas las herramientas que nos proporciona la consola mientras estamos en modo de depuración (si hemos abierto la aplicación con `npm run dev`).
+Podemos seguir depurando nuestro código, poniendo puntos de interrupción y usando todas las herramientas que nos proporciona la consola mientras estamos en modo de depuración (si hemos abierto la aplicación con `npm run serve`).
 
 Para localizar nuestros fichero varemos que en nuestras fuentes de software aparece **webpack** y dentro nuestras carpetas con el código (**src**, ...):
 ![Depurar en la consola](./img/console-webpack.png)
