@@ -17,6 +17,11 @@ Además de lo que hay abajo:
 y poner más ejempls y ejerciccios de todo
 
 # Usar Bootstrap
+vue add bootstrap-vue
+vue add fontawesome
+- y donde quieras usarlo: 					<font-awesome-icon icon="trash-alt" /> 
+
+
 Mirar: https://www.sitepoint.com/bootstrap-vue-js-bootstrap-vue/
 FA icons: https://github.com/FortAwesome/vue-fontawesome
 
