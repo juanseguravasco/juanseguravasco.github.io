@@ -73,7 +73,7 @@ Para arrancar el proyecto entramos a la carpeta y ejecutamos en la terminal
 ```bash
 npm run serve
 ```
-Este script compila el código, muestra si hay errores, lanza un servidor web en el puerto 8080 y carga el proyecto en el navegador (localhost:8080). Si cambiamos cualquier fichero JS de _src_ recompila y recarga la página automáticamente. La página generada es:
+Este script compila el código, muestra si hay errores, lanza un servidor web en el puerto 8080 y carga el proyecto en el navegador (http://localhost:8080). Si cambiamos cualquier fichero JS de _src_ recompila y recarga la página automáticamente. La página generada es:
 ![Proyecto de plantilla simple](./img/vue-webpack-simple-app.png)
 
 Cuando nuestra aplicación esté lista para subir a producción ejecutaremos el script:
@@ -98,6 +98,7 @@ Los principales ficheros y directorios creados son:
     * main.js: JS principal que carga componentes y crea la instancia de Vue que 'pinta' el App.vue 
     * App.vue: página de inicio del proyecto. Aquí cargaremos la cabecera, el menú,... y los diferentes componentes
     * components/: carpeta que contendrá los ficheros .vue de los diferentes componentes
+        * HelloWorld.vue: componente llamado por App.vue
 
 #### package.json
 Aquí se configura nuestra aplicación:
