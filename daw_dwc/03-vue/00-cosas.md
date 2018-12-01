@@ -17,6 +17,8 @@ Además de lo que hay abajo:
 y poner más ejempls y ejerciccios de todo
 
 # Usar Bootstrap
+Mirar: https://www.sitepoint.com/bootstrap-vue-js-bootstrap-vue/
+
 Se puede vincular el CSS directamente en index.html
 o
 1. Bajar las dependencias
