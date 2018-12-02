@@ -12,6 +12,7 @@ Tabla de contenidos
     - [Añadir un todo](#a%C3%B1adir-un-todo)
     - [Actualizar el campo _done_](#actualizar-el-campo-_done_)
     - [Borrar todas las tareas](#borrar-todas-las-tareas)
+  - [Solución mejor organizada](#soluci%C3%B3n-mejor-organizada)
   - [json-server](#json-server)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

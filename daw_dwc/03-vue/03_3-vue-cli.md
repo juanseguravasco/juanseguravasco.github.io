@@ -19,6 +19,9 @@ Tabla de contenidos
     - [comp-todo/DelAll.vue](#comp-tododelallvue)
     - [comp-todo/TodoList.vue](#comp-todotodolistvue)
     - [App.vue](#appvue)
+- [Comunicación entre componentes en Vue-cli](#comunicaci%C3%B3n-entre-componentes-en-vue-cli)
+  - [Event Bus](#event-bus)
+  - [Store pattern](#store-pattern)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

@@ -3,14 +3,19 @@
 Tabla de contenidos
 
 - [Comunicación entre componentes](#comunicaci%C3%B3n-entre-componentes)
-  - [Props](#props)
+  - [Props (de padre a hijo)](#props-de-padre-a-hijo)
     - [No cambiar el valor de una prop](#no-cambiar-el-valor-de-una-prop)
     - [Validación de props](#validaci%C3%B3n-de-props)
-  - [Emitir eventos](#emitir-eventos)
+  - [Emitir eventos (de hijo a padre)](#emitir-eventos-de-hijo-a-padre)
+    - [sync](#sync)
   - [Bus de comunicaciones](#bus-de-comunicaciones)
+  - [Compartir datos](#compartir-datos)
+    - [Store pattern](#store-pattern)
   - [Vuex](#vuex)
   - [Otras formas de comunicarse](#otras-formas-de-comunicarse)
 - [Aplicación de ejemplo](#aplicaci%C3%B3n-de-ejemplo)
+  - [Solución emitiendo eventos](#soluci%C3%B3n-emitiendo-eventos)
+  - [Solución con _Store pattern_](#soluci%C3%B3n-con-_store-pattern_)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
