@@ -41,8 +41,7 @@ Ya podemos hacer peticiones Ajax en el componente. Para ello axios incluye los m
 * **.put(url, objeto)**: realiza una petición PUT a la url pasada como parámetro que posiblemente realizará un UPDATE sobre el registro indicado en la url que será actualizao con los datos del objeto pasado como segundo parámetro
 * **.delete(url)**: realiza una petición DELETE a la url pasada como parámetro que supondrá una consulta DELETE a la base de datos para borrar el registro indicado en la url
 
-Al hacer la petición indicaremos con el método **.then** la función _callback_ que se ejecutará cuando responda el servidor si la petición se resuelve correctamente y 
-con el método **.catch** la función _callback_ que se ejecutará cuando responda el servidor si ocurre algún error.
+Estos métodos devuelven una promesa por lo queal hacer la petición indicaremos con el método **.then** la función que se ejecutará cuando responda el servidor si la petición se resuelve correctamente y con el método **.catch** la función que se ejecutará cuando responda el servidor si ocurre algún error.
 
 La respuesta del servidor tiene, entre otras, las propiedades:
 * **data**: aquí tendremos los datos devueltos por el servidor
@@ -172,20 +171,20 @@ export class APIService{
   constructor(){
   }
   getTodos() {
-    return axios.get(url+'/todos').then(response => response.data)
+    return axios.get(url+'/todos')
   }
   delTodo(id){
-    axios.delete(url+'/todos/'+id).then(response => response.data)
+    axios.delete(url+'/todos/'+id)
   },
   addTodo(newTodo) {
-    axios.post(url+'/todos', newTodo).then(response => response.data)
+    axios.post(url+'/todos', newTodo)
   },
   changeTodo(todo) {
     axios.put(url+'/todos/'+todo.id, {
       id: todo.id, 
       title: todo.title, 
       done: !todo.done
-    }).then(response => response.data)
+    })
   },
 }
 ```
@@ -199,9 +198,9 @@ export default {
   ...
   methods: {
     getTodos() {
-      apiService.getTodos().then(todos=>
-        todos.forEach(todo=>this.todos.push(todo))
-      )
+      apiService.getTodos()
+      .then(response=>response.data.forEach(todo=>this.todos.push(todo)))
+      .catch(error=>console.error('Error: '+(error.statusText || error.message || error))
     },
     ...
   },
