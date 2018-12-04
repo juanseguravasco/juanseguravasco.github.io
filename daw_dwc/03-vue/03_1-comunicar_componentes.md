@@ -149,8 +149,12 @@ var EventBus = new Vue;
 En cada componente que queramos que escuche eventos de ese bus importamos el componente y creamos un escuchador en el hook _created_ o _mounted_:
 ```javascript
 created() {
-    EventBus.$on('nombreevento', function(param) {
-        …
+    EventBus.$on('nombreevento', this.fnManejadora);
+    ...
+},
+methods: {
+    fnManejadora(param) {
+        ...
     })
 ```
 Cada componente que queramos que emita al bus deberá también tener importado el _EventBus_. Para emitir, en el método del componente que queramos lanzamos el evento con:
