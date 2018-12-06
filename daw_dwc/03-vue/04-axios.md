@@ -174,13 +174,13 @@ export class APIService{
     return axios.get(url+'/todos')
   }
   delTodo(id){
-    axios.delete(url+'/todos/'+id)
+    return axios.delete(url+'/todos/'+id)
   },
   addTodo(newTodo) {
-    axios.post(url+'/todos', newTodo)
+    return axios.post(url+'/todos', newTodo)
   },
   changeTodo(todo) {
-    axios.put(url+'/todos/'+todo.id, {
+    return axios.put(url+'/todos/'+todo.id, {
       id: todo.id, 
       title: todo.title, 
       done: !todo.done
