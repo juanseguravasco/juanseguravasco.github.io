@@ -432,7 +432,7 @@ Entre padres e hijos ya hemos visto que se puede intercambiar información media
 Creamos un fichero **event-bus.js** donde declaramos el objeto que usaremos como bus de comunicaciones:
 ```javascript
 import Vue from 'vue';
-export const EventBus = new Vue();
+export const EventBus = new Vue;
 ```
 
 En los componentes donde queramos usar el _EventBus_ sólo tenemos que importar el fichero anterior:
