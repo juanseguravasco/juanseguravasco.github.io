@@ -287,16 +287,18 @@ Así que lo que haremos es:
 * en el subcomponente del inpit ponemos 
   * un _v-bind_ que muestre el valor inicial
   * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
+
 ```html
 <template>
-	<div class="control-group">
-	  <!-- id -->
-	  <label class="control-label" :for="nombre">{{ titulo }}</label>
-	  <div class="controls">
-	  	<input :value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
-	  </div>
-	</div>	
+  <div class="control-group">
+    <!-- id -->
+    <label class="control-label" :for="nombre">{{ titulo }}</label>
+    <div class="controls">
+      <input :value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+    </div>
+  </div>	
 </template>
+```
 
 ```javascript
 props: ['value'],
@@ -324,23 +326,23 @@ methods: {
 **Subcomponente: form-input**
 ```vue
 <template>
-	<div class="control-group">
-	  <label class="control-label" :for="nombre">{{ titulo }}</label>
-	  <div class="controls">
-	  	<input v-bind:value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
-	  </div>
-	</div>	
+  <div class="control-group">
+    <label class="control-label" :for="nombre">{{ titulo }}</label>
+    <div class="controls">
+      <input v-bind:value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+    </div>
+  </div>	
 </template>
 
 <script>
 export default {
-		name: 'user-form-input',
-		props: ['value', 'titulo', 'nombre'],
-		methods: {
-			updateValue(value) {
-				this.$emit('input', value)
-			}
-		}
+  name: 'user-form-input',
+  props: ['value', 'titulo', 'nombre'],
+  methods: {
+    updateValue(value) {
+	this.$emit('input', value)
+    }
+  }
 }
 </script>
 ```
@@ -348,24 +350,31 @@ export default {
 ## Slots
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
 * HTML que llama al componente:
+
 ```html
 <navigation-link url="/profile">
   Your Profile
 </navigation-link>
 ```
+
 * \<template> del componente:
+
 ```html
 <a  v-bind:href="url"  class="nav-link">
   <slot>Contenido por defecto</slot>
 </a>
 ```
+
 Al renderizar el componente el resultado será:
+
 ```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Your Profile
 > </a>
 ```
+
 Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
+
 ```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Contenido por defecto
@@ -415,13 +424,13 @@ Esto podemos usarlo en los formularios de forma que el <input> con el v-model lo
 
 <script>
 export default {
-		name: 'user-form-input',
-		props: ['value', 'titulo', 'nombre'],
-		methods: {
-			updateValue(value) {
-				this.$emit('input', value)
-			}
-		}
+  name: 'user-form-input',
+  props: ['value', 'titulo', 'nombre'],
+  methods: {
+    updateValue(value) {
+      this.$emit('input', value)
+    }
+  }
 }
 </script>
 ```
@@ -430,6 +439,7 @@ export default {
 A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
 
 Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
+
 ```html
 <div class="container">
   <header>
@@ -443,7 +453,9 @@ Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otr
   </footer>
 </div>
 ```
+
 A la hora de llamar al componente hacemos:
+
 ```html
 <base-layout>
   <template slot="header">
@@ -458,9 +470,11 @@ A la hora de llamar al componente hacemos:
   </template>
 </base-layout>
 ```
+
 Lo que está dentro de un _template slot_ con nombre irá al_slot_ con ese nombre y el resto irá al _slot_ por defecto (el que no tiene nombre).
 
 También podemos usar el stributo _slot_ directamente en cada elemento;
+
 ```html
 <base-layout>
   <h1 slot="header">Here might be a page title</h1>
@@ -471,6 +485,7 @@ También podemos usar el stributo _slot_ directamente en cada elemento;
   <p slot="footer">Here's some contact info</p>
 </base-layout>
 ```
+
 ### Scoped slot
 
 
