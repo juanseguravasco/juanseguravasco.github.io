@@ -240,10 +240,13 @@ Código:
 ### Validación final
 Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
 * establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
-```[thml]
+
+```html
 <form @submit.prevent="checkForm">
 ```
+
 * la función le dice a la librería que valide todo llamando al método **validateAll()**. Este método devuelve una promesa (asíncrona, como una petición Ajax) cuyo resultado será _true_ si el formulario és válido o _false_ si no lo es:
+
 ```javascript
 checkForm() {
   this.$validator.validateAll()
