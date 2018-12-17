@@ -160,8 +160,6 @@ Es un objeto que contiene información de la ruta actual. Algunas de sus propied
 * query: si huberia alguna consulta en la ruta (tras '?') se obtiene aquí
 * path: la ruta absoluta
 
-Más información en su [API](https://router.vuejs.org/es/api/route-object.html)
-
 ## Vistas  con nombre y Subvistas
 Podemos cargar más de un componente usando varias etiquetas `<router-view>`. Por ejemplo si nestra página constará de 3  componentes (uno en la cabecera, otro el principal y otro en un _aside_ pondremos en el HTML:
 ```html
@@ -201,3 +199,6 @@ Definiremos la ruta del siguiente modo:
   ]
 }
 ```
+
+
+Podemos consultar toda la información referente al router de Vue en [https://router.vuejs.org/](https://router.vuejs.org/).
