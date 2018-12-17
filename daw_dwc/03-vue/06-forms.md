@@ -381,7 +381,7 @@ Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigati
 > </a>
 ```
 
-Esto podemos usarlo en los formularios de forma que el <input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
+Esto podemos usarlo en los formularios de forma que el \<input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
 
 ### Ejemplo
 **Componente padre: formulario**
