@@ -135,7 +135,17 @@ Tabién se puede una _query_ a la ruta o parámetros. Ejemplos:
 ## Cambio de parámetros en una ruta
 Si cambiamos a la misma ruta pero con distintos parámetros Vue reutiliza la instancia del componente y no vuelve a lanzar sus _hooks_ (created, mounted, ...). Esto hará que no se ejecute el código que tengamos allí. Por ejemplo supongamos que en una ruta '/edit/5' al cargar el componente se pide el registro 5 y se muestra en la página. Si a continuación cargamos la ruta '/edit/8' seguiremos viendo los datos del registro 5).
 
-La forma de solucionar esto es forzar la detección del cambio en la ruta y realizar allí la carga de los datos:
+La forma de solucionar esto es usar el elemento 'beforeRouteUpdate' (a partir de la versión 2.2 de vue-router) y realizar allí la carga de los datos:
+```[javascrip]
+beforeRouteUpdate (to, from, next) {
+    // Código que responde al cambio. En to tenemos la ruta anterior y en from la nueva
+    // antes de acabar hay que llamar a next()
+    next();
+} 
+```
+
+
+o forzar la detección del cambio en la ruta:
 ```[javascrip]
 watch: {
     '$route' (to, from) {
