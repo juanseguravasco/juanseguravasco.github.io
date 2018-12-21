@@ -13,6 +13,7 @@ Además de lo que hay abajo:
 * Vue-laravel
 * Vuex: https://medium.com/fullstackio/managing-state-in-vue-js-23a0352b1c87
 * ServerSide Rendering: al obtener la página un robot (curl miURL) no devuelve sólo la <app> sino el HTML para que los robots la puedan ndexar correctamente. Más info: https://vuejs.org/v2/guide/ssr.html. Explicación de qué es y cómo funciona en Angular: http://app.getresponse.com/click.html?x=a62b&lc=BmvXkb&mc=CL&s=mh7Vjl&u=B71jy&y=T&
+* Autenticación: [https://blog.sqreen.io/authentication-best-practices-vue/](https://blog.sqreen.io/authentication-best-practices-vue/)
 
 y poner más ejempls y ejerciccios de todo
 
