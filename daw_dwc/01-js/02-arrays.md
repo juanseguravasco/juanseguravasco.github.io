@@ -112,6 +112,12 @@ let a=['Lunes', 'Martes', 2, 4, 6];
 let borrado=a.slice(1, 3);       // ahora a=['Lunes', 'Martes', 2, 4, 6] y borrado=['Martes', 2, 4];
 ```
 
+Es muy útil para hacer una copia de un array:
+```javascript
+let a=[2, 4, 6];
+let copiaDeA=a.slice();       // ahora ambos arrays contienen lo mismo pero son diferentes
+```
+
 ### Arrays y Strings
 Cada objeto (y los arrays son un tipo de objeto) tienen definido el método `.toString()` que lo convierte en una cadena. Este método es llamado automáticamente cuando, por ejemplo, queremos mostrar un array por la consola. En realidad `console.log(a)` ejecuta `console.log(a.toString())`. En el caso de los arrays esta función devuelve una cadena con los elementos del array dentro de corchetes y separados por coma.
 
@@ -283,6 +289,24 @@ b[0]=3;       // a=[3, 23, 12]; b=[3, 23, 12]
 let fecha1=new Date('2018-09-23');
 let fecha2=fecha1;          // fecha1='2018-09-23';   fecha2='2018-09-23';
 fecha2.setFullYear(1999);   // fecha1='1999-09-23';   fecha2='1999-09-23';
+```
+
+Si queremos obtener una copia de un array que sea independiente del original podemos obtenerla con `slice`:
+```javascript
+let a=[2, 4, 6];
+let copiaDeA=a.slice();       // ahora ambos arrays contienen lo mismo pero son diferentes
+```
+
+En el caso de objetos es algo más complejo. ES6 incluye [`Object assing`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) que hace una copia de un objeto:
+```javascript
+let a={id:2, name: 'object 2'};
+let copiaDeA=Object.assign({}, a);       // ahora ambos objetos contienen lo mismo pero son diferentes
+```
+
+Sin embargo si el objeto tiene como propiedades otros objetos estos se continúan pasando por referencia. Es ese caso lo más sencillo sería hacer:
+```javascript
+let a={id:2, name: 'object 2', address: {street: 'C/ Ajo', num: 3} };
+let copiaDeA=JSON.parse(JSON.stringify(a));       // ahora ambos objetos contienen lo mismo pero son diferentes
 ```
 
 ## Rest y Spread
