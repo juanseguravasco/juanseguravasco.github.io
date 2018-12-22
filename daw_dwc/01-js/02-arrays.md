@@ -281,7 +281,7 @@ let a=54;
 let b=a;      // a=54; b=54
 b=86;         // a=54; b=86
 ```
-Sin embargo al copiar aobjetos (y los arrays son un tipo de objeto) la nueva variable apunta a la misma posición de memoria que la antigua por lo que los datos de ambas son los mismos:
+Sin embargo al copiar objetos (y los arrays son un tipo de objeto) la nueva variable apunta a la misma posición de memoria que la antigua por lo que los datos de ambas son los mismos:
 ```javascript
 let a=[54, 23, 12];
 let b=a;      // a=[54, 23, 12]; b=[54, 23, 12]
