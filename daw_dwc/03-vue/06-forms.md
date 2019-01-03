@@ -127,7 +127,7 @@ Todo esto es incómodo y poco productivo. Para mejorarlo podemos usar una de las
 VeeValidate es una librería que permite validar formularios simplemente añadiendo a los inputs la directiva **v-validate**. 
 
 Genera el objeto **Errors** donde se almacenan las validaciones que hemos definido y que tiene métodos como:
-* errors.nay(): si queda alguna validación pendiente
+* errors.any(): si queda alguna validación pendiente
 * errors.has('name'): si el input 'name' tiene validaciones fallidas
 * errors.first('name'): primer mensaje de error asociado al input 'name'
 * ...
@@ -156,7 +156,7 @@ También es posible usarla directamente desde un CDN:
 Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input (el input debe tener un __name__ que es el valor por el que buscamos los errores):
 ```html
 <input v-validate="'required|email'" name="email" type="text">
-<span>{{ errors.first('email') }}</span>
+<span>{\{ errors.first('email') }}</span>
 ```
 Estamos indicando que debe cumplir las validaciones _required_ (no puede estar vacío) y _email_ (debe parecer un e-mail). También puede ponerse en formato de objeto:
 ```html
