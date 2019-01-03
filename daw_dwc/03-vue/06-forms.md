@@ -107,6 +107,7 @@ También podemos generar las opciones automáticamente:
 Si queremos que sea un select múltiple sólo tenemos que ponerle el atributo _multiple_ a la etiqueta _\<select>_ y hacer que la variable _user.tutor_ sea un array, que se comportará como en los checkbox múltiples.
   
 ### Ejemplo
+
 <script async src="//jsfiddle.net/juansegura/09f59xqe/embed/"></script>
 
 # Validar formularios
