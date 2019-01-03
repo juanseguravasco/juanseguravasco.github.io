@@ -211,7 +211,33 @@ Tanto desde _comp-a_ como desde _comp-b_ podemos modificar el contenido de **sto
 
 Esto tiene un grave inconveniente y es que el valor de cualquier dato puede ser modificado desde cualquier parte de la aplicación, lo que es una pesadilla a la hora de depurarel código y encontrar errores.
 
-Para evitar esto podemos usar un patrón de almacén.
+Para evitar esto podemos usar un patrón de almacén (store pattern) que veremos en el siguiente apartado.
+
+### $root y $parent
+Además todos los componentes tienen acceso a los datos y métodos definidos en la instancia de Vue (donde hacemos el `new Vue`). Por ejemplo:
+
+```javascript
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hola',
+  },
+  methods: {
+    getInfo() {
+  ...
+}
+```
+
+Desde cualquier componente podemos hacer cosas como:
+```javascript
+console.log(this.$root.message);
+this.$root.message='Adios';
+this.$root.getInfo();
+```
+
+También es posible acceder a los datos y métodos del componente padre del actual usando `$parent` en lugar de `$root`.
+
+De esta manera podríamos acceder directamente a datos del padre o usar la instancia de Vue como almacén (evitando crear el objeto **store** para compartir datos) pero, aunque esto puede ser útil en aplicaciones pequeñas, es difícil de mantener cuando nuestra aplicación crece por lo que se recomienda usar el **EventBus** que hemos visto antes, el **Store pattern**  que veremos a continuación o **Vuex** si nuestra aplicación va a ser grande.
 
 ### Store pattern
 Es el mismo caso de antes pero las acciones que modifiquen los datos del almacén están incluidas dentro del propio almacén, lo que facilita su seguimiento:
