@@ -143,6 +143,7 @@ import VeeValidate from 'vee-validate';
 
 Vue.use(VeeValidate)
 ```
+Esto nos permitirá usarla en cualquier componente.
 
 También es posible usarla directamente desde un CDN:
 ```javascript
@@ -152,21 +153,53 @@ También es posible usarla directamente desde un CDN:
 </script>
 ```
 
-### Uso de VeeValidate
-Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input (el input debe tener un __name__ que es el valor por el que buscamos los errores):
+### Uso básico de VeeValidate
+Simplemente añadimos a cada input la directiva **v-validate** donde indicamos el tipo de validación a hacer. Podemos mostrar los mensajes de error junto al input (el input debe tener un atributo __name__ que es la clave por la que buscamos los errores):
+
 ```html
 <input v-validate="'required|email'" name="email" type="text">
 <span>{ { errors.first('email') }}</span>
 ```
 Estamos indicando que debe cumplir las validaciones _required_ (no puede estar vacío) y _email_ (debe parecer un e-mail). También puede ponerse en formato de objeto:
+
 ```html
 <input v-validate="{required: true, email: true}" name="email" type="text">
 ```
+
+### Validación al enviar
+Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
+* establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
+```html
+<form @submit.prevent="checkForm">
+```
+
+* la función le dice a la librería que valide todo llamando al método **validateAll()**. Este método devuelve una promesa (asíncrona, como una petición Ajax) cuyo resultado será _true_ si el formulario és válido o _false_ si no lo es:
+```javascript
+checkForm() {
+  this.$validator.validateAll()
+    .then(result=>{
+      if (result) {
+        // Todo correcto.Procedo al envío
+      } else {
+        // Hay errores
+      }
+    })
+    .catch(result=>console.error(result))
+},
+```
+
+Código:
+
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/6/embed/"></script>
+
+### Reglas de validación
 En la documentación de la librería podemos consultar las diferentes [reglas de validación](https://baianat.github.io/vee-validate/guide/rules.html) (hay más de 30). Algunas de las más comunes son:
 * _required_: no puede estar vacío ni valer _undefined_ o _null_
 * tipos de datos: _alpha_ (sólo caracteres alfanuméricos), _alpha_num_ (alfanuméricos o números), _numeric_, _integer_, _decimal_ (se especifica cuántos decimales), _email_, _url_, _date\_format_ (se especifica el formato), _ip_, ...
+* _min_:4 (longitud mínima 4), _max_:50
+* _min_value_:18 (debe ser un nº >= 18), _max_value_:65
+* _between_:18:65, _date\_detween_, _in_:1,2,3, _not\_in:1,2,3, ...
 * _regex_: debe concordar con la expresión regular pasada
-* _min_:4 (longitud mínima 4), _max_:50, _min_value_:18 (debe ser un nº >= 18), _max_value_:65, _between_:18:65, _date\_detween_, _in_:1,2,3, _not\_in:1,2,3, ...
 * _is_ compara un campo con otro:
 ```html
 <input v-validate="{ is: confirmation }" type="text" name="password">
@@ -174,7 +207,7 @@ En la documentación de la librería podemos consultar las diferentes [reglas de
 ```
 * ficheros: _mimes_, _image_, _size_
 
-### Ejemplo
+**Ejemplo**
 Vamos a ver cómo se validaría el formulario anterior con esta librería:
 * nombre: `<input v-validate="'required|min:5|max:50'" name="nombre" ...`
 * e-mail: `<input v-validate="'required|email'" name="email" ...`
@@ -183,40 +216,8 @@ Vamos a ver cómo se validaría el formulario anterior con esta librería:
 
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/embed/"></script>
 
-### Personalizar el validador
-Para acabar el ejemplo nos falta validar que deba seleccionar entre 1 y 3 ciclos. Además deberíamos personalizar los mensajes de error (por defecto en inglés). 
-
-Para validar los ciclos vamos a construir nuestro propio validador personalizado. Le llamaremos **arraylength**:
-```html
-      <div v-for="ciclo in ciclos" :key="ciclo.cod">
-        <input v-validate="'arraylenght:1-3'" name="ciclos" type="checkbox" v-model="user.ciclos" :value="ciclo.cod">{{ ciclo.desc }}<br>
-      </div>
-```
-Al validador le va a llegar como parámetro lo que yoescriba tras el carácter '**:**', en este caso _1-3_.
-
-Ahora construimos nuestro validador personalizado:
-```javascript
-import { Validator } from 'vee-validate';
-
-Validator.extend('arraylenght', {
-  getMessage(field, args) {
-    // will be added to default locale messages.
-    // Returns a message.
-    let limits=args[0].split('-');
-    return('Debes marcar entre '+limits[0]+' y '+limits[1]+' '+field);
-  },
-  validate(value, args) {
-    // Returns a Boolean or a Promise that resolves to a boolean.
-    let limits=args[0].split('-');
-    return (value.length>=limits[0] && value.length<=limits[1]);
-  }
-});
-```
-Debe tener un nombre (_arraylenght_) y 2 métodos:
-* _getMessage_: recibe el nombre del campo (_field_) y una cadena con el parámetro pasado (_args_) y devuelve una cadena que será lo que se añadirá a los errores si el campo no es válido
-* _validatee_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
-
-Ahora falta personalizar el resto de mensajes del validador. Para ello construimos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadimos al diccionario de la librería. El idioma por defecto de los mensajes es el inglés por lo que si personalizamos los mensajes para otro idioma hemos de indicar el idioma que queremos usar (los mensajes no personalizados aparecerán en inglés):
+### Personalizar los mensajes
+Podemos personalizar los mensajes del validador, para lo que construiremos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadiremos al diccionario de la librería. El idioma por defecto de los mensajes es el inglés por lo que si personalizamos los mensajes para otro idioma hemos de indicar el idioma que queremos usar (los mensajes no personalizados aparecerán en inglés):
 ```javascript
 const dictionary = {
   es: {
@@ -238,33 +239,39 @@ Código:
 
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/4/embed/"></script>
 
-### Validación final
-Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
-* establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
+### Validadores personalizados
+Para acabar el ejemplo del formulario anterior nos falta validar que deba seleccionar entre 1 y 3 ciclos. 
 
+Para validar los ciclos vamos a construir nuestro propio validador personalizado al que llamaremos **arraylength**:
 ```html
-<form @submit.prevent="checkForm">
+      <div v-for="ciclo in ciclos" :key="ciclo.cod">
+        <input v-validate="'arraylenght:1-3'" name="ciclos" type="checkbox" v-model="user.ciclos" :value="ciclo.cod">{{ ciclo.desc }}<br>
+      </div>
 ```
+Al validador le va a llegar como parámetro lo que se escriba tras el carácter '**:**', en este caso _1-3_.
 
-* la función le dice a la librería que valide todo llamando al método **validateAll()**. Este método devuelve una promesa (asíncrona, como una petición Ajax) cuyo resultado será _true_ si el formulario és válido o _false_ si no lo es:
-
+Ahora construimos nuestro validador personalizado:
 ```javascript
-checkForm() {
-  this.$validator.validateAll()
-    .then(result=>{
-      if (result) {
-        // Todo correcto.Procedo al envío
-      } else {
-        // Hay errores
-      }
-    })
-    .catch(result=>console.error(result))
-},
+import { Validator } from 'vee-validate';
+
+Validator.extend('arraylenght', {
+  getMessage(field, args) {
+    // will be added to default locale messages.
+    // Returns a message.
+    let limits=args[0].split('-');
+    return('Debes marcar entre '+limits[0]+' y '+limits[1]+' '+field);
+  },
+  validate(value, args) {
+    // Returns a Boolean or a Promise that resolves to a boolean.
+    let limits=args[0].split('-');
+    return (value.length>=limits[0] && value.length<=limits[1]);
+  }
+});
 ```
 
-Código:
-
-<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/6/embed/"></script>
+El validador debe tener un nombre (_arraylenght_) y 2 métodos:
+* _getMessage_: recibe el nombre del campo (_field_) y una cadena con el parámetro pasado (_args_) y devuelve una cadena que será lo que se añadirá a los errores si el campo no es válido
+* _validate_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
 
 # Inputs en subcomponentes
 La forma enlazar cada input con su variable correspondiente es mediante la directiva _v-model_ que hace un enlace bidireccional: al cambiar la variable Vue cambia el valor del input y si el usuario cambia el input Vue actualiza la variable automáticamente.
@@ -287,7 +294,7 @@ Así que lo que haremos es:
 ```
 * en el subcomponente del inpit ponemos 
   * un _v-bind_ que muestre el valor inicial
-  * un _v-on:input_ que llame a un método que emita un evento _input_ al padre pasándole el valor actual 
+  * un _v-on:input_ que emita un evento _input_ al padre pasándole el valor actual 
 
 ```html
 <template>
@@ -295,7 +302,7 @@ Así que lo que haremos es:
     <!-- id -->
     <label class="control-label" :for="nombre">{{ titulo }}</label>
     <div class="controls">
-      <input :value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+      <input :value="value" @input="$emit('input', $event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="Escribe el nombre" class="form-control">
     </div>
   </div>	
 </template>
@@ -303,11 +310,6 @@ Así que lo que haremos es:
 
 ```javascript
 props: ['value'],
-methods: {
-    updateValue(value) {
-        this.$emit('input', value)
-    }
-}
 ```
 
 ### Ejemplo
@@ -330,7 +332,7 @@ methods: {
   <div class="control-group">
     <label class="control-label" :for="nombre">{{ titulo }}</label>
     <div class="controls">
-      <input v-bind:value="value" v-on:input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
+      <input :value="value" @input="updateValue($event.target.value)" type="text" :id="nombre" :name="nombre" placeholder="" class="form-control">
     </div>
   </div>	
 </template>
@@ -351,7 +353,6 @@ export default {
 ## Slots
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
 * HTML que llama al componente:
-
 ```html
 <navigation-link url="/profile">
   Your Profile
@@ -359,7 +360,6 @@ Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo
 ```
 
 * \<template> del componente:
-
 ```html
 <a  v-bind:href="url"  class="nav-link">
   <slot>Contenido por defecto</slot>
@@ -367,7 +367,6 @@ Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo
 ```
 
 Al renderizar el componente el resultado será:
-
 ```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Your Profile
@@ -375,7 +374,6 @@ Al renderizar el componente el resultado será:
 ```
 
 Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
-
 ```html
 > <a  v-bind:href="url"  class="nav-link">
 >   Contenido por defecto
@@ -440,7 +438,6 @@ export default {
 A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
 
 Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
-
 ```html
 <div class="container">
   <header>
@@ -456,7 +453,6 @@ Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otr
 ```
 
 A la hora de llamar al componente hacemos:
-
 ```html
 <base-layout>
   <template slot="header">
@@ -475,7 +471,6 @@ A la hora de llamar al componente hacemos:
 Lo que está dentro de un _template slot_ con nombre irá al_slot_ con ese nombre y el resto irá al _slot_ por defecto (el que no tiene nombre).
 
 También podemos usar el stributo _slot_ directamente en cada elemento;
-
 ```html
 <base-layout>
   <h1 slot="header">Here might be a page title</h1>
@@ -486,7 +481,3 @@ También podemos usar el stributo _slot_ directamente en cada elemento;
   <p slot="footer">Here's some contact info</p>
 </base-layout>
 ```
-
-### Scoped slot
-
-
