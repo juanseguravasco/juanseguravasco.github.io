@@ -166,6 +166,10 @@ Estamos indicando que debe cumplir las validaciones _required_ (no puede estar v
 <input v-validate="{required: true, email: true}" name="email" type="text">
 ```
 
+Código: 
+
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/4/embed/"></script>
+
 ### Validación al enviar
 Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
 * establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
@@ -217,27 +221,50 @@ Vamos a ver cómo se validaría el formulario anterior con esta librería:
 <script async src="//jsfiddle.net/juansegura/bsn5Lkzq/embed/"></script>
 
 ### Personalizar los mensajes
-Podemos personalizar los mensajes del validador, para lo que construiremos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadiremos al diccionario de la librería. El idioma por defecto de los mensajes es el inglés por lo que si personalizamos los mensajes para otro idioma hemos de indicar el idioma que queremos usar (los mensajes no personalizados aparecerán en inglés):
+Por defecto el idioma de los mensajes de Vee Validate es el inglés pero podemos cambiarlo. Además la validación se produce con el evento 'input' (cada vez que pulsamos una tecla) pero muchas veces preferimos validar al salir del campo (evento 'blur'). Para cambiar esto haremos:
+```javascript
+import VeeValidate, {Validator} from 'vee-validate'
+import es from 'vee-validate/dist/locale/es'
+
+const Veeconfig = {
+  locale: 'es_ES',
+  events: 'blur'
+};
+
+  Validator.localize({ es_ES: es});
+
+  Vue.use(VeeValidate, Veeconfig)
+```
+
+Lo que hemos hecho es:
+* al importar VeeValidate lo hacemos también como el objeto _Validator_ para poder invocar su método _localize_
+* importamos la librería con los mensajes del idioma que queremos
+* creamos un objeto para configurar el idioma y el evento que lanzará el validador
+* asignamos al idioma seleccionado la librería importada
+* al decir a Vue que use VeeValidate le pasamos el objeto con la configuración a usar
+
+También podemos personalizar los mensajes del validador, para lo que construiremos un diccionario personalizado con los mensajes que queramos personalizar (podemos ponerlos en varios idiomas) y lo añadiremos al diccionario de la librería:
 ```javascript
 const dictionary = {
   es: {
     messages:{
       required: (field, args) => 'El campo '+field+' es obligatorio'
+      min: (field, args) => 'El campo '+field+' debe contener al menos '+args[0]+' caracteres',
     }
   },
   ca: {
     messages: {
       required: (field, args) => 'El camp '+field+' és obligatori'
+      min: (field, args) => 'El camp '+field+' ha de tindre al menys '+args[0]+' caracteres',
     }
   }
 };
 
+Validator.localize({ es_ES: es});
 Validator.localize(dictionary)  // añadimos nuestro diccionario
-Validator.localize('es');       // indicamos el idioma de los mensajes
-```
-Código: 
 
-<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/4/embed/"></script>
+Vue.use(VeeValidate, Veeconfig)
+```
 
 ### Validadores personalizados
 Para acabar el ejemplo del formulario anterior nos falta validar que deba seleccionar entre 1 y 3 ciclos. 
