@@ -350,6 +350,11 @@ export default {
 </script>
 ```
 
+### Validación con Vee Validate
+Si queremos utilizar Vee Validate en un formulario con los \<input> en componentes hijos la cosa se complica un poco porque la validación se hace en el componente padre mientras que los valores a validar y los errores se muestran en los hijos.
+
+Podéis consultar [este ejemplo](https://codesandbox.io/s/2wyrp5z000?from-embed) para ver cómo hacerlo o leer [este articulo](https://medium.com/@logaretm/authoring-validatable-custom-vue-input-components-1583fcc68314) donde se explica detaladamente qué hacer.
+
 ## Slots
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
 * HTML que llama al componente:
