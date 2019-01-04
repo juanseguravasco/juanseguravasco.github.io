@@ -38,5 +38,6 @@ Respecto al _footer_
 
 
 ### Fuentes
+* [VuetifyJS.com](https://vuetifyjs.com/es-MX/getting-started/quick-start)
 * [Vuetify Material Framework in 60 minutes](https://www.youtube.com/watch?v=GeUhmMJUFZQ)
 * [Intro and Overview of Vuetify.js (Build a CRUD client with Vue.js)](https://www.youtube.com/watch?v=5GfpGaHKfyo)
