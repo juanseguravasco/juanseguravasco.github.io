@@ -192,10 +192,6 @@ checkForm() {
 },
 ```
 
-Código:
-
-<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/6/embed/"></script>
-
 ### Reglas de validación
 En la documentación de la librería podemos consultar las diferentes [reglas de validación](https://baianat.github.io/vee-validate/guide/rules.html) (hay más de 30). Algunas de las más comunes son:
 * _required_: no puede estar vacío ni valer _undefined_ o _null_
@@ -299,6 +295,10 @@ Validator.extend('arraylenght', {
 El validador debe tener un nombre (_arraylenght_) y 2 métodos:
 * _getMessage_: recibe el nombre del campo (_field_) y una cadena con el parámetro pasado (_args_) y devuelve una cadena que será lo que se añadirá a los errores si el campo no es válido
 * _validate_: recibe el valor del campo (el valor de la variable vinculada a él en el _v-model_) y la cadena con el parámetro pasado (_args_). Esta función determina si el campo es o no válido devolviendo _true_ si el campo es válido o _false_ si no lo es.
+
+Código:
+
+<script async src="//jsfiddle.net/juansegura/bsn5Lkzq/6/embed/"></script>
 
 # Inputs en subcomponentes
 La forma enlazar cada input con su variable correspondiente es mediante la directiva _v-model_ que hace un enlace bidireccional: al cambiar la variable Vue cambia el valor del input y si el usuario cambia el input Vue actualiza la variable automáticamente.
