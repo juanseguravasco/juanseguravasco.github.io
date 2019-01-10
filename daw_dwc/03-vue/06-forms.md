@@ -138,7 +138,7 @@ Como esta librería vamos a usarla en producción la instalaremos como dependenc
 npm install vee-validate -S
 ```
 La importaremos en el fichero principal de nuestra aplicación, _main.js_ y la declaramos:
-```vue
+```javascript
 import VeeValidate from 'vee-validate';
 
 Vue.use(VeeValidate)
@@ -146,7 +146,7 @@ Vue.use(VeeValidate)
 Esto nos permitirá usarla en cualquier componente.
 
 También es posible usarla directamente desde un CDN:
-```javascript
+```html
 <script src="https://unpkg.com/vee-validate@latest"></script>
 <script>
   Vue.use(VeeValidate);
@@ -322,7 +322,6 @@ Así que lo que haremos es:
 * en el subcomponente del inpit ponemos 
   * un _v-bind_ que muestre el valor inicial
   * un _v-on:input_ que emita un evento _input_ al padre pasándole el valor actual 
-
 ```html
 <template>
   <div class="control-group">
@@ -391,7 +390,7 @@ Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo
 </navigation-link>
 ```
 
-* \<template> del componente:
+* <template> del componente:
 ```html
 <a  v-bind:href="url"  class="nav-link">
   <slot>Contenido por defecto</slot>
