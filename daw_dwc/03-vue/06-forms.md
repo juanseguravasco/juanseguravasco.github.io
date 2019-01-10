@@ -512,3 +512,5 @@ También podemos usar el stributo _slot_ directamente en cada elemento;
   <p slot="footer">Here's some contact info</p>
 </base-layout>
 ```
+
+### Scopped slots
