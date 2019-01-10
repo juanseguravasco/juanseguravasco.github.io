@@ -173,6 +173,7 @@ Código:
 ### Validación al enviar
 Antes de enviar el formulario conviene validar todos los campos y no enviarlo si hay errores (otra posibilidad sería activar el botón de _Enviar_ sólo cuando no hubieran errores). Para ello:
 * establecemos la función que se encargará del _submit_ del formulario pero sin que se envíe (_.prevent_)
+
 ```html
 <form @submit.prevent="checkForm">
 ```
@@ -316,6 +317,7 @@ La solución es imitar lo que hace un _v-model_ que en realidad está formado po
 
 Así que lo que haremos es:
 * en el componente del formulario ponemos un _v-model_ que se encargue de actualizar la variable
+
 ```html
 <form-input v-model=”campo”></form-input> 
 ```
@@ -514,3 +516,4 @@ También podemos usar el stributo _slot_ directamente en cada elemento;
 ```
 
 ### Scopped slots
+Permite al subcomponente pasarle parámetros a su _slot_ i gual que se los pasa a él su componente padre. 
