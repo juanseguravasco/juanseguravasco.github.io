@@ -324,6 +324,7 @@ Así que lo que haremos es:
 * en el subcomponente del inpit ponemos 
   * un _v-bind_ que muestre el valor inicial
   * un _v-on:input_ que emita un evento _input_ al padre pasándole el valor actual 
+
 ```html
 <template>
   <div class="control-group">
@@ -384,7 +385,9 @@ Si queremos utilizar Vee Validate en un formulario con los \<input> en component
 Podéis consultar [este ejemplo](https://codesandbox.io/s/2wyrp5z000?from-embed) para ver cómo hacerlo o leer [este articulo](https://medium.com/@logaretm/authoring-validatable-custom-vue-input-components-1583fcc68314) donde se explica detaladamente qué hacer.
 
 ## Slots
-Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente:
+Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente Los _slots_ son una herramienta muy potente. Podemos obtener toda la información en la [documentación de Vue](https://vuejs.org/v2/guide/components-slots.html). 
+
+Ejemplo:
 * HTML que llama al componente:
 ```html
 <navigation-link url="/profile">
@@ -515,5 +518,3 @@ También podemos usar el stributo _slot_ directamente en cada elemento;
 </base-layout>
 ```
 
-### Scopped slots
-Permite al subcomponente pasarle parámetros a su _slot_ i gual que se los pasa a él su componente padre. 
