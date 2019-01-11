@@ -389,6 +389,7 @@ Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo
 
 Ejemplo:
 * HTML que llama al componente:
+
 ```html
 <navigation-link url="/profile">
   Your Profile
@@ -396,6 +397,7 @@ Ejemplo:
 ```
 
 * <template> del componente:
+
 ```html
 <a  v-bind:href="url"  class="nav-link">
   <slot>Contenido por defecto</slot>
@@ -404,16 +406,16 @@ Ejemplo:
 
 Al renderizar el componente el resultado será:
 ```html
-> <a  v-bind:href="url"  class="nav-link">
->   Your Profile
-> </a>
+<a  v-bind:href="url"  class="nav-link">
+  Your Profile
+</a>
 ```
 
 Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
 ```html
-> <a  v-bind:href="url"  class="nav-link">
->   Contenido por defecto
-> </a>
+<a  v-bind:href="url"  class="nav-link">
+  Contenido por defecto
+</a>
 ```
 
 Esto podemos usarlo en los formularios de forma que el \<input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
