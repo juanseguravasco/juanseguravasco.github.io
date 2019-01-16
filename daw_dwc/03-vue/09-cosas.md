@@ -4,7 +4,7 @@ Tabla de contenidos
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Más cosas a aprender en Vue
+# Siguientes a aprender en Vue
 Algunas cosas interesantes que nos pueden ser útiles en nuestros proyectos son:
 * [Vuetify](#Vuetify)
 * [Vuex](#vuex)
