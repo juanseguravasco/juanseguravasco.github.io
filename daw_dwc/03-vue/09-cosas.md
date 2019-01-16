@@ -7,10 +7,10 @@ Tabla de contenidos
 # Más cosas a aprender en Vue
 Algunas cosas interesantes que nos pueden ser útiles en nuestros proyectos son:
 * [Vuetify](#Vuetify)
-* Vuex
-* Autenticación
-* Vue-laravel / Vue-Lumen
-* ServerSide Rendering
+* [Vuex](#Vuex)
+* [Vue con Laravel / con Lumen](#vue-con-laravel)
+* [Autenticación](#autenticaci%C3%B3n)
+* [ServerSide Rendering](#ssr-server-side-rendering)
 
 ## Vuetify
 Es un plugin que nos permite utilizar en Vue los elementos de Material Design. Podemos obtener toda la información sobre esta librería en [su página web](https://vuetifyjs.com/es-MX/getting-started/quick-start).
@@ -31,6 +31,7 @@ Cada elemento del menú es una etiqueta `<v-list-tile>` dentro del `<v-navigatio
 Para cada elemento que queramos añadir:
 * Su icono está dentro de `<v-icon>` y para elegirlo vamos a [Material Design](https://material.io/tools/icons/?style=baseline) y elegimos el que queramos. Para modificar su aspecto vamos a _Vuetify -> UI components -> Icons_ y copiamos el código que queramos
 * Para que enlace a la ruta que queramos añadimos a la etiqueta `<v-list-tile-title>` una etiqueta `<router-link :to="{ name: nombre_de_la_ruta }>`, ejemplo:
+
 ```html
 <v-list-tile-title>
   <routerlink :to="{ name: 'perfil' }">Perfil</router-link>
