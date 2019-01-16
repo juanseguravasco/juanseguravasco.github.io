@@ -6,7 +6,7 @@ Tabla de contenidos
 
 # Más cosas a aprender en Vue
 Algunas cosas interesantes que nos pueden ser útiles en nuestros proyectos son:
-* Vuetify
+* [Vuetify](#Vuetify)
 * Vuex
 * Autenticación
 * Vue-laravel / Vue-Lumen
