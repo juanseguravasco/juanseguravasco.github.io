@@ -128,9 +128,13 @@ Además podemos pasar a push() y replace() funciones _callback_ que se ejecutar�
 this.$router.push(location, onComplete?, onAbort?)
 ```
 
-Tabién se puede una _query_ a la ruta o parámetros. Ejemplos:
+También se puede una _query_ a la ruta o parámetros. Ejemplos:
 * this.$router.push({ path: 'register', query: { plan: 'private' }})	// Se obtiene '/register?plan=private
 * this.$router.push({ name: 'users', params: { id: 123 }})	// Salta a una ruta por su _name_
+
+En el componente que se carga obtenemos la query pasada con `this.$route.query` (obtenemos el objeto, en el ejemplo `{ plan: 'private' }`) y el parámetro con `this.$route.params.nombreparam` (en el ejemplo en `this.$route.param.id` obtenemos el valor `123`).
+
+También podemos obtener toda la ruta con `this.$route.fullPath`.
 
 ## Cambio de parámetros en una ruta
 Si cambiamos a la misma ruta pero con distintos parámetros Vue reutiliza la instancia del componente y no vuelve a lanzar sus _hooks_ (created, mounted, ...). Esto hará que no se ejecute el código que tengamos allí. Por ejemplo supongamos que en una ruta '/edit/5' al cargar el componente se pide el registro 5 y se muestra en la página. Si a continuación cargamos la ruta '/edit/8' seguiremos viendo los datos del registro 5).
@@ -158,7 +162,9 @@ watch: {
 Es un objeto que contiene información de la ruta actual. Algunas de sus propiedades son:
 * params: los parámetros de la ruta (puede haber más de 1)
 * query: si huberia alguna consulta en la ruta (tras '?') se obtiene aquí
-* path: la ruta absoluta
+* path: la ruta pasada (sin servidor ni querys, por ejemplo de `http://localhost:3000/users?company=5` devolvería '/users')
+* fullPath: la ruta pasada (con las querys, por ejemplo de `http://localhost:3000/users?company=5` devolvería '/users?company=5')
+
 
 ## Vistas  con nombre y Subvistas
 Podemos cargar más de un componente usando varias etiquetas `<router-view>`. Por ejemplo si nestra página constará de 3  componentes (uno en la cabecera, otro el principal y otro en un _aside_ pondremos en el HTML:
