@@ -224,16 +224,21 @@ O para añadir _bootstrap_ ejecutamos:
 vue add bootstrap-vue
 ```
 
-Esto automáticamente instala el plugin dentro de _node-modules_ y modifica el fichero _package.json_.
+Esto automáticamente:
+* instala el plugin dentro de _node-modules_
+* modifica el fichero _package.json_
+* crea un fichero JS dentro de la carpeta **_plugins_** que importa y registra la librería
+* importa dicho fichero al **_main.js_**
 
 Si queremos instalar un paquete que no funciona como plugin lo haremos desde _npm_:
 ```bash
 npm install nombre-paquete
 ```
-El comando `npm install` instala el paquete en _node-modules_ Para que lo añada a las dependencias del _package.json_  le pondremos la opción **--save** o **-S** (si se trata de una dependencia de producción) o bien **--dev** o **-D** (si es una dependencia de desarrollo). Ej.:
+El comando `npm install` sólo instala el paquete en _node-modules_. Para que lo añada a las dependencias del _package.json_  le pondremos la opción **--save** o **-S** (si se trata de una dependencia de producción) o bien **--dev** o **-D** (si es una dependencia de desarrollo). Ej.:
 ```bash
 npm install -S vue-router
 ```
+Para usarlo debemos importarlo y registrarlo nosotros en el **_main.js_** (o en algún fichero JS que importemos en _main.js_ como en el caso de los plugins).
 
 ## Crear un nuevo componente
 
