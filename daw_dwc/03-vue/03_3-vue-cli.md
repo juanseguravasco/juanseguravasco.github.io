@@ -430,9 +430,9 @@ export default {
 ```
 
 # Comunicación entre componentes en Vue-cli
-Como ya hemos visto los componentes tienen sus propios datos pero hay ocasiones en que varios componentes necesitan acceder a los mismos datos. Estos datos se consideran datos de nivel de aplicación, no de componente y hay varias formas de tratarlos.
+Como ya hemos visto los componentes tienen sus propios datos que son **datos de nivel de componente**. Pero hay ocasiones en que varios componentes necesitan acceder a los mismos datos. Estos datos se consideran **datos de nivel de aplicación** y hay varias formas de tratarlos.
 
-Entre padres e hijos ya hemos visto que se puede intercambiar información mediante _props_ y emitiendo eventos del hijo al padre. Además tenemos otras 2 maneras de comunicación:
+Entre padres e hijos ya hemos visto que se puede intercambiar información mediante _props_ (aunque no debemos modificar en el hijo los datos pasados como _prop_) y emitiendo eventos del hijo al padre. Además tenemos otras 2 maneras de comunicación:
 * Event Bus
 * Pattern Store
 
