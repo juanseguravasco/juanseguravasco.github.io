@@ -9,7 +9,7 @@ Tabla de contenidos
     - [_Scaffolding_ creado](#_scaffolding_-creado)
       - [package.json](#packagejson)
       - [Estructura de nuestra aplicación](#estructura-de-nuestra-aplicaci%C3%B3n)
-    - [Añadir nuevos plugins y dependencias](#a%C3%B1adir-nuevos-plugins-y-dependencias)
+  - [Añadir nuevos plugins y dependencias](#a%C3%B1adir-nuevos-plugins-y-dependencias)
   - [Crear un nuevo componente](#crear-un-nuevo-componente)
   - [Depurar el código en la consola](#depurar-el-c%C3%B3digo-en-la-consola)
 - [Aplicación de ejemplo](#aplicaci%C3%B3n-de-ejemplo)
@@ -214,7 +214,7 @@ export default {
 Recibe el parámetro _msg_ que es de tipo String.
 
 
-### Añadir nuevos plugins y dependencias
+## Añadir nuevos plugins y dependencias
 Para instalar un nuevo plugin a nuestro proyecto (antes conviene haber hecho un _commit_) usamos `vue add` desde la carpeta del proyecto, por ejemplo para añadir el plugin _vuetify_ ejecutamos:
 ```bash
 vue add vuetify
@@ -230,7 +230,10 @@ Si queremos instalar un paquete que no funciona como plugin lo haremos desde _np
 ```bash
 npm install nombre-paquete
 ```
-El comando `npm install` instala el paquete en _node-modules_ Para que lo añada a las dependencias del _package.json_  le pondremos la opción **-S** (dependencia de producción) o **-D** (dependencias de desarrollo).
+El comando `npm install` instala el paquete en _node-modules_ Para que lo añada a las dependencias del _package.json_  le pondremos la opción **--save** o **-S** (si se trata de una dependencia de producción) o bien **--dev** o **-D** (si es una dependencia de desarrollo). Ej.:
+```bash
+npm install -S vue-router
+```
 
 ## Crear un nuevo componente
 
