@@ -78,6 +78,7 @@ export default {
 </style>
 ```
 El párrafo tendrá la clase indicada en la variable `decoration` (en este caso _underline_) y además si el valor de `isBold` es verdadero tendrá la clase _weight_. Hacer que cambien las clases del elemento es tan sencillo como cambiar el valor de las variables.
+
 En la [página de Vue](https://vuejs.org/v2/guide/class-and-style.html) podemos ver las diferentes maneras de asignar clases a los elementos HTML.
 
 ## TodoList con Single File Components
