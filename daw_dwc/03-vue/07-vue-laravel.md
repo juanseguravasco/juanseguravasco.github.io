@@ -51,6 +51,7 @@ Creamos la página principal /resources/views/spa.blade.php:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Vue SPA Demo</title>
 </head>
 <body>
@@ -62,6 +63,7 @@ Creamos la página principal /resources/views/spa.blade.php:
 </body>
 </html>
 ```
+NOTA: la línea del <meta CSRF-TOKEN> es para evitar los errores de la consola por no pasasr el token csrf.
 
 Configuramos /routes/web.php para que sirve siempre esa página:
 ```php
@@ -89,12 +91,14 @@ class SpaController extends Controller
 
 Ahora simplemente ejecutamos en la terminal
 ```bash
-npm run watch
+npm run prod
 ```
-para que se compilen automáticamente los cambios que hagamos en Vue.
+y ya tenemos la aplicación en marcha (así se compila el javascript y se crea el fichero mix-manifest.json para que no aparezca un error de "The Mix manifest does not exist").
 
-IMPORTANTE: debemos ejecutar al menos 1 vez `npm run prod` para que se cree el fichero mix-manifest.json y no aparezca un error de "The Mix manifest does not exist".
+Para que se compilen automáticamente los cambios que hagamos en Vue ejecutamos `npm run watch-poll` en una terminal. 
  
+## Crear la API
+Creamos las rutas en /routes/api.php. 
 
 ## Instalación
 Creamos el nuevo proyecto laravel indicando la distribución `laravel-vue-spa`.
