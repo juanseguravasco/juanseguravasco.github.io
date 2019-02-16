@@ -23,6 +23,7 @@ npm install
 npm i -S vue-router
 ```
 
+### Configuramos el proyecto en Vue
 Configuramos el router de Vue en el fichero /resources/js/router.js y lo importamos en /resources/js/app.js:
 ```javascript
 // Fichero app.js
@@ -41,9 +42,25 @@ const app = new Vue({
 
 Creamos el fichero /resources/js/views/App.vue:
 ```HTML
+<template>
+    <div>
+        <h1>Vue Router Demo App</h1>
+
+        <p>
+            <router-link to="/">Home</router-link>
+            ...
+            <router-link to="/about">Sobre nosotros...</router-link>
+        </p>
+
+        <div class="container">
+            <router-view></router-view>
+        </div>
+    </div>
+</template>
 ```
 
-Creamos la página principal /resources/views/spa.blade.php:
+### Configuramos Laravel
+Creamos la vista principal en /resources/views/spa.blade.php:
 ```HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +82,7 @@ Creamos la página principal /resources/views/spa.blade.php:
 ```
 NOTA: la línea del <meta CSRF-TOKEN> es para evitar los errores de la consola por no pasasr el token csrf.
 
-Configuramos /routes/web.php para que sirve siempre esa página:
+Configuramos /routes/web.php para que sirva siempre esa página:
 ```php
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 ```
@@ -89,22 +106,15 @@ class SpaController extends Controller
 }
 ```
 
+### Compilamos Vue
 Ahora simplemente ejecutamos en la terminal
 ```bash
 npm run prod
 ```
 y ya tenemos la aplicación en marcha (así se compila el javascript y se crea el fichero mix-manifest.json para que no aparezca un error de "The Mix manifest does not exist").
 
-Para que se compilen automáticamente los cambios que hagamos en Vue ejecutamos `npm run watch-poll` en una terminal. 
+Para que se compilen automáticamente los cambios que vayamos haciendo en Vue mientras desarrollamos el proyecto ejecutamos `npm run watch-poll` en una terminal. 
  
-## Crear la API
-Creamos las rutas en /routes/api.php. 
-
-## Instalación
-Creamos el nuevo proyecto laravel indicando la distribución `laravel-vue-spa`.
-```bash
-composer create-project --prefer-dist Laravel/laravel-vue-spa
-```
 
 ### Saber más
 * [Building a Vue SPA with Laravel](https://laravel-news.com/using-vue-router-laravel)
