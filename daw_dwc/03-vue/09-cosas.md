@@ -93,7 +93,7 @@ npm i -S vue-router
 ```
 
 ### Configuramos el proyecto en Vue
-Configuramos el router de Vue en el fichero /resources/js/router.js y lo importamos en /resources/js/app.js:
+Configuramos el router de Vue en un nuevo fichero JS (por ejemplo **/resources/js/router.js**) y lo importamos en el fichero principal, **/resources/js/app.js** (el equivalente al **main.js** de un proyecto con _vue-cli_):
 ```javascript
 // Fichero app.js
 ...
@@ -109,7 +109,7 @@ const app = new Vue({
 });
 ```
 
-Creamos el fichero /resources/js/views/App.vue:
+Creamos el fichero **/resources/js/views/App.vue** que será el equivalente al **App.vue** de los proyectos _vue-cli_:
 ```HTML
 <template>
     <div>
@@ -129,7 +129,7 @@ Creamos el fichero /resources/js/views/App.vue:
 ```
 
 ### Configuramos Laravel
-Creamos la vista principal en /resources/views/spa.blade.php:
+Creamos la vista principal en **/resources/views/spa.blade.php**:
 ```HTML
 <!DOCTYPE html>
 <html lang="en">
@@ -149,14 +149,14 @@ Creamos la vista principal en /resources/views/spa.blade.php:
 </body>
 </html>
 ```
-NOTA: la línea del <meta CSRF-TOKEN> es para evitar los errores de la consola por no pasasr el token csrf.
+NOTA: la línea del _<meta CSRF-TOKEN>_ es para evitar los errores de la consola por no pasasr el token csrf.
 
-Configuramos /routes/web.php para que sirva siempre esa página:
+Configuramos **/routes/web.php** para que sirva siempre esa página:
 ```php
 Route::get('/{any}', 'SpaController@index')->where('any', '.*');
 ```
 
-y creamos el controlador:
+para lo que creamos el controlador:
 ```bash
 php artisan make:controller SpaController
 ```
