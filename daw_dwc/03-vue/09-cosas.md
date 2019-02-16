@@ -1,10 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-Tabla de contenidos
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Siguientes a aprender en Vue
+# Siguientes cosas a aprender en Vue
 Algunas cosas interesantes que nos pueden ser útiles en nuestros proyectos son:
 * [Vuetify](#Vuetify)
 * [Vuex](#vuex)
