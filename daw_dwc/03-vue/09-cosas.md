@@ -177,6 +177,71 @@ npm run prod
 y ya tenemos la aplicación en marcha (así se compila el javascript y se crea el fichero mix-manifest.json para que no aparezca un error de "The Mix manifest does not exist").
 
 Para que se compilen automáticamente los cambios que vayamos haciendo en Vue mientras desarrollamos el proyecto ejecutamos `npm run watch-poll` en una terminal. 
+
+### Creamos la API
+Para obtener datos de una API debemos en primer lugar crear la ruta en **/routes/api.php**:
+```php
+Route::namespace('Api')->group(function () {
+    Route::get('/alumnos', 'AlumnosController@index');
+});
+```
+
+Esto nos crea sólo la ruta para el verbo GET. Una opción mejor es crear todas las rutas del recurso con:
+```php
+Route::resource(‘Alumno’,’AlumnosController’,[‘only’=>[‘index’,’store’,’show’,’update’,’destroy’ ]]);
+```
+La opción _only_ es opcional y permite restringir las rutas que se crearán para que no se muestren las que no utilizaremos (podemos comprobarlo con un `php artisan route:list`).
+
+Luego creamos el controlador y el recurso:
+```php
+php artisan make:controller Api/AlumnosController --resource
+php artisan make:resource AlumnoResource
+```
+La opción `--resource` (o `-r`) crea automáticamente los puntos de entrada para os métodos indicados.
+
+y lo editamos:
+```php
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Alumno;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\AlumnoResource;
+
+class AlumnosController extends Controller {
+    public function index()  {
+        $alumnos=Alumno::all()->toArray();
+        return response()->json($alumnos);
+        
+        // O mejor, devolvemos una colección paginada en vez de un array
+        return AlumnoResource::collection(Alumno::paginate(10));
+        // Esto devuelve, además del data información para paginar la salida
+    }
+
+    public function show($id)  {
+        $alumno=Alumno::find($id);
+        if(!$alumno){
+            return response()->json([‘No existe’,404]);
+        }
+        return response()->json($alumno,200);
+        // O tabién podríamos haber hecho
+        // return Alumno::where('id', $id)->get();
+    }
+    
+    public function store(Request $request)  {
+        $alumno = new Alumno;
+        $alumno->nombre = $request->nombre;
+        $alumno->apellidos = $request->apellidos;
+        ...
+
+        $alumno->save();
+    }
+}
+```
+
+
  
 ### Saber más
 * [Building a Vue SPA with Laravel](https://laravel-news.com/using-vue-router-laravel)
