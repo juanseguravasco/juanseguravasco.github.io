@@ -196,8 +196,8 @@ También podemos crear las rutas para varios controladores a la vez con `resourc
 ```php
 Route::resources(
   [
-    'alumnos' => 'AlumnosController',
-    'profes' => 'ProfesoresController',
+    'alumnos' => 'Api\AlumnosController',
+    'profes' => 'Api\ProfesoresController',
   ],
   ['only'=>['index','store','show','update','destroy' ]]
 );
