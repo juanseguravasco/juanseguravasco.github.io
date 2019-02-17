@@ -188,13 +188,25 @@ Route::namespace('Api')->group(function () {
 
 Esto nos crea sólo la ruta para el verbo GET. Una opción mejor es crear todas las rutas del recurso con:
 ```php
-Route::resource(‘Alumno’,’AlumnosController’,[‘only’=>[‘index’,’store’,’show’,’update’,’destroy’ ]]);
+Route::resource('alumnos',’AlumnosController’,['only'=>['index','store','show','update','destroy' ]]);
 ```
 La opción _only_ es opcional y permite restringir las rutas que se crearán para que no se muestren las que no utilizaremos (podemos comprobarlo con un `php artisan route:list`).
 
+También podemos crear las rutas para varios controladores a la vez con `resources` en vez de `resource`:
+```php
+Route::resources(
+  [
+    'alumnos' => 'AlumnosController',
+    'profes' => 'ProfesoresController',
+  ],
+  ['only'=>['index','store','show','update','destroy' ]]
+);
+```
+
+
 Luego creamos el controlador y el recurso:
 ```php
-php artisan make:controller API/AlumnosController --api
+php artisan make:controller Api/AlumnosController --api
 ```
 La opción `--resource` (o `-r`) crea automáticamente los puntos de entrada para los métodos indicados. La opción `--api` es igual pero no crea funciones para los métodos _create_ ni _edit_.
 
