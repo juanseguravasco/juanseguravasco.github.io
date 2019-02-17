@@ -192,6 +192,11 @@ Route::resource('alumnos',’AlumnosController’,['only'=>['index','store','sho
 ```
 La opción _only_ es opcional y permite restringir las rutas que se crearán para que no se muestren las que no utilizaremos (podemos comprobarlo con un `php artisan route:list`).
 
+Otra opción es usar `apiResources` que crea sólo funciones para los métodos API:
+```php
+Route::apiResource('alumnos',’AlumnosController’);
+```
+
 También podemos crear las rutas para varios controladores a la vez con `resources` en vez de `resource`:
 ```php
 Route::resources(
