@@ -194,12 +194,17 @@ La opción _only_ es opcional y permite restringir las rutas que se crearán par
 
 Luego creamos el controlador y el recurso:
 ```php
-php artisan make:controller Api/AlumnosController --resource
+php artisan make:controller API/AlumnosController --api
+```
+La opción `--resource` (o `-r`) crea automáticamente los puntos de entrada para los métodos indicados. La opción `--api` es igual pero no crea funciones para los métodos _create_ ni _edit_.
+
+y el recurso:
+```php
 php artisan make:resource AlumnoResource
 ```
-La opción `--resource` (o `-r`) crea automáticamente los puntos de entrada para os métodos indicados.
+Un recurso es un modelo que se debe transformar a un objeto JSON (lo que necesitamos en una API).
 
-y lo editamos:
+y editamos el controlador:
 ```php
 <?php
 
@@ -212,12 +217,12 @@ use App\Http\Resources\AlumnoResource;
 
 class AlumnosController extends Controller {
     public function index()  {
-        $alumnos=Alumno::all()->toArray();
-        return response()->json($alumnos);
-        
-        // O mejor, devolvemos una colección paginada en vez de un array
         return AlumnoResource::collection(Alumno::paginate(10));
         // Esto devuelve, además del data información para paginar la salida
+
+        // lo anterior equivaldría, sin usar el recurso, a
+        $alumnos=Alumno::all()->toArray();
+        return response()->json($alumnos);        
     }
 
     public function show($id)  {
