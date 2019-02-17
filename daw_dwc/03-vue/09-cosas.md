@@ -242,23 +242,20 @@ class AlumnosController extends Controller {
         return response()->json($alumnos);        
     }
 
-    public function show($id)  {
-        $alumno=Alumno::find($id);
-        if(!$alumno){
-            return response()->json([‘No existe’,404]);
-        }
-        return response()->json($alumno,200);
-        // O tabién podríamos haber hecho
-        // return Alumno::where('id', $id)->get();
+    public function show(Alumnos $alumno)  {
+       return new AlumnoResource($alumno);
     }
     
     public function store(Request $request)  {
-        $alumno = new Alumno;
-        $alumno->nombre = $request->nombre;
-        $alumno->apellidos = $request->apellidos;
-        ...
+    
+        $alumno = Alumno::create([
+            'alumno_id' => $request->alumno()->id,
+            'nombre' => $request->nombre,
+            'apellidos' => $request->apellidos,
+            ...
+        ]);
 
-        $alumno->save();
+      return new AlumnoResource($alumno);
     }
 }
 ```
