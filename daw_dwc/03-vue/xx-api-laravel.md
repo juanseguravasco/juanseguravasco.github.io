@@ -113,4 +113,6 @@ public function store(Request $request)  {
 ```
 
 
-Fuente: [APIRest sencillo con Laravel](https://unprogramador.com/apirest-sencillo-con-laravel/)
+Fuente: 
+* [APIRest sencillo con Laravel](https://unprogramador.com/apirest-sencillo-con-laravel/)
+* [Build a REST API with Laravel API resources](https://blog.pusher.com/build-rest-api-laravel-api-resources/)
