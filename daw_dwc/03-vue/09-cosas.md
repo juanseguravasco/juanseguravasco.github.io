@@ -128,11 +128,10 @@ Creamos el fichero **/resources/js/views/App.vue** que será el equivalente al *
 Creamos la vista principal en **/resources/views/spa.blade.php**:
 ```HTML
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_','-', app()->getLocale()) }}">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Vue SPA Demo</title>
 </head>
@@ -266,6 +265,7 @@ class AlumnosController extends Controller {
  
 ### Saber más
 * [Building a Vue SPA with Laravel](https://laravel-news.com/using-vue-router-laravel)
+* [Laravel 5.7 + Vue + Vue Router = SPA](https://medium.com/@weehong/laravel-5-7-vue-vue-router-spa-5e07fd591981). Igual pero usando la librería Vuetify
 
 ## Autenticación
 Una parte importante de cualquier aplicación es la autenticación de usuarios. Para ver cómo gestionarla podemos consultar cualquiera de estos enlaces:
