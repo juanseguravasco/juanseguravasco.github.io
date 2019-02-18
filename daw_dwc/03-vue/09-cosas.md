@@ -242,8 +242,8 @@ class AlumnosController extends Controller {
         return response()->json($alumnos);        
     }
 
-    public function show(Alumnos $alumno)  {
-       return new AlumnoResource($alumno);
+    public function show($id)  {
+       return new AlumnoResource(Alumno::find($id));
     }
     
     public function store(Request $request)  {
