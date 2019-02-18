@@ -390,34 +390,39 @@ Podéis consultar [este ejemplo](https://codesandbox.io/s/2wyrp5z000?from-embed)
 Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente Los _slots_ son una herramienta muy potente. Podemos obtener toda la información en la [documentación de Vue](https://vuejs.org/v2/guide/components-slots.html). 
 
 Ejemplo:
-* HTML que llama al componente:
-
+Componente con un slot:
 ```html
-<navigation-link url="/profile">
-  Your Profile
-</navigation-link>
+<div>
+  <h3>Componente con un slot</h3>
+  <slot>Esto se verá si no se pasa nada al slot</slot>
+</div>
 ```
 
-* <template> del componente:
-
+Si llamamos al componente con:
 ```html
-<a  v-bind:href="url"  class="nav-link">
-  <slot>Contenido por defecto</slot>
-</a>
+<my-component>
+  <p>Texto del slot</p>
+</my-component>
+```
+se renderizará como:
+```html
+<div>
+  <h3>Componente con un slot</h3>
+  <slot>Esto se verá si no se pasa nada al slot</slot>
+</div>
 ```
 
-Al renderizar el componente el resultado será:
+Pero si lo llamamos con:
 ```html
-<a  v-bind:href="url"  class="nav-link">
-  Your Profile
-</a>
+<my-component>
+</my-component>
 ```
-
-Si no se le pasa nada al componente (`<navigation-link url="/profile"></navigation-link>`) se renderiza el valor por defecto:
+se renderizará como:
 ```html
-<a  v-bind:href="url"  class="nav-link">
-  Contenido por defecto
-</a>
+<div>
+  <h3>Componente con un slot</h3>
+  Esto se verá si no se pasa nada al slot
+</div>
 ```
 
 Esto podemos usarlo en los formularios de forma que el \<input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
