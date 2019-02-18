@@ -46,9 +46,11 @@ Es un patrón de gestión de estado más una libreria que proporcionan un almac�
 
 Ya vimos lo que es un _state management pattern_: un almacén donde tenemos tanto nuestros datos como los métodos que los modifican.
 
-El flujo de datos  de una aplicación podemos verlo (de manera muy simplificada) en el siguiente esquema:
+El flujo de datos de una aplicación podemos verlo (de manera muy simplificada) en el siguiente esquema:
 
 ![one-way data flow](https://vuex.vuejs.org/flow.png)
+
+Los componentes de Vue llaman a una _Acción_ (mediante _Dispatch_) que ejecutará un proceso asíncrono (por ejemplo una petición a una API). Cuando se resuelve la acción se ejecuta un _Commit_ que produce una _Mutación_ que muta el _Estado_ de la aplicación por lo que se renderiza el componente para mostrar el nuevo estado. En el estado almacenaremos tanto datos (accesibles desde cualquier componente) como métodos que se utilicen en más de un componente.
 
 El **estado** de los datos se representa en la **vista**, donde el usuario tiene herramientas que provocan **acciones** que modifican el **estado**. Pero cuando tenemos la aplicación dividida en componentes la cosa se complica porque hay varias vistas que pueden modificar los mismos datos.
 
