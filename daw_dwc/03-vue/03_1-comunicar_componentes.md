@@ -105,6 +105,8 @@ props: {
   }
 ```
 
+Saber más sobre validación de props: [Validar Props con Vuejs 2. Uno de Piera](https://www.uno-de-piera.com/validar-props-vuejs-2/)
+
 ## Emitir eventos (de hijo a padre)
 Si un componente hijo debe pasarle un dato a su padre o informarle de algo puede emitir un evento que el padre capturará y tratará convenientemente. Para emitir el evento el hijo hace:
 ```javascript
