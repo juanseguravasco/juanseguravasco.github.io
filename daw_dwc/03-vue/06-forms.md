@@ -387,43 +387,7 @@ Si queremos utilizar Vee Validate en un formulario con los \<input> en component
 Podéis consultar [este ejemplo](https://codesandbox.io/s/2wyrp5z000?from-embed) para ver cómo hacerlo o leer [este articulo](https://medium.com/@logaretm/authoring-validatable-custom-vue-input-components-1583fcc68314) donde se explica detaladamente qué hacer.
 
 ## Slots
-Un _slot_ es una ranura en el componente que, al renderizarse, se rellena con lo que le pasa el padre entre las etiquetas del componente Los _slots_ son una herramienta muy potente. Podemos obtener toda la información en la [documentación de Vue](https://vuejs.org/v2/guide/components-slots.html). 
-
-Ejemplo:
-Componente con un slot:
-```html
-<div>
-  <h3>Componente con un slot</h3>
-  <slot>Esto se verá si no se pasa nada al slot</slot>
-</div>
-```
-
-Si llamamos al componente con:
-```html
-<my-component>
-  <p>Texto del slot</p>
-</my-component>
-```
-se renderizará como:
-```html
-<div>
-  <h3>Componente con un slot</h3>
-  <slot>Esto se verá si no se pasa nada al slot</slot>
-</div>
-```
-
-Pero si lo llamamos con:
-```html
-<my-component>
-</my-component>
-```
-se renderizará como:
-```html
-<div>
-  <h3>Componente con un slot</h3>
-  Esto se verá si no se pasa nada al slot
-</div>
-```
+Ya vimos al hablar de la [comunicación entre componentes](./03_1-comunicar_componentes.html#slots) que un _slot_ es una ranura en un subcomponente que, al renderizarse, se rellena con lo que le pasa el padre.
 
 Esto podemos usarlo en los formularios de forma que el \<input> con el v-model lo pongamos en un _slot_ de forma que está enlazado correctamente en el padre.
 
@@ -479,51 +443,4 @@ export default {
 </script>
 ```
 
-### Slots con nombre
-A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
-
-Vamos a ver un ejemplo de un componente con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
-```html
-<div class="container">
-  <header>
-    <slot name="header"></slot>
-  </header>
-  <main>
-    <slot></slot>
-  </main>
-  <footer>
-    <slot name="footer"></slot>
-  </footer>
-</div>
-```
-
-A la hora de llamar al componente hacemos:
-```html
-<base-layout>
-  <template slot="header">
-    <h1>Here might be a page title</h1>
-  </template>
-
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
-
-  <template slot="footer">
-    <p>Here's some contact info</p>
-  </template>
-</base-layout>
-```
-
-Lo que está dentro de un _template slot_ con nombre irá al_slot_ con ese nombre y el resto irá al _slot_ por defecto (el que no tiene nombre).
-
-También podemos usar el stributo _slot_ directamente en cada elemento;
-```html
-<base-layout>
-  <h1 slot="header">Here might be a page title</h1>
-
-  <p>A paragraph for the main content.</p>
-  <p>And another one.</p>
-
-  <p slot="footer">Here's some contact info</p>
-</base-layout>
-```
 
