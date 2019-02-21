@@ -128,13 +128,66 @@ y en su JS tendrá la función para manejar ese evento:
     },
   }
   ...
-```
-
-Ejemplo: 
+``` 
 
 El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
 
-En ocasiones el componente hijo no tiene que hacer
+**Ejemplo**: continuando con la aplicación de tareas que dividimos en componentes, en el componente **todo-item** en lugar de hacer un alert emitiremos un evento al padre:
+```javascript
+    delTodo() {
+      this.$emit('delItem');
+    },
+  }
+``` 
+donde lo escuchamos y llamamos al método que borre el item:
+```javascript
+Vue.component('todo-list', {
+  template: '<div>'+
+'      <h2>{{ title }}</h2>'+
+'     <ul>'+
+'       <todo-item '+
+'         v-for="item in todos" '+
+'         :key="item.id"'+
+'         :todo="item"'+
+'         @delItem="delTodo(index)">'+
+'        </todo-item>'+
+'      </ul>'+
+'      <add-item></add-item>'+
+'     <br>'+
+'      <del-all></del-all>'+
+'  </div>',
+  methods: {
+    delTodo(index){
+      this.todos.splice(index,1);
+    },
+    ...
+``` 
+
+### Capturar el evento en el padre: .native
+En ocasiones (como en este caso) el componente hijo no hace nada más que informar al padre de que se ha producido un evento sobre él. En estos casos podemos hacer que el evento se capture directamente en el padre en lugar de en el hijo con el modificador **[.native](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components)** que permite que un evento se escuche en el elemento que llama al componente y no en el componente:
+```javascript
+Vue.component('todo-list', {
+  template: '<div>'+
+'      <h2>{{ title }}</h2>'+
+'     <ul>'+
+'       <todo-item '+
+'         v-for="item in todos" '+
+'         :key="item.id"'+
+'         :todo="item"'+
+'         @click.native="delTodo(index)">'+
+'        </todo-item>'+
+    ...
+``` 
+
+Le estamos indicando a Vue que el evento _click_ se capture en _todo-list_ directamente por lo que el componente _todo-item_ no tiene que capturarlo ni hacer nada:
+```javascript
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '    <li>'+
+'      <label>'+
+    ...
+``` 
+
 
 ### sync
 Una alternativa a emitir eventos es "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo, lo que se hace con el modificador _.sync_, pero no es muy recomendable porque hace el código más difícil de mantener:
@@ -393,10 +446,6 @@ El stributo _slot_ podemos ponérselo a cualquier etiqueta (no tiene que ser \<t
   <p slot="footer">Here's some contact info</p>
 </base-layout>
 ```
-
-## Otras formas de comunicarse
-* [.native](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components): permite que un evento se escuche en el elemento que llama al componente y no en el componente
-* [v-model de componentes](https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model): permite que los inputs de un formulario sean subcomponentes y que puedan seguir enlazadas mediante _v-model_ con datos del formulario.
 
 # Aplicación de ejemplo
 Vamos a hacer que funcione la aplicación que separamos en componentes.
