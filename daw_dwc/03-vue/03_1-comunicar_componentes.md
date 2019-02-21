@@ -174,7 +174,7 @@ Vue.component('todo-list', {
 '         v-for="item in todos" '+
 '         :key="item.id"'+
 '         :todo="item"'+
-'         @click.native="delTodo(index)">'+
+'         @dblclick.native="delTodo(index)">'+
 '        </todo-item>'+
     ...
 ``` 
