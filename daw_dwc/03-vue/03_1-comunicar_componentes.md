@@ -130,7 +130,11 @@ y en su JS tendrá la función para manejar ese evento:
   ...
 ```
 
+Ejemplo: 
+
 El componente hijo puede emitir cualquiera de los eventos estàndar de JS ('click', 'change', ...) o un evento personalizado ('cambiado', ...).
+
+En ocasiones el componente hijo no tiene que hacer
 
 ### sync
 Una alternativa a emitir eventos es "sincronizar" un parámetro pasado por el padre para que se actualice si se modifica en el hijo, lo que se hace con el modificador _.sync_, pero no es muy recomendable porque hace el código más difícil de mantener:
@@ -303,23 +307,94 @@ Es un patrón y una librería para gestionar los estados en una aplicación Vue.
 
 Es el método a utilizar en aplicaciones medias y grandes y lo veremos con más detalle más adelante.
 
-## Otras formas de comunicarse
+## Slots
+Un _slot_ es una ranura en un componente que, al renderizarse, se rellena con lo que le pasa el padre en el innerHTML de la etiqueta del componente. Los _slots_ son una herramienta muy potente. Podemos obtener toda la información en la [documentación de Vue](https://vuejs.org/v2/guide/components-slots.html). 
 
-* [slots](https://vuejs.org/v2/guide/components-slots.html): permiten pasar cualquier cosa en el innerHTML de un componente que el componente mostrará tal cual:
-
+Ejemplo:
+Componente _my-component_ con un slot:
 ```html
-// Al llamar al componente ponemos algo en su innerHTML
-<navigation-link url="/profile">
-  <span class="fa fa-user"></span>
-  Your Profile
-</navigation-link>
-
-// que el componente mostrará tal cual en sustitución de su etiqueta <slot>
-<a v-bind:href="url" class="nav-link">
-  <slot></slot>
-</a>
+<div>
+  <h3>Componente con un slot</h3>
+  <slot>Esto se verá si no se pasa nada al slot</slot>
+</div>
 ```
 
+Si llamamos al componente con:
+```html
+<my-component>
+  <p>Texto del slot</p>
+</my-component>
+```
+se renderizará como:
+```html
+<div>
+  <h3>Componente con un slot</h3>
+  <slot>Esto se verá si no se pasa nada al slot</slot>
+</div>
+```
+
+Pero si lo llamamos con:
+```html
+<my-component>
+</my-component>
+```
+se renderizará como:
+```html
+<div>
+  <h3>Componente con un slot</h3>
+  Esto se verá si no se pasa nada al slot
+</div>
+```
+
+### Slots con nombre
+A veces nos interesa tener más de 1 slot en un componente. Para saber qué contenido debe ir a cada slot se les da un nombre. 
+
+Vamos a ver un ejemplo de un componente llamado _base-layout_ con 3 _slots_, uno para la cabecera, otro para el pie y otro principal:
+```html
+<div class="container">
+  <header>
+    <slot name="header"></slot>
+  </header>
+  <main>
+    <slot></slot>
+  </main>
+  <footer>
+    <slot name="footer"></slot>
+  </footer>
+</div>
+```
+
+A la hora de llamar al componente hacemos:
+```html
+<base-layout>
+  <template slot="header">
+    <h1>Here might be a page title</h1>
+  </template>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <template slot="footer">
+    <p>Here's some contact info</p>
+  </template>
+</base-layout>
+```
+
+Lo que está dentro de un _template_ con atributo _slot_ irá al_slot_ del componente con ese nombre. El resto del innerHTML irá al _slot_ por defecto (el que no tiene nombre).
+
+El stributo _slot_ podemos ponérselo a cualquier etiqueta (no tiene que ser \<template>;
+```html
+<base-layout>
+  <h1 slot="header">Here might be a page title</h1>
+
+  <p>A paragraph for the main content.</p>
+  <p>And another one.</p>
+
+  <p slot="footer">Here's some contact info</p>
+</base-layout>
+```
+
+## Otras formas de comunicarse
 * [.native](https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components): permite que un evento se escuche en el elemento que llama al componente y no en el componente
 * [v-model de componentes](https://vuejs.org/v2/guide/components-custom-events.html#Customizing-Component-v-model): permite que los inputs de un formulario sean subcomponentes y que puedan seguir enlazadas mediante _v-model_ con datos del formulario.
 
