@@ -1,4 +1,12 @@
 # Más cosas a aprender en Javascript
+Hace unos años Javscript era considerado un lenguaje de programación de segunda categoría, que se usaba para hacer molestas páginas web. Hoy en día el navegador es la aplicación más importante de un equipo y con él, además de navegar, se ejecutan todo tipo de aplicaciones. Además HTML5 y JavaScript han pasado de estar solo en nuestro navegador a ser un pilar básico de las plataformas móviles, de aplicaciones de escritorio e incluso JavaScript lo encontramos en servidores (con Node.js) o como lenguaje estándar de algunos entornos de escritorio (como GNOME para Linux).
+
+Por ello HTML5 y Javascript siguen su contínuo crecimiento... y su contínua evolución que les permite hacer cada vez más cosas. En esta página vamos a hablar muy brevemente de algunas de las características que están incorporando:
+* [Web Components](#WebComponents)
+* [Web Sockets](#WebSockets)
+* [Web Workers](#WebWorkers)
+* [Typescript](#Typescript)
+* ...
 
 ## WebComponents
 Son distintas tecnologías que podemos usar (todas o alguna de ellas) para crear componentes reutilizables para nuestras páginas HTML. Las tcnologías que hay tras los Web Components son:
@@ -114,3 +122,20 @@ function stopWorker() {
 ```
 
 Al llamar a _startWorker_ se crea el worker y cada vez que éste envíe algo se ostrará en la consola (lo que envía se recibe en _event-data_). Para finalizar un worker llamamos a su método _terminate()_.
+
+Saber más:
+* [MDN - Usando WebWorkers](https://developer.mozilla.org/es/docs/Web/Guide/Performance/Usando_web_workers)
+* [w3schools - HTML5 Web Workers](https://www.w3schools.com/html/html5_webworkers.asp)
+
+## Typescript
+TypeScript es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipado estático y objetos basados en clases. TypeScript extiende la sintaxis de JavaScript, por tanto cualquier código JavaScript existente debería funcionar sin problemas.
+
+Puede que la principal diferencia entre ambos es que Typescript obliga al tipado de las variables (y por supuesto no permite cambios de tipo) lo que evita muchos errores a la hora de programar.
+
+Algunos frameworks y librerías, como Angular, utilizan TS en lugar de JS como lenguaje, que luego es transpilado a JS a la hora de generar la aplicación para producción.
+
+Quizá el inconveniente es que es algo más difícil que JS pero como está basado en él y la sintaxis es prácticamente igual el esfuerzo de aprender TS para un programador JS es muy pequeño.
+
+Saber más:
+* [Wikipedia - Typescript](https://en.wikipedia.org/wiki/TypeScript)
+* [Typescriptlang](https://www.typescriptlang.org/)
