@@ -1,4 +1,5 @@
-# El framework Vue JS
+# BLOQUE 2 - El framework Vue JS
+En este bloque vamos a conocer el framework VueJS que es uno de los más utilizados en la actualidad (junto a Angular y React). El bloque se divide en:
 Contenidos:
 1. [Conceptos básicos](./01-basics.md)
 1. [Directivas](./02-directivas.md)
