@@ -105,7 +105,7 @@ const app = new Vue({
 });
 ```
 
-Creamos el fichero **/resources/js/views/App.vue** que será el equivalente al **App.vue** de los proyectos _vue-cli_:
+Creamos el fichero **/resources/js/App.vue** que será el equivalente al **App.vue** de los proyectos _vue-cli_:
 ```HTML
 <template>
     <div>
@@ -144,7 +144,7 @@ Creamos la vista principal en **/resources/views/spa.blade.php**:
 </body>
 </html>
 ```
-NOTA: la línea del _<meta CSRF-TOKEN>_ es para evitar los errores de la consola por no pasasr el token csrf.
+NOTA: la línea del _\<meta CSRF-TOKEN>_ es para evitar los errores de la consola por no pasar el token csrf.
 
 Configuramos **/routes/web.php** para que sirva siempre esa página:
 ```php
