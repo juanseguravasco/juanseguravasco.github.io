@@ -93,6 +93,7 @@ npm i -S vue-router
 > php artisan preset vuetify
 > php artisan preset vuetify-auth   # si queremos usar Laravel Passport
 > ```
+> pero antes debemos haber configurado la BBDD en el .env para que esto funcione
 
 ### Configuramos el proyecto en Vue
 Configuramos el router de Vue en un nuevo fichero JS (por ejemplo **/resources/js/router.js**) y lo importamos en el fichero principal, **/resources/js/app.js** (el equivalente al **main.js** de un proyecto con _vue-cli_):
