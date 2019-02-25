@@ -92,6 +92,9 @@ npm i -S vue-router
 > composer require laravel-frontend-presets/vuetify
 > php artisan preset vuetify
 > php artisan preset vuetify-auth   # si queremos usar Laravel Passport
+> npm install && npm i -S vue-router && npm run dev
+> php artisan migrate
+> php artisan passport:install      # si queremos usar Laravel Passport
 > ```
 > pero antes debemos haber configurado la BBDD en el .env para que esto funcione
 > Fuente: [How to add Vuetify to Laravel Project](https://threenine.co.uk/how-to-add-vuetify-to-laravel-project/)
