@@ -181,9 +181,9 @@ class SpaController extends Controller
 ### Compilamos Vue
 Ahora simplemente ejecutamos en la terminal
 ```bash
-npm run prod
+npm run dev
 ```
-y ya tenemos la aplicación en marcha (así se compila el javascript y se crea el fichero mix-manifest.json para que no aparezca un error de "The Mix manifest does not exist").
+y ya tenemos la aplicación en marcha. Si aparece un error de _"The Mix manifest does not exist"_ ejecutaremos `npm run prod`  que crea el fichero _mix-manifest.json_.
 
 Para que se compilen automáticamente los cambios que vayamos haciendo en Vue mientras desarrollamos el proyecto ejecutamos `npm run watch-poll` en una terminal. 
 
