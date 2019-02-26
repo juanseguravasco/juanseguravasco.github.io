@@ -87,17 +87,6 @@ cd laravue
 npm install
 npm i -S vue-router
 ```
-> NOTA: si queremos usar _vuetify_ antes del `npm install` debemos ejecutar:
-> ```bash
-> composer require laravel-frontend-presets/vuetify
-> php artisan preset vuetify
-> php artisan preset vuetify-auth   # si queremos usar Laravel Passport
-> npm install && npm i -S vue-router && npm run dev
-> php artisan migrate
-> php artisan passport:install      # si queremos usar Laravel Passport
-> ```
-> pero antes debemos haber configurado la BBDD en el .env para que esto funcione
-> Fuente: [How to add Vuetify to Laravel Project](https://threenine.co.uk/how-to-add-vuetify-to-laravel-project/)
 
 ### Configuramos el proyecto en Vue
 Configuramos el router de Vue en un nuevo fichero JS (por ejemplo **/resources/js/router.js**) y lo importamos en el fichero principal, **/resources/js/app.js** (el equivalente al **main.js** de un proyecto con _vue-cli_):
