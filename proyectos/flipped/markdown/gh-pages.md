@@ -1,5 +1,5 @@
 # Publicar en gh-pages
-GitHub Pages es un servicio de alojamiento web estático de GitHub que permite publicar documentación. Al ser contenido estático podemos usar HTML, CSS y Javascript y podemos usarlo para publicar apuntes, portfolio, información sobre los repositorios, etc. Las _gh-pages_ están accesible en el dominio github.io.
+GitHub Pages es un servicio de alojamiento web estático de GitHub que permite publicar documentación. Al ser contenido estático podemos usar HTML, CSS y Javascript y podemos usarlo para publicar apuntes, portfolio, información sobre los repositorios, etc. Las _gh-pages_ están accesible en el dominio github.io. Y podemos poner las páginas en formato MD y GitHun las sirve automáticamente como HTML.
 
 Podemos publicar 2 tipos de documentación:
 1. documentación sobre un repositorio concreto
@@ -11,7 +11,7 @@ Podemos encontrar información de cómo realizar La configuración de las _gh_pa
 Tenemos 3 opciones para guardar las páginas:
 * en la rama master
 * en una rama llamada gh-pages
-* en un directorio llamado /docs en la rama master
+* en un directorio llamado /docs dentro de la rama master
 
 La página principal que se abrirá automáticamente se debe llamar README.md, index.md o index.html.
 
@@ -26,14 +26,17 @@ La documentación estará accesible en la URL \<usuario>.github.io/\<repositorio
 ## Publicar documentación no ligada a ningún repositorio
 En este caso lo que tenemos que hacer es crear en GitHub un nuevo repositorio que se debe llamar obligatoriamente \<usuario>.github.io. Allí podemos la documentación que ya aparecerá automáticamente publicada en dicha URL.
 
-Sólo podemos tener un repositorio personal con \<usuario>.github.io pero podemos tener uno más por cada organización que tengamos.
+Sólo podemos tener un repositorio personal con \<usuario>.github.io pero podemos tener uno más por cada organización que tengamos en la url \<organizacion>.github.io.
 
 ## Crear nuestra documentació con Jekyll
 Una opción si queremos hacer una "web" de documentación más compleja es utlizar alguna herramienta como Jekyll que es como están hechas las GH Pages.
 
-Jekyll es un generador de blogs que soporta MarkDown y está recomendado para hacer gh-pages.
+Jekyll es un gestor de contenidos estáticos que soporta MarkDown y está recomendado para hacer _gh-pages_.
+
+A partir de los ficheros fuentes se generan la páginas compiladas en HTML. Como _gh-pages_ integraa _Jekyll_ esta compilación se hace automáticamente.
 
 ### Instalación
+Funciona con **Ruby** así que necesitamos tener ese entorno instalado.
 ```bash 
 $ sudo apt install ruby     # (se necesita versión >= 2.2.5)
 ```
@@ -61,16 +64,26 @@ $ sudo gem install jekyll
 $ sudo gem install jekyll bundler
 ```
 
+Podemos ver si está instalado con:
+```bash 
+$ jekyll -v
+```
+
+
 ### Uso básico
 Creamos nuestro sitio con:
 ```bash 
 $ sudo jekyll new mipagina
 ```
 
-Abrimos el fichero \_config y cambiamos las configuraciones básicoas (nombre, ...)
+Vemos que ha creado un blog con una serie de ficheros y un post. En la documentación de _Jekyll_ podemos ver cómo crear tanto posts como páginas (son parecidas pero usan por defecto el layout _page_ en vez del _post_, pero todo esto se puede configurar).
+
+Para ponerlo en marcha entramos al sitio creado y ejecutamos:
 ```bash 
-$ sudo gem install jekyll
+$ bundler exec jekyll serve
 ```
+
+Esto nos crea un servidor web en el puerto 4000 que recoge este directorio, lo compila y genera el sitio web.
 
 ## Leer más
 * [What is GitHub Pages?](https://help.github.com/categories/github-pages-basics/)
