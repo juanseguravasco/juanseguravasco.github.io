@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
 
-- [Hacer documentación en GitHub Pages](#hacer-documentaci%C3%B3n-en-github-pages)
+- [Hacer documentación con Markdown](#hacer-documentaci%C3%B3n-con-Markdown)
   - [Markdown](#markdown)
     - [Sintaxis](#sintaxis)
     - [Añadir vídeos](#a%C3%B1adir-v%C3%ADdeos)
@@ -25,7 +25,7 @@ Tabla de contenidos
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Hacer documentación en GitHub Pages
+# Hacer documentación con Markdown
 Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages. El lenguaje es tan sencillo que normalmente no usaremos ningún editor de Markdown sino que escribiremos directamente en el bloc de notas o similar.
 
 ## Markdown
@@ -33,6 +33,7 @@ Es un lenguaje de marcas ligero. Su ventaja frente a otros lenguajes de marcado 
 
 ### Sintaxis
 Podemos ver las principales marcas a utilizar en innumerables páginas como:
+- [Basic writing and formatting syntax](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 * [Sintaxis Markdown](https://markdown.es/sintaxis-markdown)
 * ...
@@ -66,14 +67,16 @@ Ejemplo **escribes**:
 
 * cursiva: texto entre * o _ (sin espacios). Ej. `*cursiva*` -> _cursiva_
 * negrita: igual pero entre 2 * o 2 _  Ej. `**negrita**` -> __negrita__
-* listas desordenadas: * y espacio al principio de la línea. Para hacer sublistas tabulamos con 4 espacios en blanco
+* negrita y cursiva: se ponen ambas. Ej. `**_negrita y cursiva_**`-> **_negrita y cursiva_**
+* tachado: texto entre ~~ . Ej. `~~tachado~~` -> ~~tachado~~
+* listas desordenadas: * o - seguidos de espacio al principio de la línea. Para hacer sublistas tabulamos con 4 espacios en blanco
 
 **Escribes**:
 ```md
-* Item 1  
-    * Item 1.1  
-    * Item 1.2  
-* Item 2
+- Item 1  
+    - Item 1.1  
+    - Item 1.2  
+- Item 2
 ```
 
 **Obtienes**:
@@ -97,6 +100,34 @@ Ejemplo **escribes**:
 >     1. Item 1.1
 >     1. Item 1.2
 > 1. Item 2
+
+* checklists: al principio de cada línea pones \[ ] si quieres que aparezca desmarcada o \[\*] si la quieres marcada:
+
+**Escribes**:
+```md
+- [ ] Item 1  
+- [x] Item 2  
+- [ ] Item 3  
+```
+
+**Obtienes**:
+> - [ ] Item 1  
+> - [x] Item 2  
+> - [ ] Item 3  
+
+* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (acentros graves, seguidos opcionalmente del lenguaje) y al final del bloque 3 acentos más para cerrarlo. Ej.: ``código`` ->  `código`
+
+**Escribes**:
+```md
+```html  
+<h1>Hola</h1>  
+``\`
+```
+
+**Obtienes**:
+> ```html
+> <h1>Hola</h1>
+> ```
 
 * enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
 Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
@@ -185,7 +216,7 @@ Aquí aparecen varias utilidades o cosas que podemos usar en MD.
 ## Usar emoticones
 Se pone su 'nombre' entre caracteres :, fácil ¿no? : :blush:
 
-Hay muchas [páginas](https://gist.github.com/rxaviers/7360908) donde aparecen los nombres de los emoticonos.
+Hay muchas [páginas](https://www.webfx.com/tools/emoji-cheat-sheet/) donde aparecen los nombres de los emoticonos.
 
 ## Crear una Tabla de Contenidos (TOC) automáticamente
 Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestro documento Markdown que tenga una entrada en la tabla para cada título de la página.
