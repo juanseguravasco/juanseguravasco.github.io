@@ -132,20 +132,6 @@ Ejemplo **escribes**:
 * enlaces: \[texto a mostrar](url). Ej: `[Wikipedia](http://wikipedia.org)` -> [Wikipedia](http://wikipedia.org)  
 Opcionalmente podemos poner un título en los paréntesis: \[texto](url "titulo")
 * imágenes: igual pero precedidas de !, !\[texto alternativo](url "título, opcional")
-* código: entre \` para mostrarlo en la línea o para un bloque de texto tres \` (acentros graves, seguidos opcionalmente del lenguaje) y al final del bloque 3 acentos más para cerrarlo. Ej.: ``código`` ->  `código`
-
-**Escribes**:
-```md
-```html  
-<h1>Hola</h1>  
-``\`
-```
-
-**Obtienes**:
-> ```html
-> <h1>Hola</h1>
-> ```
-
 * citas: el párrafo debe comenzar por > (son todos los ejemplos de _Escribes_ ... _Obtienes_)
 * tablas: se separan las columnas con \|
 
