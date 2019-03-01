@@ -1,9 +1,11 @@
 # Publicar en gh-pages
-GitHub Pages es un servicio de GitHub que permite publicar documentación que está accesible en el dominio github.io.
+GitHub Pages es un servicio de alojamiento web estático de GitHub que permite publicar documentación. Al ser contenido estático podemos usar HTML, CSS y Javascript y podemos usarlo para publicar apuntes, portfolio, información sobre los repositorios, etc. Las _gh-pages_ están accesible en el dominio github.io.
 
 Podemos publicar 2 tipos de documentación:
 1. documentación sobre un repositorio concreto
 2. documentación no asociada a ningún repositorio
+
+Podemos encontrar información de cómo realizar La configuración de las _gh_pages_ en [GitHub Pages](https://pages.github.com/). 
 
 ## Publicar documentación sobre un repositorio
 Tenemos 3 opciones para guardar las páginas:
@@ -23,6 +25,8 @@ La documentación estará accesible en la URL \<usuario>.github.io/\<repositorio
 
 ## Publicar documentación no ligada a ningún repositorio
 En este caso lo que tenemos que hacer es crear en GitHub un nuevo repositorio que se debe llamar obligatoriamente \<usuario>.github.io. Allí podemos la documentación que ya aparecerá automáticamente publicada en dicha URL.
+
+Sólo podemos tener un repositorio personal con \<usuario>.github.io pero podemos tener uno más por cada organización que tengamos.
 
 ## Crear nuestra documentació con Jekyll
 Una opción si queremos hacer una "web" de documentación más compleja es utlizar alguna herramienta como Jekyll que es como están hechas las GH Pages.
