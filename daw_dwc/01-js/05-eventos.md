@@ -46,7 +46,7 @@ window.onload=function() {
 ```
 
 ### Event listeners
-La forma recomendada de hacerlo es usando escuchadores de eventos. El método `addEventListener` recibe como primer parámetro el nombre del evento a escuchar y como segundo parámetro la función a ejecutar cuando se produzca:
+La forma recomendada de hacerlo es usando escuchadores de eventos. El método `addEventListener` recibe como primer parámetro el nombre del evento a escuchar y como segundo parámetro la función a ejecutar (OJO, sin paréntesis) cuando se produzca:
 ```javascript
 document.getElementById('acepto').addEventListener('click', aceptado);
 ...
@@ -55,7 +55,7 @@ function aceptado() {
 })
 ```
 
-Es muy común usar funciones anónimas como escuchadores de eventos ya que sólo se van a llamar al producirse el evento:
+Si queremos pasarle algún parámetro a la función escuchadora (cosa bastante poco usual) debemos usar funciones anónimas como escuchadores de eventos. Es bastante habitual usar este tipo de funciones ya que lo normal es que sólo se vayan a llamar al producirse el evento:
 
 <script async src="//jsfiddle.net/juansegura/L5pkg93w/1/embed/js,html,result/"></script>
 
@@ -146,7 +146,11 @@ Lo mejor para familiarizarse con los diferentes eventos es consultar los [ejempl
 ## Propagación de eventos (bubbling)
 Normalmente en una página web los elementos HTML se solapan unos con otros, por ejemplo, un \<span> está en un \<p> que está en un \<div> que está en el \<body>. Si ponemos un escuchador del evento _click_ a todos ellos se ejecutarán todos ellos, pero ¿en qué orden?.
 
-La propagación normal de los eventos (excepto en Internet Explorer) es desde el elemento más al frente al más al fondo y este comportamiento se conoce como _bubbling_ (burbujeo). En el ejemplo se ejecutaría el escuchador asociado al \<span>, luego el del \<p>, el del \<div> y por último el del \<body>. Podéis ver un ejemplo en:
+Pues el W3C establecíó un modelo en el que primero se disparan los eventos de fuera hacia dentro (primero el \<body>) y al llegar al más interno (el \<spab>) se vuelven a disparar de nuevo pero de dentro hacia afuera. La primera fase se conoce como **fase de captura** y la segunda como **fase de burbujeo**. Cuando ponemos un escuchador con `addEventListener` el tercer parámetro indica en qué fase debe dispararse:
+- **true**: en fase de captura
+- **false** (valor por defecto): en fase de burbujeo
+
+Podéis ver un ejemplo en:
 
 <script async src="//jsfiddle.net/juansegura/n3b6fph0/6/embed/js,html,result/"></script>
 
