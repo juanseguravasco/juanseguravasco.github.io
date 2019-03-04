@@ -152,7 +152,7 @@ Pues el W3C establecíó un modelo en el que primero se disparan los eventos de 
 
 Podéis ver un ejemplo en:
 
-<script async src="//jsfiddle.net/juansegura/n3b6fph0/6/embed/js,html,result/"></script>
+<script async src="//jsfiddle.net/juansegura/n3b6fph0/embed/js,html,result/"></script>
 
 Sin embargo si al método `.addEventListener` le pasamos un tercer parámetro con el valor _true_ el comportamiento será el contrario, lo que se conoce como _captura_ y el primer escuchador que se ejecutará es el del \<body> y el último el del \<span> (podéis probarlo añadiendo ese parámetro a los escuchadores del ejemplo anterior).
 
