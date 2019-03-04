@@ -1,3 +1,12 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Vuex](#vuex)
+  - [Usar Vuex](#usar-vuex)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Vuex
 Es un patrón de gestión de estado más una libreria que proporcionan un almacén de datos centralizado para todos los componentes de la aplicación y aseguran que los datos sólo puedan cambiarse de forma controlada. Además se integra con las _Dev tools_.
 

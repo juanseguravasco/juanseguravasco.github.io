@@ -3,7 +3,10 @@
 Tabla de contenidos
 
 - [Vue con Laravel](#vue-con-laravel)
-  - [Instalación](#instalaci%C3%B3n)
+  - [Creación del proyecto](#creaci%C3%B3n-del-proyecto)
+    - [Configuramos el proyecto en Vue](#configuramos-el-proyecto-en-vue)
+    - [Configuramos Laravel](#configuramos-laravel)
+    - [Compilamos Vue](#compilamos-vue)
     - [Saber más](#saber-m%C3%A1s)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->

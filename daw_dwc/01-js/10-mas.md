@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Más cosas a aprender en Javascript](#m%C3%A1s-cosas-a-aprender-en-javascript)
+  - [WebComponents](#webcomponents)
+  - [WebSockets](#websockets)
+  - [WebWorkers](#webworkers)
+  - [Typescript](#typescript)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Más cosas a aprender en Javascript
 Hace unos años Javscript era considerado un lenguaje de programación de segunda categoría, que se usaba para hacer molestas páginas web. Hoy en día el navegador es la aplicación más importante de un equipo y con él, además de navegar, se ejecutan todo tipo de aplicaciones. Además HTML5 y JavaScript han pasado de estar solo en nuestro navegador a ser un pilar básico de las plataformas móviles, de aplicaciones de escritorio e incluso JavaScript lo encontramos en servidores (con Node.js) o como lenguaje estándar de algunos entornos de escritorio (como GNOME para Linux).
 

@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Publicar en gh-pages](#publicar-en-gh-pages)
+  - [Publicar documentación sobre un repositorio](#publicar-documentaci%C3%B3n-sobre-un-repositorio)
+  - [Publicar documentación no ligada a ningún repositorio](#publicar-documentaci%C3%B3n-no-ligada-a-ning%C3%BAn-repositorio)
+  - [Crear nuestra documentació con Jekyll](#crear-nuestra-documentaci%C3%B3-con-jekyll)
+    - [Instalación](#instalaci%C3%B3n)
+    - [Uso básico](#uso-b%C3%A1sico)
+    - [Configurar nuestro sitio](#configurar-nuestro-sitio)
+    - [Plantillas](#plantillas)
+      - [Variables](#variables)
+      - [Includes](#includes)
+      - [Layouts](#layouts)
+      - [Crear nuestra propia plantilla](#crear-nuestra-propia-plantilla)
+  - [Leer más](#leer-m%C3%A1s)
+- [Conversiones de formato](#conversiones-de-formato)
+  - [Convertir de HTML a MD](#convertir-de-html-a-md)
+  - [Convertir PDF a MD](#convertir-pdf-a-md)
+  - [Convertir MD a PDF](#convertir-md-a-pdf)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Publicar en gh-pages
 GitHub Pages es un servicio de alojamiento web estático de GitHub que permite publicar documentación. Al ser contenido estático podemos usar HTML, CSS y Javascript y podemos usarlo para publicar apuntes, portfolio, información sobre los repositorios, etc. Las _gh-pages_ están accesible en el dominio github.io. Y podemos poner las páginas en formato MD y GitHun las sirve automáticamente como HTML.
 

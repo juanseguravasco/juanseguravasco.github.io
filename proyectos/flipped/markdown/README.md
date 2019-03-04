@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 Tabla de contenidos
 
-- [Hacer documentación con Markdown](#hacer-documentaci%C3%B3n-con-Markdown)
+- [Hacer documentación con Markdown](#hacer-documentaci%C3%B3n-con-markdown)
   - [Markdown](#markdown)
     - [Sintaxis](#sintaxis)
     - [Añadir vídeos](#a%C3%B1adir-v%C3%ADdeos)
@@ -11,17 +11,6 @@ Tabla de contenidos
 - [Utilidades](#utilidades)
   - [Usar emoticones](#usar-emoticones)
   - [Crear una Tabla de Contenidos (TOC) automáticamente](#crear-una-tabla-de-contenidos-toc-autom%C3%A1ticamente)
-- [Publicar en gh-pages](#publicar-en-gh-pages)
-  - [Publicar documentación sobre un repositorio](#publicar-documentaci%C3%B3n-sobre-un-repositorio)
-  - [Publicar documentación no ligada a ningún repositorio](#publicar-documentaci%C3%B3n-no-ligada-a-ning%C3%BAn-repositorio)
-  - [Crear nuestra documentació con Jekyll](#crear-nuestra-documentaci%C3%B3-con-jekyll)
-    - [Instalación](#instalaci%C3%B3n)
-    - [Uso básico](#uso-b%C3%A1sico)
-  - [Leer más](#leer-m%C3%A1s-1)
-- [Conversiones de formato](#conversiones-de-formato)
-  - [Convertir de HTML a MD](#convertir-de-html-a-md)
-  - [Convertir PDF a MD](#convertir-pdf-a-md)
-  - [Convertir MD a PDF](#convertir-md-a-pdf)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

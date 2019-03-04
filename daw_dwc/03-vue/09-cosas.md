@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Siguientes cosas a aprender en Vue](#siguientes-cosas-a-aprender-en-vue)
+  - [Vuetify](#vuetify)
+    - [Instalación](#instalaci%C3%B3n)
+    - [Crear el layout](#crear-el-layout)
+    - [Saber más](#saber-m%C3%A1s)
+  - [Vuex](#vuex)
+    - [Usar Vuex](#usar-vuex)
+    - [Saber más](#saber-m%C3%A1s-1)
+  - [Vue con Laravel](#vue-con-laravel)
+    - [Creación del proyecto](#creaci%C3%B3n-del-proyecto)
+    - [Configuramos el proyecto en Vue](#configuramos-el-proyecto-en-vue)
+    - [Configuramos Laravel](#configuramos-laravel)
+    - [Compilamos Vue](#compilamos-vue)
+    - [Creamos la API](#creamos-la-api)
+    - [Saber más](#saber-m%C3%A1s-2)
+  - [Autenticación](#autenticaci%C3%B3n)
+  - [SSR (Server Side Rendering)](#ssr-server-side-rendering)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Siguientes cosas a aprender en Vue
 Algunas cosas interesantes que nos pueden ser útiles en nuestros proyectos son:
 * [Vuetify](#Vuetify)

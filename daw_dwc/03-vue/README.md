@@ -1,3 +1,11 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [BLOQUE 2 - El framework Vue JS](#bloque-2---el-framework-vue-js)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # BLOQUE 2 - El framework Vue JS
 En este bloque vamos a conocer el framework VueJS que es uno de los más utilizados en la actualidad (junto a Angular y React). El bloque se divide en:
 Contenidos:

@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Crear una API REST con Laravel](#crear-una-api-rest-con-laravel)
+  - [Crear el modelo](#crear-el-modelo)
+  - [Crear la API](#crear-la-api)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Crear una API REST con Laravel
 
 ## Crear el modelo
