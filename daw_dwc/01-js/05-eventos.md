@@ -47,12 +47,26 @@ window.onload=function() {
 
 ### Event listeners
 La forma recomendada de hacerlo es usando escuchadores de eventos. El método `addEventListener` recibe como primer parámetro el nombre del evento a escuchar y como segundo parámetro la función a ejecutar cuando se produzca:
+```javascript
+document.getElementById('acepto').addEventListener('click', aceptado);
+...
+function aceptado() {
+  alert('Se ha aceptado');
+})
+```
+
+Es muy común usar funciones anónimas como escuchadores de eventos ya que sólo se van a llamar al producirse el evento:
 
 <script async src="//jsfiddle.net/juansegura/L5pkg93w/1/embed/js,html,result/"></script>
 
-NOTA: igual que antes debemos estar seguros de que se ha creado el árbol DOM antes de poner un escuchador por lo que se recomienda ponerlos siempre dentro de la función asociada al evento `window.onload` (o mejor `window.addEventListener('load', ...)`.
+NOTA: igual que antes debemos estar seguros de que se ha creado el árbol DOM antes de poner un escuchador por lo que se recomienda ponerlos siempre dentro de la función asociada al evento `window.onload` (o mejor `window.addEventListener('load', ...)` como en el ejemplo anterior).
 
 Una ventaja de este método es que podemos poner varios escuchadores para el mismo evento y se ejecutarán todos ellos. Para eliminar un escuchador se usa el método `removeEventListener`.
+```javascript
+document.getElementById('acepto').removeEventListener('click', aceptado);
+```
+
+NOTA: no se puede quitar un escuchador si hemos usado una función anónima, para quitarlo debemos usar como escuchador una función con nombre.
 
 ## Tipos de eventos
 Según qué o dónde se produce un evento estos se clasifican en:
@@ -99,10 +113,12 @@ Se producen en los formularios:
 
 ## Los objetos _this_ y _event_
 Al producirse un evento se generan automáticamente en su función manejadora 2 objetos:
-* **this**: hace referencia al elemento sobre el que se ha producid el evento
-* **event**: es un objeto con propiedades y métodos que nos dan información sobre el evento:
+* **this**: siempre hace referencia al elemento que contiene el código en donde se encuentra la variable _this_. En el caso de una función escuchadora será el elemento sobre el que se ha producido el evento
+* **event**: es un objeto que se genera automáticamente y que recibe la función escuchadora como parámetro. Tiene propiedades y métodos que nos dan información sobre el evento, como:
   * **.type**: qué evento se ha producido (click, submit, keyDown, ...)
-  * **.target**: el elemento que lanza el evento (normalmente el mismo que _this_)
+  * **.target**: el elemento donde se produjo el evento
+  * **.currentTarget**: el elemento que contiene el escuchador del evento lanzado (normalmente el mismo que _this_). Por ejemplo si tenemos un divA al que le ponemos un escuchador de 'click' que dentro tiene un elemento divB, si hacemos _click_ sobre el divB **event.target** será el divB que es donde hemos hecho click (está dentro de divA) pero **event.currentTarget** será divA (que es quien tiene el escuchador que se está ejecutando).
+  * **.relatedTarget**: en un evento 'mouseover' **event.target** es el elemento donde ha entrado el puntero del ratón y **event.relatedTarget** el elemento del que ha salido. En un evento 'mouseout' sería al revés.
   * **cancelable**: si el evento puede cancelarse. En caso afirmativo se puede llamar a **event.preventDefault()** para cancelarlo
   * **.preventDefault()**: si un evento tiene un escuchador asociado se ejecuta el código de dicho escuchador y después el navegador realiza la acción que correspondería por defecto al evento si no tuviera escuchador (por ejemplo un escuchador del evento _click_ sobre un hiperenlace hará que se ejecute su código y después saltará a la página indicada en el _href_ del hiperenlace). Este método cancela la acción por defecto del navegador para el evento. Por ejemplo si el evento era el _submit_ de un formulario éste no se enviará o si era un _click_ sobre un hiperenlace no se irá a la página indicada en él.
   * **.stopPropagation**: un evento se produce sobre un elemento y todos su padres. Por ejemplo si hacemos click en un \<span> que está en un \<p> que está en un \<div> que está en el BODY el evento se va propagando por todos estos elementos y saltarían los escuchadores asociados a todos ellos (si los hubiera). Si alguno llama a este método el evento no se propagará a los demás elementos padre.
