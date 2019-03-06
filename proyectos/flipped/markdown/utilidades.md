@@ -1,13 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-Tabla de contenidos
-
-- [Conversiones de formato](#conversiones-de-formato)
-  - [Convertir de HTML a MD](#convertir-de-html-a-md)
-  - [Convertir PDF a MD](#convertir-pdf-a-md)
-  - [Convertir MD a PDF](#convertir-md-a-pdf)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{{ content }}
 
 # Conversiones de formato 
 
