@@ -52,11 +52,9 @@ En este caso lo que tenemos que hacer es crear en GitHub un nuevo repositorio qu
 
 Sólo podemos tener un repositorio personal con \<usuario>.github.io pero podemos tener uno más por cada organización que tengamos en la url \<organizacion>.github.io.
 
+## Usar plantillas
+Podemos usar los temas de Jekyll para aplicar a nuestras páginas configurándolo en el repositorio ('Settings'). También podemos instalarnos Jekyll en local y crear nuestras propias plantillas que subiremos psoteriormente a _gh-pages_ (o al servidor web que queramos) como se ve en la [siguiente página](./jekyll.md) de los apuntes.
 
 ## Leer más
 * [What is GitHub Pages?](https://help.github.com/categories/github-pages-basics/)
-
 * [JONATHAN MCGLONE: Creating and Hosting a Personal Site on GitHub](http://jmcglone.com/guides/github-pages/)
-
-
-
