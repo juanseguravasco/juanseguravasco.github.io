@@ -1,5 +1,4 @@
-* Do not remove this line (it will not be displayed)
-{:toc}
+{{ content }}
 
 # Crear una Tabla de Contenidos (TOC) automáticamente
 Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestro documento Markdown que tenga una entrada en la tabla para cada título de la página.
