@@ -1,6 +1,10 @@
+* Do not remove this line (it will not be displayed)
+{:toc}
+
 # Crear una Tabla de Contenidos (TOC) automáticamente
 Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestro documento Markdown que tenga una entrada en la tabla para cada título de la página.
 
+## Crear ToC con DocToc 
 Una de estas utilidades es [doctoc](https://github.com/thlorenz/doctoc). La instalamos con npm:
 ```[bash]
 npm install -g doctoc
@@ -35,3 +39,5 @@ Algunas opciones útiles son:
   * *--ghost*
   * *--bitbucket*
 
+## Creat ToC con Jekyll
+Si estamos usando Jekyll es posible crear automáticamente nuestra ToC utitlizando alguno de los múltiples plugins que encontraremos, por ejemplo, en GitHub buscando **jekyll-toc**.
