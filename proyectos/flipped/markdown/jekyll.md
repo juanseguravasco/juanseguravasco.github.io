@@ -1,3 +1,5 @@
+{{ content }}
+
 # Crear nuestra documentació con Jekyll
 Una opción si queremos hacer una "web" de documentación más compleja es utlizar alguna herramienta como Jekyll que es como están hechas las GH Pages.
 
@@ -125,13 +127,13 @@ En la carpeta **\_layouts** (hay que crearla si no la tenemos) creamos un ficher
 El fichero **nav.html** será algo similar a:
 ```html
 <ul>
-   {% for page in site.html_pages %}
-   {% if page.title %}
+   { % for page in site.html_pages %}
+   { % if page.title %}
    <li>
-      <a href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
+      <a href="{ { site.baseurl }}{ { page.url }}">{ { page.title }}</a>
    </li>
-   {% endif %}
-   {% endfor %}
+   { % endif %}
+   { % endfor %}
 </ul>
 ```
 Lo del IF lo hacemos para que no aparezcan en el menú las páginas que no tienen títutlo (como la 404.html).
