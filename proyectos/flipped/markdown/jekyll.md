@@ -117,7 +117,7 @@ En la carpeta **\_layouts** (hay que crearla si no la tenemos) creamos un ficher
   <body>
      <header>{ % include header.html %}</header>
      <nav>{ % include nav.html %}</nav>
-     <section>\{{ content }}</section>
+     <section>{ { content }}</section>
      <footer>{ % include footer.html %}</footer>
   </body>
 </html>
