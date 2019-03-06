@@ -1,18 +1,4 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-Tabla de contenidos
-
-- [Hacer documentación con Markdown](#hacer-documentaci%C3%B3n-con-markdown)
-  - [Markdown](#markdown)
-    - [Sintaxis](#sintaxis)
-    - [Añadir vídeos](#a%C3%B1adir-v%C3%ADdeos)
-    - [Editores](#editores)
-    - [Leer más](#leer-m%C3%A1s)
-- [Utilidades](#utilidades)
-  - [Usar emoticones](#usar-emoticones)
-  - [Crear una Tabla de Contenidos (TOC) automáticamente](#crear-una-tabla-de-contenidos-toc-autom%C3%A1ticamente)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+{{ content }}
 
 # Hacer documentación con Markdown
 Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages. El lenguaje es tan sencillo que normalmente no usaremos ningún editor de Markdown sino que escribiremos directamente en el bloc de notas o similar.
