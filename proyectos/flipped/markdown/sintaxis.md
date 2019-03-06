@@ -152,7 +152,12 @@ Si queremos mostrar vídeos de Vimeo podemos crear la página vimeoPlayer.html c
 
 Fuente: [http://adam.garrett-harris.com/how-to-easily-embed-youtube-videos-in-jekyll-sites-without-a-plugin/](http://adam.garrett-harris.com/how-to-easily-embed-youtube-videos-in-jekyll-sites-without-a-plugin/)
 
-### Editores
+## Usar emoticones
+Se pone su 'nombre' entre caracteres :, fácil ¿no? : :blush:
+
+Hay muchas [páginas](https://www.webfx.com/tools/emoji-cheat-sheet/) donde aparecen los nombres de los emoticonos.
+
+## Editores
 Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún editor pero si queremos existen uchos a nuestra disposición:
 * en línea:
     * [Dillinger](https://dillinger.io/)
@@ -167,13 +172,5 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
     
 ## Leer más
 [Wikipedia](https://es.wikipedia.org/wiki/Markdown)
-
-## Utilidades
-Aquí aparecen varias utilidades o cosas que podemos usar en MD.
-
-### Usar emoticones
-Se pone su 'nombre' entre caracteres :, fácil ¿no? : :blush:
-
-Hay muchas [páginas](https://www.webfx.com/tools/emoji-cheat-sheet/) donde aparecen los nombres de los emoticonos.
 
 
