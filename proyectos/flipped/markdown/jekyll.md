@@ -98,7 +98,7 @@ Si consultamos la documentación, en Layouts encontramos una información muy ú
 En cualquier página podemos mostrar el valor de una variable con **{{ }}**, por ejemplo `{{ page.title }}`.
 
 ### Includes
-Son ficheros con trozos de código que se guardan en la carpeta **\_includes** y que podemos importar en otros sitios poniendo `{% include nom_fichero %}`.
+Son ficheros con trozos de código que se guardan en la carpeta **\_includes** y que podemos importar en otros sitios poniendo `\{% include nom_fichero %}`.
 
 ### Layouts
 Se encuentra en la carpeta **\_layouts** y deba haber al menos uno llamado **default.html** en cada plantilla.
