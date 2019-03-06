@@ -1,12 +1,9 @@
 {{ content }}
 
-# Hacer documentación con Markdown
-Vamos a ver cómo crear documentación en formato Markdown y cómo guardarlas en las GitHub Pages. El lenguaje es tan sencillo que normalmente no usaremos ningún editor de Markdown sino que escribiremos directamente en el bloc de notas o similar.
-
-## Markdown
+# Markdown
 Es un lenguaje de marcas ligero. Su ventaja frente a otros lenguajes de marcado (como HTML) es que el fichero de texto con la información es mucho más legible.
 
-### Sintaxis
+## Sintaxis
 Podemos ver las principales marcas a utilizar en innumerables páginas como:
 - [Basic writing and formatting syntax](https://help.github.com/en/articles/basic-writing-and-formatting-syntax)
 * [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
@@ -136,7 +133,7 @@ Podemos incluir código HTML en nuestro documento y también lo interpretará el
 **Obtienes**:
 > <p align="center">Párrafo con <b>Negrita</b> y centrado</p>
 
-### Añadir vídeos
+## Añadir vídeos
 En principio no se pueden incluir vídeos pero es sencillo hacerlo de varias formas. Una de las más 'limpias' es crear una página HTML (podemos llamarla youtubePlayes.html) dentro del directorio \_includes con el código:
 
 ```html
@@ -168,18 +165,18 @@ Es tan simple utilizar el lenguaje Markdown que posiblemente no usemos ningún e
     * Focused (para Mac)
     * ...
     
-### Leer más
+## Leer más
 [Wikipedia](https://es.wikipedia.org/wiki/Markdown)
 
-# Utilidades
+## Utilidades
 Aquí aparecen varias utilidades o cosas que podemos usar en MD.
 
-## Usar emoticones
+### Usar emoticones
 Se pone su 'nombre' entre caracteres :, fácil ¿no? : :blush:
 
 Hay muchas [páginas](https://www.webfx.com/tools/emoji-cheat-sheet/) donde aparecen los nombres de los emoticonos.
 
-## Crear una Tabla de Contenidos (TOC) automáticamente
+### Crear una Tabla de Contenidos (TOC) automáticamente
 Tenemos utilidades para crear automáticamente una tabla de contenidos en nuestro documento Markdown que tenga una entrada en la tabla para cada título de la página.
 
 Una de estas utilidades es [doctoc](https://github.com/thlorenz/doctoc). La instalamos con npm:
