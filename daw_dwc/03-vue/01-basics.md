@@ -18,12 +18,11 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Conceptos básicos
-Aquí veremos lo básico para conover el framework Vue2 y ser capaces de utilizarlo como plataforma de desarrollo de aplicaciones web.
+Vue es un framework progresivo para la construcción de interfaces de usuario y aplicaciones desde el lado del cliente. Lo de framework "progresivo" significa que su núcleo es pequeño pero está diseñado para crecer: su núcleo está enfocado sólo en la capa de visualización (como React) pero es fácil añadirle otras bibliotecas o proyectos existentes (algunos desarrollados por el mismo equipo de Vue) que nos permitan crear complejas SPA.
+
+Un framework nos facilita enormemente el trabajo a la hora de crear una aplicación. Vue tiene una curva de aprendizaje menor que otros frameworks y es extremadamente rápido y ligero.
 
 Este material está basado en la [guía oficial de Vue2](https://vuejs.org/v2/guide/) y veremos además los servicios de vue-router y axios entre otros.
-
-Vue es un framework progresivo para la construcción de interfaces de usuario desde el lado del cliente. Lo de framework
-"progresivo" significa que está diseñado para ser crecer: su núcleo está enfocado sólo en la capa de visualización (como React) pero es fácil añadirle otras bibliotecas o proyectos existentes (algunos desarrollados por el mismo equipo de Vue) que nos permitan crear incluso complejas SPA.
 
 **¿Qué framework es mejor?**
 Depende de la aplicación a desarrollar y de los gustos del programador. Tenéis algunos enlaces al respecto:
@@ -38,7 +37,7 @@ Depende de la aplicación a desarrollar y de los gustos del programador. Tenéis
 Las razones de que veamos Vue en vez de Angular o React son, en resumen:
 * **Sencillez**: aunque Angular es el framework más demandado hoy en el mercado su curva de aprendizaje es muy pronunciada. Vue es mucho más sencillo de aprender pero su forma de trabajar es muy similar a Angular por lo que el paso desde Vue a Angular es relativamente sencillo
 * **Uso del framework**: React es también muy sencillo ya que es simplemente Javascript en el que podemos codificar la vista con JSX, pero la forma de trabajar de Vue es más pàrecida a otros frameworks, especialmente a Angular por lo que lo aprendido nos servirá a la hora de aprender otros framework
-* **Rendimiento**:Vue hace uso del concepto de _Virtual DOM_ igual que React por lo que también ofrece buen rendimiento
+* **Rendimiento**: Vue hace uso del concepto de _Virtual DOM_ igual que React por lo que también ofrece buen rendimiento
 * **Popularidad**: es el framwork cyua popularidad más está creciendo y ya ha superado incluso a React. Como muestra en 2016 los proyectos desarrollados con Vue obtuvieron 7600 estrellas en GitHub, en 2017 fueron 36700 estrellas y en Junio de 2018 ya han superado las 100000.
 
 ## Instalar Vue
@@ -53,8 +52,7 @@ o
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 
-Más adelante usaremos la herramienta `vue-cli` para crear un completo _scaffolding_ para nuestras aplicaciones (donde 
-podremos fácilmmente incluir otras bibliotecas, trabajar con componentes o construir una SPA de forma sencilla).
+Más adelante usaremos la herramienta `vue-cli` para crear un completo _scaffolding_ que nos facilitará enormemente la creación de nuestras aplicaciones (donde podremos incluir otras herramientas, trabajar con componentes o construir una SPA de forma sencilla).
 
 ## La primera aplicación Vue
 Vamos a crear la aplicación con Vue que mostrará un saludo. En el HTML necesitamos enlazar la librería de Vue y creamos un elemento (en nuestro caso un DIV) que contendrá la aplicación
