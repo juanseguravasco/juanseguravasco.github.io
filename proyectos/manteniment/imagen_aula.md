@@ -21,3 +21,20 @@ Si actualitzem Virtualbox ha de ser reconfigurat amb:
 /sbin/vboxconfig
 ```
 
+## Reiniciar els usuaris
+Després de restaurar (o no) les particions dels usuaris, per assegurar-se que no queda res de l'any pasat (o si es canvia d0aula a meitat de curs) pesem un script per a reiniciar els usuaris:
+```bash
+deluser usuari
+rm -R /home/usuari
+useradd -s /bin/bash usuari
+echo usuari:contrasenya | chpasswd
+cp /etc/skel/.* /home/usuari
+cp -R /etc/skel/.config /home/usuari
+cp -R /etc/skel/.mozilla /home/usuari
+adduser usuari vboxusers
+adduser usuari dialout
+chown -R usuari:usuari /home/usuari
+chmod -R 750 /home/usuari
+reboot
+```
+
