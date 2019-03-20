@@ -18,15 +18,16 @@ do
         ip="172.16."$aula"."$ipn
 
 echo Borrando PC $ip
-ssh $ip "deluser $usuari"
+ssh $ip "echo Hola" || echo Falla conexión PC $ip >> errores_script.txt; continue
+ssh $ip "deluser $usuari > /dev/null" || echo ERROR: Procés cancel·lat; exit 1
 ssh $ip "rm -R /home/$usuari"
 ssh $ip "useradd -s /bin/bash $usuari"
 ssh $ip "echo $usuari:$usuari12 | chpasswd"
-ssh $ip "cp /etc/skel/.* /home/$usuari"
+ssh $ip "cp /etc/skel/.* /home/$usuari 2> /dev/null"
 ssh $ip "cp -R /etc/skel/.config /home/$usuari"
 ssh $ip "cp -R /etc/skel/.mozilla /home/$usuari"
-ssh $ip "adduser $usuari vboxusers"
-ssh $ip "adduser $usuari dialout"
+ssh $ip "adduser $usuari vboxusers > /dev/null"
+ssh $ip "adduser $usuari dialout > /dev/null"
 ssh $ip "chown -R $usuari:$usuari /home/$usuari"
 ssh $ip "chmod -R 750 /home/$usuari"
 ssh $ip "reboot"
