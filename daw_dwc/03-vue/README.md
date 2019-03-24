@@ -20,3 +20,6 @@ Contenidos:
 1. [Formularios](./06-forms.md)
 1. [Y más...](./09-cosas.md)
 
+Podemos encontrar infinidad de documentación en Internet para ampliar lo que veremos en este bloque. Hay que destacar especialmente la [documentación oficial de Vue](https://vuejs.org/) que es muy completa. También podemos encontrar páginas, tutoriales o libros como:
+* [Desarrolla aplicaciones con vuejs](https://www.academia.edu/36309943/Desarrolla_aplicaciones_con_vuejs)
+
