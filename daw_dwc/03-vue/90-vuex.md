@@ -21,16 +21,38 @@ El uso de Vuex implica mayor complejidad en nuestra aplicación por lo que es re
 > Las librerías _Flux_ son como las gafas: lo sabrás cuando las necesites
 
 ## Instalar Vuex
-Para usar Vuex debemos instalarlo como cualquier otro _plugin_:
+Para usar Vuex debemos instalarlo como cualquier otro paquete:
 ```bash
 npm install -S vuex
 ```
 
 Además en el fichero principal de nuestra aplicación hay que registrarlo con
-```bash
+```javascript
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+```
+
+## Usar Vuex
+El corazón de Vuex es el **_store_** que es un contenedor donde almacenar el estado de la aplicación pero se diferencia de un objeto normal en que:
+- es reactivo
+- sólo se puede modificar haciendo _commits_ de mutaciones
+
+Al crear el almacén especificaremos en _state_ nuestras variables y en _mutations_ los métodos que se pueden usar para cambiarlas, ej.:
+```javascript
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    },
+    decrement (state) {
+      state.count--
+    },
+  }
+})
 ```
 
 ### Usar Vuex
