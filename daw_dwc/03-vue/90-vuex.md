@@ -187,7 +187,7 @@ export default {
 ```
 
 ### Actions
-Son métodos del almacén como las mutaciones pero no cambian los datos sino que lanzan (_commit_) mutaciones. Además pueden incluir llamadas asíncronas. Las acciones reciben como parámetro un objeto _context_ con las mismas propiedades y métodos que el almacén, lo que permite:
+Son métodos del almacén como las mutaciones pero no cambian los datos sino que lanzan mutaciones (_commit_). Además pueden incluir llamadas asíncronas. Las acciones reciben como parámetro un objeto _context_ con las mismas propiedades y métodos que el almacén, lo que permite:
 - lanzar una mutación con `context.commit('`
 - acceder a los datos con `context.state.`
 - acceder a los getters con `context.getters.`
@@ -195,6 +195,7 @@ Son métodos del almacén como las mutaciones pero no cambian los datos sino que
 
 ```javascript
 ```
+
 
 
 ### Usar Vuex
