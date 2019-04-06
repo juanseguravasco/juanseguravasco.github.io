@@ -187,21 +187,109 @@ export default {
 ```
 
 ### Actions
-Son métodos del almacén como las mutaciones pero no cambian los datos sino que lanzan mutaciones (_commit_). Además pueden incluir llamadas asíncronas. Las acciones reciben como parámetro un objeto _context_ con las mismas propiedades y métodos que el almacén, lo que permite:
+Son métodos del almacén como las mutaciones pero el lugar de cambiar los datos lanzan mutaciones (_commit_). Además pueden incluir llamadas asíncronas. Las acciones reciben como parámetro un objeto _context_ con las mismas propiedades y métodos que el almacén, lo que permite:
 - lanzar una mutación con `context.commit('`
 - acceder a los datos con `context.state.`
 - acceder a los getters con `context.getters.`
 - llamar a otras acciones con `context.dispatch.`
 
 ```javascript
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    }
+  }
+})
 ```
 
+También podemos usar la desestructuración de objetos de ES2015 para obtener sólo la parte del contexto que nos interesa:
+```javascript
+  actions: {
+    increment ({ commit }) {
+      commit('increment')
+    }
+  }
+```
 
+Igual que antes podemos usar el _helper_ _mapActions_ para mapear acciones y no tener que llamarlas en el componente con `this.$store.dispatc h('...')`:
+```javascript
+import { mapActions } from 'vuex'
 
-### Usar Vuex
-La forma de modificar los datos del almacén de Vuex es llamando a las mutaciones que hayamos definido para dichos datos. Podemos ver un ejemplo básico en Fiddle:
+export default {
+  // ...
+  methods: {
+    ...mapActions([
+      'increment', // map `this.increment()` to `this.$store.dispatch('increment')`
+      'incrementBy' // map `this.incrementBy(amount)` to `this.$store.dispatch('incrementBy', amount)`
+    ]),
+    ...mapActions({
+      add: 'increment' // map `this.add()` to `this.$store.dispatch('increment')`
+    })
+  }
+}
+```
 
-<script async src="//jsfiddle.net/n9jmu5v7/1269/embed/js,html,result/"></script>
+Si las acciones realizan una llamada asíncrona deben devolver una promesa:
+```javascript
+actions: {
+  actionA ({ commit }) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        commit('someMutation')
+        resolve()
+      }, 1000)
+    })
+  }
+}
+```
+
+Y la llamamos desde el componente con:
+```javascript
+store.dispatch('actionA')
+.then(//...)
+.catch(//...)
+```
+
+Si es una llamada a _axios_ hacemos el _commit_ cuando se haya resuelto:
+```javascript
+const URL = 'https://jsonplaceholder.typicode.com/posts';
+
+const store = new Vuex.Store({
+	state: {
+  	posts: [],
+    loading: true,
+  },
+  actions: {
+  	loadData({commit}) {
+    	axios.get(URL).then((response) => {
+        commit('updatePosts', response.data)
+        commit('changeLoadingState', false)
+    	})
+    }
+  },
+  mutations: {
+  	updatePosts(state, posts) {
+    	state.posts = posts
+    },
+    changeLoadingState(state, loading) {
+    	state.loading = loading
+    },
+  }
+})
+```
+
+Podemos ver el ejemplo completo en el _fiddle_ siguiente:
+<script async src="//jsfiddle.net/awolf2904/n8d44bh3/embed/js,html,result/"></script>
+
 
 ### Saber más
 * [Vuex](https://vuex.vuejs.org/)
