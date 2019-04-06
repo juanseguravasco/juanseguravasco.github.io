@@ -8,8 +8,6 @@
     - [Crear el layout](#crear-el-layout)
     - [Saber más](#saber-m%C3%A1s)
   - [Vuex](#vuex)
-    - [Usar Vuex](#usar-vuex)
-    - [Saber más](#saber-m%C3%A1s-1)
   - [Vue con Laravel](#vue-con-laravel)
     - [Creación del proyecto](#creaci%C3%B3n-del-proyecto)
     - [Configuramos el proyecto en Vue](#configuramos-el-proyecto-en-vue)
@@ -66,36 +64,13 @@ Respecto al _footer_
 
 
 ## Vuex
-Es un patrón de gestión de estado más una libreria que proporcionan un almacén de datos centralizado para todos los componentes de la aplicación y aseguran que los datos sólo puedan cambiarse de forma controlada. Además se integra con las _Dev tools_.
+Ya vimos que cuando distintos componentes tenían que compartir un mismo estado (acceder a los mismos datos) surgían problemas e intentamos solucionarlos con _event Bus_ y _state management pattern_. Estas soluciones pueden servir para pequeñas aplicaciones pero cuando crecen se hace difícil seguir los cambios con estos patrones. Para esos casos debemos usar _Vuex_, que proporciona un almacén de datos centralizado para todos los componentes de la aplicación y asegura que los datos sólo puedan cambiarse de forma controlada.
 
-Ya vimos lo que es un _state management pattern_: un almacén donde tenemos tanto nuestros datos como los métodos que los modifican.
+El uso de Vuex implica mayor complejidad en nuestra aplicación por lo que es recomendable su uso en aplicaciones de tamaño medio o grande (para aplicacioes pequeñas basta _eventBus_ o un store pattern hecho por nosotros). Como dijo Dan Abramov, el creador de Redux
 
-El flujo de datos de una aplicación podemos verlo (de manera muy simplificada) en el siguiente esquema:
+> Las librerías Flux son como las gafas: lo sabrás cuando las necesites
 
-![one-way data flow](https://vuex.vuejs.org/flow.png)
-
-Los componentes de Vue llaman a una _Acción_ (mediante _Dispatch_) que ejecutará un proceso asíncrono (por ejemplo una petición a una API). Cuando se resuelve la acción se ejecuta un _Commit_ que produce una _Mutación_ que muta el _Estado_ de la aplicación por lo que se renderiza el componente para mostrar el nuevo estado. En el estado almacenaremos tanto datos (accesibles desde cualquier componente) como métodos que se utilicen en más de un componente.
-
-El **estado** de los datos se representa en la **vista**, donde el usuario tiene herramientas que provocan **acciones** que modifican el **estado**. Pero cuando tenemos la aplicación dividida en componentes la cosa se complica porque hay varias vistas que pueden modificar los mismos datos.
-
-Con Vuex el dicho flujo podemos verlo de la siguiente manera:
-
-![Vuex data flow](https://vuex.vuejs.org/vuex.png)
-
-El uso de Vuex implica mayor complejidad en nuestra aplicación por lo que es recomendable su uso en aplicaciones de tamaño medio o grande. Para aplicacioes pequeñas normalmente es suficiente con soluciones más simples como el _eventBus_ o un _store  pattern_ hecho por nosotros.
-
-### Usar Vuex
-La forma de modificar los datos del almacén de Vuex es llamando a las mutaciones que hayamos definido para dichos datos. Podemos ver un ejemplo básico en Fiddle:
-
-<script async src="//jsfiddle.net/n9jmu5v7/1269/embed/js,html,result/"></script>
-
-### Saber más
-* [Vuex](https://vuex.vuejs.org/)
-* [Cómo Construir Aplicaciones Complejas y a Gran Escala Vue.js con Vuex](https://code.tutsplus.com/es/tutorials/how-to-build-complex-large-scale-vuejs-applications-with-vuex--cms-30952)
-* [Vuex for Everyone](https://vueschool.io/courses/vuex-for-everyone)
-* [VueJS: Introducción a vuex](https://elabismodenull.wordpress.com/2017/05/29/vuejs-introduccion-a-vuex/)
-* [Managing State in Vue.js](https://medium.com/fullstackio/managing-state-in-vue-js-23a0352b1c87)
-
+Para usar _Vuex_ en tu aplicación sigue lo indicado en el [capítulo sobre Vuex](./90-vuex.md).
 
 ## Vue con Laravel
 Es sencillo crear una SPA completa usando Vue en el Front-end y Laravel para crear el Back-end que sirva la API.
