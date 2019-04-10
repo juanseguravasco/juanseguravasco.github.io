@@ -152,7 +152,9 @@ miPrimeraLista.replaceChild(nuevoLi, primerElementoDeLista);    // reemplaza el 
 ```
 * `elementoAClonar.cloneNode(boolean)`: devuelve un clon de _elementoAClonar_ o de _elementoAClonar_ con todos sus descendientes según le pasemos como parámetro _false_ o _true_. Luego podremos insertarlo donde queramos.
 
-Ejemplo: tenemos un código HTML con un DIV que contiene 3 párrafos y vamos a añadir un nuevo párrafo al final del div con el texto 'Párrafo añadido al final' y otro que sea el 2º del div con el texto 'Este es el <strong>nuevo</strong> segundo párrafo':
+**OJO**: Si añado con el método `appendChild` un nodo que estaba en otro sitio **se elimina de donde estaba** para añadirse a su nueva posición. Si quiero que esté en los 2 sitios deberé clonar el nodo y luego añadir el clon y no el nodo original.
+
+**Ejemplo de creación de nuevos nodos**: tenemos un código HTML con un DIV que contiene 3 párrafos y vamos a añadir un nuevo párrafo al final del div con el texto 'Párrafo añadido al final' y otro que sea el 2º del div con el texto 'Este es el <strong>nuevo</strong> segundo párrafo':
 
 <script async src="//jsfiddle.net/juansegura/qfcdseua/embed/js,html,result/"></script>
 
@@ -160,7 +162,7 @@ Si utilizamos la propiedad **innerHTML** el código a usar es mucho más simple:
 
 <script async src="//jsfiddle.net/juansegura/x9s7v8kn/embed/js,html,result/"></script>
 
-Podemos ver más ejemplos de creación y eliminación en [W3Schools](http://www.w3schools.com/js/js_htmldom_nodes.asp).
+Podemos ver más ejemplos de creación y eliminación de nodos en [W3Schools](http://www.w3schools.com/js/js_htmldom_nodes.asp).
 
 ### Modificar el DOM con [ChildNode](https://developer.mozilla.org/en-US/docs/Web/API/ChildNode)
 Childnode es una interfaz que permite maipular del DOM de forma más sencilla pero no está soportada en los navegadores Safari de IOS. Incluye los métodos:
