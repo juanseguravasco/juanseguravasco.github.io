@@ -249,3 +249,21 @@ El código usando promesas sería el siguiente:
 <script async src="//jsfiddle.net/juansegura/t4o8vq10/embed/js,html,result/"></script>
 
 Podéis consultar aprender más en [MDN web docs](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Usar_promesas).
+
+# Llamadas asíncronas
+Una llamada Ajax es un tipo de llamada asíncrona fácil de entender que podemos hacer en Javascript aunque hay muchos más, como un setTimeout(). Para la gestión de las llamadas asíncronas tenemos varios métodos y los más comunes son:
+- funciones _callback_
+- _promesas_
+- _async / await_
+
+Cuando se produce una llamada asíncrona el orden de ejecución del código no es el que vemos en el programa ya que el código de respuesta de la llamada no se ejecutará hasta completarse esta. Podemos ver [un ejemplo](https://repl.it/DhKt/1) de esto extraído de **todoJS** usando **funciones _callback_**.
+
+Además, si hacemos varias llamadas tampoco sabemos el qué orden se ejecutarán sus respuestas ya que depende de cuándo finalice cada una como podemos ver en [este otro ejemplo](https://repl.it/DhLA/0).
+
+Si necesitamos que cada función no se ejecute hasta que haya terminado la anterior debemos llamarla en la respuesta a la función anterior lo que provoca un tipo de código difícil de leer llamado [_callback hell_](https://repl.it/DhLN/0).
+
+Para evitar esto surgieron las **_promesas_** que permiten evitar las funciones _callback_ tan difíciles de leer. Podemos ver [el primer ejemplo](https://repl.it/DhMA/1) usando promesas. Y si neceitamos ejecutar secuencialmente las funciones evitaremos la pirámide de llamadas _callback_ como vemos en [este ejemplo](https://repl.it/DhMK/0).
+
+Aún así el código no es muy limpio. Para mejorarlo, el futuro de las llamadas asíncronas lo constituyen **_async_ y _await_** como vemos en [este ejemplo](https://repl.it/DhMa/0). Estas funciones forman parte del estándard ES2017 por lo que sólo están soportadaspor los últimos navegadores (aunque siempre podemos transpilar con _Babel_).
+
+Fuente: [todoJs: Controlar la ejecución asíncrona](https://www.todojs.com/controlar-la-ejecucion-asincrona/)
