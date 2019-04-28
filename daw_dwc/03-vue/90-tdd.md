@@ -33,7 +33,7 @@ npm install chai     # en vez de chai podríamos usar assert, should, etc
 
 Dentro de nuestro proyecto crearemos una carpeta donde guardaremos los ficheros JS de los tests (podemos llamarla '_tests_') y en cada fichero importaremos _chai_ y los ficheros necesarios. Ej.:
 
->> Fichero _tests/store.specs.js_
+> Fichero _tests/store.specs.js_
 ```javascript
 const assert = require('chai').assert;
 const Store = require('../store.class.js');
@@ -55,8 +55,8 @@ describe('Store', () => {
 
 Para poder importar un módulo con _require_ debemos haberlo exprtado previamente:
 
->> Fichero _store.js_
->> ```javascript
+> Fichero _store.js_
+```javascript
 class Store {
     constructor (id) {
         this.id=id;
