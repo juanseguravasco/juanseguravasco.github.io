@@ -26,8 +26,56 @@ Tener un único repositorio universal de pruebas facilita complementar TDD con o
 Lo más sencillo es usar alguna librería como **Mocha**. Se trata de un gramework que se ejecuta sobre _Node.js_ y permite crear tests tanto síncronos como asíncronos. Para usarlo necesitaremos tener **npm** instalado. Luego creamos una carpeta para nuestro proyecto y dentro ejecutamos:
 
 ```bash
-npm init
-npm install -S mocha
+npm install -g mocha    # lo instalamos globalmente para que esté disponible para todos los proyectos
+npm init                # crea en el directorio el package.json
+npm install chai     # en vez de chai podríamos usar assert, should, etc
 ```
 
+Dentro de nuestro proyecto crearemos una carpeta donde guardaremos los ficheros JS de los tests (podemos llamarla '_tests_') y en cada fichero importaremos _chai_ y los ficheros necesarios. Ej.:
+
+_Fichero tests/store.specs.js_
+```javascript
+const assert = require('chai').assert;
+const Store = require('../store.class.js');
+
+describe('Store', () => {
+
+	it('should had an integer id', function() {
+		let foo = new Store();
+		assert.typeOf(foo.id, 'integer', 'La id no es un entero')
+	});
+
+	it('should had an empty array of products', function() {
+		let foo = new Store();
+		assert.typeOf(foo.products, 'array', 'Products no es un array')
+		assert.lengthOf(foo.products, 0, 'Products no es un array vacío')
+	});
+})
+```
+
+Para poder importar un módulo con _require_ debemos haberlo exprtado previamente:
+
+_Fichero store.js_
+```javascript
+class Store {
+    constructor (id) {
+        this.id=id;
+        this.products=[];
+    }
+    ...
+}
+ module.exports = Store;
+```
+
+Para ejecutar todos los tests de nuestro proyecto ejecutaremos desde la terminal:
+```bash
+mocha tests
+```
+
+Si sólo queremos pasar uno lo indicamos en el comando: `mocha tests/store.specs.js`.
+
+Podemos hacer que _mocha_ escuche en segundo plano y se ejecute automáticamente cada vez que hacemos algún cambio en un fichero con:
+```bash
+mocha tests --watch
+```
 
