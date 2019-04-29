@@ -22,7 +22,7 @@ Tener un único repositorio universal de pruebas facilita complementar TDD con o
 
 (Fuente [Wikipedia](https://es.wikipedia.org/wiki/Desarrollo_guiado_por_pruebas)).
 
-## Uasr TDD en Javascript
+## Usar TDD en Javascript
 Lo más sencillo es usar alguna librería como **Mocha**. Se trata de un gramework que se ejecuta sobre _Node.js_ y permite crear tests tanto síncronos como asíncronos. Para usarlo necesitaremos tener **npm** instalado. Luego creamos una carpeta para nuestro proyecto y dentro ejecutamos:
 
 ```bash
@@ -30,6 +30,13 @@ npm install -g mocha    # lo instalamos globalmente para que esté disponible pa
 npm init                # crea en el directorio el package.json
 npm install chai     # en vez de chai podríamos usar assert, should, etc
 ```
+
+La librería _Chai_ permite 3 tipos de sentencias:
+- asserts
+- expects
+- should
+
+Nosotros vamos a usar _asserts_ por lo que es lo que deberemos importar en los ficheros de tests.
 
 Dentro de nuestro proyecto crearemos una carpeta donde guardaremos los ficheros JS de los tests (podemos llamarla '_tests_') y en cada fichero importaremos _chai_ y los ficheros necesarios. Ej.:
 
@@ -79,3 +86,52 @@ Podemos hacer que _mocha_ escuche en segundo plano y se ejecute automáticamente
 mocha tests --watch
 ```
 
+## El fichero de tests
+Debemos importar le librería _Chai_ y el fichero con el código a testear como hemov visto antes. El fichero con el código que debe exportar la clase o función que contiene con `module.exports`. Si queremos exportar varias funciones exportaremos un objeto con todas ellas:
+```bash
+module.exports = {
+    addItem,
+    removeItem
+}
+```
+
+Tras importar los ficheros pondremos el _describe_ y los bloques _it_ que queramos y dentro de cada uno los _aasert_ necesarios:
+```bash
+const assert = require('chai').assert;
+const index = require('../index.js');
+
+describe('manage items', () => {
+	it('add a new item', function() {
+		let myItem = ...;
+		assert.typeOf(item, 'object', 'No crea un objeto sino '+typeof(item) );
+		assert.equal(item.units, 0);
+	});
+	
+	if ('change an item () => {
+	...
+	});
+})
+```
+
+## Algunas sentecias _assert_
+Estas
+Aquí tenéis un pequeño resumen de algunas de las sentencias que podemos usar. Recordad que todas pueden tener un último parámetro opcional que es un mensaje a mostrar en caso de que falle esta comprobación:
+- .equal(actual, esperado): comprueba que sea el mismo valor, pero sin comprobar los tupos (usa ==, no ===)
+- .notEqual(actual, esperado)
+- .strictEqual, .notStrictEqual: igual pero hace la compribaciónestricta (===)
+- .deepEqual, notDeepEqual: hace una comprobación de cada propiedad del objeto pasado
+- .match(valor, regexp), .notMatch: comprueba si el valor cumple o no la expresión regular pasada
+- .isAbove(actual, esperado): comprueba que actual > esperado
+- .isAtLeast(actual, esperado): comprueba que actual >= esperado
+- .isBelow, .isAtMost: comprueba que sea < o <= respectivamente
+- .isTrue, .isNotTrue, .isFalse, .isNotFalse, .isNull, .isNotNull, .isUndefined, .isDefined, .isNaN, .isNotNaN, .isFunction, .isNotFunction, .isObject, .isNotObject, .isArray, .isNotArray, .isString, .isNotString, .isNumber, .isNotNumber, .isBoolean, .isNotBoolean, .isFinite
+- .exists(valor), .notExists: comprueba que valor no sea (o sea) _null_ o _undefined_
+- .typeOf(valor, tipo), .notTypeOf: indica si valor es o no del tipo indicado, que puede ser 'string', 'number', boolean', 'array', 'object', 'null', 'undefined', 'regexp', ...
+- .instanceOf(objeto, Clase), .notInstanceOf: indica si un objeto es o no una instancia de la clase indicada
+- .include(string/array/objeto, substring/elemento/propiedad:valor): comprueba si la subcadena existe en el string o el elemento se encuentra en el array (usa ===) o si existe la propiedad o propiedades pasadas y su valor es estrictamente (===) igual al indicado.
+- .notInclude
+- .property(objeto, propiedad), .notProperty: comprueba si el objeto posee o no la propiedad pasada
+- .lengthOf(string/array, num): comprueba que la longitud de la cadena o el array sea la indicada
+- .isEmpty(string/array/object), .isNotEmpty: comprueba que la cadena sea '', el array [] o el objeto {}, o no.
+
+Más información en la [página de _Chai_])https://www.chaijs.com/api/assert/).
