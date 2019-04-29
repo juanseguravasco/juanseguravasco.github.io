@@ -133,6 +133,7 @@ Aquí tenéis un pequeño resumen de algunas de las sentencias que podemos usar.
 - .property(objeto, propiedad), .notProperty: comprueba si el objeto posee o no la propiedad pasada
 - .lengthOf(string/array, num): comprueba que la longitud de la cadena o el array sea la indicada
 - .isEmpty(string/array/object), .isNotEmpty: comprueba que la cadena sea '', el array [] o el objeto {}, o no.
+- .throws(funcion, [errorLike/string], [string]): para comprobar que la función lanza un error
 
 Más información en la [página de _Chai_])https://www.chaijs.com/api/assert/).
 
