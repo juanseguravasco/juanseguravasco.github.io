@@ -133,8 +133,39 @@ Aquí tenéis un pequeño resumen de algunas de las sentencias que podemos usar.
 - .property(objeto, propiedad), .notProperty: comprueba si el objeto posee o no la propiedad pasada
 - .lengthOf(string/array, num): comprueba que la longitud de la cadena o el array sea la indicada
 - .isEmpty(string/array/object), .isNotEmpty: comprueba que la cadena sea '', el array [] o el objeto {}, o no.
-- .throws(funcion, [errorLike/string], [string]): para comprobar que la función lanza un error
+- .throws(funcion, [errorLike/string], [string]): para comprobar que la función lanza un error del tipo indicado (TypeError, RangeError, ...) e incluso con el mensaje indicado
 
 Más información en la [página de _Chai_])https://www.chaijs.com/api/assert/).
 
+## Tests de funciones asíncronas con promesas
+Si hacemos llamadas asíncronas Mocha permite testearlas tras el .then o el .catch:
+```javascript
+describe('API de artículos', () => {
+	it('should return the article 3', function() {
+		return getArticulo(3)
+			.then(art => {
+				assert.instanceOf(art, Articulos);
+				assert.equal(art.id, 3);
+			})
+	});
+	it('should return an error', function() {
+		return getArticulo(undefined)
+			.catch(err => {
+				...
+			})
+	});
+})
+```
+
 ## _Hooks_ de Mocha
+Nos permiten ejecutar código en momentos puntuales. Reciben como parámetro la función a ejecutar. Son:
+- before(): el código se ejecutará una vez antes del primer test del bloque _describe_
+- beforeEach(): se ejecutará antes de cada test
+- after(), afterEach(): lo mismo pero tras ejecutar los tests
+
+## Tests para la UI
+Necesitaremos alguna librería que nos permita contruir escenarios de navegación como _CasperJS_ y otra que imite al navegador como _PhantomJS_ (para WebKit) o _SlimerJS_ (para Gecko).
+
+Hay muchas páginas que nos enseñan a usar Mocha para testear la UI como:
+- [Web UI Testing in NodeJS](https://dev.to/ykyuen/web-ui-testing-in-nodejs--kda)
+- 
