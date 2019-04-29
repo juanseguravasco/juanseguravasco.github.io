@@ -168,4 +168,7 @@ Necesitaremos alguna librería que nos permita contruir escenarios de navegació
 
 Hay muchas páginas que nos enseñan a usar Mocha para testear la UI como:
 - [Web UI Testing in NodeJS](https://dev.to/ykyuen/web-ui-testing-in-nodejs--kda)
+- [UI Test Automation with Node.js, TypeScript, Mocha and Selenium](https://blogs.msdn.microsoft.com/nilayshah/2018/01/21/ui-test-automation-with-node-js-typescript-mocha-and-selenium/)
+- [Automated UI Testing with Selenium and JavaScript](https://itnext.io/automated-ui-testing-with-selenium-and-javascript-90bbe7ca13a3)
+- [Automated UI/UX Testing with Puppeteer Mocha and Chai](https://medium.com/@tariqul.islam.rony/automated-ui-ux-testing-with-puppeteer-mocha-and-chai-800cfb028ab9)
 - 
