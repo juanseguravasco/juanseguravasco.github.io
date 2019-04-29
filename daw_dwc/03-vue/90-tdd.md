@@ -135,3 +135,5 @@ Aquí tenéis un pequeño resumen de algunas de las sentencias que podemos usar.
 - .isEmpty(string/array/object), .isNotEmpty: comprueba que la cadena sea '', el array [] o el objeto {}, o no.
 
 Más información en la [página de _Chai_])https://www.chaijs.com/api/assert/).
+
+## _Hooks_ de Mocha
