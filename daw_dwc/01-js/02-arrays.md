@@ -167,7 +167,7 @@ let personasOrdenado=personas.sort((persona1, persona2) => persona1.edad-persona
 ```
 > Si lo que queremos es ordenar por n campo de texto podemos usar la función _toLocaleCompare_:
 ```javascript
-let personasOrdenado=personas.sort((persona1, persona2) => persona1.nombre.toLocaleCompare(persona2.edad));
+let personasOrdenado=personas.sort((persona1, persona2) => persona1.nombre.toLocaleCompare(persona2.nombre));
 ```
 
 ### Otros métodos comunes
