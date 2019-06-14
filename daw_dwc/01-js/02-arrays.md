@@ -11,6 +11,7 @@
     - [splice](#splice)
     - [slice](#slice)
     - [Arrays y Strings](#arrays-y-strings)
+    - [sort](#sort)
     - [Otros métodos comunes](#otros-m%C3%A9todos-comunes)
     - [Functional Programming](#functional-programming)
       - [filter](#filter)
@@ -136,20 +137,8 @@ let arrayPalabras=cadena.split(' ');    // arrayPalabras=['Que`, 'tal', 'estás'
 let arrayLetras=cadena.split('');       // arrayLetras=['Q','u','e`,' ','t',a',l',' ','e',s',t',á',s']
 ```
 
-### Otros métodos comunes
-Otros métodos que se usan a menudo con arrays son:
-* `.concat()`: concatena arrays
-```javascript
-let a=[2, 4, 6];
-let b=['a', 'b', 'c'];
-let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
-```
-* `.reverse()`: invierte el orden de los elementos del array
-```javascript
-let a=[2, 4, 6];
-let b=a.reverse();       // b=[6, 4, 2]
-```
-* `.sort()`: ordena **alfabéticamente** los elementos del array
+### sort
+Ordena **alfabéticamente** los elementos del array
 ```javascript
 let a=['hola','adios','Bien','Mal',2,5,13,45]
 let b=a.sort();       // b=[13, 2, 45, 5, "Bien", "Mal", "adios", "hola"]
@@ -166,7 +155,7 @@ let b=a.sort(function(elem1, elem2) {
   return 0
 });       // b=["adios", "Bien", "hola", "Mal"]
 ```
-> Como más se utiliza es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _persona_ con los campos _nombre_ y _edad_, para ordenar un array de objetos persona por su edad haremos:
+> Como más se utiliza esta función es para ordenar arrays de objetos. Por ejemplo si tenemos un objeto _persona_ con los campos _nombre_ y _edad_, para ordenar un array de objetos persona por su edad haremos:
 ```javascript
 let personasOrdenado=personas.sort(function(persona1, persona2) {
   return persona1.edad-persona2.edad;
@@ -176,7 +165,24 @@ let personasOrdenado=personas.sort(function(persona1, persona2) {
 ```javascript
 let personasOrdenado=personas.sort((persona1, persona2) => persona1.edad-persona2.edad);
 ```
+> Si lo que queremos es ordenar por n campo de texto podemos usar la función _toLocaleCompare_:
+```javascript
+let personasOrdenado=personas.sort((persona1, persona2) => persona1.nombre.toLocaleCompare(persona2.edad));
+```
 
+### Otros métodos comunes
+Otros métodos que se usan a menudo con arrays son:
+* `.concat()`: concatena arrays
+```javascript
+let a=[2, 4, 6];
+let b=['a', 'b', 'c'];
+let c=a.concat(b);       // c=[2, 4, 6, 'a', 'b', 'c']
+```
+* `.reverse()`: invierte el orden de los elementos del array
+```javascript
+let a=[2, 4, 6];
+let b=a.reverse();       // b=[6, 4, 2]
+```
 * `.indexOf()`: devuelve la primera posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 * `.lastIndexOf()`: devuelve la última posición del elemento pasado como parámetro o -1 si no se encuentra en el array
 
