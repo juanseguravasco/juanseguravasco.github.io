@@ -14,9 +14,28 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Componentes
-El sistema de componentes es un comcepto importante en Vue. Nuestras aplicaciones estarán compuestas de pequeños componentes independiantes y reusables en diferentes partes de nuestra aplicación o en otras aplicaciones. También es habitual que un componente contenga otros subcomponentes (estableciéndose realciones padre-hijo).
+El sistema de componentes es un concepto importante en Vue y en cualquier framework moderno. En lugar de separar nuestra aplicación en ficheros según el tipo de información que contienen (ficheros html, css o js) es más lógico separarla según su funcionalidad. Una página web muestra una UI donde se pueden distinguir diferentes partes. En el siguiente ejemplo tenemos:
 
-Para sabér qué debe ser un componente y que no podemos considerar un componente como un elemento que tiene entidad propia, tanto a nivel funcional como visual, es decir, que puede ponerse en el lugar que queramos de la aplicación y se verá y funcionará correctamente. Además es algo que es muy posible que pueda aparecer en más de un lugar de la aplicación.
+![Ejemplo de págna web](../img/borsa.png)
+
+- un menú que es una lista de elementos del menú, cada uno formado por un logo y un texto
+- un título
+- una tabla con la información a mostrar, formada por
+  - un elemento para filtrar la información formado por un input y un botón de buscar
+  - un botón para añadir nuevos elementos a la tabla
+  - una cabecera con los nombres de cada campo
+  - una fila para mostrar cada elemento de información, con botones para realizar acciones
+  - un pie de tabla con información sobre los datos mostrados
+- un pie de página
+
+Pues estos elementos podrían constituir diferentes componentes: nuestras aplicaciones estarán compuestas de pequeños componentes independiantes y reusables en diferentes partes de nuestra aplicación o en otras aplicaciones (podemos usar el elemento de buscar para otras páginas de nuestra web o incluso para otras aplicaciones). También es habitual que un componente contenga otros subcomponentes, estableciéndose relaciones padre-hijo (por ejemplo en componente fila contendrá un subcomponente por cada botón que queramos poner en ella).
+
+Para sabér qué debe ser un componente y que no podemos considerar un componente como un elemento que tiene entidad propia, tanto a nivel funcional como visual, es decir, que puede ponerse en el lugar que queramos de la aplicación y se verá y funcionará correctamente. Además es algo que es muy posible que pueda aparecer en más de un lugar de la aplicación. En definitiva un componente:
+- es una parte de la UI
+- debe poder reutilizarse y combinarse con otros componentes para formar componentes mayores
+- son objetos JS
+
+El componete tendrá una parte de HTML donde definimos su estructura y una parte JS que le da su funcionalidad. Puede además tener o no CSS para establecer su apariencia.
 
 Separar nuestra aplicación en componentes nos va a ofrecer muchas ventajas:
 * encapsulamos el código de la aplicación en elementos más sencillos
