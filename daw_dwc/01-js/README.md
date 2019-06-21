@@ -30,6 +30,11 @@ Tabla de contenidos
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Introducción
+En el _front-end_ intervienen 3 elementos básicos:
+- HTML: es lo que estructura la web y proporciona la información de la web, pero es una información estática
+- CSS: es lo que da forma a dicha información, permite mejorar su apariencia, permite que se adapte a distintos dispositivos, ...
+- Javascript: es el que da vida a un sitio web y le permite reaccionar a las acciones del usuario
+
 Se trata de un lenguaje interpretado, no compilado y nosotros vamos a ejecutarlo en un navegador web (lo más habitual). Lo usaremos para:
 * Cambiar el contenido de la página
 * Cambiar los atributos de un elemento
