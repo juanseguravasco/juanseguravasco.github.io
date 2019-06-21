@@ -20,8 +20,9 @@ Declarar los componentes como hemos visto con `Vue.component()` en el fichero JS
 * El HTML del template está en ese fichero en medio del JS lo que lo hace menos legible y el editor no lo resalta adecuadamente (ya que espera encontrar códgo JS no HTML)
 * El HTML y el JS del componente están juntos pero no su CSS
 * No podemos usar fácilmente herramientas para convertir SCSS a CSS, ES2015 a ES5, etc
+* Nuestro fichero crece rápidamente y nos encontramos con código spaguetti
 
-Por tanto eso puede ser adecuado para proyectos pequeños pero no lo es cuando estos enpiezan a crecer.
+Por tanto eso puede ser adecuado para proyectos muy pequeños pero no lo es cuando estos enpiezan a crecer.
 
 La solución es guardar cada componente en un único fichero con extensión **.vue** que contendrá 3 secciones:
 * \<template>: contiene todo el HTML del componente
