@@ -20,4 +20,22 @@ El resumen del flujo de trabajo es el siguiente:
 16. El profesor revisa la _pull request_ y opcionalmente hace comentarios sobre la misma
 
 ## Preparar el entorno para una práctica
-Creamos la nueva tarea (_assignment_)
+- Creamos un nuevo repositorio para la tarea. En el README ponemos el enunciado de la misma.
+  - En el PC clonamos y descargamos el repositorio
+```bash
+git clone https://github/..../repositorio.git
+```
+  - Creamos un fichero _.gitignore_ donde añadimos la carpeta _solucion/_
+  - Copiamos los ficheros (la solución dentro de ea carpeta para que no se suba) y lo subimos
+```bash
+git add .
+git commit -m "Subida de ficheros"
+git push otigin master
+```
+- Creamos la tarea (_assignment_)
+  - Indicamos el título de la tarea y su prefijo
+  - Indicamos que queremos que sean privados para que no vean lo de los otros
+  - Indicamos el repositorio creado antes con el código inicial
+  - Podemos poner la fecha límite (Deadline). Ese día se hace un _pull request_ automáticamente
+
+### Qué tienen que hacer los alumnos
