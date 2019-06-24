@@ -81,4 +81,4 @@ test('the data is peanut butter', () => {
 
 También podemos testear otras funciones asíncronas como _callback_, _resolve_/reject_, _async/await_, ... en la [documentación](https://jestjs.io/docs/en/asynchronous). 
 
-Podemos ver ejemplos de todo esto en [TecnoPS](http://tecnops.es/testing-en-javascript-con-jest-parte-1-de-2/) y en muchas otras páginas.
+Podemos ver ejemplos de todo esto en [TecnoPS](http://tecnops.es/testing-en-javascript-con-jest-parte-1-de-2/), en [este vídeo](https://www.youtube.com/watch?v=7r4xVDI2vho) y en muchas otras páginas.
