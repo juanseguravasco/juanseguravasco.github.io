@@ -64,6 +64,9 @@ Y podemos ver si un string cumple una expresión regular:
 También podemos comprobar si un array contiene un elemento
 - .toContain(elem)
 
+o si una variable es instancia de un tipo concreto
+- .toBeInstanceOf(tipo)
+
 Podemos consultar todas las opciones en la [documentación oficial](https://jestjs.io/docs/en/expect).
 
 ## Promesas
