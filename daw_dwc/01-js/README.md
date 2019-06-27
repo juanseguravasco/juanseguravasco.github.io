@@ -1,16 +1,16 @@
 # BLOQUE 1 - El lenguaje Javascript
 En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divide en:
 * [Introducción a Javascript](#introducci%C3%B3n-a-javascript)
-* [1-Sintaxis](./01-sintaxis.md)
-* [2-Arrays](./02-arrays.md)
-* [3-Programación orientada a objetos](./03-POO.md)
-* [4-Document Object Model - DOM](./03-DOM.md)
-* [5-Brpwser Object Model - BOM](./04-BOM.md)
-* [6-Eventos](./05-eventos.md)
-* [7-Objetos y funciones globales. Expresiones regulares. Validación de formularios](./06-globales.md)
-* [8-Ajax. Promesas](./08-ajax.md)
-* [9-APIs HTML5: Geolocalización. Local Storage. API de Google Maps](./09-apis.md)
-* [10-Más cosas a aprender...](./10-mas.md)
+* [1-Sintaxis](./01-sintaxis.md): Variables. Funciones. Estructuras y bucles. Tipos de datos. Buenas prácticas
+* [2-Arrays](./02-arrays.md): Métodos. _Functional Programming_. Referencia vs copia. Rest y Spread. Desestructuración de arrays. Map. Set
+* [3-Programación orientada a objetos](./03-POO.md): Introducción. Clases. POO en JS5
+* [4-Document Object Model - DOM](./04-DOM.md): Acceso a nodos. Acceso desde otros nodos. Manipular el árbol DOM. Atributos de los nodos
+* [5-Browser Object Model - BOM](./05-BOM.md): Timers. Objetos del BOM (window, location, history, otros objetos)
+* [6-Eventos](./06-eventos.md): Escuchadores. Tipos de eventos. Los objetos _this_ y _event_. Propagación de eventos (_bubbling_)
+* [7-Objetos y funciones globales... ](./07-globales.md): Funciones globales. Objetos del lenguaje (Math, Date, ...). Expresiones regulares. Validación de formularios
+* [8-Ajax. Promesas. SPA](./08-ajax.md)
+* [9-APIs HTML5](./09-apis.md): Drag and drop. API Storage. Geolocalización. API de Google Maps
+* [10-Más cosas a aprender...](./10-mas.md): WebComponents. WebSockets. WebWorkers. Typescript.
 * Herramientas: npm y webpack
 
 # Introducción a Javascript
