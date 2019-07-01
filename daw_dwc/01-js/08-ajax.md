@@ -5,7 +5,7 @@
 - [Ajax](#ajax)
   - [Introducción](#introducci%C3%B3n)
   - [Métodos HTTP](#m%C3%A9todos-http)
-  - [Realizar peticiones Ajax](#realizar-peticiones-ajax)
+  - [Realizar peticiones Ajax con XMLHttpRequest](#realizar-peticiones-ajax)
   - [Eventos de XMLHttpRequest](#eventos-de-xmlhttprequest)
   - [Ejemplos de envío de datos](#ejemplos-de-env%C3%ADo-de-datos)
     - [Enviar datos al servidor en formato JSON](#enviar-datos-al-servidor-en-formato-json)
@@ -13,6 +13,8 @@
     - [Enviar ficheros al servidor con FormData](#enviar-ficheros-al-servidor-con-formdata)
   - [Single Page Application](#single-page-application)
   - [Promesas](#promesas)
+  - [Ajax con fetch()](#ajax-con-fetch)
+- [Llamadas asíncornas](#llamadas-asincronas)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -31,8 +33,8 @@ Básicamente Ajax nos permite poder mostrar nuevos datos enviados por el servido
 
 Sin Ajax cada vez que necesitamos nuevos datos del servidor la página deja de estar disponible para el usuario hasta que se recarga con lo que envía el servidor. Con Ajax la página está siempre disponible para el usuarioy simplemente se modifica (cambiando el DOM) cuando llegan los datos del servidor:
 
-![Librosweb: Introducción a Ajax](http://librosweb.es/img/ajax/f0103.gif)
-_Fuente Librosweb_
+![Uniwebsidad: Introducción a Ajax](https://uniwebsidad.com/static/libros/imagenes/ajax/f0103.gif)
+_Fuente Uniwebsidad_
 
 ## Métodos HTTP
 Las peticiones Ajax usan el protocolo HTTP (el mismo que utiliza el navegador para cargar una página). Este protocolo envía al servidor unas cabeceras HTTP (con información como el _userAgent_ del navegador, el idioma, etc), el tipo de petición y, opcionalmente, datos o parámetros (por ejemplo en la petición que procesa un formulario se envían los datos del mismo).
@@ -250,6 +252,37 @@ El código usando promesas sería el siguiente:
 
 Podéis consultar aprender más en [MDN web docs](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Usar_promesas).
 
+## Ajax con fetch
+La [API Fetch](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch) proporciona una interfaz para realizar peticiones Ajax mediante el protocolo HTTP, que devuelve como promesas. Ej.:
+```javascript
+fetch('http://example.com/movies.json')
+  .then(response => response.json())
+  .then(myJson => console.log(myJson));
+```
+
+El código anterior hace una petición al servidor 'http://example.com/movies.json'. Cuando se resuelva devolverá una promesa con el resultado, que obtenemos en el objeto response. Dicha promesa tiene unas propiedades (_status_, _statusText_, _ok_, ...) y unos métodos como _json()_. Este método devuelve una promesa que cuando se resuelve contiene los datos JSON de la respuesta pasada.
+
+### Propiedades y métodos de la respuesta
+La respuesta devuelta por _fetch()_ tiene las siguientes propiedades y métodos:
+- **status**, **statusText**: el código y el texto del estado devuelto por el servidor (200/Ok, 404/Not found, ...)
+- **ok**: booleano que vale _true_ si el status está entre 200 y 299 y _false_ en caso contrario
+- **json()**: devuelve una promesa que se resolverá con los datos JSON de la respuesta convertidos a un objeto (les hace automáticamente un _JSON.parse()_) 
+- otros métodos de obtener los datos: **text()**, **blob()**, **formData()**, ... Todos devuelven una promesa con los datos convertidos a distintos formatos.
+
+### Cabeceras de la petición
+El método _fetch()_ admite como segundo parámetro un objeto con la información a enviar en la petición HTTP. Ej.:
+```javascript
+fetch(url, {
+  method: 'POST', // o 'PUT', 'GET', 'DELETE'
+  body: JSON.stringify(data), // los datos que enviamos al servidor en el 'send'
+  headers:{
+    'Content-Type': 'application/json'
+  }
+}).then
+```
+
+Se pueden enviar otras cosas como:
+- 
 # Llamadas asíncronas
 Una llamada Ajax es un tipo de llamada asíncrona fácil de entender que podemos hacer en Javascript aunque hay muchos más, como un setTimeout(). Para la gestión de las llamadas asíncronas tenemos varios métodos y los más comunes son:
 - funciones _callback_
