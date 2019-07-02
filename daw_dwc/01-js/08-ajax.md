@@ -281,8 +281,28 @@ fetch(url, {
 }).then
 ```
 
-Se pueden enviar otras cosas como:
-- 
+Ejemplo de petición comprobando el estado:
+```javascript
+fetch(url, {
+  method: 'POST', 
+  body: JSON.stringify(data), // los datos que enviamos al servidor en el 'send'
+  headers:{
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => {
+  if (response.ok) {
+    response.json().then(datos => datosServidor=datos)
+  } else {
+    console.log('Error en la petición HTTP: '+response.status+' ('+response.statusText+')');
+  }
+})
+.catch(err => {
+  console.log('Error en la petición HTTP: '+err.message);
+})
+```
+Podéis ver mś ejemplos en [MDN web docs](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch#Enviando_datos_JSON) y otras páginas.
+
 # Llamadas asíncronas
 Una llamada Ajax es un tipo de llamada asíncrona fácil de entender que podemos hacer en Javascript aunque hay muchos más, como un setTimeout(). Para la gestión de las llamadas asíncronas tenemos varios métodos y los más comunes son:
 - funciones _callback_
