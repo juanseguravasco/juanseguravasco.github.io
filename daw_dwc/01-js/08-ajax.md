@@ -14,7 +14,7 @@
   - [Single Page Application](#single-page-application)
   - [Promesas](#promesas)
   - [Ajax con fetch()](#ajax-con-fetch)
-- [Llamadas asíncornas](#llamadas-asincronas)
+- [Otras llamadas asíncornas](#otras-llamadas-asincronas)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -303,7 +303,7 @@ fetch(url, {
 ```
 Podéis ver mś ejemplos en [MDN web docs](https://developer.mozilla.org/es/docs/Web/API/Fetch_API/Utilizando_Fetch#Enviando_datos_JSON) y otras páginas.
 
-# Llamadas asíncronas
+# Otras llamadas asíncronas
 Una llamada Ajax es un tipo de llamada asíncrona fácil de entender que podemos hacer en Javascript aunque hay muchos más, como un setTimeout(). Para la gestión de las llamadas asíncronas tenemos varios métodos y los más comunes son:
 - funciones _callback_
 - _promesas_
