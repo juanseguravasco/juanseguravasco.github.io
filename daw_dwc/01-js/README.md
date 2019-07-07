@@ -5,6 +5,7 @@ En este primer bloque vamos a conocer el lenguaje Javascript. El bloque se divid
 * [2-Arrays](./02-arrays.md): Métodos. _Functional Programming_. Referencia vs copia. Rest y Spread. Desestructuración de arrays. Map. Set
 * [3-Programación orientada a objetos](./03-POO.md): Introducción. Clases. POO en JS5
 * [4-Document Object Model - DOM](./04-DOM.md): Acceso a nodos. Acceso desde otros nodos. Manipular el árbol DOM. Atributos de los nodos
+  * [4.1-MVC](./04.1-MVC.md): Cómo usaremos el patrón MVC para crear la UI de nuestra aplicación
 * [5-Browser Object Model - BOM](./05-BOM.md): Timers. Objetos del BOM (window, location, history, otros objetos)
 * [6-Eventos](./06-eventos.md): Escuchadores. Tipos de eventos. Los objetos _this_ y _event_. Propagación de eventos (_bubbling_)
 * [7-Objetos y funciones globales... ](./07-globales.md): Funciones globales. Objetos del lenguaje (Math, Date, ...). Expresiones regulares. Validación de formularios
