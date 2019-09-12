@@ -1,12 +1,21 @@
-- [Configurar la xarxa en GNU/Linux](#coses-a-tindre-en-compte-amb-ubuntu-1804)
+- La xarxa en GNU/Linux
   - [Nom de les targetes](#nom-de-les-targetes)
   - [Netplan vs ifupdown](#netplan-vs-ifupdown)
   - [Veure la configuració amb ifupdown](#veure-la-configuraci%C3%B3-amb-ifupdown)
   - [Veure la configuració amb netplan](#veure-la-configuraci%C3%B3-amb-netplan)
   - [Accions més comuns](#accions-m%C3%A9s-comuns)
-  - [Enrutament](#enrutament)
+  - [Configurar la xarxa](./config.html#configurar-la-xarxa)
+    - [Configuració de la xarxa amb ifupdown](./config.html#configuraci%C3%B3-de-la-xarxa-amb-ifupdown)
+    - [Configuració de la xarxa amb netplan](./config.html#configuraci%C3%B3-de-la-xarxa-amb-netplan)
+    - [Configuració de la xarxa en CentOS](./config.html#configuraci%C3%B3-de-la-xarxa-en-centos)
+    - [Detectar problemes](./config.html#detectar-problemes)
+  - [Enrutament](./enrutament.html#enrutament)
+    - [Habilitar l’enrutament](./enrutament.html#habilitar-lenrutament)
+    - [Configurar NAT en sistemes amb ifupdown](./enrutament.html#configurar-nat-en-sistemes-amb-ifupdown)
+    - [Configurar NAT en sistemes netplan](./enrutament.html#configurar-nat-en-sistemes-netplan)
+    - [Configurar NAT en CentOS](./enrutament.html#configurar-nat-en-centos)
 
-# Configurar la xarxa en GNU/Linux
+# La xarxa en GNU/Linux
 Totes les distribucions GNU/Linux basades en Debian han configurat sempre la xarxa amb el paquet **ifupdown**. Aquest paquet permet configurar-la amb el fitxer `/etc/network/interfaces` encara que també es pot configurar des de l'entorn gràfic amb el **NetworkManager**.
 
 A partir de Ubuntu 17.10 Canonical ha introduit una nova forma de configurar la xarxa: **netplan**. Ara el fitxer de configuració està dins de `/etc/netplan/` i es tracta d'un fitxer en format _YAML_ (on cada subsecció ha d'estar indentada de la secció pare amb uns ESPAIS en blanc). El motiu segons explique és per a superar certes limitacions de _ifupdown_.
