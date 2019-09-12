@@ -1,3 +1,21 @@
+- [La xarxa en GNU/Linux](./README.md)
+  - [Nom de les targetes](./README.md#nom-de-les-targetes)
+  - [Netplan vs ifupdown](./README.md#netplan-vs-ifupdown)
+  - [Veure la configuració amb ifupdown](./README.md#veure-la-configuraci%C3%B3-amb-ifupdown)
+  - [Veure la configuració amb netplan](./README.md#veure-la-configuraci%C3%B3-amb-netplan)
+  - [Accions més comuns](./README.md#accions-m%C3%A9s-comuns)
+  - [Configurar la xarxa](./config.md#configurar-la-xarxa)
+    - [Configuració de la xarxa amb ifupdown](./config.md#configuraci%C3%B3-de-la-xarxa-amb-ifupdown)
+    - [Configuració de la xarxa amb netplan](./config.md#configuraci%C3%B3-de-la-xarxa-amb-netplan)
+    - [Configuració de la xarxa en CentOS](./config.md#configuraci%C3%B3-de-la-xarxa-en-centos)
+    - [Detectar problemes](./config.md#detectar-problemes)
+  - [Enrutament](#enrutament)
+    - [Habilitar l’enrutament](./enrutament.md#habilitar-lenrutament)
+    - [Configurar NAT en sistemes amb ifupdown](#configurar-nat-en-sistemes-amb-ifupdown)
+    - [Configurar NAT en sistemes netplan](#configurar-nat-en-sistemes-netplan)
+    - [Configurar NAT en CentOS](#configurar-nat-en-centos)
+
+
 ## Enrutament
 Si estem configurant un servidor de comunicacions que proporcione eixida a l'exterior a una xarxa haurà de tindre 2 targetes de xarxa:
 * la externa que li comunica amb l'exterior (el router o altre equip que fa de porta d'enllaç)
@@ -67,7 +85,7 @@ Si volem eliminar totes les regles que tenim ara en iptables (per a tornar-las a
 iptables  -t nat -F
 ```
 
-### Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)
+### Configurar NAT en sistemes netplan
 Amb netplan s'utilitza el Firewal **ufw** (uncomplicated Firewall). Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos `ufw enable` i `ufw disable`. Per a veure la configuració executem:
 ```bash
 ufw status verbose
@@ -81,7 +99,7 @@ Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
 DEFAULT_FORWARD_POLICY="ACCEPT"
 ```
 
-* Editar el titxer `/etc/ufw/before.rules` i afegir les següents línies al principi (abans de les regles de filtrat \*filter). Aquest exemple és per a enrutar la xarxa interna 192.168.226.0:
+* Editar el titxer `/etc/ufw/before.rules` i afegir les següents línies al principi (abans de les regles de filtrat _\*filter_). Aquest exemple és per a enrutar la xarxa interna 192.168.226.0:
 ```bash
 # NAT table rules
 *nat
