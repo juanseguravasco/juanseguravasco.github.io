@@ -1,4 +1,4 @@
-- [La xarxa en GNU/Linux](la-xarxa-en-gnulinux)
+- [La xarxa en GNU/Linux](#la-xarxa-en-gnulinux)
   - [Nom de les targetes](#nom-de-les-targetes)
   - [Netplan vs ifupdown](#netplan-vs-ifupdown)
   - [Veure la configuració amb ifupdown](#veure-la-configuraci%C3%B3-amb-ifupdown)
