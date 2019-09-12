@@ -1,4 +1,4 @@
-- [La xarxa en GNU/Linux](./README.md)
+- [La xarxa en GNU/Linux](./README.md#la-xarxa-en-gnulinux)
   - [Nom de les targetes](./README.md#nom-de-les-targetes)
   - [Netplan vs ifupdown](./README.md#netplan-vs-ifupdown)
   - [Veure la configuració amb ifupdown](./README.md#veure-la-configuraci%C3%B3-amb-ifupdown)
