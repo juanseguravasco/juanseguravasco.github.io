@@ -1,5 +1,5 @@
 ## Configurar la xarxa
-Tots els canvis que fem amb el comando `ifconfig` o ip són temporals i es perden quan reiniciem la xarxa. El servei de xarxa, denominat networking, quan s'inicia configura la xarxa amb el contingut del fitxer /etc/network/interfaces. Per tant, per a canviar la configuració permanentment hem de canviar-la en aquest fitxer.
+Tots els canvis que fem amb el comando `ifconfig` o `ip` són temporals i es perden quan reiniciem la xarxa. El servei de xarxa (anomenat **networking** en ifupdown i **networkd** en netplan), quan s'inicia configura la xarxa amb el contingut del fitxer de configuració (`/etc/network/interfaces` en ifupdown i `/etc/netplan/ en netplan/`). Per tant, per a canviar la configuració permanentment hem de canviar-la en aquest fitxer.
 
 ### Configuració de la xarxa amb ifupdown
 
