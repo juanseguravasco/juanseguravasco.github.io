@@ -1,3 +1,20 @@
+- La xarxa en GNU/Linux
+  - [Nom de les targetes](./README.md#nom-de-les-targetes)
+  - [Netplan vs ifupdown](./README.md#netplan-vs-ifupdown)
+  - [Veure la configuració amb ifupdown](./README.md#veure-la-configuraci%C3%B3-amb-ifupdown)
+  - [Veure la configuració amb netplan](./README.md#veure-la-configuraci%C3%B3-amb-netplan)
+  - [Accions més comuns](./README.md#accions-m%C3%A9s-comuns)
+  - [Configurar la xarxa](#configurar-la-xarxa)
+    - [Configuració de la xarxa amb ifupdown](#configuraci%C3%B3-de-la-xarxa-amb-ifupdown)
+    - [Configuració de la xarxa amb netplan](#configuraci%C3%B3-de-la-xarxa-amb-netplan)
+    - [Configuració de la xarxa en CentOS](#configuraci%C3%B3-de-la-xarxa-en-centos)
+    - [Detectar problemes](#detectar-problemes)
+  - [Enrutament](./enrutament.md#enrutament)
+    - [Habilitar l’enrutament](./enrutament.md#habilitar-lenrutament)
+    - [Configurar NAT en sistemes amb ifupdown](./enrutament.md#configurar-nat-en-sistemes-amb-ifupdown)
+    - [Configurar NAT en sistemes netplan](./enrutament.md#configurar-nat-en-sistemes-netplan)
+    - [Configurar NAT en CentOS](./enrutament.md#configurar-nat-en-centos)
+
 ## Configurar la xarxa
 Tots els canvis que fem amb el comando `ifconfig` o `ip` són temporals i es perden quan reiniciem la xarxa. El servei de xarxa (anomenat **networking** en ifupdown i **networkd** en netplan), quan s'inicia configura la xarxa amb el contingut del fitxer de configuració (`/etc/network/interfaces` en ifupdown i `/etc/netplan/ en netplan/`). Per tant, per a canviar la configuració permanentment hem de canviar-la en aquest fitxer.
 
