@@ -62,6 +62,11 @@ iptables -t nat - L
 ```
 ![iptables](./img/iptables1.png)
 
+Si volem eliminar totes les regles que tenim ara en iptables (per a tornar-las a posar o per si ens hem equivocat):
+```bash
+iptables  -t nat -F
+```
+
 ### Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)
 Amb netplan s'utilitza el Firewal **ufw** (uncomplicated Firewall). Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos `ufw enable` i `ufw disable`. Per a veure la configuració executem:
 ```bash
@@ -95,6 +100,13 @@ iptables  -t nat -L
 ```
 ![iptables](./img/iptables2.png)
  
+Com hem vist abans podem usar `iptables  -t nat -F` per a eliminar totes les regles de iptables.
+
+**NOTA**: Si fem la configuració de l’enrutament des de **Webmin** tot funciona igual però l’enrutament l’activa en `/etc/sysctl.conf` (no en /etc/ufw/sysctl.conf) i les regles de nat les guarda en /etc/iptables.up.rules (en compte de en /etc/ufw/before.rules) i les carrega afegint la següent línia a /etc/network/interfaces:
+```bash
+post-up iptables restore < /etc/iptables.up.rules
+```
+
 ### Configurar NAT en CentOS
 En CentOS també s'utilitza un firewall per a gestionar els paquets de les diferents interfícies pel que hem de configurar-ho. Hi ha diferents zones ja creades (public, dmz, external, internal, ...) i hem de configurar les zones internal i external que són les que usarem.
 
