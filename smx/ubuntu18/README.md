@@ -1,18 +1,10 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Coses a tindre en compte amb Ubuntu 18.04](#coses-a-tindre-en-compte-amb-ubuntu-1804)
+- [Configurar la xarxa en GNU/Linux](#coses-a-tindre-en-compte-amb-ubuntu-1804)
   - [Nom de les targetes](#nom-de-les-targetes)
-  - [Xarxa en Ubuntu 18.04](#xarxa-en-ubuntu-1804)
-    - [Fitxer de configuració](#fitxer-de-configuraci%C3%B3)
+  - [Netplan vs ifupdown](#netplan-vs-ifupdown)
+  - [Veure la configuració amb ifupdown](#veure-la-configuraci%C3%B3-amb-ifupdown)
+  - [Veure la configuració amb netplan](#veure-la-configuraci%C3%B3-amb-netplan)
+  - [Accions més comuns](#accions-m%C3%A9s-comuns)
   - [Enrutament](#enrutament)
-    - [Habilitar l'enrutament](#habilitar-lenrutament)
-    - [Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)](#configurar-nat-en-sistemes-netplan-ubuntu-1710-i-posteriors)
-    - [Configurar NAT des de Webmin](#configurar-nat-des-de-webmin)
-    - [Configurar NAT amb `iptables`](#configurar-nat-amb-iptables)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Configurar la xarxa en GNU/Linux
 Totes les distribucions GNU/Linux basades en Debian han configurat sempre la xarxa amb el paquet **ifupdown**. Aquest paquet permet configurar-la amb el fitxer `/etc/network/interfaces` encara que també es pot configurar des de l'entorn gràfic amb el **NetworkManager**.
@@ -105,91 +97,3 @@ Tant els comandos `ifconfig` com `ip` ens permeten canviar al nostra configuraci
   * ip: `ip route add default via 192.168.1.1`
 
 Podeu consultar més comandos en [aquesta pàgina](https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/).
-
-## Enrutament
-Una vegada les 2 targetes estiguen correctament configurades perquè els clients tinguen accés a Internet haurem de configurar el enrutamiento en el servidor, la qual cosa comporta 2 accions:
-* habilitar l'enrutament
-* configurar NAT
-
-### Habilitar l'enrutament
-L'enrutament el que fa és redirigir a la targeta de xarxa externa el tràfic de la targeta interna amb destinació a altres xarxes (com a Internet).
-
-Si estem en Ubuntu 17.10 i posterior utilitzarem el Firewal **ufw** (uncomplicated Firewall). Per a habilitar l'enrutament editem el fitxer **/etc/ufw/sysctl.conf** i descomentem la línia:
-```bash
-net.ipv4.ip_forward=1
-```
-Per a recarregar el firewal el des-habilitem i el tornem a habilitar:
-```bash
-ufw disable
-ufw enable
-```
-També podem activar eixa opció en la configuració del sistema en compte de en la del firewal descomentant la mateixa línia però del fitxer **/etc/ufw/sysctl.conf** (es el que hem de fer si tenim la versió 17.04 o anterior que no utilitza el firewall).
-
-En aquest cas perquè faça efecte hem de recarregar la configuració amb:
-```bash
-sysctl -p
-```
-
-També podem habilitar-ho temporalment, fins que reiniciem la màquina, executant l'ordre
-```bash
-echo 1 > /proc/sys/net/ipv4/ip_forward
-```
-(si en comptes de echo 1 posem echo 0 ho deshabilitem).
-
-Per a comprovar si està habilitat executem l'ordre
-```bash
-cat /proc/sys/net/ipv4/ip_forward
-```
-(si retorna 1 és que està habilitat).
-
-### Configurar NAT en sistemes netplan (Ubuntu 17.10 i posteriors)
-Amb netplan s'utilitza el Firewal **ufw**. Per defecte està desactivat i podem activar-ho o desactivar-ho amb els comandos ufw enable i ufw disable. Per a veure la configuració executem ufw status verbose:
-
-![netplan](./img/Ubuntu18-xarxa-06.png)
-
-Per a configurar NAT hem d'activar ufw i realitzar les següents accions:
-1. Editar el fitxer **/etc/default/ufw** i canviar la línia `DEFAULT_FORWARD_POLICY="DROP"` per 
-  ```bash
-  DEFAULT_FORWARD_POLICY="ACCEPT"
-  ```
-2. Editar el titxer **/etc/ufw/before.rules** i afegir les següents línies al principi, abnans de les regles de filtrat (`*filter`)
-```bash
-# NAT table rules
-*nat
-:POSTROUTING ACCEPT [0:0]
--A POSTROUTING -s 192.168.100.0/24 -o enp0s3 -j MASQUERADE
-COMMIT
-```
-
-Només queda reiniciar el Firewall (podem desactivar-ho i tornar-lo a activar). Per a comprovar les regles que estan aplicant-se executem el comando que ja hem vist:
-```bash
-iptables  -t nat -L
-```
-Si volem eliminar totes les regles que tenim ara en iptables (per a tornar-las a posar o per si ens hem equivocat):
-```bash
-iptables  -t nat -F
-```
-### Configurar NAT des de Webmin
-Si fem la configuració de l'enrutament des de Webmin tot funciona igual però l'enrutament l'activa en **/etc/sysctl.conf** (no en /etc/ufw/sysctl.conf) i les regles de nat les guarda en **/etc/iptables.up.rules** (en compte de en /etc/ufw/before.rules) i les carrega afegint la següent línia a **/etc/network/interfaces**:
-```bash
-post-up iptables restore < /etc/iptables.up.rules
-```
-
-### Configurar NAT amb `iptables`
-Si volem podem afegir una regla a iptables igual que es feia en les versions anterios. Per exemple si la nostra targeta externa és la eth0 amb IP 10.0.2.20 i la nostra xarxa interna és la 192.168.10.0 el comando per a activar NAT seria:
-```bash
-iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o enp0s3 -j SNAT --to 10.0.2.20
-```
-
-El que indiquem és d'on provindrà el tràfic a enrutar (`-s xarxa interna/màscara`, és a dir, `-s 192.168.10.0/24`) a quina targeta s'enviarà (-o targeta externa, és a dir, `-o enp0s3`) i quin és la IP d'aquesta targeta externa (`-j SNAT --to 10.0.2.20`). Si nostra IP externa pot canviar (perquè és dinàmica) el que posarem és `-j MASQUERADE`.
-
-Per a evitar haver d'executar aquest comando cada vegada que reiniciem el sistema instal·larem el paquet **iptables-persistent** que ens pregunta si emmagatzema la configuració actual de iptables (v4 i v6) i la càrrega de nou cada vegada que reiniciem el sistema. Si posteriorment fem modificacions en les iptables per a que ens torne a preguntar si guarda els canvis farem
-```bash
-dpkg-reconfigure iptables-persistent
-```
-
-Per a comprovar si el nostre sistema està fent NAT executem l'ordre:
-```bash
-iptables -t nat - L
-```
-![iptables -t nat - L](./img/Ubuntu18-xarxa-03.jpg)
