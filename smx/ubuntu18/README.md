@@ -14,28 +14,31 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Coses a tindre en compte amb Ubuntu 18.04
+# Configurar la xarxa en GNU/Linux
+Totes les distribucions GNU/Linux basades en Debian han configurat sempre la xarxa amb el paquet **ifupdown**. Aquest paquet permet configurar-la amb el fitxer `/etc/network/interfaces` encara que també es pot configurar des de l'entorn gràfic amb el **NetworkManager**.
+
+A partir de Ubuntu 17.10 Canonical ha introduit una nova forma de configurar la xarxa: **netplan**. Ara el fitxer de configuració està dins de `/etc/netplan/` i es tracta d'un fitxer en format _YAML_ (on cada subsecció ha d'estar indentada de la secció pare amb uns ESPAIS en blanc). El motiu segons explique és per a superar certes limitacions de _ifupdown_.
+La configuració gràfica continua igual amb el **NetworkManager**.
 
 ## Nom de les targetes
-Les targetes de xarxa s'identifiquen com ethX (eth0, eth1, ...) si són targetes ethernet cablejades o wlanX si són targetes WiFi (en ocasions es diuen athX si són wifis Atheros o amb altres noms depenent del fabricant).
+En GNU/Linux les targetes de xarxa s'identifiquen com ethX (eth0, eth1, ...) si són targetes ethernet cablejades o wlanX si són targetes WiFi (en ocasions es diuen athX si són wifis Atheros o amb altres noms depenent del fabricant).
 
 El problema és que el nom que se li assigna depèn de quan es configura la targeta en arrancar (la primera serà la eth0, la segona la eth1) el que podria canviar entre un reinicie i un altre. A més algunes distribucions, com Ubuntu, assignen sempre el mateix nom d'interfície a cada MAC pel que si es desbarata una targeta i la canviem la nova ja no seria eth0 sinó el següent nom no usat. Açò també passa en màquines virtuals on podem canviar les MAC de les nostres targetes.
 
-Moltes configuracions (firewall, etc) depenen del nom que tinguen les targetes pel que si aquest canvia deixaran de funcionar correctament. Per a evitar aquests problemes de no saber com es dirà cada interfície de xarxa en les últimes distribucions GNU/Linux s'utilitza Predictable Network Interface Names que pretén assignar identificadors estables a les interfícies de xarxa basant-se en el tipus (local Ethernet, WLAN, WWAN…).
+Moltes configuracions (firewall, etc) depenen del nom que tinguen les targetes pel que si aquest canvia deixaran de funcionar correctament. Per a evitar aquests problemes de no saber com es dirà cada interfície de xarxa, les últimes distribucions GNU/Linux s'utilitzen **Predictable Network Interface Names** que assigna identificadors estables a les interfícies de xarxa basant-se en el tipus (local Ethernet, WLAN, WWAN, etc).
 
-Així les targetes que el kernel nomena com ethX són renombrades a enoX (si la targeta està integrada en la placa base) o enpXsY (per a targetes en slots PCI) i aquests noms seran sempre els mateixos per a cada targeta. En màquines de VirtualBox la primera sol ser la emp0s3, la segona la enp0s8, ...
+Així les targetes que el kernel anomena com **ethX** són renombrades a **enoX** (si la targeta està integrada en la placa base) o **enpXsY** (per a targetes en slots PCI o altres) i aquests noms seran sempre els mateixos per a cada targeta. En màquines de VirtualBox la primera sol ser la **emp0s3**, la segona la **enp0s8**, ...
 
-##  Xarxa en Ubuntu 18.04
-Des de la versió 18.04 Server Ubuntu ha abandonat el sistema de configuració de la xarxa **ifupdown** i lo ha canviat per **netplan**.
-
-Els canvis que açò comporta són, entre uns altres:
-* el fitxer de configuració és un fitxer _YAML_ que hi ha dins de **/etc/netplan** (abans era /etc/network/interfícies)
-* el servei ara és **systemd-networkd** (abans networking). Per a reiniciar-ho fem `systemctl restart systemd-networkd`
-* per a activar o desactivar una interficie ja no existeixen **ifup** i **ifdown** sinó:
+## Netplan vs ifupdown
+Les principals diferències entre els dos sistemes són, entre uns altres:
+* el fitxer de configuració que en _ifupdown_ era com tots de text pla (`/etc/network/interfícies`) ara és un fitxer _YAML_ que es troba dins de **`/etc/netplan`**
+* el servei que gestiona la xarxa ara no és `networking` sino **`systemd-networkd`**
+* per a activar o desactivar una interficie ja no tenim els comandos `ifup` i `ifdown` sinó:
 ```bash
     ip link set $targeta up
     ip link set $targeta down
 ```
+* tampoc tenim el comando `ifconfig` que s'ha substituit per **`ip`**
 * hi ha una nova comanda, networkctl, per a veure què dispositius tenim. Amb el paràmetre `status` ens dóna la configuració de cadascun:
 
 ![Configuració de xarxa](./img/Ubuntu18-xarxa-04.png)
@@ -44,46 +47,64 @@ Si li poem el nom d'una targeta ens dona la informació de la mateixa:
 
 ![Configuració de xarxa](./img/Ubuntu18-xarxa-05.png)
 
-### Fitxer de configuració
-Es tracta d'un fitxer YAML. Açò significa que cada opció va en una línia i si una està dins de l'anterior ha d'anar indentada cap a dins 4 espais (ULL han de ser 4 i no serveix tabulador).
+## Veure la configuració amb ifupdown
+El comando per a veure la configuració de la xarxa és `ifconfig` (en Debian si no som root hem de posar la ruta sencera del comando `/sbin/ifconfig`):
 
-Exemple de fitxer d'una màquina amb una única targeta configurada per DHCP:
+![ifconfig](./img/ifconfig3.png)
+
+Per a veure les rutes configurades i la porta d'enllaç tenim el comando `route`:
+
+![route](./img/route.png)
+
+Ens indica que:
+* tots els paquets amb destinació la xarxa 192.168.101.0/24 eixiran per la targeta enp0s8
+* tots els paquets amb destinació la xarxa 192.168.102.0/24 eixiran per la targeta enp0s9
+* tots els paquets amb destinació la xarxa 10.0.2.0/24 eixiran per la targeta enp0s3
+* la resta de paquets aniran a la porta d'enllaç (10.0.2.2) per a targeta enp0s3
+
+I per a veure el DNS mostrem el contingut del fitxer `/etc/resolv.conf`:
+
+![resolv.conf](./img/resolv.png)
+
+En aquest cas tenim com a DNS principal 127.0.0.1 (és a dir aquesta màquina) i com a secondari 8.8.8.8. No és convenient modificar ací els DNS perquè aquest fitxer és sobreescrit pels serveis que configuren la xarxa.
+
+## Veure la configuració amb netplan
+El comando `ifconfig` es troba en el paquet **net-tools** junt a `route` i altres. Netplan en compte d'aquest paquet inclou el paquet **iproute2util** que sustitueix aquest comando pel comando `ip` que és més potent. Per a veure la configuració escrivim:
 ```bash
-network:
-    version: 2
-    ethernets:
-        enp0s3:
-            dhcp4: yes
+ip addr show
 ```
-Si volem configurar una altra targeta i que siguen ambdues estàtiques:
+(o simplement ip a). Podem veure només un resum d'aquesta informació amb `ip -br a`.
+
+![ifconfig](./img/ifconfig.png)
+![ip a](./img/ip.png)
+
+Per a veure la porta d'enllaç i les el comando és:
 ```bash
-network:
-    version: 2
-    ethernets:
-        enp0s3:
-            addresses: [10.0.2.10/24]
-            gateway4: 10.0.2.2
-            nameservers:
-                addresses: [172.16.20.1]
-            dhcp4: false
-            optional: true
-        enp0s8:
-            addresses: [192.168.0.1/24]
-            dhcp4: false
-            optional: true
+ip route show
 ```
-![Configuració de xarxa](./img/Ubuntu18-xarxa-01.png)
+(o simplement ip r)
 
-**ATENCIÓ**: ha d'haver-hi un espai entre els : i el valor de l'opció i no pot haver-hi espais al final d'una línia.
+![ip r](./img/ip-r.png)
 
-Perquè s'apliquen els canvis no és necessari reiniciar el servei de xarxa sinó que n'hi ha prou amb fer:
-```bash
-netplan apply
-```
+## Accions més comuns
+Tant els comandos `ifconfig` com `ip` ens permeten canviar al nostra configuració temporalment (per a canviar-la definitivament hem de fer-ho en els fitxers de configuració):
+* desactivar una interfície de xarxa:
+  * ifconfig: `ifconfig enp0s3 down`
+  * ip: `ip link set enp0s3 down`
+* volver-la a activar:
+  * ifconfig: `ifconfig enp0s3 up`
+  * ip: `ip link set enp0s3 up`
+* afegir una nova IP a una interfície:
+  * ifconfig: `ifconfig enp0s3 add 192.168.100.5/24`
+  * ip: `ip addr add 192.168.100.5/24 dev enp0s3`
+* eliminar-la IP:
+  * ifconfig: `ifconfig enp0s3 del 192.168.100.5/24`
+  * ip: `ip addr del 192.168.100.5/24 dev enp0s3`
+* canviar la porta d'enllaç (per exemple que siga la 192.168.1.1):
+  * ifconfig: `route add default gateway 192.168.1.1`
+  * ip: `ip route add default via 192.168.1.1`
 
-En el cas de la versió Desktop segueix sent **NetworkManager** qui s'encarrega de configurar la xarxa, la qual cosa s'indica en el fitxer que hi ha en _/etc/netplan_:
-
-![netplan](./img/Ubuntu18-xarxa-02.png)
+Podeu consultar més comandos en [aquesta pàgina](https://www.tecmint.com/ifconfig-vs-ip-command-comparing-network-configuration/).
 
 ## Enrutament
 Una vegada les 2 targetes estiguen correctament configurades perquè els clients tinguen accés a Internet haurem de configurar el enrutamiento en el servidor, la qual cosa comporta 2 accions:
